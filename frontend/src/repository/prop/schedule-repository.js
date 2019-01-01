@@ -2,12 +2,13 @@ import axios from "axios";
 import { schedulesEndpoint } from "./endpoints";
 
 class ScheduleRepository {
-    async createSchedule(classId, teacherId, time, semester, state, subject) {
+    async createSchedule(classId, teacherId, time, date, semester, state, subject) {
         try {
             let schedule = {
                 classId: classId,
                 teacherId: teacherId,
                 time: time,
+                date: date,
                 semester: semester,
                 state: state,
                 subject: subject
@@ -75,6 +76,7 @@ class ScheduleRepository {
                 classId: schedule.data,
                 teacherId: schedule.teacherId,
                 time: schedule.time,
+                date: schedule.date,
                 semester: schedule.semester,
                 state: schedule.state,
                 subject: schedule.subject

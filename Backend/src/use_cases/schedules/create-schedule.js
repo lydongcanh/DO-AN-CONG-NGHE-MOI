@@ -8,6 +8,7 @@ export default class CreateSchedule extends AWSPut {
             "data" : this.schedule.classId,
             "teacherId" : this.schedule.teacherId,
             "time": this.schedule.time,
+            "date": this.schedule.date,
             "semester": this.schedule.semester,
             "state": this.schedule.state,
             "subject": this.schedule.subject

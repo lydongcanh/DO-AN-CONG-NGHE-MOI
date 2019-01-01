@@ -28,9 +28,9 @@ router.get("/:id", async (request, response, _) => {
 });
 
 router.post("/", async (request, response, _) => {
-    const {time, semester, state, subject, teacherId, classId} = request.body;
+    const {time, date, semester, state, subject, teacherId, classId} = request.body;
     const id = uuidv1();
-    const schedule = new Schedule(id, semester, time, state, subject, teacherId, classId);
+    const schedule = new Schedule(id, semester, time, date, state, subject, teacherId, classId);
     const result = await scheduleAdapter.createSchedule(schedule);
     response.send(result);
 });
@@ -42,8 +42,8 @@ router.delete("/:id", async (request, response, _) => {
 });
 
 router.patch("/:id", async (request, response, _) => {
-    const {id, semester, time, state, subject, teacherId, classId} = request.body;
-    const schedule = new Schedule(id, semester, time, state, subject, teacherId, classId);
+    const {id, semester, date, time, state, subject, teacherId, classId} = request.body;
+    const schedule = new Schedule(id, semester, time, date, state, subject, teacherId, classId);
     const result = await scheduleAdapter.updateSchedule(schedule);
     response.send(result);
 });
