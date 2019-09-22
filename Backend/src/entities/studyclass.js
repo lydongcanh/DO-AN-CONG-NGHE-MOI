@@ -20,6 +20,7 @@ export default class Studyclass {
         this.homeroomTeacher = homeroomTeacher;
         this.state = state;
         this.students = students;
+        Object.freeze(this);
     }
 
     studentsCount() {

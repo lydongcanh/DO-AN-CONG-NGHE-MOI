@@ -21,5 +21,6 @@ export default class Scoreboard {
         this.year = year;
         this.scores = scores;
         this.student = student;
+        Object.freeze(this);
     }
 }

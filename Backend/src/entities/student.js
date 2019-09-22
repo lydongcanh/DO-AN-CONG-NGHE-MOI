@@ -28,5 +28,6 @@ export default class Student {
         this.state = state;
         this.studyclass = studyclass;
         this.scoreboard = scoreboard;
+        Object.freeze(this);
     }
 }
