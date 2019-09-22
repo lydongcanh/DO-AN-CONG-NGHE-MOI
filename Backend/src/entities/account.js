@@ -20,20 +20,4 @@ export default class Account {
         this.type = type;
         Object.freeze(this);
     }
-
-    get id() {
-        return this._id;
-    }
-
-    get username() {
-        return this._username;
-    }
-
-    get password() {
-        return this._password;
-    }
-
-    get type() {
-        return this._type;
-    }
 }
