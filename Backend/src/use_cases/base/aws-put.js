@@ -15,7 +15,7 @@ export default class AWSPut extends AWSUseCase {
                 success: true,
                 body: data
             };
-        } catch(error) {
+        } catch (error) {
             console.log("Unable to add item. Error: " + JSON.stringify(error));
             return { 
                 success: false,
