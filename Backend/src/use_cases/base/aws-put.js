@@ -8,19 +8,26 @@ export default class AWSPut extends AWSUseCase {
     }
 
     /**
-     * Override this method to provide "create" params.
+     * Override this method to provide "put" params.
      */
     get params() { 
-        console.log("This method does nothing. Please override it to provide \"create\" params.");
+        console.log("This method does nothing. Please override it to provide \"put\" params.");
     }
     
     async execute() {
-        this.docClient.put(this.params, (error, data) => {
-            if (error) {
-                console.log("Unable to add item. Error: " + JSON.stringify(error));
-            } else {
-                console.log("Added item: " + JSON.stringify(data));
-            }
-        });
+        try {
+            const data = await this.docClient.put(this.params).promise();
+            console.log("Added item: " + JSON.stringify(data));
+            return {
+                success: true,
+                body: data
+            };
+        } catch(error) {
+            console.log("Unable to add item. Error: " + JSON.stringify(error));
+            return { 
+                success: false,
+                error: error
+            };
+        }
     }
 }
