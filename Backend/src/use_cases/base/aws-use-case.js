@@ -52,7 +52,10 @@ export default class AWSUseCase {
         });
     }
 
+    /**
+     * Override this method to execute use-case's logic.
+     */
     async execute() { 
-        console.log("executing use-case...");
+        console.log("This method does nothing. Please override it to execute use-case's logic.");
     }
 }
