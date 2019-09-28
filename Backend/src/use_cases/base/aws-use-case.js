@@ -6,10 +6,10 @@ import AWS from "aws-sdk";
 export default class AWSUseCase {
     /**
      * @param {String} tableName
-     * @param {String} region Region. Use "local" as default. Note that only "us-east-1" is available for AWS Student account.
+     * @param {String} region
      * @param {String} endpoint
      */
-    constructor(tableName, region = "local", endpoint = "http://localhost:8000") {
+    constructor(tableName, region, endpoint) {
         AWS.config.update({
             region: region,
             endpoint: endpoint
