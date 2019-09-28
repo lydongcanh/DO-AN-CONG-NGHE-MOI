@@ -7,16 +7,9 @@ export default class AWSGet extends AWSUseCase {
         this.docClient = new AWS.DynamoDB.DocumentClient();
     }
 
-    /**
-     * Override this method to provide "get" params.
-     */
-    get params() {
-        console.log("This method does nothing. Please override it to provide \"get\" params.");
-    }
-
     async execute() {
         try {
-            const data = this.docClient.get(params).promise();
+            const data = this.docClient.get(this.params).promise();
             console.log("Get item(s) successfully.");
             return {
                 success: true,

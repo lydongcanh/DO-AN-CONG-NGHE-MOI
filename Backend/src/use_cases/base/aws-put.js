@@ -7,13 +7,6 @@ export default class AWSPut extends AWSUseCase {
         this.docClient = new AWS.DynamoDB.DocumentClient();
     }
 
-    /**
-     * Override this method to provide "put" params.
-     */
-    get params() { 
-        console.log("This method does nothing. Please override it to provide \"put\" params.");
-    }
-    
     async execute() {
         try {
             const data = await this.docClient.put(this.params).promise();
