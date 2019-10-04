@@ -48,7 +48,7 @@ export default class AWSUseCase {
         this._endpoint = endpoint;
 
         AWS.config.update({
-            region = this._region,
+            region: this._region,
             endpoint: this._endpoint
         });
     }
