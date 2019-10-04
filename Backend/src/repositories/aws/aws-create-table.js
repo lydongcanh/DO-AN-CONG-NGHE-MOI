@@ -1,10 +1,42 @@
 import AWS from "aws-sdk";
 import AWSUseCase from "./aws-use-case";
 
+/**
+ * [Required implementation: keySchema, attributeDefinitions].
+ * [Optional implementation: readCapacityUnits, writeCapacityUnits]
+ */
 export default class AWSCreateTable extends AWSUseCase {
     constructor(tableName, region, endpoint) {
         super(tableName, region, endpoint);
         this.dynamoDB = new AWS.DynamoDB();
+    }
+
+    get params() {
+        return {
+            TableName: this.tableName,
+            KeySchema: this.keySchema,
+            AttributeDefinitions: this.attributeDefinitions,
+            ProvisionedThroughput: {
+                ReadCapacityUnits: this.readCapacityUnits, 
+                WriteCapacityUnits: this.writeCapacityUnits
+            }
+        };
+    }
+
+    get keySchema() {
+        throw new Error("Un-implemented \"keySchema\".");
+    }
+
+    get attributeDefinitions() {
+        throw new Error("Un-implemented \"attributeDefinitions\".");
+    }
+
+    get readCapacityUnits() {
+        return 5;
+    }
+
+    get writeCapacityUnits() {
+        return 5;
     }
 
     async execute() {

@@ -1,10 +1,35 @@
 import AWS from "aws-sdk";
 import AWSUseCase from "./aws-use-case";
 
+/**
+ * [Required implementation: key].
+ * [Optional implementation: conditionExpression, expressionAttributeValues]
+ */
 export default class AWSDelete extends AWSUseCase {
     constructor(tableName, region, endpoint) {
         super(tableName, region, endpoint);
         this.docClient = new AWS.DynamoDB.DocumentClient();
+    }
+
+    get params() {
+        return {
+            TableName: this.tableName,
+            Key: this.key,
+            ConditionExpression: this.conditionExpression,
+            ExpressionAttributeValues: this.expressionAttributeValues
+        };
+    }
+
+    get key() {
+        throw new Error("Un-implemented \"key\".");
+    }
+
+    get conditionExpression() {
+        return "true";
+    }
+
+    get expressionAttributeValues() {
+        return {};
     }
 
     async execute() {

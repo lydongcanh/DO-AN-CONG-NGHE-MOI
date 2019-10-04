@@ -1,10 +1,24 @@
 import AWS from "aws-sdk";
 import AWSUseCase from "./aws-use-case";
 
+/**
+ * [Required implementation: item].
+ */
 export default class AWSPut extends AWSUseCase {
     constructor(tableName, region, endpoint) {
         super(tableName, region, endpoint);
         this.docClient = new AWS.DynamoDB.DocumentClient();
+    }
+
+    get params() {
+        return {
+            TableName: this.tableName,
+            Item: this.item
+        };
+    }
+
+    get item() {
+        throw new Error("Un-implemented \"item\".");
     }
 
     async execute() {

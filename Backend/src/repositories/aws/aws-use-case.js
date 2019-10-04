@@ -2,6 +2,7 @@ import AWS from "aws-sdk";
 
 /**
  * Base class for all the use case classes that use AWS services.
+ * [Required implementation: params, execute].
  */
 export default class AWSUseCase {
     /**
@@ -56,13 +57,13 @@ export default class AWSUseCase {
     * Override this method to provide params.
     */
     get params() {
-        throw new Error("This method does nothing. Please override it to provide params.");
+        throw new Error("Un-implemented \"params\".");
     }
 
     /**
      * Override this method to execute use-case's logic.
      */
     async execute() { 
-        throw new Error("This method does nothing. Please override it to execute use-case's logic.");
+        throw new Error("Un-implemented \"execute\".");
     }
 }
