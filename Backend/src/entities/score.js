@@ -1,11 +1,4 @@
 export default class Score {
-    /**
-     * @param {JSON} jsonData 
-     */
-    constructor(jsonData) {
-        Object.assign(this, jsonData);
-        Object.freeze(this);
-    }
 
     /**
      * @param {String} id 

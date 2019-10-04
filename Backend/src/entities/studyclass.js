@@ -1,11 +1,4 @@
 export default class Studyclass {
-    /**
-     * @param {JSON} jsonData 
-     */
-    constructor(jsonData) {
-        Object.assign(this, jsonData);
-        Object.freeze(this);
-    }
 
     /**
      * @param {String} id 

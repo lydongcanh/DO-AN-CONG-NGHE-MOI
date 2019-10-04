@@ -1,12 +1,5 @@
 export default class Account {
-    /**
-     * @param {JSON} jsonData
-     */
-    constructor(jsonData) {
-        Object.assign(this, jsonData);
-        Object.freeze(this);
-    }
-
+    
     /**
      * @param {String} id 
      * @param {String} username 

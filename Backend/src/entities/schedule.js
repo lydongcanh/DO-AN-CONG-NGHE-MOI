@@ -1,12 +1,5 @@
 export default class Schedule {
-    /**
-     * @param {JSON} jsonData 
-     */
-    constructor(jsonData) {
-        Object.assign(this, jsonData);
-        Object.freeze(this);
-    }
-
+    
     /**
      * @param {String} id 
      * @param {Date} time 
