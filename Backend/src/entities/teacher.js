@@ -9,10 +9,9 @@ export default class Teacher {
      * @param {String} email 
      * @param {String} phoneNumber 
      * @param {String} state 
-     * @param {Subject} subject 
      * @param {Account} account 
      */
-    constructor(id, name, gender, birthday, address, email, phoneNumber, state, subject, account) {
+    constructor(id, name, gender, birthday, address, email, phoneNumber, state, account) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -21,7 +20,6 @@ export default class Teacher {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.state = state;
-        this.subject = subject;
         this.account = account;
         Object.freeze(this);
     }
