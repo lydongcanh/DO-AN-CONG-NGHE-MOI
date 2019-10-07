@@ -2,7 +2,8 @@ import AWS from "aws-sdk";
 import AWSUseCase from "./aws-use-case";
 
 /**
- * [Required implementation: projectionExpression, keyConditionExpression, expressionAttributeNames, expressionAttributeValues].
+ * [Required implementation: keyConditionExpression, expressionAttributeNames, expressionAttributeValues].
+ * [Optional implementation: projectionExpression].
  */
 export default class AWSScan extends AWSUseCase {
     constructor(tableName, region, endpoint) {
@@ -11,17 +12,22 @@ export default class AWSScan extends AWSUseCase {
     }
 
     get params() {
-        return {
+        let result = {
             TableName : this.params,
-            ProjectionExpression: this.projectionExpression,
             KeyConditionExpression: this.keyConditionExpression,
             ExpressionAttributeNames: this.expressionAttributeNames,
             ExpressionAttributeValues: this.expressionAttributeValues
         };
+        
+        if (this.projectionExpression) {
+            reuslt.ProjectionExpression = this.projectionExpression;
+        }
+        
+        return result;
     }
 
     get projectionExpression() {
-        throw new Error("Un-implemented \"projectionExpression\".");
+        return undefined;
     }
 
     get keyConditionExpression() {
