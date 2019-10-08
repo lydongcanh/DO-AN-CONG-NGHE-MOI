@@ -5,6 +5,7 @@ import logger from "morgan";
 import cors from "cors";
 import indexRouter from "./routes/index";
 import accountRouter from "./routes/accountRouter";
+import scheduleRouter from "./routes/scheduleRouter";
 
 const app = express();
 
@@ -16,5 +17,6 @@ app.use(express.static(path.join(__dirname, "../public")));
 app.use(cors()); // allow cross-origin requests.
 app.use("/", indexRouter);
 app.use("/accounts", accountRouter);
+app.use("/schedules", scheduleRouter);
 
 export default app;
