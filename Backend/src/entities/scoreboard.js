@@ -4,13 +4,13 @@ export default class Scoreboard {
      * @param {String} id 
      * @param {String} semester 
      * @param {String} year 
-     * @param {Array<Score>} scores 
+     * @param {String} studentId
      */
-    constructor(id, semester, year, scores) {
+    constructor(id, semester, year, studentId) {
         this.id = id;
         this.semester = semester;
         this.year = year;
-        this.scores = scores;
+        this.studentId = studentId;
         Object.freeze(this);
     }
 }

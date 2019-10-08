@@ -8,10 +8,9 @@ export default class Student {
      * @param {String} address 
      * @param {String} phoneNumber 
      * @param {String} state 
-     * @param {Studyclass} studyclass 
-     * @param {Scoreboard} scoreboard 
+     * @param {String} classId 
      */
-    constructor(id, name, gender, birthday, address, phoneNumber, state, studyclass, scoreboard) {
+    constructor(id, name, gender, birthday, address, phoneNumber, state, classId) {
         this.id = id;
         this.name = name;
         this.gender = gender;
@@ -19,8 +18,7 @@ export default class Student {
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.state = state;
-        this.studyclass = studyclass;
-        this.scoreboard = scoreboard;
+        this.classId = classId;
         Object.freeze(this);
     }
 }
