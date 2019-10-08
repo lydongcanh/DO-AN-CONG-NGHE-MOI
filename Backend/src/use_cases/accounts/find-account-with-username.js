@@ -3,15 +3,21 @@ import AWSQuery from "../../repositories/aws/aws-query";
 export default class FindAccountWithUsername extends AWSQuery {
 
     get keyConditionExpression() {
-        return "#un = :un";
+        return "#pk = :pk and #un = :un";
     }
 
     get expressionAttributeNames() {
-        return { "#un": "username" };
+        return { 
+            "#pk": "partitionKey",
+            "#un": "username" 
+        };
     }
 
     get expressionAttributeValues() {
-        return { ":un" : this.username };
+        return { 
+            ":pk" : "ACCOUNT",
+            ":un" : this.username
+        };
     }
 
     async execute(username) {
