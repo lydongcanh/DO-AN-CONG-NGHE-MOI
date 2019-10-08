@@ -1,13 +1,15 @@
 import express from "express";
-import dynamoConfig from "../dynamodb-config";
+import uuidvi from "uuid/v1";
+import { TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
 import Schedule from "../entities/schedule";
 import ScheduleAdapter from "../use_cases/schedules/schedule-adapter";
 
 const router = express.Router();
-const scheduleAdapter = new ScheduleAdapter(dynamoConfig.TABLE_NAME, dynamoConfig.REGION, dynamoConfig.ENDPOINT);
+const scheduleAdapter = new ScheduleAdapter(TABLE_NAME, REGION, ENDPOINT);
 
 router.post("/create", async (request, response, _) => {
-    const {id, time, classId, teacherId, subjectId} = request.body;
+    const {time, classId, teacherId, subjectId} = request.body;
+    const id = uuidvi();
     const schedule = new Schedule(id, time, state, classId, teacherId, subjectId);
     const result = await scheduleAdapter.createSchedule(schedule);
     response.send(result);
