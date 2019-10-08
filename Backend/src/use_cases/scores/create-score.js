@@ -13,8 +13,8 @@ export default class CreateScore extends AWSPut {
             "sortKey": this.score.id,
             "data": this.score.type,
             "value": this.score.value,
-            "subjectid": this.score.subjectid,
-            "scoreboardid": this.score.scoreboardid
+            "subjectId": this.score.subjectId,
+            "scoreboardId": this.score.scoreboardId
         };
     }
 }
