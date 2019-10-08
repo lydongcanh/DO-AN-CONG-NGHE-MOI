@@ -3,13 +3,17 @@ import AWSQuery from "../../repositories/aws/aws-put";
 export default class FindSubjectByID extends AWSQuery{
 
     get keyConditionExpression() {
-        return "#id :id";
+        return "#pk = :pk and #id :id";
     }
     get expressionAttributeNames() {
-        return {"#id": "sortKey"};
+        return {
+            "#pk": "partitionKey",
+            "#id": "sortKey"};
     }
     get expressionAttributeValues() {
-        return {":id" : this.id,};
+        return {
+            ":pk" : "SUBJECT",
+            ":id" : this.id,};
     }
     async execute(id){
         this.id = id;
