@@ -2,20 +2,25 @@ import AWSQuery from "../../repositories/aws/aws-query";
 
 export default class FindScoreBoardByStudentID extends AWSQuery{
     get keyConditionExpression() {
-        return "#pk = :pk and #un = :un";
+        return "#pk = :pk and #sid = :sid";
     }
 
     get expressionAttributeNames() {
         return { 
             "#pk": "partitionKey",
-            "#un": "studentid" 
+            "#sid": "studentId"
         };
     }
 
     get expressionAttributeValues() {
         return { 
             ":pk" : "SCOREBOARD",
-            ":un" : this.studentid
+            ":sid" : this.studentId
         };
+    }
+
+    async execute(studentId) {
+        this.studentId = studentId;
+        return await super.execute();
     }
 }

@@ -1,23 +1,23 @@
 import CreateScoreBoard from "./create-scoreboard";
 import FindScoreBoardByStudentID from "./find-scoreboard-by-studentid";
 
-export default class ScoreBoardAdapter{
+export default class ScoreboardAdapter{
     constructor(tablename,region,endpoint){
-        this.createScoreBoardObj = new CreateScore(tablename,region,endpoint);
+        this.createScoreBoardObj = new CreateScoreBoard(tablename,region,endpoint);
         this.findScoreBoardByStudentIDObj = new FindScoreBoardByStudentID(tablename,region,endpoint);
     }
     /**
-     * 
-     * @param {ScoreBoard} score 
+     * Create new scoreboard.
+     * @param {ScoreBoard} scoreboard 
      */
-    async createScore(scoreboard){
+    async createScoreBoard(scoreboard){
         return await this.createScoreBoardObj.execute(scoreboard);
     }
     /**
-     * 
-     * @param {String} studentid 
+     * Find scoreboard with provided student id.
+     * @param {String} studentId 
      */
-    async findScoreByScoreBoardID(studentid){
-        return await this.findScoreBoardByStudentIDObj.execute(studentid);
+    async findScoreboardByStudentId(studentId){
+        return await this.findScoreBoardByStudentIDObj.execute(studentId);
     }
 }
