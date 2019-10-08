@@ -9,7 +9,7 @@ export default class FindAccountWithUsername extends AWSQuery {
     get expressionAttributeNames() {
         return { 
             "#pk": "partitionKey",
-            "#un": "username" 
+            "#un": "data" 
         };
     }
 
