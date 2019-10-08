@@ -1,21 +1,26 @@
-import AWSQuery from "../../repositories/aws/aws-put";
+import AWSQuery from "../../repositories/aws/aws-query";
 
-export default class FindSubjectByID extends AWSQuery{
+export default class FindSubjectByID extends AWSQuery {
 
     get keyConditionExpression() {
         return "#pk = :pk and #id :id";
     }
+
     get expressionAttributeNames() {
         return {
             "#pk": "partitionKey",
-            "#id": "sortKey"};
+            "#id": "sortKey"
+        };
     }
+
     get expressionAttributeValues() {
         return {
             ":pk" : "SUBJECT",
-            ":id" : this.id,};
+            ":id" : this.id
+        };
     }
-    async execute(id){
+
+    async execute(id) {
         this.id = id;
         return await super.execute();
     }
