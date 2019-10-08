@@ -7,6 +7,7 @@ import indexRouter from "./routes/index";
 import accountRouter from "./routes/accountRouter";
 import scheduleRouter from "./routes/scheduleRouter";
 import scoreboardRouter from "./routes/scoreboardRouter";
+import scoreRouter from "./routes/scoreRouter";
 
 const app = express();
 
@@ -20,5 +21,6 @@ app.use("/", indexRouter);
 app.use("/accounts", accountRouter);
 app.use("/schedules", scheduleRouter);
 app.use("/scoreboards", scoreboardRouter);
+app.use("/scores", scoreRouter);
 
 export default app;
