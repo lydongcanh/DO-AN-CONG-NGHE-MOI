@@ -4,6 +4,7 @@ import GetAll from "./get-all";
 export default class SubjectAdapter{
     constructor(tablename,region,endpoint){
         this.createsubjectObj = new CreateSubject(tablename,region,endpoint);
+        this.getallObj = new GetAll(tablename,region,endpoint);
     }
     /**
      * Create new account.
@@ -14,6 +15,6 @@ export default class SubjectAdapter{
     }
     
     async getall(){
-        return await this.getall().execute();
+        return await this.getallObj.execute();
     }
 }
