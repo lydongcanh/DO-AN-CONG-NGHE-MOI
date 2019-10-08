@@ -4,6 +4,7 @@ import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
 import indexRouter from "./routes/index";
+import accountRouter from "./routes/accountRouter";
 
 const app = express();
 
@@ -14,5 +15,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
 app.use(cors()); // allow cross-origin requests.
 app.use("/", indexRouter);
+app.use("/accounts", accountRouter);
 
 export default app;
