@@ -16,14 +16,8 @@ router.get("/", async (request, response, _) => {
         const result = await scheduleAdapter.findStudyclassSchedules(studyclassId);
         response.send(result);
     } else {
-        // TODO: send all available schedules instead.
-        response.send({
-            isSuccess: false,
-            error: {
-                message: "un-supported query",
-                statusCode: 405
-            }
-        });
+        const result = await scheduleAdapter.getAllSchedules();
+        response.send(result);
     }
 });
 

@@ -1,12 +1,14 @@
 import CreateSchedule from "./create-schedule";
 import FindStudyclassSchedules from "./find-studyclass-schedules";
 import FindTeacherSchedules from "./find-teacher-schedules";
+import GetAllSchedules from "./get-all-schedules";
 
 export default class ScheduleAdapter {
     constructor(tableName, region, endpoint) {
-        this.createScheduleObj = new CreateSchedule(tableName, region, endpoint);
-        this.findStudyclassSchedulesObj = new FindStudyclassSchedules(tableName, region, endpoint);    
-        this.findTeacherSchedulesObj = new FindTeacherSchedules(tableName, region, endpoint);   
+        this._createScheduleObj = new CreateSchedule(tableName, region, endpoint);
+        this._findStudyclassSchedulesObj = new FindStudyclassSchedules(tableName, region, endpoint);    
+        this._findTeacherSchedulesObj = new FindTeacherSchedules(tableName, region, endpoint);   
+        this._getAllSchedulesObj = new GetAllSchedules(tableName, region, endpoint);
     }
 
     /**
@@ -14,7 +16,14 @@ export default class ScheduleAdapter {
      * @param {Schedule} schedule 
      */
     async createSchedule(schedule) {
-        return await this.createScheduleObj.execute(schedule);
+        return await this._createScheduleObj.execute(schedule);
+    }
+
+    /**
+     * Return all available schedules.
+     */
+    async getAllSchedules() {
+        return await this._getAllSchedulesObj.execute();
     }
 
     /**
@@ -22,7 +31,7 @@ export default class ScheduleAdapter {
      * @param {String} studyclassid 
      */
     async findStudyclassSchedules(studyclassid) {
-        return await this.findStudyclassSchedulesObj.execute(studyclassid);
+        return await this._findStudyclassSchedulesObj.execute(studyclassid);
     }
 
     /**
@@ -30,6 +39,6 @@ export default class ScheduleAdapter {
      * @param {String} teacherId 
      */
     async findTeacherSchedules(teacherId) {
-        return await this.findTeacherSchedulesObj.execute(teacherId);
+        return await this._findTeacherSchedulesObj.execute(teacherId);
     }
 }
