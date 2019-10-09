@@ -7,7 +7,7 @@ import AccountAdapter from "../use_cases/accounts/account-adapter";
 const router = express.Router();
 const accountAdapter = new AccountAdapter(TABLE_NAME, REGION, ENDPOINT);
 
-router.post("/create", async (request, response, _) => {
+router.post("/", async (request, response, _) => {
     const {username, password, type} = request.body;
     const id = uuidv1();
     const account = new Account(id, username, password, type);
