@@ -4,9 +4,9 @@ import FindStudentWithName from "./find-student-with-name";
 
 export default class StudentAdapter {
     constructor(tableName, region, endpoint) {
-        this.createStudentObj = new CreateStudent(tableName, region, endpoint);
-        this.findStudentWithClassObj = new FindStudentWithClass(tableName, region, endpoint);
-        this.findStudentWithNameObj = new FindStudentWithName(tableName, region, endpoint);
+        this._createStudentObj = new CreateStudent(tableName, region, endpoint);
+        this._findStudentWithClassObj = new FindStudentWithClass(tableName, region, endpoint);
+        this._findStudentWithNameObj = new FindStudentWithName(tableName, region, endpoint);
     }
 
     /**
@@ -14,7 +14,7 @@ export default class StudentAdapter {
      * @param {Student} student 
      */
     async createStudent (student) {
-        return await this.createStudentObj.execute(student);
+        return await this._createStudentObj.execute(student);
     }
 
     /**
@@ -22,7 +22,7 @@ export default class StudentAdapter {
      * @param {String} classId 
      */
     async findStudentWithClass(classId) {
-        return await this.findStudentWithClassObj.execute(classId);
+        return await this._findStudentWithClassObj.execute(classId);
     }
 
     /**
@@ -30,6 +30,6 @@ export default class StudentAdapter {
      * @param {String} name 
      */
     async findStudentWithName(name) {
-        return await this.findStudentWithNameObj.execute(name);
+        return await this._findStudentWithNameObj.execute(name);
     }
 }

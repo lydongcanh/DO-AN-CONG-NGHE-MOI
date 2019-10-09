@@ -4,8 +4,8 @@ import FindAccountWithUsername from "./find-account-with-username";
 export default class AccountAdapter {
 
     constructor(tableName, region, endpoint) {
-        this.createAccountObj = new CreateAccount(tableName, region, endpoint);
-        this.findAccountWithUsernameObj = new FindAccountWithUsername(tableName, region, endpoint);
+        this._createAccountObj = new CreateAccount(tableName, region, endpoint);
+        this._findAccountWithUsernameObj = new FindAccountWithUsername(tableName, region, endpoint);
     }
 
     /**
@@ -13,7 +13,7 @@ export default class AccountAdapter {
      * @param {Account} account 
      */
     async createAccount(account) {
-        return await this.createAccountObj.execute(account);
+        return await this._createAccountObj.execute(account);
     }
 
     /**
@@ -21,6 +21,6 @@ export default class AccountAdapter {
      * @param {String} username 
      */
     async findAccountWithUsername(username) {
-        return await this.findAccountWithUsernameObj.execute(username);
+        return await this._findAccountWithUsernameObj.execute(username);
     }
 }

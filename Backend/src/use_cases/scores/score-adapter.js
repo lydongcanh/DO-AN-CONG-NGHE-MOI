@@ -3,8 +3,8 @@ import FindScoreByScoreBoardID from "./find-score-by-scoreboardid";
 
 export default class ScoreAdapter {
     constructor(tablename, region, endpoint) {
-        this.createScoreObj = new CreateScore(tablename, region, endpoint);
-        this.findScoreByScoreBoardIDObj = new FindScoreByScoreBoardID(tablename, region, endpoint);
+        this._createScoreObj = new CreateScore(tablename, region, endpoint);
+        this._findScoreByScoreBoardIDObj = new FindScoreByScoreBoardID(tablename, region, endpoint);
     }
 
     /**
@@ -12,7 +12,7 @@ export default class ScoreAdapter {
      * @param {Score} score 
      */
     async createScore(score) {
-        return await this.createScoreObj.execute(score);
+        return await this._createScoreObj.execute(score);
     }
 
     /**
@@ -20,6 +20,6 @@ export default class ScoreAdapter {
      * @param {String} scoreboardId 
      */
     async findScoresByScoreboardID(scoreboardId) {
-        return await this.findScoreByScoreBoardIDObj.execute(scoreboardId);
+        return await this._findScoreByScoreBoardIDObj.execute(scoreboardId);
     }
 }
