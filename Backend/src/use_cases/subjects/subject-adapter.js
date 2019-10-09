@@ -4,9 +4,9 @@ import FindSubjectById from "./find-subject-by-id";
 
 export default class SubjectAdapter {
     constructor(tablename, region, endpoint) {
-        this._createsubject = new CreateSubject(tablename, region, endpoint);
-        this._getAll = new GetAll(tablename, region, endpoint);
-        this._findSubjectById = new FindSubjectById(tablename, region, endpoint);
+        this._createSubjectObj = new CreateSubject(tablename, region, endpoint);
+        this._getAllObj = new GetAll(tablename, region, endpoint);
+        this._findSubjectByIdObj = new FindSubjectById(tablename, region, endpoint);
     }
 
     /**
@@ -14,14 +14,14 @@ export default class SubjectAdapter {
      * @param {Subject} subject 
      */
     async createSubject(subject){
-        return await this._createsubject.execute(subject);
+        return await this._createSubjectObj.execute(subject);
     }
     
     /**
      * Find all available subjects.
      */
     async getAllSubjects() {
-        return await this._getAll.execute();
+        return await this._getAllObj.execute();
     }
 
     /**
@@ -29,6 +29,6 @@ export default class SubjectAdapter {
      * @param {String} subjectId 
      */
     async findSubjectById(subjectId) {
-        return await this._findSubjectById.execute(subjectId);
+        return await this._findSubjectByIdObj.execute(subjectId);
     }
 }

@@ -32,4 +32,4 @@ router.post("/", async (request, response, _) => {
     response.send(result);
 });
 
-module.exports = router;
+export default router;
