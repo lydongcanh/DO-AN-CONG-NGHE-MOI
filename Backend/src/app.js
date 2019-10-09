@@ -11,6 +11,7 @@ import scoreRouter from "./routes/scoreRouter";
 import studentRouter from "./routes/studentRouter";
 import studyclassRouter from "./routes/studyclassRouter";
 import subjectRouter from "./routes/subjectRouter";
+import teacherRouter from "./routes/teacherRouter";
 
 const app = express();
 
@@ -28,5 +29,6 @@ app.use("/scores", scoreRouter);
 app.use("/students", studentRouter);
 app.use("/studyclasses", studyclassRouter);
 app.use("/subjects", subjectRouter);
+app.use("/teachers", teacherRouter);
 
 export default app;
