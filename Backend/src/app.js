@@ -9,6 +9,7 @@ import scheduleRouter from "./routes/scheduleRouter";
 import scoreboardRouter from "./routes/scoreboardRouter";
 import scoreRouter from "./routes/scoreRouter";
 import studentRouter from "./routes/studentRouter";
+import studyclassRouter from "./routes/studyclassRouter";
 
 const app = express();
 
@@ -24,5 +25,6 @@ app.use("/schedules", scheduleRouter);
 app.use("/scoreboards", scoreboardRouter);
 app.use("/scores", scoreRouter);
 app.use("/students", studentRouter);
+app.use("/studyclasses", studyclassRouter);
 
 export default app;
