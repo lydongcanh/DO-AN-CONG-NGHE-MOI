@@ -13,7 +13,7 @@ export default class SubjectAdapter {
      * Create new subject.
      * @param {Subject} subject 
      */
-    async createsubject(subject){
+    async createSubject(subject){
         return await this.createsubjectObj.execute(subject);
     }
     
