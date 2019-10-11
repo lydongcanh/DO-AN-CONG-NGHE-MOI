@@ -3,7 +3,7 @@ import AWSUseCase from "./aws-use-case";
 
 /**
  * [Required implementation: keySchema, attributeDefinitions].
- * [Optional implementation: readCapacityUnits, writeCapacityUnits]
+ * [Optional implementation: readCapacityUnits, writeCapacityUnits, globalSecondaryIndexes]
  */
 export default class AWSCreateTable extends AWSUseCase {
     constructor(tableName, region, endpoint) {
@@ -12,7 +12,7 @@ export default class AWSCreateTable extends AWSUseCase {
     }
 
     get params() {
-        return {
+        let result = {
             TableName: this.tableName,
             KeySchema: this.keySchema,
             AttributeDefinitions: this.attributeDefinitions,
@@ -21,6 +21,11 @@ export default class AWSCreateTable extends AWSUseCase {
                 WriteCapacityUnits: this.writeCapacityUnits
             }
         };
+
+        if (this.globalSecondaryIndexes)
+            result.GlobalSecondaryIndexes = this.globalSecondaryIndexes;
+        
+        return result;
     }
 
     get keySchema() {
@@ -37,6 +42,10 @@ export default class AWSCreateTable extends AWSUseCase {
 
     get writeCapacityUnits() {
         return 5;
+    }
+
+    get globalSecondaryIndexes() {
+        return undefined;
     }
 
     async execute() {
