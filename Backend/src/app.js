@@ -3,15 +3,15 @@ import path from "path";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
-import indexRouter from "./routes/index";
-import accountRouter from "./routes/accountRouter";
-import scheduleRouter from "./routes/scheduleRouter";
-import scoreboardRouter from "./routes/scoreboardRouter";
-import scoreRouter from "./routes/scoreRouter";
-import studentRouter from "./routes/studentRouter";
-import studyclassRouter from "./routes/studyclassRouter";
-import subjectRouter from "./routes/subjectRouter";
-import teacherRouter from "./routes/teacherRouter";
+import indexRouter from "./routes/index-router";
+import accountRouter from "./routes/account-router";
+import scheduleRouter from "./routes/schedule-router";
+import scoreboardRouter from "./routes/scoreboard-router";
+import scoreRouter from "./routes/score-router";
+import studentRouter from "./routes/student-router";
+import studyclassRouter from "./routes/studyclass-router";
+import subjectRouter from "./routes/subject-router";
+import teacherRouter from "./routes/teacher-router";
 
 const app = express();
 
