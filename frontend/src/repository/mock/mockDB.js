@@ -142,6 +142,19 @@ export default class MockDB {
         },
     ];
 
+    accounts = [
+        {
+            "username": "teacher1",
+            "password": "123",
+            "type": "teacher"
+        },
+        {
+            "username": "admin1",
+            "password": "123",
+            "type": "admin"
+        }
+    ];
+
     getClassWithGrade(grade) {
         return this.classes.filter(obj => {
             return obj.grade == grade
@@ -155,6 +168,12 @@ export default class MockDB {
     getStudentInClass(classId) {
         return this.students.filter(obj => {
             return obj.classId == classId
+        });
+    }
+
+    getAccount(username, password) {
+        return this.accounts.find(obj => {
+            return obj.username == username && obj.password == password
         });
     }
 }

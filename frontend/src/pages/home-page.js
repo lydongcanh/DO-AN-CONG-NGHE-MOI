@@ -10,15 +10,11 @@ import "../style.css";
 
 const { Content } = Layout;
 
-const teacher = {
-    name: "Lorem Ipsum"
-};
-
 export default class HomePage extends Component {
     render() {
         return (
             <Layout>
-                <Header teacher={null}/>
+                <Header/>
                 <Content style={{ textAlign: "center" }} className="content">
                     <br/>
                     <StudentSearchInput/>
