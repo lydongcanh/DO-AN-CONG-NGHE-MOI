@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import StudentSearchInput from "../components/student-search-input";
-import StudentTable from "../components/student-table";
+import StudentTable from "../components/student/student-table";
 import LoginModal from "../components/login-modal";
 
 import "../style.css";
@@ -23,6 +23,7 @@ export default class HomePage extends Component {
                     <br/>
                     <StudentSearchInput/>
                     <br/>
+                    <StudentTable></StudentTable>
                 </Content>
                 <Footer/>
             </Layout>

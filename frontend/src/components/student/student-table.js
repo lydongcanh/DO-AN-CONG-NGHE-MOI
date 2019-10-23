@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "antd";
+import { Divider,Table } from "antd";
 export default class TableStudent extends Component {
     
   constructor(props) {
@@ -14,14 +14,15 @@ export default class TableStudent extends Component {
         {title : 'Ngày sinh',dataIndex:'birthday', key:'birthday',width:'12%'}, 
         {title : 'Địa chỉ',dataIndex:'address', key:'address',width:'15%'}, 
         {title : 'Điện thoại',dataIndex:'phone', key:'phone',width:'15%'},
-        {dataIndex:'scoreboard',key:'scoreboard',width:'10%', 
-            render:() => <a onClick={this.viewScoreBoard.bind(this)}>Bảng điểm</a>
-        },
-        {dataIndex:'schedule',key:'schedule',width:'10%', 
-            render:() => <a onClick={this.viewScoreBoard.bind(this)}>Lịch học</a>
-        },
-        {dataIndex:'detail',key:'detail',width:'10%', 
-            render:() => <a onClick={this.viewScoreBoard.bind(this)}>Thông tin</a>
+        {dataIndex:'action',key:'action',width:'30%', 
+            render:(text,record) => 
+            <span>
+                <a onClick={this.viewScoreBoard.bind(this)}>Bảng điểm</a>
+                <Divider type="vertical" />
+                <a onClick={this.viewSchedule.bind(this)}>Lịch học</a>
+                <Divider type="vertical" />
+                <a onClick={this.viewScoreBoard.bind(this)}>Thông tin</a>
+        </span>
         },
     ];
     this.viewDetail = this.viewDetail.bind(this);
