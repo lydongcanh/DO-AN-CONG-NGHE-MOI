@@ -1,116 +1,17 @@
 import React, { Component } from "react";
 import { Divider, Table } from "antd";
 
-const data = [
-    {
-        "id": 0,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 1
-    },
-    {
-        "id": 1,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 1
-    },
-    {
-        "id": 2,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 2
-    },
-    {
-        "id": 3,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 2
-    },
-    {
-        "id": 4,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 4
-    },
-    {
-        "id": 5,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 3
-    },
-    {
-        "id": 6,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 4
-    },
-    {
-        "id": 7,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 5
-    },
-    {
-        "id": 8,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 6
-    },
-    {
-        "id": 9,
-        "name": "Lorem ipsum dolor sir amet",
-        "gender": "Nam",
-        "birthday": Date.now(),
-        "address": "Lorem ipsum dolor sir amet",
-        "phoneNumber": "0123456789",
-        "state": "active",
-        "classId": 6
-    },
-];
-
 export default class StudentTable extends Component {
     columns = [
+        {
+            title: "Id",
+            dataIndex: "id",
+            key: "id"
+        },
         {
             title: "Tên",
             dataIndex: "name",
             key: "name",
-            render: text => <a>{text}</a>,
         },
         {
             title: "Giới tính",
@@ -135,11 +36,11 @@ export default class StudentTable extends Component {
         {
             title: 'Action',
             key: 'action',
-            render: (text, record) => (
+            render: (_, __) => (
                 <span>
-                    <a>Invite {record.name}</a>
+                    <a>Xem điểm</a>
                     <Divider type="vertical" />
-                    <a>Delete</a>
+                    <a>Xem thời khóa biểu</a>
                 </span>
             ),
         },
@@ -147,7 +48,10 @@ export default class StudentTable extends Component {
 
     render() {
         return (
-            <Table columns={this.columns} dataSource={data} />
+            <div>
+                <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
+                <Table columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
+            </div>
         );
     }
 }

@@ -13,8 +13,8 @@ export default class LoginModal extends Component {
 
         this.state = {
             visible: false,
-            username: "",
-            password: "",
+            username: "admin1",
+            password: "123",
         }
 
         this.handleLoginButton = this.handleLoginButton.bind(this);

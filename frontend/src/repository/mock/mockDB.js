@@ -48,17 +48,17 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 1
+            "classId": 0
         },
         {
             "id": 1,
             "name": "Lorem ipsum dolor sir amet",
-            "gender": "Nam",
+            "gender": "Nữ",
             "birthday": Date.now(),
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 1
+            "classId": 0
         },
         {
             "id": 2,
@@ -68,17 +68,17 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 2
+            "classId": 0
         },
         {
             "id": 3,
             "name": "Lorem ipsum dolor sir amet",
-            "gender": "Nam",
+            "gender": "Nữ",
             "birthday": Date.now(),
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 2
+            "classId": 0
         },
         {
             "id": 4,
@@ -88,7 +88,7 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 4
+            "classId": 1
         },
         {
             "id": 5,
@@ -98,17 +98,17 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 3
+            "classId": 1
         },
         {
             "id": 6,
             "name": "Lorem ipsum dolor sir amet",
-            "gender": "Nam",
+            "gender": "Nữ",
             "birthday": Date.now(),
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 4
+            "classId": 2
         },
         {
             "id": 7,
@@ -118,7 +118,7 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 5
+            "classId": 2
         },
         {
             "id": 8,
@@ -128,7 +128,7 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
-            "classId": 6
+            "classId": 3
         },
         {
             "id": 9,
@@ -138,8 +138,109 @@ export default class MockDB {
             "address": "Lorem ipsum dolor sir amet",
             "phoneNumber": "0123456789",
             "state": "active",
+            "classId": 3
+        },
+        {
+            "id": 10,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 1
+        },
+        {
+            "id": 11,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 1
+        },
+        {
+            "id": 12,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 2
+        },
+        {
+            "id": 13,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 2
+        },
+        {
+            "id": 14,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 4
+        },
+        {
+            "id": 15,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 3
+        },
+        {
+            "id": 16,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 4
+        },
+        {
+            "id": 17,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nam",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 5
+        },
+        {
+            "id": 18,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nữ",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
             "classId": 6
         },
+        {
+            "id": 19,
+            "name": "Lorem ipsum dolor sir amet",
+            "gender": "Nữ",
+            "birthday": Date.now(),
+            "address": "Lorem ipsum dolor sir amet",
+            "phoneNumber": "0123456789",
+            "state": "active",
+            "classId": 6
+        },
+        
     ];
 
     accounts = [
@@ -168,6 +269,12 @@ export default class MockDB {
     getStudentInClass(classId) {
         return this.students.filter(obj => {
             return obj.classId == classId
+        });
+    }
+
+    getStudentWithName(name) {
+        return this.students.filter(student => {
+            return student.name.includes(name)
         });
     }
 
