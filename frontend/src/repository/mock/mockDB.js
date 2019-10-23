@@ -256,9 +256,131 @@ export default class MockDB {
         }
     ];
 
+    scores = [
+        {
+            "id": 0,
+            "type": "15 phút",
+            "value": 8,
+            "multiplier": 1,
+            "subject": "Toán",
+            "studentId": 0,
+        },
+        {
+            "id": 1,
+            "type": "1 tiết",
+            "multiplier": 2,
+            "value": 8,
+            "subject": "Toán",
+            "studentId": 0,
+        },
+        {
+            "id": 2,
+            "type": "15 phút",
+            "value": 7,
+            "multiplier": 1,
+            "subject": "Văn",
+            "studentId": 0,
+        },
+        {
+            "id": 3,
+            "type": "1 tiết",
+            "multiplier": 2,
+            "value": 6,
+            "subject": "Văn",
+            "studentId": 0,
+        }
+    ];
+
+    schedules = [
+        {
+            id: 0,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Toán",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 0
+        },
+        {
+            id: 1,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Văn",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 0
+        },
+        {
+            id: 2,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Anh",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 0
+        },
+        {
+            id: 3,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Lý",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 0
+        },
+        {
+            id: 4,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Toán",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 1
+        },
+        {
+            id: 5,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Văn",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 1
+        },
+        {
+            id: 6,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Anh",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 1
+        },
+        {
+            id: 7,
+            from: Date.now(),
+            to: Date.now(),
+            state: "active",
+            subject: "Toán",
+            teacher: "Lorem ipsum dolor sir amet",
+            studentId: 1
+        },
+    ];
+
+    getStudentSchedules(studentId) {
+        return this.schedules.filter(schedule => {
+            return schedule.studentId == studentId;
+        })
+    }
+
+    getStudentScores(studentId) {
+        return this.scores.filter(score => {
+            return score.studentId == studentId;
+        });
+    }
+
     getClassWithGrade(grade) {
         return this.classes.filter(obj => {
-            return obj.grade == grade
+            return obj.grade == grade;
         });
     }
 
@@ -268,13 +390,13 @@ export default class MockDB {
 
     getStudentInClass(classId) {
         return this.students.filter(obj => {
-            return obj.classId == classId
+            return obj.classId == classId;
         });
     }
 
     getStudentWithName(name) {
         return this.students.filter(student => {
-            return student.name.includes(name)
+            return student.name.includes(name);
         });
     }
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Divider, Table } from "antd";
+import { Divider, Table, Button } from "antd";
+import { Link } from "react-router-dom";
 
 export default class StudentTable extends Component {
     columns = [
@@ -36,11 +37,19 @@ export default class StudentTable extends Component {
         {
             title: 'Action',
             key: 'action',
-            render: (_, __) => (
+            render: (text, record) => (
                 <span>
-                    <a>Xem điểm</a>
+                    <Button>
+                        <Link to={`/studentscores/${record.id}`}>
+                            Xem điểm
+                        </Link>
+                    </Button>
                     <Divider type="vertical" />
-                    <a>Xem thời khóa biểu</a>
+                    <Button>
+                        <Link to={`/studentschedules/${record.id}`}>
+                            Xem thời khóa biểu
+                        </Link>
+                    </Button>
                 </span>
             ),
         },
@@ -50,7 +59,7 @@ export default class StudentTable extends Component {
         return (
             <div>
                 <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
-                <Table columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
+                <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
             </div>
         );
     }
