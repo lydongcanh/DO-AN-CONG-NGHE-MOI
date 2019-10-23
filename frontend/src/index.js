@@ -1,29 +1,12 @@
-import React, {Component} from "react";
+import React from "react";
 import ReactDOM from "react-dom";
-import {DatePicker, message} from "antd";
+import {BrowserRouter} from "react-router-dom";
+import App from "./app";
 import 'antd/dist/antd.css';
 
-export default class App extends Component {
-    state = {
-        date: null
-    };
-
-    handleChange = date => {
-        message.info(`Selected Date: ${date ? date.format('YYYY-MM-DD') : 'None'}`);
-        this.setState({ date });
-      };
-    
-    render() {
-        const { date } = this.state;
-        return (
-            <div style={{ width: 400, margin: '100px auto' }}>
-                <DatePicker onChange={this.handleChange} />
-            <div style={{ marginTop: 20 }}>
-              Selected Date: {date ? date.format('YYYY-MM-DD') : 'None'}
-            </div>
-          </div>
-        );
-    }
-}
-
-ReactDOM.render(<App/>, document.getElementById("root"));
+ReactDOM.render(
+  <BrowserRouter> 
+    <App/>
+  </BrowserRouter>,
+  document.getElementById("root")
+);
