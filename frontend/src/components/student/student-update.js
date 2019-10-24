@@ -7,7 +7,7 @@ export default class UpdateStudent extends Component{
     constructor(props){
         super(props);
         this.state={
-            student: [],
+            classes: [],
             value : 1,
             gradeDropdownText: "Chọn khối",
             classDropdownText: "Chọn lớp",
