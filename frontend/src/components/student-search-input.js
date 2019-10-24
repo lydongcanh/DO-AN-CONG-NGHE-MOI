@@ -6,6 +6,7 @@ const mockDB = new MockDB();
 
 const { Search } = Input;
 
+/** [Required props: onSearchStudent, onSearchClass] */
 export default class StudentSearchInput extends Component {
     constructor(props) {
         super(props);
@@ -15,11 +16,13 @@ export default class StudentSearchInput extends Component {
             gradeDropdownText: "Chọn khối",
             classDropdownText: "Chọn lớp",
             classDropdownActive: false,
+            searchedName: ""
         };
 
         this.handleGradeMenuClick = this.handleGradeMenuClick.bind(this);
         this.handleClassMenuClick = this.handleClassMenuClick.bind(this);
         this.handleOnSearch = this.handleOnSearch.bind(this);
+        this.handleSearchChange = this.handleSearchChange.bind(this);
     }
 
     get gradeMenu() {
@@ -42,7 +45,7 @@ export default class StudentSearchInput extends Component {
         let menus = [];
         for(let i = 0; i < this.state.classes.length; i++) {
             menus.push(
-                <Menu.Item key={this.state.classes[i].id}>
+                <Menu.Item key={i}>
                     {this.state.classes[i].name}
                 </Menu.Item>
             );
@@ -62,6 +65,9 @@ export default class StudentSearchInput extends Component {
                 <Col span={18}>
                     <Search
                         placeholder="Nhập tên học sinh"
+                        onChange={this.handleSearchChange}
+                        name="searchedName"
+                        value={this.state.searchedName}
                         onSearch={this.handleOnSearch}
                     />
                 </Col>
@@ -86,24 +92,39 @@ export default class StudentSearchInput extends Component {
         );
     }
 
-    handleOnSearch(e) {
-        // TODO: update table
+    /** Xử lý khi tìm kiếm bằng tên */
+    handleOnSearch() {
+        let students = mockDB.getStudentWithName(this.state.searchedName);
+        this.props.onSearchStudent(students);
     }
 
+    handleSearchChange(e) {
+        this.setState({
+            [e.target.name]: e.target.value
+        });
+    }
+
+    /** Xử lý khi tìm kiếm với khối */
     handleGradeMenuClick(e) {
         let result = mockDB.getClassWithGrade(Number(e.key));
 
         this.setState(_ => ({
             gradeDropdownText: e.item.props.children,
+            classDropdownText: "Chọn lớp",
             classes: result,
             classDropdownActive: true
         }));
     }
 
+    /** Xử lý khi tìm kiếm với lớp */
     handleClassMenuClick(e) {
         this.setState(_ => ({
             classDropdownText: e.item.props.children
         }));
-        // TODO: update table
+
+        console.log("Class menu click: " + e.key, this.state.classes);
+
+        let students = mockDB.getStudentInClass(this.state.classes[e.key].id);
+        this.props.onSearchClass(students);
     }
 }

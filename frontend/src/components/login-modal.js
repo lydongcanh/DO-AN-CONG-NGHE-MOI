@@ -1,16 +1,20 @@
 import React, { Component } from "react";
 import { Button, Form, Input, Modal } from "antd";
 
+import MockDB from "../repository/mock/mockDB";
+const mockDB = new MockDB();
+
 /**
- * [Required props: handleOk, visible]
+ * [Required props: handleCancel, handleLoginSuccess, visible]
  */
 export default class LoginModal extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            username: "",
-            password: "",
+            visible: false,
+            username: "admin1",
+            password: "123",
         }
 
         this.handleLoginButton = this.handleLoginButton.bind(this);
@@ -21,12 +25,12 @@ export default class LoginModal extends Component {
         return (
             <Modal 
                 visible={this.props.visible}
-                onCancel={this.props.handleOk}
+                onCancel={this.props.handleCancel}
                 title="Đăng nhập"
                 closable={false}
                 footer={null}
                 style={{ textAlign: "center" }}>
-                <Form className="login-form" >
+                <Form>
                     <Form.Item>
                         <Input type="text" name="username" placeholder="Tài khoản" value={this.state.username} onChange={this.handleChange} />
                     </Form.Item>
@@ -50,7 +54,8 @@ export default class LoginModal extends Component {
         });
     }
 
-    handleLoginButton(e) {
-        this.props.handleOk(e);
+    handleLoginButton() {
+        let account = mockDB.getAccount(this.state.username, this.state.password);
+        this.props.handleLoginSuccess(account);
     }
 }
