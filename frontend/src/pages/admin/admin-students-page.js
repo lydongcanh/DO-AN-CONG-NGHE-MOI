@@ -1,19 +1,40 @@
 import React, { Component } from "react";
 import StudentTableAdmin from "../../components/student/student-table-admin";
-import StudentSearchAddNew from "../../components/student/student-search-addnew";
+import NewButton from "../../components/student/student-newbutton";
+import StudentSearchInput from "../../components/student-search-input"
+import { Row ,Col} from "antd";
 
 export default class AdminStudentsPage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            searchedStudent: []
+        }
+        this.handleSearchedStudent = this.handleSearchedStudent.bind(this);
+    }
     render() {
         return (
             <div>
-                <h2>Trang quản lý học sinh</h2>
                 <div>
-                    <StudentSearchAddNew></StudentSearchAddNew>
+                    <Row gutter={48}>
+                        <Col span={21}>
+                            <StudentSearchInput onSearchStudent={this.handleSearchedStudent} onSearchClass={this.handleSearchedStudent}/>     
+                        </Col>
+                        <Col span={3}>
+                            <NewButton></NewButton>
+                        </Col>
+                    </Row>
                 </div>
                 <div>
-                    <StudentTableAdmin></StudentTableAdmin> 
+                    <StudentTableAdmin students={this.state.searchedStudent}></StudentTableAdmin> 
                 </div>
             </div>
         );
+    }
+    handleSearchedStudent(students) {
+        this.setState({
+            searchedStudent: students
+        })
     }
 }

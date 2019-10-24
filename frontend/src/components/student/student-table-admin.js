@@ -6,6 +6,7 @@ export default class StudentTableAdmin extends Component {
     constructor(props){
         super(props);
         this.handleDelteClick = this.handleDelteClick.bind(this);
+        
     }
     columns = [
         {
@@ -45,7 +46,13 @@ export default class StudentTableAdmin extends Component {
                 <span>
                     <Button>
                         <Link to={`/admin/studentupdate/${record.id}`}>
-                            Sửa
+                            Sửa thông tin
+                        </Link>
+                    </Button>
+                    <Divider type="vertical" />
+                    <Button>
+                        <Link to={`/admin/studentscoreupdate/${record.id}`}>
+                            Sửa điểm
                         </Link>
                     </Button>
                     <Divider type="vertical" />

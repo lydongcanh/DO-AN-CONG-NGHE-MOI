@@ -7,7 +7,7 @@ export default class UpdateStudent extends Component{
     constructor(props){
         super(props);
         this.state={
-            classes: [],
+            student: [],
             value : 1,
             gradeDropdownText: "Chọn khối",
             classDropdownText: "Chọn lớp",
@@ -51,12 +51,11 @@ export default class UpdateStudent extends Component{
     render(){
         return(
             <div>
-                <Row gutter={48}>
+                <Row gutter={48} style={{textAlign: "left"}}>
                     <Col span={8}></Col>
                     <Col span={8} >
                     <Form>
-                        <h2>Thêm học sinh</h2>
-                        <Row gutter={24} style={{textAlign: "end"}}>
+                        <h2>Sửa thông tin học sinh</h2>
                                     <Form.Item>
                                         <Input placeholder="Tên"></Input>
                                     </Form.Item>
@@ -87,7 +86,6 @@ export default class UpdateStudent extends Component{
                                     <Form.Item>
                                         <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
                                     </Form.Item>
-                            </Row>
                             <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
                         </Form>
                     </Col>
