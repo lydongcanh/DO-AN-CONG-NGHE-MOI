@@ -13,8 +13,6 @@ import TeacherScoresPage from "./pages/teacher/teacher-scores-page";
 import StudentScoresPage from "./pages/student/student-scores-page";
 import StudentSchedulesPage from "./pages/student/student-schedules-page";
 
-import "./style.css";
-
 const { Content } = Layout;
 
 export default class App extends Component {
@@ -22,7 +20,12 @@ export default class App extends Component {
         return(
             <Layout>
                 <Header/><br/>
-                <Content style={{ textAlign: "center" }} className="content">
+                <Content style={{ 
+                                textAlign: "center", 
+                                height: "100%",
+                                padding: "0 50px"
+                            }} 
+                         className="content">
                     <Switch>
                         <Route exact path="/" component={HomePage}/>
                         <Route path="/admin/schedules" component={AdminSchedulesPage}/>

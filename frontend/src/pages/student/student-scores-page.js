@@ -1,36 +1,13 @@
 import React, { Component } from "react";
-import { Table } from "antd";
+import { Tabs } from "antd";
+import Scoreboard from "../../components/scoreboard";
+
 import MockDB from "../../repository/mock/mockDB";
 const mockDB = new MockDB();
 
+const { TabPane } = Tabs;
+
 export default class StudentScoresPage extends Component {
-    columns = [
-        {
-            title: "Id",
-            dataIndex: "id",
-            key: "id"
-        },
-        {
-            title: "Loại",
-            dataIndex: "type",
-            key: "type"
-        },
-        {
-            title: "Môn",
-            dataIndex: "subject",
-            key: "subject"
-        },
-        {
-            title: "Hệ số",
-            dataIndex: "multiplier",
-            key: "multiplier"
-        },
-        {
-            title: "Điểm",
-            dataIndex: "value",
-            key: "value"
-        },
-    ];
 
     constructor(props) {
         super(props);
@@ -47,15 +24,32 @@ export default class StudentScoresPage extends Component {
         })
     }
 
+    getScoreboardsView(scoreboards) {
+        let result = [];
+        for(let i = 0; i < scoreboards.length; i++) {
+            result.push(
+                <TabPane tab={`${scoreboards[i].semester} - ${scoreboards[i].year}`} key={i}>
+                    <Scoreboard scoreboard={scoreboards[i]}/>
+                </TabPane>
+            );
+        }   
+        
+        return (
+            <Tabs defaultActiveKey={String(scoreboards.length - 1)}>
+                {result}
+            </Tabs>
+        );
+    }
+
     render() {
         const id = this.state.data.id;
         if (!id)
             return <h3>Thông tin học sinh không hơp lệ.</h3>
 
-        let scores = mockDB.getStudentScores(id);
-        if (!scores || scores.length == 0)
+        let scoreboards = mockDB.getStudentScoreboards(id);
+        if (!scoreboards || scoreboards.length == 0)
             return <h3>Học sinh này hiện chưa có điểm số nào.</h3>
         
-        return <Table dataSource={scores} columns={this.columns} rowKey={record => record.id}/>
+        return this.getScoreboardsView(scoreboards);
     }
 }

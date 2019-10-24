@@ -1,0 +1,14 @@
+[
+    {
+        "id": 0,
+        "semester": "HK1",
+        "year": 2019,
+        "studentId": 0
+    },
+    {
+        "id": 1,
+        "semester": "HK2",
+        "year": 2019,
+        "studentId": 0
+    }
+]

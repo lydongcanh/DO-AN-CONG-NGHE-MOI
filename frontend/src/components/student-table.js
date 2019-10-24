@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Divider, Table, Button } from "antd";
+import { Tag, Divider, Table, Button } from "antd";
 import { Link } from "react-router-dom";
 
 export default class StudentTable extends Component {
@@ -7,45 +7,51 @@ export default class StudentTable extends Component {
         {
             title: "Id",
             dataIndex: "id",
-            key: "id"
+            key: "key"
         },
         {
             title: "Tên",
             dataIndex: "name",
-            key: "name",
+            key: "name"
         },
         {
             title: "Giới tính",
             dataIndex: "gender",
             key: "gender",
+            render: gender => {
+                return (
+                    <Tag color={this.getGenderTagColor(gender)}>
+                        {gender}
+                    </Tag>
+                )
+            }
         },
         {
             title: "Ngày sinh",
             dataIndex: "birthday",
-            key: "birthday",
+            key: "birthday"
         },
         {
             title: "Địa chỉ",
-            key: "address",
             dataIndex: "address",
+            key: "address"
         },
         {
             title: "Số điện thoại",
-            key: "phoneNumber",
             dataIndex: "phoneNumber",
+            key: "phoneNumber"
         },
         {
-            title: 'Action',
-            key: 'action',
-            render: (text, record) => (
+            title: "",
+            render: (_, record) => (
                 <span>
-                    <Button>
+                    <Button type="primary">
                         <Link to={`/studentscores/${record.id}`}>
                             Xem điểm
                         </Link>
                     </Button>
                     <Divider type="vertical" />
-                    <Button>
+                    <Button type="primary">
                         <Link to={`/studentschedules/${record.id}`}>
                             Xem thời khóa biểu
                         </Link>
@@ -58,9 +64,23 @@ export default class StudentTable extends Component {
     render() {
         return (
             <div>
-                <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
-                <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
+                <Table title={() => <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>}
+                       pagination={{pageSize: 9}} 
+                       bordered
+                       columns={this.columns} 
+                       rowKey={record => record.id} 
+                       dataSource={this.props.students} />
             </div>
         );
+    }
+
+    getGenderTagColor(gender) {
+        if (gender == "Nam") {
+            return "red";
+        } else if (gender == "Nữ") {
+            return "geekblue"
+        } else {
+            return "cyan";
+        }
     }
 }

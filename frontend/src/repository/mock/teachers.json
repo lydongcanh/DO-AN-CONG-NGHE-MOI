@@ -1,0 +1,22 @@
+[
+    {
+        "id": 0,
+        "name": "Trần Văn A",
+        "gender": "Nam",
+        "birthday": "10/24/1998",
+        "address": "Lorem ipsum dolor sir amet",
+        "email": "email@email.com",
+        "phoneNumber": "0123456789",
+        "state": "active"
+    },
+    {
+        "id": 1,
+        "name": "Nguyễn Thị A",
+        "gender": "Nữ",
+        "birthday": "11/24/1998",
+        "address": "Lorem ipsum dolor sir amet",
+        "email": "email@email.com",
+        "phoneNumber": "9876543210",
+        "state": "active"
+    }
+]
