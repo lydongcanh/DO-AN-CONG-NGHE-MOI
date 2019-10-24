@@ -51,48 +51,46 @@ export default class CreateStudent extends Component{
     render(){
         return(
             <div>
-                <Form>
-                    <h2>Thêm học sinh</h2>
-                    <Row gutter={24} style={{textAlign: "end"}}>
-                        <Col span ={6}></Col>
-                        <Col span ={6}>
-                            <Form.Item>
-                                <Input placeholder="Tên"></Input>
-                            </Form.Item>
-                            <Form.Item>
-                                <Radio.Group onChange={this.onChange} value={this.state.value}>
-                                    <Radio value={1}>Nam</Radio>
-                                    <Radio value={2}>Nữ</Radio>
-                                </Radio.Group>
-                            </Form.Item>
-                            <Form.Item>
-                                <Input placeholder="Địa chỉ"></Input>
-                            </Form.Item>
-                        </Col>
-                        <Col span ={6}>
-                            <Form.Item>
-                                <Input placeholder="Số điện thoại"></Input>
-                            </Form.Item>
-                            <Form.Item>
-                                <Dropdown overlay={this.gradeMenu}>
-                                    <Button>
-                                        {this.state.gradeDropdownText} <Icon type="down"/>
-                                    </Button>
-                                </Dropdown>
-                                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
-                                    <Button>
-                                        {this.state.classDropdownText} <Icon type="down"/>
-                                    </Button>
-                                </Dropdown>
-                            </Form.Item>
-                            <Form.Item>
-                                <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
-                            </Form.Item>
-                        </Col>
-                        <Col span ={6}></Col>
-                    </Row>
-                    <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
-                </Form>
+                <Row gutter={48}>
+                    <Col span={8}></Col>
+                    <Col span={8} >
+                        <Form style={{textAlign:"left" }} >
+                            <h2>Thêm học sinh</h2>
+                                <Form.Item>
+                                    <Input placeholder="Tên"></Input>
+                                </Form.Item>
+                                <Form.Item >
+                                    <Radio.Group onChange={this.onChange} value={this.state.value}>
+                                        <Radio value={1}>Nam</Radio>
+                                        <Radio value={2}>Nữ</Radio>
+                                    </Radio.Group>
+                                </Form.Item>
+                                <Form.Item>
+                                    <Input placeholder="Địa chỉ"></Input>
+                                </Form.Item>
+                                <Form.Item>
+                                    <Input placeholder="Số điện thoại"></Input>
+                                </Form.Item>
+                                <Form.Item>
+                                    <Dropdown overlay={this.gradeMenu}>
+                                        <Button>
+                                            {this.state.gradeDropdownText} <Icon type="down"/>
+                                        </Button>
+                                    </Dropdown>
+                                    <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
+                                        <Button>
+                                            {this.state.classDropdownText} <Icon type="down"/>
+                                        </Button>
+                                    </Dropdown>
+                                </Form.Item>
+                                <Form.Item>
+                                    <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
+                                </Form.Item>
+                            <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                        </Form>
+                    </Col>
+                    <Col span={8}></Col>
+                </Row>
             </div>
         )
     }
