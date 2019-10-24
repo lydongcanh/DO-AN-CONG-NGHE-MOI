@@ -1,36 +1,34 @@
 import React, { Component } from "react";
-import { Layout } from "antd";
-import Footer from "../components/footer";
-import Header from "../components/header";
 import StudentSearchInput from "../components/student-search-input";
-import StudentTable from "../components/student/student-table";
-import LoginModal from "../components/login-modal";
+import StudentTable from "../components/student-table";
 
-import "../style.css";
-
-const { Content } = Layout;
-
-const teacher = {
-    name: "Lorem Ipsum"
-};
 
 export default class HomePage extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            searchedStudent: []
+        }
+        this.handleSearchedStudent = this.handleSearchedStudent.bind(this);
+    }
+
     render() {
         return (
-            <Layout>
-                <Header teacher={null}/>
-                <Content style={{ textAlign: "center" }} className="content">
-                    <br/>
-                    <StudentSearchInput/>
-                    <br/>
-                    <StudentTable></StudentTable>
-                </Content>
-                <Footer/>
-            </Layout>
+            <div>
+                <StudentSearchInput onSearchStudent={this.handleSearchedStudent} onSearchClass={this.handleSearchedStudent}/>
+                <br/>
+                <StudentTable students={this.state.searchedStudent}/>
+            </div>
         );
     }
 
-    findStudentByName(name) {
-
+    /** Xử lý sự kiện sau khi nhập tìm kiếm học sinh bằng tên hoặc lớp
+     * @param students Danh sách học sinh tìm thấy
+     */
+    handleSearchedStudent(students) {
+        this.setState({
+            searchedStudent: students
+        })
     }
 }
