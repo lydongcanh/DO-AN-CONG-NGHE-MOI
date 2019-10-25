@@ -12,6 +12,8 @@ import TeacherSchedulesPage from "./pages/teacher/teacher-schedules-page";
 import TeacherScoresPage from "./pages/teacher/teacher-scores-page";
 import StudentScoresPage from "./pages/student/student-scores-page";
 import StudentSchedulesPage from "./pages/student/student-schedules-page";
+import StudentCreate from "./components/student/student-create";
+import StudentUpdate from "./components/student/student-update";
 
 import "./style.css";
 
@@ -33,6 +35,8 @@ export default class App extends Component {
                         <Route path="/teacherscores/:username" component={TeacherScoresPage}/>
                         <Route path="/studentscores/:id/" component={StudentScoresPage}/>
                         <Route path="/studentschedules/:id" component={StudentSchedulesPage}/>
+                        <Route path="/admin/studentcreate"component={StudentCreate}/>
+                        <Route path="/admin/studentupdate/:id"component={StudentUpdate}/>
                     </Switch>
                 </Content>
                 <Footer/>
