@@ -1,11 +1,11 @@
 import express from "express";
 import uuidv1 from "uuid/v1";
-import { TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
+import { SSS_TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
 import Score from "../entities/score";
 import ScoreAdapter from "../use_cases/scores/score-adapter";
 
 const router = express.Router();
-const scoreAdapter = new ScoreAdapter(TABLE_NAME, REGION, ENDPOINT);
+const scoreAdapter = new ScoreAdapter(SSS_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
     const scoreboardId = request.query.scoreboardId;

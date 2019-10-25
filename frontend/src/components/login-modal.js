@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, Input, Modal, Icon } from "antd";
-
-import mockDB from "../repository/mock/mockDB";
+import AccountRepository from "../repository/prop/account-repository";
 
 /**
  * [Required props: handleCancel, handleLoginSuccess, visible]
@@ -66,8 +65,12 @@ export default class LoginModal extends Component {
         });
     }
 
-    handleLoginButton() {
-        let account = mockDB.getAccount(this.state.username, this.state.password);
-        this.props.handleLoginSuccess(account);
+    async handleLoginButton() {
+        let account = await AccountRepository.getAccountWithUsername(this.state.username);
+        if (!account || account.password != this.state.password) {
+            alert(JSON.stringify(account));
+        } else {
+            this.props.handleLoginSuccess(account);
+        }
     }
 }

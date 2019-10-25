@@ -13,7 +13,7 @@ export default class AWSScan extends AWSUseCase {
 
     get params() {
         let result = {
-            TableName : this.params,
+            TableName : this.tableName,
             KeyConditionExpression: this.keyConditionExpression,
             ExpressionAttributeNames: this.expressionAttributeNames,
             ExpressionAttributeValues: this.expressionAttributeValues

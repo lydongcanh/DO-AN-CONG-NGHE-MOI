@@ -13,7 +13,7 @@ export default class AWSQuery extends AWSUseCase {
 
     get params() {
         let result = {
-            TableName : this.params,
+            TableName : this.tableName,
             KeyConditionExpression: this.keyConditionExpression,
             ExpressionAttributeNames: this.expressionAttributeNames,
             ExpressionAttributeValues: this.expressionAttributeValues
@@ -44,6 +44,7 @@ export default class AWSQuery extends AWSUseCase {
 
     async execute() {
         try {
+            
             const data = await this.docClient.query(this.params).promise();
             console.log("Query item(s) successfully: " + JSON.stringify(data));
             return {

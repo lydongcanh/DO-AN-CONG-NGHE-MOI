@@ -1,11 +1,11 @@
 import express from "express";
 import uuidv1 from "uuid/v1";
-import {TABLE_NAME, REGION, ENDPOINT} from "../dynamodb-config";
+import {ATSC_TABLE_NAME, REGION, ENDPOINT} from "../dynamodb-config";
 import Studyclass from "../entities/studyclass";
 import StudyclassAdapter from "../use_cases/studyclasses/studyclass-adpater";
 
 const router = express.Router();
-const studyclassAdapter = new StudyclassAdapter(TABLE_NAME, REGION, ENDPOINT);
+const studyclassAdapter = new StudyclassAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
     const grade = request.query.grade;

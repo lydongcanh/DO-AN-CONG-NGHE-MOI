@@ -1,11 +1,11 @@
 import express from "express";
-import {TABLE_NAME, REGION, ENDPOINT} from "../dynamodb-config";
+import {ATSC_TABLE_NAME, REGION, ENDPOINT} from "../dynamodb-config";
 import uuidv1 from "uuid/v1";
 import Teacher from "../entities/teacher";
 import TeacherAdapter from "../use_cases/teachers/teacher-adapter";
 
 const router = express.Router();
-const teacherAdapter = new TeacherAdapter(TABLE_NAME, REGION, ENDPOINT);
+const teacherAdapter = new TeacherAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
     const accountId = request.query.accountId;
