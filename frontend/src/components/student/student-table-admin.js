@@ -8,6 +8,8 @@ export default class StudentTableAdmin extends Component {
     constructor(props){
         super(props);
         this.state = {
+            student : {},
+            class : {},
             visible : false
         }
         this.handleDelteClick = this.handleDelteClick.bind(this);
@@ -15,67 +17,80 @@ export default class StudentTableAdmin extends Component {
         this.handleCancelModal = this.handleCancelModal.bind(this);
         this.handleSaveStudentSuccess = this.handleSaveStudentSuccess.bind(this);
     }
-    columns = [
-        {
-            title: "Id",
-            dataIndex: "id",
-            key: "id"
-        },
-        {
-            title: "Tên",
-            dataIndex: "name",
-            key: "name",
-        },
-        {
-            title: "Giới tính",
-            dataIndex: "gender",
-            key: "gender",
-        },
-        {
-            title: "Ngày sinh",
-            dataIndex: "birthday",
-            key: "birthday",
-        },
-        {
-            title: "Địa chỉ",
-            key: "address",
-            dataIndex: "address",
-        },
-        {
-            title: "Số điện thoại",
-            key: "phoneNumber",
-            dataIndex: "phoneNumber",
-        },
-        {
-            title: 'Action',
-            key: 'action',
-            render: (text, record) => (
-                <span>
-                    <Button onClick={this.handleUpdateButton}>
-                            Sửa thông tin
-                    </Button>
-                    <Divider type="vertical" />
-                    <Button>
-                        <Link to={`/admin/studentscoreupdate/${record.id}`}>
-                            Sửa điểm
-                        </Link>
-                    </Button>
-                    <Divider type="vertical" />
-                    <Button onClick={this.handleDelteClick}>
-                        <Link>
-                             Xoá
-                        </Link>
-                    </Button>
-                </span>
-            ),
-        },
-    ];
+   
+    
+    get columns(){
+        return [
+            {
+                title: "Id",
+                dataIndex: "id",
+                key: "id"
+            },
+            {
+                title: "Tên",
+                dataIndex: "name",
+                key: "name",
+            },
+            {
+                title: "Giới tính",
+                dataIndex: "gender",
+                key: "gender",
+            },
+            {
+                title: "Ngày sinh",
+                dataIndex: "birthday",
+                key: "birthday",
+            },
+            {
+                title: "Địa chỉ",
+                key: "address",
+                dataIndex: "address",
+            },
+            {
+                title: "Số điện thoại",
+                key: "phoneNumber",
+                dataIndex: "phoneNumber",
+            },
+            {
+                title: "Lớp",
+                key: "classId",
+                dataIndex: "classId",
+            },
+            {
+                title: 'Chức năng',
+                key: 'action',
+                render: (value) => {
+                    return(
+                        <div>
+                        <Button onClick={() => this.handleUpdateButton(value)}>
+                                Sửa thông tin
+                        </Button>
+                        <Divider type="vertical" />
+                        <Button onClick={() => this.handleEditScoreButton(value)}>
+                                Sửa điểm
+                        </Button>
+                        <Divider type="vertical" />
+                        <Button onClick={this.handleDelteClick}>
+                            <Link>
+                                 Xoá
+                            </Link>
+                        </Button>
+                        </div>
+                        
+                    )
+                }
+            }
+        ];
+    }
+    
     render() {
         return (
             <div>
                 <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
                 <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
-                <UpdateStudentModal 
+                <UpdateStudentModal
+                    student={this.state.student}
+                    classe = {this.state.classe}
                     visible={this.state.visible}
                     handleCancel={this.handleCancelModal}
                     handleSaveSuccess={this.handleSaveStudentSuccess}>        
@@ -83,10 +98,17 @@ export default class StudentTableAdmin extends Component {
             </div>
         );
     }
-    handleUpdateButton(){
+    handleUpdateButton(e){
+        const student = mockDB.getStudentWithId(e.id); 
         this.setState({
-            visible : true
+            student : student
         });
+        console.log('studenet',this.state.student);
+        const classe = mockDB.getClassWithId(this.state.student.classId);
+        this.setState({
+            classe : classe,
+            visible : true
+        })
     }
     handleCancelModal(){
         this.setState({
