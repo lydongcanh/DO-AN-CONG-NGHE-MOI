@@ -1,29 +1,32 @@
 [
     {
         "id": 0,
-        "from": "10/24/2019",
-        "to": "12/24/2019",
+        "startDate": "24/10/2019",
+        "endDate": "24/12/2019",
         "state": "active",
         "subject": "Toán",
-        "teacher": "Lorem ipsum dolor sir amet",
+        "teacherId": 0,
+        "classId": 0,
         "studentId": 0
     },
     {
         "id": 1,
-        "from": "10/24/2019",
-        "to": "12/24/2019",
+        "startDate": "1/9/2019",
+        "endDate": "5/12/2019",
         "state": "active",
         "subject": "Văn",
-        "teacher": "Lorem ipsum dolor sir amet",
+        "teacherId": 0,
+        "classId": 0,
         "studentId": 0
     },
     {
         "id": 2,
-        "from": "10/24/2019",
-        "to": "12/24/2019",
+        "startDate": "3/8/2019",
+        "endDate": "31/12/2020",
         "state": "active",
         "subject": "Anh",
-        "teacher": "Lorem ipsum dolor sir amet",
+        "teacherId": 0,
+        "classId": 0,
         "studentId": 0
     }
 ]

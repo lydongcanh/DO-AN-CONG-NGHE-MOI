@@ -190,5 +190,21 @@
         "value": 6,
         "subject": "Hóa học",
         "scoreboardId": 1
+    },
+    {
+        "id": 12,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 13,
+        "type": "1 tiết",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 1
     }
 ]

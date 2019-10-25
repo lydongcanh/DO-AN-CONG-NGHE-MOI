@@ -8,9 +8,9 @@ export default class MyFooter extends Component {
         return (
             <Footer style={
                 {
-                    position: "relative",
-                    bottom: "0",
-                    width: "100%",
+                    //position: "relative",
+                    //bottom: "0",
+                    //width: "100%",
                     //height: "2.5rem",
                     textAlign: "center",              
                 }}>

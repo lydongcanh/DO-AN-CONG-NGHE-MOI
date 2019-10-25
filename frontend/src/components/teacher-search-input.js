@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Input } from "antd";
 
-import MockDB from "../repository/mock/mockDB";
-const mockDB = new MockDB();
+import mockDB from "../repository/mock/mockDB";
 
 const { Search } = Input;
  

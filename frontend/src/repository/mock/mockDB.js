@@ -1,12 +1,12 @@
 import accountsFile from "./accounts.json";
-import classesFile from "./accounts.json";
+import classesFile from "./classes.json";
 import schedulesFile from "./schedules.json";
 import scoresFile from "./scores.json";
 import studentsFile from "./students.json";
 import teachersFile from "./teachers.json";
 import scoreboardsFile from "./scoreboards.json";
 
-export default class MockDB {
+class MockDB {
 
     constructor() {
         this.accounts = accountsFile;
@@ -18,15 +18,33 @@ export default class MockDB {
         this.scoreboards = scoreboardsFile;
     }
 
-    getStudentScoreboards(studentId) {
-        return this.scoreboards.filter(scoreboard => {
-            return scoreboard.studentId == studentId;
-        });  
-    }
-
     getScores(scoreboardId) {
         return this.scores.filter(score => {
             return score.scoreboardId == scoreboardId;
+        });
+    }
+
+    getClassWithGrade(grade) {
+        return this.classes.filter(obj => {
+            return obj.grade == grade;
+        });
+    }
+
+    getAccount(username, password) {
+        return this.accounts.find(obj => {
+            return obj.username == username && obj.password == password
+        });
+    }
+
+    getAccountWithUsername(username) {
+        return this.accounts.find(account => {
+            return account.username == username;
+        });
+    }
+
+    getTeacherWithId(teacherId) {
+        return this.teachers.find(teacher => {
+            return teacher.id == teacherId;
         });
     }
 
@@ -34,6 +52,49 @@ export default class MockDB {
         return this.teachers.filter(teacher => {
             return teacher.name.includes(name);
         });
+    }
+
+    getTeacherSchedules(teacherId) {
+        return this.schedules.filter(schedule => {
+            return schedule.teacherId == teacherId;
+        });
+    }
+
+    getTeacherClasses(teacherId) {
+        let schedules = this.getTeacherSchedules(teacherId);
+        if (!schedules || schedules.length < 1)
+            return [];
+
+        let classes = [];
+        for(let i = 0; i < schedules.length; i++) {
+            classes.push(this.getClassWithId(schedules[i].classId));
+        }
+
+        console.log("classes", classes);
+
+        return classes;
+    }
+
+    getClassWithId(classId) {
+        return this.classes.find(c => {
+            return c.id == classId;
+        });
+    }
+
+    getStudentWithId(studentId) {
+        return this.students.find(student => student.id == studentId);
+    }
+
+    getStudentInClass(classId) {
+        return this.students.filter(obj => {
+            return obj.classId == classId;
+        });
+    }
+
+    getStudentScoreboards(studentId) {
+        return this.scoreboards.filter(scoreboard => {
+            return scoreboard.studentId == studentId;
+        });  
     }
 
     getStudentSchedules(studentId) {
@@ -48,20 +109,8 @@ export default class MockDB {
         });
     }
 
-    getClassWithGrade(grade) {
-        return this.classes.filter(obj => {
-            return obj.grade == grade;
-        });
-    }
-
-    getAllStudents() {
+    getStudents() {
         return this.students;
-    }
-
-    getStudentInClass(classId) {
-        return this.students.filter(obj => {
-            return obj.classId == classId;
-        });
     }
 
     getStudentWithName(name) {
@@ -69,10 +118,7 @@ export default class MockDB {
             return student.name.includes(name);
         });
     }
-
-    getAccount(username, password) {
-        return this.accounts.find(obj => {
-            return obj.username == username && obj.password == password
-        });
-    }
 }
+
+const mockDB = new MockDB();
+export default mockDB;

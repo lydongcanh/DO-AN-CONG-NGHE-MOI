@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Tabs } from "antd";
 import Scoreboard from "../../components/scoreboard";
 
-import MockDB from "../../repository/mock/mockDB";
-const mockDB = new MockDB();
+import mockDB from "../../repository/mock/mockDB";
 
 const { TabPane } = Tabs;
 

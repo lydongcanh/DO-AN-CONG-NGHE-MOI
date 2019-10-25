@@ -23,7 +23,7 @@ export default class App extends Component {
                 <Header/><br/>
                 <Content style={{ 
                                     textAlign: "center", 
-                                    height: "100vh",
+                                    height: "150vh",
                                     padding: "0 50px"
                                 }}>
                     <Switch>

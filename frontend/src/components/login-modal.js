@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, Input, Modal, Icon } from "antd";
 
-import MockDB from "../repository/mock/mockDB";
-const mockDB = new MockDB();
+import mockDB from "../repository/mock/mockDB";
 
 /**
  * [Required props: handleCancel, handleLoginSuccess, visible]
@@ -13,7 +12,7 @@ export default class LoginModal extends Component {
 
         this.state = {
             visible: false,
-            username: "admin1",
+            username: "teacher1",
             password: "123",
         }
 

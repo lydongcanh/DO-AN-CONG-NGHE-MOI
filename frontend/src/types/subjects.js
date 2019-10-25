@@ -1,4 +1,4 @@
-let subjects = [
+const subjects = [
     "Toán học",
     "Vật lý",
     "Hóa học",
