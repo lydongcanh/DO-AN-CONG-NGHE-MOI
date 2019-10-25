@@ -185,7 +185,7 @@ export default class MyHeader extends Component {
     render() {
         return (
             <Affix offsetTop={0}>
-                <Header style={{height: "8vh"}}>
+                <Header>
                     <Row justify="space-between">
                         {this.featuresPanel}
                         <Col span={8} style={{ textAlign: "end" }}>
