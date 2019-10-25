@@ -6,6 +6,24 @@
         "teacherId": 0
     },
     {
+        "username": "doanvanhau",
+        "password": "doanvanhau",
+        "type": "teacher",
+        "teacherId": 1
+    },
+    {
+        "username": "minayoung",
+        "password": "minayoung",
+        "type": "teacher",
+        "teacherId": 2
+    },
+    {
+        "username": "thanhvan2k",
+        "password": "thanhvan2k",
+        "type": "teacher",
+        "teacherId": 3
+    },
+    {
         "username": "admin1",
         "password": "123",
         "type": "admin"

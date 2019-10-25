@@ -1,22 +1,42 @@
 [
     {
         "id": 0,
-        "name": "Trần Văn A",
+        "name": "Nguyễn Văn Trung",
         "gender": "Nam",
-        "birthday": "10/24/1998",
-        "address": "Lorem ipsum dolor sir amet",
-        "email": "email@email.com",
-        "phoneNumber": "0123456789",
-        "state": "active"
+        "birthday": "10/10/1993",
+        "address": "12 Nguyễn Văn Bảo , Gò Vấp, TPHCM",
+        "email": "thayba@gmail.com.vn",
+        "phoneNumber": "01286826582",
+        "state": "Đang dạy"
     },
     {
         "id": 1,
-        "name": "Nguyễn Thị A",
+        "name": "Đoàn Văn Hậu",
         "gender": "Nữ",
-        "birthday": "11/24/1998",
-        "address": "Lorem ipsum dolor sir amet",
-        "email": "email@email.com",
-        "phoneNumber": "9876543210",
-        "state": "active"
+        "birthday": "11/12/1988",
+        "address": "25 Nguyễn Kim, Phú Nhuận, TPHCM",
+        "email": "football@email.com",
+        "phoneNumber": "0982378434",
+        "state": "Đang dạy"
+    },
+    {
+        "id": 2,
+        "name": "Nguyễn Hà My",
+        "gender": "Nữ",
+        "birthday": "10/10/1995",
+        "address": "125 Lê Thị Minh Khai , Quận 1, TPHCM",
+        "email": "minayoung@gmail.com.vn",
+        "phoneNumber": "0358225682",
+        "state": "Đang dạy"
+    },
+    {
+        "id": 3,
+        "name": "Võ Thị Thanh Vân",
+        "gender": "Nữ",
+        "birthday": "03/03/1986",
+        "address": "25 Đoàn Văn Lân, Quận 9, TPHCM",
+        "email": "vttvan@gmail.com",
+        "phoneNumber": "098233536",
+        "state": "Đang dạy"
     }
 ]

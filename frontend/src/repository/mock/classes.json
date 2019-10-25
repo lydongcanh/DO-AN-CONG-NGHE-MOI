@@ -3,7 +3,7 @@
         "id": 0,
         "name": "10A",
         "grade": 10,
-        "state": "active",
+        "state": "Đang hoạt động",
         "startYear": 2019,
         "endYear": 2020
     },
@@ -11,39 +11,135 @@
         "id": 1,
         "name": "10B",
         "grade": 10,
-        "state": "active",
+        "state": "Đang hoạt động",
         "startYear": 2019,
         "endYear": 2020
     },
     {
         "id": 2,
-        "name": "11A",
-        "grade": 11,
-        "state": "active",
+        "name": "10C",
+        "grade": 10,
+        "state": "Đang hoạt động",
         "startYear": 2019,
         "endYear": 2020
     },
     {
         "id": 3,
-        "name": "11B",
-        "grade": 11,
-        "state": "active",
+        "name": "10D",
+        "grade": 10,
+        "state": "Đang hoạt động",
         "startYear": 2019,
         "endYear": 2020
     },
     {
         "id": 4,
-        "name": "12A",
-        "grade": 12,
-        "state": "active",
+        "name": "10E",
+        "grade": 10,
+        "state": "Đang hoạt động",
         "startYear": 2019,
         "endYear": 2020
     },
     {
         "id": 5,
+        "name": "10F",
+        "grade": 10,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 6,
+        "name": "11A",
+        "grade": 11,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 7,
+        "name": "11B",
+        "grade": 11,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 8,
+        "name": "11C",
+        "grade": 11,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 9,
+        "name": "11D",
+        "grade": 11,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 10,
+        "name": "11E",
+        "grade": 11,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 11,
+        "name": "11F",
+        "grade": 11,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 12,
+        "name": "12A",
+        "grade": 12,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 13,
         "name": "12B",
         "grade": 12,
-        "state": "active",
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 14,
+        "name": "12C",
+        "grade": 12,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 15,
+        "name": "12D",
+        "grade": 12,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 16,
+        "name": "12E",
+        "grade": 12,
+        "state": "Đang hoạt động",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 17,
+        "name": "12F",
+        "grade": 12,
+        "state": "Đang hoạt động",
         "startYear": 2019,
         "endYear": 2020
     }
