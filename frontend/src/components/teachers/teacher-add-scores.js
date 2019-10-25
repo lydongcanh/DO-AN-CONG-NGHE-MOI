@@ -13,10 +13,20 @@ export default class TeacherAddScores extends Component {
     get columns() {
         let result = [
             {
+                title: "TT",
+                dataIndex: "id",
+                key: "id"
+            },
+            {
                 title: "Tên",
                 dataIndex: "studentName",
                 key: "studentName"
             },
+            {
+                title: "Ngày sinh",
+                dataIndex: "studentBirthday",
+                key: "studentBirthday"
+            }
         ];
 
         for(let i = 0; i < scoreTypes.length; i++) {
@@ -65,7 +75,9 @@ export default class TeacherAddScores extends Component {
         for(let i = 0; i < students.length; i++) {
             const student = students[i];
             let item = {
+                id: i + 1,
                 studentName: student.name,
+                studentBirthday: student.birthday,
             }
             
             for(let j = 0; j < scoreTypes.length; j++) {
@@ -80,7 +92,7 @@ export default class TeacherAddScores extends Component {
     }
 
     handleInsertScoreButton(type, index) {
-        // TODO: Insert student score...
+        // TODO: Insert student score...ant-card-contain-grid
         console.log("insert", type, this.props.students[index]);
     }
 
@@ -99,7 +111,7 @@ export default class TeacherAddScores extends Component {
     render() {
         return (
             <Table
-                rowKey={record => record.studentName.valueOf()}
+                rowKey={record => record.id}
                 bordered
                 columns={this.columns}
                 dataSource={this.dataSource}
