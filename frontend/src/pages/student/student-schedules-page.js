@@ -26,6 +26,8 @@ export default class StudentSchedulesPage extends Component {
         if (!this.state.student)
             return <h3>Thông tin học sinh không hơp lệ.</h3>
         
-        return <TimeTable/>
+        return ( 
+            <TimeTable getSchedules={(from, to) => mockDB.getStudentSchedulesInRange(this.state.student.id, from, to)}/>
+        );
     }
 }
