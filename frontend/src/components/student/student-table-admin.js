@@ -1,12 +1,19 @@
 import React, { Component } from "react";
 import { Divider, Table, Button } from "antd";
 import { Link } from "react-router-dom";
+import UpdateStudentModal from "../../components/student/student-update"
+import mockDB from "../../repository/mock/mockDB";
 
 export default class StudentTableAdmin extends Component {
     constructor(props){
         super(props);
+        this.state = {
+            visible : false
+        }
         this.handleDelteClick = this.handleDelteClick.bind(this);
-        
+        this.handleUpdateButton = this.handleUpdateButton.bind(this);
+        this.handleCancelModal = this.handleCancelModal.bind(this);
+        this.handleSaveStudentSuccess = this.handleSaveStudentSuccess.bind(this);
     }
     columns = [
         {
@@ -44,10 +51,8 @@ export default class StudentTableAdmin extends Component {
             key: 'action',
             render: (text, record) => (
                 <span>
-                    <Button>
-                        <Link to={`/admin/studentupdate/${record.id}`}>
+                    <Button onClick={this.handleUpdateButton}>
                             Sửa thông tin
-                        </Link>
                     </Button>
                     <Divider type="vertical" />
                     <Button>
@@ -70,8 +75,28 @@ export default class StudentTableAdmin extends Component {
             <div>
                 <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
                 <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
+                <UpdateStudentModal 
+                    visible={this.state.visible}
+                    handleCancel={this.handleCancelModal}
+                    handleSaveSuccess={this.handleSaveStudentSuccess}>        
+                </UpdateStudentModal>
             </div>
         );
+    }
+    handleUpdateButton(){
+        this.setState({
+            visible : true
+        });
+    }
+    handleCancelModal(){
+        this.setState({
+            visible : false
+        });
+    }
+    handleSaveStudentSuccess(){
+        this.setState({
+            visible : false
+        });
     }
     handleDelteClick(e){
         // Xoa hoc sinh
