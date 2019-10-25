@@ -10,7 +10,6 @@ import scoreboardRouter from "./routes/scoreboard-router";
 import scoreRouter from "./routes/score-router";
 import studentRouter from "./routes/student-router";
 import studyclassRouter from "./routes/studyclass-router";
-import subjectRouter from "./routes/subject-router";
 import teacherRouter from "./routes/teacher-router";
 
 const app = express();
@@ -28,7 +27,6 @@ app.use("/scoreboards", scoreboardRouter);
 app.use("/scores", scoreRouter);
 app.use("/students", studentRouter);
 app.use("/studyclasses", studyclassRouter);
-app.use("/subjects", subjectRouter);
 app.use("/teachers", teacherRouter);
 
 export default app;
