@@ -1,210 +1,6402 @@
 [
     {
-        "id": 0,
+        "id": "b2961f60-f709-11e9-8238-013b3c81c7c1",
         "type": "15 phút",
-        "value": 8,
+        "value": 5,
         "multiplier": 1,
-        "subject": "Toán học",
+        "subject": "Vật lý",
         "scoreboardId": 0
     },
     {
-        "id": 1,
+        "id": "b2964670-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964671-f709-11e9-8238-013b3c81c7c1",
         "type": "1 tiết",
+        "value": 9,
         "multiplier": 2,
-        "value": 8,
-        "subject": "Toán học",
+        "subject": "Sinh học",
         "scoreboardId": 0
     },
     {
-        "id": 2,
-        "type": "15 phút",
-        "value": 7,
-        "multiplier": 1,
-        "subject": "Văn học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 3,
-        "type": "Giữa kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Văn học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 4,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Văn học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 5,
-        "type": "15 phút",
-        "value": 8,
-        "multiplier": 1,
-        "subject": "Toán học",
-        "scoreboardId": 1
-    },
-    {
-        "id": 6,
-        "type": "1 tiết",
-        "multiplier": 2,
-        "value": 8,
-        "subject": "Toán học",
-        "scoreboardId": 1
-    },
-    {
-        "id": 7,
-        "type": "15 phút",
-        "value": 7,
-        "multiplier": 1,
-        "subject": "Văn học",
-        "scoreboardId": 1
-    },
-    {
-        "id": 8,
-        "type": "Giữa kì",
+        "id": "b2964672-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
         "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964673-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964674-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964675-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964676-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964677-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964678-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964679-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296467a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296467b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296467c-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296467d-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296467e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296467f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964680-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964681-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964682-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
         "value": 6,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964683-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964684-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964685-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964686-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964687-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964688-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2964689-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296468a-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296468b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296468c-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296468d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296468e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d80-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d81-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d82-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d83-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d84-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d85-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d86-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d87-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d88-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d89-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d8a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d8b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d8c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d8d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d8e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d8f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d90-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d91-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d92-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d93-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d94-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d95-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d96-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d97-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d98-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d99-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d9a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d9b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d9c-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d9d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d9e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966d9f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da4-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da7-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da8-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966da9-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966daa-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dab-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dac-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dad-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dae-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966daf-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db1-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db2-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db3-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966db9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dba-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dbb-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dbc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dbd-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dbe-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dbf-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc0-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc1-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc6-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dc9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dca-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dcb-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dcc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dcd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dce-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dcf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd0-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd5-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dd9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dda-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966ddb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966ddc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966ddd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966dde-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966ddf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966de0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966de1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966de2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966de3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966de4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2966de5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969490-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969491-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969492-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969493-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969494-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969495-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969496-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969497-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969498-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b2969499-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296949a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296949b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296949c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296949d-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296949e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b296949f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694a9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694aa-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ab-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ac-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ad-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ae-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694af-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b5-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694b9-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ba-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694bb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694bc-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694bd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694be-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694bf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c5-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694c9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ca-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694cb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694cc-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694cd-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694ce-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694cf-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694d0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694d1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 0
+    },
+    {
+        "id": "b29694d2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d5-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d6-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d7-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694d9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694da-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694db-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694dc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694dd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
         "subject": "Văn học",
         "scoreboardId": 1
     },
     {
-        "id": 9,
-        "type": "Cuối kì",
+        "id": "b29694de-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
         "multiplier": 2,
-        "value": 6,
-        "subject": "Văn học",
+        "subject": "Công nghệ",
         "scoreboardId": 1
     },
     {
-        "id": 10,
-        "type": "Cuối kì",
+        "id": "b29694df-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
         "multiplier": 2,
-        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694e0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694e1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694e2-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
         "subject": "Vật lý",
         "scoreboardId": 1
     },
     {
-        "id": 11,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Hóa học",
-        "scoreboardId": 1
-    },
-    {
-        "id": 12,
-        "type": "15 phút",
-        "value": 8,
-        "multiplier": 1,
-        "subject": "Toán học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 13,
+        "id": "b29694e3-f709-11e9-8238-013b3c81c7c1",
         "type": "1 tiết",
+        "value": 4,
         "multiplier": 2,
-        "value": 8,
-        "subject": "Toán học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 14,
-        "type": "15 phút",
-        "value": 7,
-        "multiplier": 1,
-        "subject": "Văn học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 15,
-        "type": "Giữa kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Văn học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 16,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Văn học",
-        "scoreboardId": 0
-    },
-    {
-        "id": 17,
-        "type": "15 phút",
-        "value": 8,
-        "multiplier": 1,
-        "subject": "Toán học",
+        "subject": "Ngoại ngữ",
         "scoreboardId": 1
     },
     {
-        "id": 18,
-        "type": "1 tiết",
-        "multiplier": 2,
-        "value": 8,
-        "subject": "Toán học",
-        "scoreboardId": 1
-    },
-    {
-        "id": 19,
+        "id": "b29694e4-f709-11e9-8238-013b3c81c7c1",
         "type": "15 phút",
-        "value": 7,
+        "value": 8,
         "multiplier": 1,
-        "subject": "Văn học",
+        "subject": "Ngoại ngữ",
         "scoreboardId": 1
     },
     {
-        "id": 8,
-        "type": "Giữa kì",
+        "id": "b29694e5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694e6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
         "multiplier": 3,
-        "value": 6,
-        "subject": "Văn học",
+        "subject": "Lịch sử",
         "scoreboardId": 1
     },
     {
-        "id": 9,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Văn học",
-        "scoreboardId": 1
-    },
-    {
-        "id": 10,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
+        "id": "b29694e7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
         "subject": "Vật lý",
         "scoreboardId": 1
     },
     {
-        "id": 11,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Hóa học",
+        "id": "b29694e8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Tin học",
         "scoreboardId": 1
     },
     {
-        "id": 12,
-        "type": "Cuối kì",
-        "multiplier": 2,
-        "value": 6,
-        "subject": "Hóa học",
-        "scoreboardId": 0
+        "id": "b29694e9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
     },
     {
-        "id": 13,
+        "id": "b29694ea-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694eb-f709-11e9-8238-013b3c81c7c1",
         "type": "1 tiết",
+        "value": 10,
         "multiplier": 2,
-        "value": 6,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694ec-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694ed-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694ee-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694ef-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694f0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694f1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694f2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29694f3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
         "subject": "Hóa học",
         "scoreboardId": 1
+    },
+    {
+        "id": "b29694f4-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba2-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba4-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba6-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba7-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bba9-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbaa-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbab-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbac-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbad-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbae-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbaf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb1-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb5-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb6-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbb9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbba-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbbb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbbc-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbbd-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbbe-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbbf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc3-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbc9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbca-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbcb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbcc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbcd-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbce-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbcf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd1-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbd9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbda-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbdb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbdc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbdd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbde-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbdf-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe5-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe7-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbe9-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbea-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbeb-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbec-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbed-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbee-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbef-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbf9-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbfa-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbfb-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbfc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296bbfd-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b2-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b6-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2b9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2ba-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2bb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2bc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2bd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2be-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2bf-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c2-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2c9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2ca-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2cb-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2cc-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2cd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2ce-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2cf-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d3-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d5-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d7-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2d9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2da-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2db-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2dc-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2dd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2de-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2df-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2e9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b296e2ea-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d5-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730d9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730da-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730db-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 1
+    },
+    {
+        "id": "b29730dc-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730dd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730de-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730df-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e1-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730e9-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730ea-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730eb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730ec-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730ed-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730ee-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730ef-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f0-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f5-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730f9-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730fa-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730fb-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730fc-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730fd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730fe-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29730ff-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973100-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973101-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973102-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973103-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973104-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973105-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973106-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2973107-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e1-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e2-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e3-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e4-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e5-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757e9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757ea-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757eb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757ec-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757ed-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757ee-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757ef-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f0-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f1-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f4-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f6-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f7-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f8-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757f9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757fa-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757fb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757fc-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757fd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757fe-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b29757ff-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2975800-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2975801-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2975802-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2975803-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2975804-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2975805-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef0-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef1-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef2-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef3-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef4-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef5-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef6-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef7-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef8-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977ef9-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977efa-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977efb-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977efc-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977efd-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977efe-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977eff-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f00-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f01-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f02-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f03-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f04-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f05-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f06-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f07-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f08-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f09-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f0a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f0b-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f0c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f0d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f0e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f0f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f10-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f11-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f12-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f13-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f14-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f15-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f16-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f17-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f18-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f19-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f1a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f1b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f1c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f1d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f1e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f1f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f20-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f21-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f22-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f23-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f24-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f25-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f26-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f27-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f28-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f29-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f2a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f2b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f2c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f2d-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f2e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f2f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f30-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f31-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f32-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f33-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f34-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f35-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f36-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f37-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f38-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f39-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f3a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f3b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f3c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f3d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f3e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f3f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f40-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f41-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f42-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f43-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f44-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f45-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f46-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f47-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f48-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f49-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f4a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f4b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f4c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f4d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b2977f4e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a600-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a601-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a602-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a603-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a604-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a605-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a606-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a607-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a608-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a609-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a60a-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a60b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a60c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a60d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a60e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a60f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a610-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a611-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a612-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a613-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a614-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a615-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a616-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 2
+    },
+    {
+        "id": "b297a617-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a618-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a619-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a61a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a61b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a61c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a61d-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a61e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a61f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a620-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a621-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a622-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a623-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a624-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a625-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a626-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a627-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a628-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a629-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a62a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a62b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a62c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a62d-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a62e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a62f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a630-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a631-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a632-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a633-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a634-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a635-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 6,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a636-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a637-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a638-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a639-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a63a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a63b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a63c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a63d-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a63e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a63f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a640-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a641-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a642-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b297a643-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b30-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b31-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b32-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b33-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b34-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b35-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b36-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b37-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b38-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b39-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b3a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b3b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b3c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b3d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b3e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b3f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b40-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 2,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b41-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b42-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b43-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b44-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b45-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b46-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b47-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b48-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b49-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b4a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b4b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b4c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b4d-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b4e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b4f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b50-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b51-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b52-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b53-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b54-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b55-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b56-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b57-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b58-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b59-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 3,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b5a-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b5b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b5c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b5d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b5e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b5f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b60-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b61-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b62-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b63-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b64-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b65-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 0,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b66-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b67-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b68-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b69-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b6a-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b6b-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b6c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b6d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b6e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b6f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b70-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b71-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b72-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b73-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b74-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b75-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b76-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b77-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b78-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b79-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b7a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b7b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b7c-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 5,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b7d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 1,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b7e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b7f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b80-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b81-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b82-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b83-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b84-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b85-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b86-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 3,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b87-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b88-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b89-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b8a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b8b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 0,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b8c-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b8d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b8e-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b8f-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 0,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b90-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b91-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 1,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b92-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b93-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 4,
+        "multiplier": 3,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b94-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b95-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b96-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b97-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2981b98-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 5,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984240-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984241-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Lịch sử",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984242-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984243-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984244-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984245-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 10,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984246-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984247-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984248-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984249-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298424a-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 10,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298424b-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298424c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298424d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298424e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298424f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984250-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984251-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 4,
+        "multiplier": 2,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984252-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984253-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984254-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 3,
+        "multiplier": 2,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984255-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984256-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "GDQP-AN",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984257-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984258-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984259-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298425a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298425b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298425c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 6,
+        "multiplier": 2,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298425d-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Vật lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298425e-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298425f-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984260-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984261-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 2,
+        "multiplier": 2,
+        "subject": "Tin học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984262-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 8,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984263-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 7,
+        "multiplier": 2,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984264-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Địa lý",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984265-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 9,
+        "multiplier": 3,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984266-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 5,
+        "multiplier": 1,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984267-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 10,
+        "multiplier": 3,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984268-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 6,
+        "multiplier": 1,
+        "subject": "GDCD",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984269-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 8,
+        "multiplier": 3,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298426a-f709-11e9-8238-013b3c81c7c1",
+        "type": "Giữa kỳ",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Toán học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298426b-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 7,
+        "multiplier": 3,
+        "subject": "Văn học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298426c-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 1,
+        "multiplier": 2,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298426d-f709-11e9-8238-013b3c81c7c1",
+        "type": "1 tiết",
+        "value": 9,
+        "multiplier": 2,
+        "subject": "Hóa học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298426e-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Sinh học",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b298426f-f709-11e9-8238-013b3c81c7c1",
+        "type": "Cuối kỳ",
+        "value": 2,
+        "multiplier": 3,
+        "subject": "Thể dục",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984270-f709-11e9-8238-013b3c81c7c1",
+        "type": "15 phút",
+        "value": 9,
+        "multiplier": 1,
+        "subject": "Ngoại ngữ",
+        "scoreboardId": 3
+    },
+    {
+        "id": "b2984271-f709-11e9-8238-013b3c81c7c1",
+        "type": "Kiểm tra miệng",
+        "value": 4,
+        "multiplier": 1,
+        "subject": "Công nghệ",
+        "scoreboardId": 3
     }
 ]
