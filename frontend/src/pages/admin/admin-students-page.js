@@ -21,11 +21,12 @@ export default class AdminStudentsPage extends Component {
                         <Col span={21}>
                             <StudentSearchInput onSearchStudent={this.handleSearchedStudent} onSearchClass={this.handleSearchedStudent}/>     
                         </Col>
-                        <Col span={3}>
+                        <Col span={2}>
                             <NewButton></NewButton>
                         </Col>
                     </Row>
                 </div>
+                <br/>
                 <div>
                     <StudentTableAdmin students={this.state.searchedStudent}></StudentTableAdmin> 
                 </div>
