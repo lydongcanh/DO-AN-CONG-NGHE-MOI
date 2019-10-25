@@ -1,3 +1,4 @@
 # DO-AN-CONG-NGHE-MOI
 Đồ án môn công nghệ mới.
-#muahahahahaha
+#Install format ngay dum tui.
+npm install moment --save
