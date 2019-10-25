@@ -1,11 +1,11 @@
 import express from "express";
-import { TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
+import { SSS_TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
 import uuidv1 from "uuid/v1";
 import Student from "../entities/student";
 import StudentAdapter from "../use_cases/students/student-adapter";
 
 const router = express.Router();
-const studentAdapter = new StudentAdapter(TABLE_NAME, REGION, ENDPOINT);
+const studentAdapter = new StudentAdapter(SSS_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
     const {classId, studentName} = request.query;

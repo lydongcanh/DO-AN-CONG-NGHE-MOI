@@ -1,11 +1,11 @@
 import express from "express";
 import uuidv1 from "uuid/v1";
-import { TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
+import { ATSC_TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
 import Schedule from "../entities/schedule";
 import ScheduleAdapter from "../use_cases/schedules/schedule-adapter";
 
 const router = express.Router();
-const scheduleAdapter = new ScheduleAdapter(TABLE_NAME, REGION, ENDPOINT);
+const scheduleAdapter = new ScheduleAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
     const {teacherId, studyclassId} = request.query;
