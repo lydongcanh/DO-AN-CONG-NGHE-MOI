@@ -8,23 +8,22 @@ export default class TeacherSchedulesPage extends Component {
         super(props);
 
         this.state = {
-            schedules: []
+            teacherId: ""
         }
     }
 
     componentDidMount() {
         const { match: { params } } = this.props;
         const account = mockDB.getAccountWithUsername(params.username);
-        const schedules = mockDB.getTeacherSchedules(account.teacherId);
 
         this.setState({
-            schedules: schedules
+            teacherId: account.teacherId
         })
     }
 
     render() {
         return (
-            <TimeTable />
+            <TimeTable getSchedules={(from, to) => mockDB.getTeacherSchedulesInRange(this.state.teacherId, from, to)}/>
         );
     }
 }

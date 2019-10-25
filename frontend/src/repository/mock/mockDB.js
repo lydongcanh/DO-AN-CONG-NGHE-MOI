@@ -60,6 +60,20 @@ class MockDB {
         });
     }
 
+    getTeacherSchedulesInRange(teacherId, from, to) {
+        let allSchedules = this.getTeacherSchedules(teacherId);
+        if (!allSchedules || allSchedules.length < 1)
+            return [];
+
+        return allSchedules.filter(schedule => {
+            const startDate = new Date(schedule.startDate);
+            const endDate = new Date(schedule.endDate);
+
+            return startDate.valueOf() <= from.valueOf() &&
+                   endDate.valueOf() >= to.valueOf();
+        });
+    }
+
     getTeacherClasses(teacherId) {
         let schedules = this.getTeacherSchedules(teacherId);
         if (!schedules || schedules.length < 1)
@@ -69,8 +83,6 @@ class MockDB {
         for(let i = 0; i < schedules.length; i++) {
             classes.push(this.getClassWithId(schedules[i].classId));
         }
-
-        console.log("classes", classes);
 
         return classes;
     }
@@ -101,6 +113,20 @@ class MockDB {
         return this.schedules.filter(schedule => {
             return schedule.studentId == studentId;
         })
+    }
+
+    getStudentSchedulesInRange(studentId, from, to) {
+        let allSchedules = this.getStudentSchedules(studentId);
+        if (!allSchedules || allSchedules.length < 1)
+            return [];
+
+        return allSchedules.filter(schedule => {
+            const startDate = new Date(schedule.startDate);
+            const endDate = new Date(schedule.endDate);
+
+            return startDate.valueOf() <= from.valueOf() &&
+                   endDate.valueOf() >= to.valueOf();
+        });
     }
 
     getStudentScores(studentId) {
