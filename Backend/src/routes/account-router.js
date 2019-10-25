@@ -9,8 +9,7 @@ const accountAdapter = new AccountAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.post("/", async (request, response, _) => {
     const {username, password, type} = request.body;
-    const id = uuidv1();
-    const account = new Account(id, username, password, type);
+    const account = new Account(username, password, type);
     const result = await accountAdapter.createAccount(account);
     response.send(result);
 });
