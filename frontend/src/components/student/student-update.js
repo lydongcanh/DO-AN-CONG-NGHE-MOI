@@ -7,7 +7,7 @@ export default class UpdateStudent extends Component{
         super(props);
         this.state={
             student: {},
-            classes: {},
+            classes: [],
             value : 1,
             gradeDropdownText: "Chọn khối",
             classDropdownText: "Chọn lớp",
@@ -68,7 +68,7 @@ export default class UpdateStudent extends Component{
             this.state.value = 1 
         }else this.state.value = 2 
         //set value grade,classname for dropdown button
-        console.log('a',this.state.student.id);
+        console.log('a',this.state.classes.grade);
         return(
             <div>
                 <Row gutter={48} style={{textAlign: "left"}}>

@@ -145,8 +145,8 @@ class MockDB {
         });
     }
     getClassesWithStudentId(studentId){
-        return this.classes.filter(classes =>{
-            return classes.studentId = studentId;
+        return this.classes.find(classes =>{
+            return classes.studentId == studentId;
         });
     }
     
