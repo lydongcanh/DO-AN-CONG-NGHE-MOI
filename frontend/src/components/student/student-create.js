@@ -1,7 +1,6 @@
 import React , {Component} from "react";
 import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker} from "antd";
-import MockDB from "../../repository/mock/mockDB";
-const mockDB = new MockDB();
+import mockDB from "../../repository/mock/mockDB";
 
 export default class CreateStudent extends Component{
     constructor(props){

@@ -118,6 +118,12 @@ class MockDB {
             return student.name.includes(name);
         });
     }
+    getClassesWithStudentId(studentId){
+        return this.classes.filter(classes =>{
+            return classes.studentId = studentId;
+        });
+    }
+    
 }
 
 const mockDB = new MockDB();
