@@ -1,11 +1,12 @@
 import React , {Component} from "react";
-import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker} from "antd";
+import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
 import mockDB from "../../repository/mock/mockDB";
 
 export default class CreateStudent extends Component{
     constructor(props){
         super(props);
         this.state={
+            visible: false,
             classes: [],
             value : 1,
             gradeDropdownText: "Chọn khối",
@@ -49,48 +50,49 @@ export default class CreateStudent extends Component{
     }
     render(){
         return(
-            <div>
-                <Row gutter={48}>
-                    <Col span={8}></Col>
-                    <Col span={8} >
-                        <Form style={{textAlign:"left" }} >
-                            <h2>Thêm học sinh</h2>
-                                <Form.Item>
-                                    <Input placeholder="Tên"></Input>
-                                </Form.Item>
-                                <Form.Item >
-                                    <Radio.Group onChange={this.onChange} value={this.state.value}>
-                                        <Radio value={1}>Nam</Radio>
-                                        <Radio value={2}>Nữ</Radio>
-                                    </Radio.Group>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Input placeholder="Địa chỉ"></Input>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Input placeholder="Số điện thoại"></Input>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Dropdown overlay={this.gradeMenu}>
-                                        <Button>
-                                            {this.state.gradeDropdownText} <Icon type="down"/>
-                                        </Button>
-                                    </Dropdown>
-                                    <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
-                                        <Button>
-                                            {this.state.classDropdownText} <Icon type="down"/>
-                                        </Button>
-                                    </Dropdown>
-                                </Form.Item>
-                                <Form.Item>
-                                    <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
-                                </Form.Item>
-                            <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
-                        </Form>
-                    </Col>
-                    <Col span={8}></Col>
-                </Row>
-            </div>
+            <Modal
+                visible={this.props.visible}
+                onCancel={this.props.handleCancel}
+                header={null}
+                footer={null}
+                width="40%">
+                <div>
+                    <Form style={{textAlign:"left" }} >
+                        <h2>Thêm học sinh</h2>
+                            <Form.Item>
+                                <Input placeholder="Tên"></Input>
+                            </Form.Item>
+                            <Form.Item >
+                                <Radio.Group onChange={this.onChange} value={this.state.value}>
+                                    <Radio value={1}>Nam</Radio>
+                                    <Radio value={2}>Nữ</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item>
+                            <Input placeholder="Địa chỉ"></Input>
+                            </Form.Item>
+                            <Form.Item>
+                                <Input placeholder="Số điện thoại"></Input>
+                            </Form.Item>
+                            <Form.Item>
+                                <Dropdown overlay={this.gradeMenu}>
+                                    <Button>
+                                        {this.state.gradeDropdownText} <Icon type="down"/>
+                                    </Button>
+                                </Dropdown>
+                                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
+                                     <Button>
+                                        {this.state.classDropdownText} <Icon type="down"/>
+                                    </Button>
+                                </Dropdown>
+                            </Form.Item>
+                            <Form.Item>
+                                <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
+                            </Form.Item>
+                        <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                    </Form>
+                </div>
+            </Modal>
         )
     }
     onChange(e){
@@ -115,5 +117,6 @@ export default class CreateStudent extends Component{
     }
     handleSaveClick(e){
         //luu du lieu
+        this.props.handleSaveSuccess();
     }
 }

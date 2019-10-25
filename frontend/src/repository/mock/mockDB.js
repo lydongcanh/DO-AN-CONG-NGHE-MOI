@@ -144,11 +144,6 @@ class MockDB {
             return student.name.includes(name);
         });
     }
-    getClassesWithStudentId(studentId){
-        return this.classes.find(classes =>{
-            return classes.studentId == studentId;
-        });
-    }
     
 }
 
