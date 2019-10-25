@@ -49,11 +49,7 @@ export default class TeacherScoresPage extends Component {
                 title: "Chức năng",
                 render: (value) => {
                     return (
-                        <span>
-                            <Button type="primary" onClick={() => this.handleInsertScoreButton(value)}>Xem điểm</Button>
-                            <Divider type="vertical" />
-                            <Button type="primary">Nhập điểm</Button>
-                        </span>
+                        <Button type="primary" onClick={() => this.handleInsertScoreButton(value)}>Nhập điểm</Button>
                     );
                 }
             }
