@@ -3,63 +3,80 @@ import { Tag, Divider, Table, Button } from "antd";
 import { Link } from "react-router-dom";
 
 export default class StudentTable extends Component {
-    columns = [
-        {
-            title: "Id",
-            dataIndex: "id",
-            key: "key"
-        },
-        {
-            title: "Tên",
-            dataIndex: "name",
-            key: "name"
-        },
-        {
-            title: "Giới tính",
-            dataIndex: "gender",
-            key: "gender",
-            render: gender => {
-                return (
-                    <Tag color={this.getGenderTagColor(gender)}>
-                        {gender}
-                    </Tag>
-                )
-            }
-        },
-        {
-            title: "Ngày sinh",
-            dataIndex: "birthday",
-            key: "birthday"
-        },
-        {
-            title: "Địa chỉ",
-            dataIndex: "address",
-            key: "address"
-        },
-        {
-            title: "Số điện thoại",
-            dataIndex: "phoneNumber",
-            key: "phoneNumber"
-        },
-        {
-            title: "",
-            render: (_, record) => (
-                <span>
-                    <Button type="primary">
-                        <Link to={`/studentscores/${record.id}`}>
-                            Xem điểm
-                        </Link>
-                    </Button>
-                    <Divider type="vertical" />
-                    <Button type="primary">
-                        <Link to={`/studentschedules/${record.id}`}>
-                            Xem thời khóa biểu
-                        </Link>
-                    </Button>
-                </span>
-            ),
-        },
-    ];
+    get columns () {
+        return [
+            {
+                title: "TT",
+                dataIndex: "count",
+                key: "count"
+            },
+            {
+                title: "Tên",
+                dataIndex: "name",
+                key: "name"
+            },
+            {
+                title: "Giới tính",
+                dataIndex: "gender",
+                key: "gender",
+                render: gender => {
+                    return (
+                        <Tag color={this.getGenderTagColor(gender)}>
+                            {gender}
+                        </Tag>
+                    )
+                }
+            },
+            {
+                title: "Ngày sinh",
+                dataIndex: "birthday",
+                key: "birthday"
+            },
+            {
+                title: "Địa chỉ",
+                dataIndex: "address",
+                key: "address"
+            },
+            {
+                title: "Số điện thoại",
+                dataIndex: "phoneNumber",
+                key: "phoneNumber"
+            },
+            {
+                title: "",
+                render: (_, record) => (
+                    <span>
+                        <Button type="primary">
+                            <Link to={`/studentscores/${record.id}`}>
+                                Xem điểm
+                            </Link>
+                        </Button>
+                        <Divider type="vertical" />
+                        <Button type="primary">
+                            <Link to={`/studentschedules/${record.id}`}>
+                                Xem thời khóa biểu
+                            </Link>
+                        </Button>
+                    </span>
+                ),
+            },
+        ];
+    }
+
+    get dataSource() {
+        const students = this.props.students;
+        if (!students || students.length < 1) 
+            return [];
+
+        const result = [];
+        for(let i = 0; i < students.length; i++) {
+            let item = new Object(students[i]);
+            item.count = i + 1;
+            result.push(item);
+        }
+
+        return result;
+    }
 
     render() {
         return (
@@ -69,7 +86,7 @@ export default class StudentTable extends Component {
                        bordered
                        columns={this.columns} 
                        rowKey={record => record.id} 
-                       dataSource={this.props.students} />
+                       dataSource={this.dataSource} />
             </div>
         );
     }

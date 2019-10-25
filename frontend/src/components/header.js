@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Dropdown, Layout, Row, Col, Button, Icon } from "antd";
+import { Menu, Dropdown, Layout, Row, Col, Button, Icon, Affix } from "antd";
 import { Link } from "react-router-dom";
 import LoginModal from "../components/login-modal";
 
@@ -184,17 +184,19 @@ export default class MyHeader extends Component {
 
     render() {
         return (
-            <Header>
-                <Row justify="space-between">
-                    {this.featuresPanel}
-                    <Col span={8} style={{ textAlign: "end" }}>
-                        {this.loginPanel}
-                    </Col>
-                </Row>
-                <LoginModal handleCancel={this.handleLoginModalCancel}
-                    handleLoginSuccess={this.handleLoginModalSuccess}
-                    visible={this.state.loginModalVisible} />
-            </Header>
+            <Affix offsetTop={0}>
+                <Header style={{height: "8vh"}}>
+                    <Row justify="space-between">
+                        {this.featuresPanel}
+                        <Col span={8} style={{ textAlign: "end" }}>
+                            {this.loginPanel}
+                        </Col>
+                    </Row>
+                    <LoginModal handleCancel={this.handleLoginModalCancel}
+                        handleLoginSuccess={this.handleLoginModalSuccess}
+                        visible={this.state.loginModalVisible} />
+                </Header>
+            </Affix>
         );
     }
 }

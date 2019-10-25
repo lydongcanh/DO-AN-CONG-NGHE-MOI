@@ -26,15 +26,19 @@ export default class StudentScoresPage extends Component {
     getScoreboardsView(scoreboards) {
         let result = [];
         for(let i = 0; i < scoreboards.length; i++) {
+            const scoreboard = scoreboards[i];
+
             result.push(
-                <TabPane tab={`${scoreboards[i].semester} - ${scoreboards[i].year}`} key={i}>
-                    <Scoreboard scoreboard={scoreboards[i]}/>
+                <TabPane tab={`${scoreboard.semester} - ${scoreboard.year}`} key={scoreboard.id}>
+                    <Scoreboard scoreboard={scoreboard}/>
                 </TabPane>
             );
         }   
         
+        console.log("...", result);
+
         return (
-            <Tabs defaultActiveKey={String(scoreboards.length - 1)}>
+            <Tabs defaultActiveKey={String(scoreboards[scoreboards.length - 1].id)}>
                 {result}
             </Tabs>
         );

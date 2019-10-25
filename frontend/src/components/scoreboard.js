@@ -34,7 +34,9 @@ export default class Scoreboard extends Component {
                     let views = [];
                     for(let i = 0; i < scores.length; i++) {
                         views.push(
-                            <Tag color={this.getTagColorWithScore(scores[i].value)}>
+                            <Tag 
+                                key={scores[i].id}
+                                color={this.getTagColorWithScore(scores[i].value)}>
                                 {scores[i].value}
                             </Tag>
                         )
@@ -60,7 +62,7 @@ export default class Scoreboard extends Component {
     }
 
     get scores() {
-        if (!this.props.scoreboard || !this.props.scoreboard.id)
+        if (!this.props.scoreboard)
             return [];
 
         return mockDB.getScores(this.props.scoreboard.id);
@@ -122,7 +124,7 @@ export default class Scoreboard extends Component {
         return (
             <Table title={() => <h2 style={{textAlign: "start"}}>Bảng điểm {this.props.scoreboard.semester} - {this.props.scoreboard.year}</h2>}
                    rowKey={record => record.id}
-                   pagination={{pageSize: 13}}
+                   pagination={{pageSize: 13, hideOnSinglePage: true}}
                    dataSource={this.scoreboardData} 
                    columns={this.columns} 
                    bordered/>
