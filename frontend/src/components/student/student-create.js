@@ -117,6 +117,7 @@ export default class CreateStudent extends Component{
     }
     handleSaveClick(e){
         //luu du lieu
-        this.props.handleSaveSuccess();
+        let student = this.state.student;
+        this.props.handleSaveSuccess(student);
     }
 }
