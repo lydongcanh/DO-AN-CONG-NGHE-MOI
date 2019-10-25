@@ -1,0 +1,202 @@
+[
+    {
+        "id": 0,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 0
+    },
+    {
+        "id": 1,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nữ",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 0
+    },
+    {
+        "id": 2,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 0
+    },
+    {
+        "id": 3,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nữ",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 0
+    },
+    {
+        "id": 4,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 1
+    },
+    {
+        "id": 5,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 1
+    },
+    {
+        "id": 6,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nữ",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 2
+    },
+    {
+        "id": 7,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 2
+    },
+    {
+        "id": 8,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 3
+    },
+    {
+        "id": 9,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 3
+    },
+    {
+        "id": 10,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 1
+    },
+    {
+        "id": 11,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 1
+    },
+    {
+        "id": 12,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 2
+    },
+    {
+        "id": 13,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 2
+    },
+    {
+        "id": 14,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 4
+    },
+    {
+        "id": 15,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 3
+    },
+    {
+        "id": 16,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 4
+    },
+    {
+        "id": 17,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nam",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 5
+    },
+    {
+        "id": 18,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nữ",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 6
+    },
+    {
+        "id": 19,
+        "name": "Lorem ipsum dolor sir amet",
+        "gender": "Nữ",
+        "birthday": "10/24/2000",
+        "address": "Lorem ipsum dolor sir amet",
+        "phoneNumber": "0123456789",
+        "state": "active",
+        "classId": 6
+    } 
+]

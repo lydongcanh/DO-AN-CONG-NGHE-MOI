@@ -1,0 +1,50 @@
+[
+    {
+        "id": 0,
+        "name": "10A",
+        "grade": 10,
+        "state": "active",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 1,
+        "name": "10B",
+        "grade": 10,
+        "state": "active",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 2,
+        "name": "11A",
+        "grade": 11,
+        "state": "active",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 3,
+        "name": "11B",
+        "grade": 11,
+        "state": "active",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 4,
+        "name": "12A",
+        "grade": 12,
+        "state": "active",
+        "startYear": 2019,
+        "endYear": 2020
+    },
+    {
+        "id": 5,
+        "name": "12B",
+        "grade": 12,
+        "state": "active",
+        "startYear": 2019,
+        "endYear": 2020
+    }
+]

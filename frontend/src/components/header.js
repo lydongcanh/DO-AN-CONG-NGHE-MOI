@@ -11,8 +11,6 @@ export default class MyHeader extends Component {
 
         this.handleLoginButton = this.handleLoginButton.bind(this);
         this.handleAccountMenuClick = this.handleAccountMenuClick.bind(this);
-        this.handleTeacherMenuClick = this.handleTeacherMenuClick.bind(this);
-        this.handleAdminMenuClick = this.handleAdminMenuClick.bind(this);
         this.handleLoginModalCancel = this.handleLoginModalCancel.bind(this);
         this.handleLoginModalSuccess = this.handleLoginModalSuccess.bind(this);
 
@@ -78,7 +76,6 @@ export default class MyHeader extends Component {
             return (
                 <Col span={16}>
                     <Menu
-                        onClick={this.handleTeacherMenuClick}
                         theme="dark"
                         mode="horizontal"
                         defaultSelectedKeys={['home']}
@@ -108,7 +105,6 @@ export default class MyHeader extends Component {
             return (
                 <Col span={16}>
                     <Menu
-                        onClick={this.handleAdminMenuClick}
                         theme="dark"
                         mode="horizontal"
                         defaultSelectedKeys={['home']}
@@ -129,6 +125,11 @@ export default class MyHeader extends Component {
                                 Quản lý học sinh
                             </Link>
                         </Menu.Item>
+                        <Menu.Item key="classes">
+                            <Link to="/admin/classes">
+                                Quản lý lớp học
+                            </Link>
+                        </Menu.Item>
                         <Menu.Item key="schedules">
                             <Link to="/admin/schedules">
                                 Quản lý thời khóa biểu
@@ -137,33 +138,6 @@ export default class MyHeader extends Component {
                     </Menu>
                 </Col>
             );
-        }
-    }
-
-    handleTeacherMenuClick(e) {
-        if (e.key == "home") {
-            // TODO: Mở trang chủ 
-        } else if (e.key == "schedules") {
-            // TODO: Mở trang tkb
-        } else if (e.key == "scores") {
-            // TODO: Mở trang nhập điểm
-        } else {
-            // TODO: Lỗi logic ...
-        }
-    }   
-
-    handleAdminMenuClick(e) {
-        if (e.key == "home") {
-            // TODO: Mở trang chủ 
-        } else if (e.key == "teachers") {
-            // TODO: Mở trang ql giáo viên
-        } else if (e.key == "students") {
-            // TODO: Mở trang ql học sinh
-        } else if (e.key == "schedules"){
-            // TODO: Mở trang ql tkb
-        } 
-        else {
-            // TODO: Lỗi logic ...
         }
     }
 

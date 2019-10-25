@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown, Button, Menu, Row, Col, Input, Icon } from "antd";
 
-import MockDB from "../repository/mock/mockDB";
-const mockDB = new MockDB();
+import mockDB from "../repository/mock/mockDB";
 
 const { Search } = Input;
 

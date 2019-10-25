@@ -1,0 +1,210 @@
+[
+    {
+        "id": 0,
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 1,
+        "type": "1 tiết",
+        "multiplier": 2,
+        "value": 8,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 2,
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 3,
+        "type": "Giữa kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 4,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 5,
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 6,
+        "type": "1 tiết",
+        "multiplier": 2,
+        "value": 8,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 7,
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 8,
+        "type": "Giữa kì",
+        "multiplier": 3,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 9,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 10,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": 11,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 12,
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 13,
+        "type": "1 tiết",
+        "multiplier": 2,
+        "value": 8,
+        "subject": "Toán học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 14,
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 15,
+        "type": "Giữa kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 16,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 17,
+        "type": "15 phút",
+        "value": 8,
+        "multiplier": 1,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 18,
+        "type": "1 tiết",
+        "multiplier": 2,
+        "value": 8,
+        "subject": "Toán học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 19,
+        "type": "15 phút",
+        "value": 7,
+        "multiplier": 1,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 8,
+        "type": "Giữa kì",
+        "multiplier": 3,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 9,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Văn học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 10,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Vật lý",
+        "scoreboardId": 1
+    },
+    {
+        "id": 11,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    },
+    {
+        "id": 12,
+        "type": "Cuối kì",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 0
+    },
+    {
+        "id": 13,
+        "type": "1 tiết",
+        "multiplier": 2,
+        "value": 6,
+        "subject": "Hóa học",
+        "scoreboardId": 1
+    }
+]

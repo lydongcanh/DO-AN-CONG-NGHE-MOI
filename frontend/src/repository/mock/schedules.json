@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "startDate": "24/10/2019",
+        "endDate": "24/12/2019",
+        "state": "active",
+        "subject": "Toán",
+        "teacherId": 0,
+        "classId": 0,
+        "studentId": 0
+    },
+    {
+        "id": 1,
+        "startDate": "1/9/2019",
+        "endDate": "5/12/2019",
+        "state": "active",
+        "subject": "Văn",
+        "teacherId": 0,
+        "classId": 0,
+        "studentId": 0
+    },
+    {
+        "id": 2,
+        "startDate": "3/8/2019",
+        "endDate": "31/12/2020",
+        "state": "active",
+        "subject": "Anh",
+        "teacherId": 0,
+        "classId": 0,
+        "studentId": 0
+    }
+]

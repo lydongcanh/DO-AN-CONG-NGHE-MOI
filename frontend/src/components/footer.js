@@ -6,7 +6,14 @@ const { Footer } = Layout;
 export default class MyFooter extends Component {
     render() {
         return (
-            <Footer style={{ textAlign: "center"}}>
+            <Footer style={
+                {
+                    //position: "relative",
+                    //bottom: "0",
+                    //width: "100%",
+                    //height: "2.5rem",
+                    textAlign: "center",              
+                }}>
                 Đồ án công nghệ mới: Nhóm 8
             </Footer>
         );
