@@ -71,9 +71,7 @@ export default class StudentTableAdmin extends Component {
                         </Button>
                         <Divider type="vertical" />
                         <Button onClick={this.handleDelteClick}>
-                            <Link>
-                                 Xoá
-                            </Link>
+                                Xoá
                         </Button>
                         </div>
                     )

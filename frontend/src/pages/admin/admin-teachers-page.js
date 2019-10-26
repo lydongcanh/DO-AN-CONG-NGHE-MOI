@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table, Row , Col} from "antd";
 import TeacherSearchInput from "../../components/teacher-search-input";
+import NewButton from "../../components/teachers/teacher-newbutton"
 
 export default class AdminTeachersPage extends Component {
     columns = [
@@ -54,23 +55,25 @@ export default class AdminTeachersPage extends Component {
     render() {
         return (
             <div>
+                <div>
                 <Row gutter={48}>
                     <Col span={21}>
+                        <TeacherSearchInput onSearchTeacher={this.handleOnSearchTeacher}/>
                     </Col>
                     <Col spam={2}>
-                    <TeacherSearchInput onSearchTeacher={this.handleOnSearchTeacher}/>
-                    <br/><br/>
-                    <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>
+                        <NewButton></NewButton>
                     </Col>
                 </Row>
+                </div>
+                <br/>
                 <div>
+                <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>
                 <Table pagination={{pageSize: 9}} 
                 columns={this.columns} 
                 rowKey={record => record.id}
                 dataSource={this.state.searchedTeachers}/>
                 </div>
             </div>
-           
         );
     }
 
