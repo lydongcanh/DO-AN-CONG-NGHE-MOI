@@ -9,7 +9,6 @@ export default class StudentTableAdmin extends Component {
         super(props);
         this.state = {
             student : {},
-            class : {},
             visible : false
         }
         this.handleDelteClick = this.handleDelteClick.bind(this);
@@ -69,12 +68,9 @@ export default class StudentTableAdmin extends Component {
                         </Button>
                         <Divider type="vertical" />
                         <Button onClick={this.handleDelteClick}>
-                            <Link>
                                  Xoá
-                            </Link>
                         </Button>
                         </div>
-                        
                     )
                 }
             }
