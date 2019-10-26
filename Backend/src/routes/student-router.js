@@ -20,8 +20,8 @@ router.get("/:id", async (request, response, _) => {
 
 router.post("/", async (request, response, _) => {
     const id = uuidv1();
-    const { name, gender, birthday, address, phoneNumber, state } = request.body;
-    const student = new Student(id, name, gender, birthday, address, phoneNumber, state);
+    const { name, gender, birthday, address, phoneNumber, state, classId } = request.body;
+    const student = new Student(id, name, gender, birthday, address, phoneNumber, state, classId);
     const result = await studentAdapter.createStudent(student);
     response.send(result);
 });

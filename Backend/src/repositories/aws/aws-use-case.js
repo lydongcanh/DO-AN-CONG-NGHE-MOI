@@ -11,11 +11,11 @@ export default class AWSUseCase {
      * @param {String} endpoint
      */
     constructor(tableName, region, endpoint) {
-        console.log({
-            tableName: tableName,
-            region: region,
-            endpoint: endpoint
-        });
+        // console.log({
+        //     tableName: tableName,
+        //     region: region,
+        //     endpoint: endpoint
+        // });
 
         AWS.config.update({
             region: region,
