@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Menu, Dropdown, Layout, Row, Col, Button, Icon, Affix } from "antd";
+import { Menu, Dropdown, Layout, Row, Col, Button, Icon, Affix, Modal } from "antd";
 import { Link } from "react-router-dom";
 import LoginModal from "../components/login-modal";
+import mockDB from "../repository/mock/mockDB";
+import DetailTeacher from "../components/teachers/teacher-detail"
 
 const { Header } = Layout;
 
@@ -13,10 +15,15 @@ export default class MyHeader extends Component {
         this.handleAccountMenuClick = this.handleAccountMenuClick.bind(this);
         this.handleLoginModalCancel = this.handleLoginModalCancel.bind(this);
         this.handleLoginModalSuccess = this.handleLoginModalSuccess.bind(this);
+        this.handleDetailModalCancel = this.handleLoginModalSuccess.bind(this);
+        this.handleDetailModalCancel = this.handleDetailModalCancel.bind(this);
+        this.handleDetailModalButton = this.handleDetailModalButton.bind(this);
 
         this.state = {
             loginModalVisible: false, // Ẩn, hiện login modal
-            account: null // Lưu thông tin tài khoản sau khi đăng nhập
+            detailTeacherVisible : false,
+            account: null, // Lưu thông tin tài khoản sau khi đăng nhập
+            teacher:{}
         };
     }
 
@@ -25,9 +32,10 @@ export default class MyHeader extends Component {
             return (
                 <Menu onClick={this.handleAccountMenuClick}>
                     <Menu.Item key="info">
-                        <Link to={`/teacher/${this.state.account.username}`}>
+                        <Button onClick={this.handleDetailModalButton}>
                             Thông tin giáo viên
-                        </Link>
+                        </Button>
+                        
                     </Menu.Item>
                     <Menu.Item key="logout">
                         Đăng xuất
@@ -44,7 +52,6 @@ export default class MyHeader extends Component {
             );
         }
     };
-
     get loginPanel() {
         if (!this.state.account || !this.state.account.type) {
             return (
@@ -60,7 +67,6 @@ export default class MyHeader extends Component {
             );
         }
     }
-
     get featuresPanel() {
         if (!this.state.account || !this.state.account.type) {
             return (
@@ -171,17 +177,30 @@ export default class MyHeader extends Component {
             loginModalVisible: false
         });
     }
-
+    
     handleLoginModalSuccess(account) {
         this.setState({
             loginModalVisible: false
         });
-
         this.setState({
             account: account
         });
     }
-
+    handleDetailModalCancel() {
+        this.setState({
+            detailTeacherVisible : false
+        });
+    }
+    handleDetailModalButton() {
+        console.log('account',this.state.account);
+        let teacher = mockDB.getTeacherWithId(this.state.account.teacherId)
+        this.setState({
+            detailTeacherVisible: true,
+            teacher : teacher
+        });
+        console.log(`teacher`,this.state.teacher);
+        
+    }
     render() {
         return (
             <Affix offsetTop={0}>
@@ -195,6 +214,14 @@ export default class MyHeader extends Component {
                     <LoginModal handleCancel={this.handleLoginModalCancel}
                         handleLoginSuccess={this.handleLoginModalSuccess}
                         visible={this.state.loginModalVisible} />
+                    <Modal
+                        visible = {this.state.detailTeacherVisible}
+                        width="40%"
+                        footer={null}
+                        header={null}
+                        onCancel={this.handleDetailModalCancel}>
+                            <DetailTeacher teacher = {this.state.teacher}></DetailTeacher>
+                    </Modal>
                 </Header>
             </Affix>
         );

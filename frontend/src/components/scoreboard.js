@@ -44,8 +44,7 @@ export default class Scoreboard extends Component {
                     return views;
                 }
             });
-        }
-
+        }   
         result.push({
             title: "Trung bình",
             dataIndex: "average",
