@@ -1,17 +1,11 @@
 export default class Score {
 
-    /**
-     * @param {String} id 
-     * @param {String} type 
-     * @param {Float} value 
-     * @param {String} subjectId 
-     * @param {String} scoreBoardId
-     */
-    constructor(id, type, value, subjectId, scoreBoardId) {
+    constructor(id, type, value, subject, multiplier, scoreBoardId) {
         this.id = id;
         this.type = type;
         this.value = value;
-        this.subjectId = subjectId;
+        this.subject = subject;
+        this.multiplier = multiplier;
         this.scoreBoardId = scoreBoardId;
         Object.freeze(this);
     }

@@ -8,27 +8,21 @@ const router = express.Router();
 const studyclassAdapter = new StudyclassAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
-    const grade = request.query.grade;
-    if (grade) {
-        const result = studyclassAdapter.findStudyclassWithGrade(grade);
-        response.send(result);
-    } else {
-        // TODO: return all available studyclasses instead.
-        response.send({
-            isSuccess: false,
-            error: {
-                message: "unsupported query",
-                statusCode: 405
-            }
-        });
-    }
+    const result = await studyclassAdapter.getAllStudyclasses();
+    response.send(result);
+});
+
+router.get("/:id", async (request, response, _) => {
+    const studyclassId = request.params.id;
+    const result = await studyclassAdapter.getStudyclassById(studyclassId);
+    response.send(result);
 });
 
 router.post("/", async (request, response, _) => {
     const id = uuidv1();
-    const {name, grade, state} = request.body;
-    const studyclass = new Studyclass(id, name, grade, state);
-    const result = studyclassAdapter.createStudyclass(studyclass);
+    const {name, grade, startYear, endYear, state, studentIds} = request.body;
+    const studyclass = new Studyclass(id, name, grade, startYear, endYear, state, studentIds);
+    const result = await studyclassAdapter.createStudyclass(studyclass);
     response.send(result);
 });
 

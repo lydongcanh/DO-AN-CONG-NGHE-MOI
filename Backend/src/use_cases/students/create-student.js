@@ -4,13 +4,13 @@ export default class CreateStudent extends AWSPut {
     get item() {
         return {
             "partitionKey" : "STUDENT",
-            "sortKey" : this.student.id,
-            "data" : this.student.name,
+            "sortKey": this.student.id,
+            "data" : this.student.classId,
+            "name" : this.student.name,
             "gender" : this.student.gender,
             "birthday" : this.student.birthday,
             "address" : this.student.address,
             "phoneNumber" : this.student.phoneNumber,
-            "classId" : this.student.classId
         };
     }
 

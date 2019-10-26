@@ -8,27 +8,21 @@ const router = express.Router();
 const teacherAdapter = new TeacherAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
-    const accountId = request.query.accountId;
-    if (accountId) {
-        const result = teacherAdapter.findTeacherWithAccount(accountId);
-        response.send(result);
-    } else {
-        // TODO: send all available teachers.
-        response.send({
-            isSuccess: false,
-            error: {
-                message: "unsupported query",
-                statusCode: 405
-            }
-        });
-    }
+    const result = await teacherAdapter.getAllTeachers();
+    response.send(result);
+});
+
+router.get("/:id", async (request, response, _) => {
+    const teacherId = request.params.id;
+    const result = await teacherAdapter.getTeacherById(teacherId);
+    response.send(result);
 });
 
 router.post("/", async (request, response, _) => {
     const id = uuidv1();
-    const {name, gender, birthday, address, email, phoneNumber, state, accountId} = request.body;
-    const teacher = new Teacher(id, name, gender, birthday, address, email, phoneNumber, state, accountId);
-    const result = teacherAdapter.createTeacher(teacher);
+    const {name, gender, birthday, address, email, phoneNumber, state} = request.body;
+    const teacher = new Teacher(id, name, gender, birthday, address, email, phoneNumber, state);
+    const result = await teacherAdapter.createTeacher(teacher);
     response.send(result);
 });
 

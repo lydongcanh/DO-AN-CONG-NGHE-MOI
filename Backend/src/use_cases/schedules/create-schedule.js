@@ -4,12 +4,15 @@ export default class CreateSchedule extends AWSPut {
     get item() {
         return {
             "partitionKey" : "SCHEDULE",
-            "sortKey" : this.schedule.id,
-            "data" : this.schedule.teacherId,
-            "classId" : this.schedule.classId,
-            "subjectId" : this.schedule.subjectId,
-            "time" : this.schedule.time,
-            "state" : this.schedule.state
+            "sortKey": this.schedule.id,
+            "data" : this.schedule.classId,
+            "teacherId" : this.schedule.teacherId,
+            "startDate" : this.schedule.startDate,
+            "endDate" : this.schedule.endDate,
+            "startTime": this.schedule.startTime,
+            "length": this.schedule.length,
+            "state": this.schedule.state,
+            "subject": this.schedule.subject
         };
     }
 

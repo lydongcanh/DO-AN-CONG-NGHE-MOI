@@ -1,16 +1,13 @@
 export default class Studyclass {
 
-    /**
-     * @param {String} id 
-     * @param {String} name 
-     * @param {String} grade
-     * @param {String} state 
-     */
-    constructor(id, name, grade, state) {
+    constructor(id, name, grade, startYear, endYear, state, studentIds) {
         this.id = id;
         this.name = name;
         this.grade = grade;
+        this.startYear = startYear;
+        this.endYear = endYear;
         this.state = state;
+        this.studentIds = studentIds;
         Object.freeze(this);
     }
 }

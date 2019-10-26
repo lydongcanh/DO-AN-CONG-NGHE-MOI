@@ -12,7 +12,6 @@ export default class CreateTeacher extends AWSPut {
             "email" : this.teacher.email,
             "phoneNumber" : this.teacher.phoneNumber,
             "state" : this.teacher.state,
-            "teacherId" : this.teacher.teacherId
         };
     }
 
