@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Divider, Table, Button } from "antd";
+import { Divider, Table, Button, Modal } from "antd";
 import { Link } from "react-router-dom";
-import UpdateStudentModal from "../../components/student/student-update"
+import UpdateStudent from "../../components/student/student-update"
 import mockDB from "../../repository/mock/mockDB";
 
 export default class StudentTableAdmin extends Component {
@@ -86,27 +86,35 @@ export default class StudentTableAdmin extends Component {
             <div>
                 <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
                 <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
-                <UpdateStudentModal
+                {/* <UpdateStudentModal
                     student={this.state.student}
                     classe = {this.state.classe}
                     visible={this.state.visible}
                     handleCancel={this.handleCancelModal}
                     handleSaveSuccess={this.handleSaveStudentSuccess}>        
-                </UpdateStudentModal>
+                </UpdateStudentModal> */}
+                <Modal
+                    visible = {this.state.visible}
+                    width="40%"
+                    footer={null}
+                    header={null}
+                    onCancel={this.handleCancelModal}>
+                        <UpdateStudent student={this.state.student}></UpdateStudent>
+                </Modal>
             </div>
         );
     }
     handleUpdateButton(e){
         const student = mockDB.getStudentWithId(e.id); 
         this.setState({
-            student : student
+            student : student,
+            visible : true
         });
         console.log('studenet',this.state.student);
-        const classe = mockDB.getClassWithId(this.state.student.classId);
-        this.setState({
-            classe : classe,
-            visible : true
-        })
+        // const classe = mockDB.getClassWithId(this.state.student.classId);
+        // this.setState({
+        //     classe : classe
+        // })
     }
     handleCancelModal(){
         this.setState({
