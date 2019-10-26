@@ -1,6 +1,4 @@
-module.exports = {
-    ATSC_TABLE_NAME : "CNM_FINAL_ATSC",
-    SSS_TABLE_NAME : "CNM_FINAL_SSS",
-    REGION: "local",
-    ENDPOINT :  "http://localhost:8000"
-};
+export const ATSC_TABLE_NAME = "CNM_FINAL_ATSC";
+export const SSS_TABLE_NAME = "CNM_FINAL_SSS";
+export const REGION = "local";
+export const ENDPOINT = "http://localhost:8000";

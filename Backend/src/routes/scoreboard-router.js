@@ -8,27 +8,21 @@ const router = express.Router();
 const scoreboardAdapter = new ScoreboardAdapter(SSS_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
-    const studentId = request.query.studentId;
-    if (studentId) {
-        const result = scoreboardAdapter.findScoreboardByStudentId(studentId);
-        response.send(result);
-    } else {
-        // TODO: send all available accounts instead.
-        response.send({
-            isSuccess: false,
-            error: {
-                message: "unsupported query",
-                statusCode: 405
-            }
-        });
-    }
+    const result = await scoreboardAdapter.getAllScoreboards();
+    response.send(result);
+});
+
+router.get("/:id", async (request, response, _) => {
+    const scoreboardId = request.params.id;
+    const result = await scoreboardAdapter.getScoreboardById(scoreboardId);
+    response.send(result);
 });
 
 router.post("/", async (request, response, _) => {
     const {semester, year, studentId} = request.body;
     const id = uuidv1();
     const scoreboard = new Scoreboard(id, semester, year, studentId);
-    const result = scoreboardAdapter.createScoreBoard(scoreboard);
+    const result = await scoreboardAdapter.createScoreBoard(scoreboard);
     response.send(result);
 });
 
