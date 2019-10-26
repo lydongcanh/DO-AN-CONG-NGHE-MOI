@@ -1,6 +1,7 @@
 import AWSQuery from "../../repositories/aws/aws-query";
 
-export default class GetScheduleWithId extends AWSQuery {
+/** [Required implementation: partitionName] */
+export default class GetById extends AWSQuery {
     get keyConditionExpression() {
         return "#pk = :pk and #sk = :sk";
     }
@@ -14,13 +15,17 @@ export default class GetScheduleWithId extends AWSQuery {
 
     get expressionAttributeValues() {
         return { 
-            ":pk" : "SCHEDULE",
-            ":sk" : this.scheduleId
+            ":pk" : this.partitionName,
+            ":sk" : this.id
         };
     }
 
-    async execute(scheduleId) {
-        this.scheduleId = scheduleId;
+    get partitionName() {
+        throw new Error("Un-implemented \"partitionName\".");
+    }
+
+    async execute(id) {
+        this.id = id;
         return await super.execute();
     }
 }
