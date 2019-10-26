@@ -2,6 +2,21 @@ import axios from "axios";
 import { accountsEndpoint } from "./endpoints";
 
 class AccountRepository {
+    async createAccount(username, password, type) {
+        try {
+            const account = {
+                username: username,
+                password: password,
+                type: type
+            };
+
+            let response = await axios.post(accountsEndpoint, account);
+            return response.data.success ? account : { error: response.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
     async getAccountWithUsername(username) {
         try {
             let response = await axios.get(`${accountsEndpoint}/${username}`);

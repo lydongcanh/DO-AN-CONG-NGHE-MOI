@@ -1,11 +1,8 @@
-const baseEndpoint = "http://localhost:9000";
-
-module.exports = {
-    accountsEndpoint: baseEndpoint + "/accounts",
-    schedulesEndpoint: baseEndpoint + "/schedules",
-    scoresEndpoint: baseEndpoint + "/scores",
-    scoreboardsEndpoint: baseEndpoint + "/scoreboards",
-    studentsEndpoint: baseEndpoint + "/students",
-    studyclassesEndpoint: baseEndpoint + "/studyclasses",
-    teachersEndpoint: baseEndpoint + "/teachers"
-}
+export const baseEndpoint = "http://localhost:9000";
+export const accountsEndpoint = baseEndpoint + "/accounts";
+export const schedulesEndpoint = baseEndpoint + "/schedules";
+export const scoresEndpoint = baseEndpoint + "/scores";
+export const scoreboardsEndpoint = baseEndpoint + "/scoreboards";
+export const studentsEndpoint = baseEndpoint + "/students";
+export const studyclassesEndpoint = baseEndpoint + "/studyclasses";
+export const teachersEndpoint = baseEndpoint + "/teachers";
