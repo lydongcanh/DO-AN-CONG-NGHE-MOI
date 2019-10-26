@@ -11,7 +11,7 @@ class AccountRepository {
             };
 
             let response = await axios.post(accountsEndpoint, account);
-            return response.data.success ? account : { error: response.data.error };
+            return response.data.success ? response.body : { error: response.data.error };
         } catch (error) {
             return { error: error };
         }

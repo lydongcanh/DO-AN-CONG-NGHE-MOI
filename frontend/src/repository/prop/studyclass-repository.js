@@ -14,7 +14,7 @@ class StudyclassRepository {
             };
 
             const result = await axios.post(studyclassesEndpoint, studyclass);
-            return result.data.success ? studyclass : { error: result.data.error };
+            return result.data.success ? result.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }
@@ -51,6 +51,14 @@ class StudyclassRepository {
         } catch (error) {
             return { error: error };
         }
+    }
+
+    async getStudyclassByGrade(grade) {
+        const result = await this.getAllStudyclasses();
+        if (result.error)
+            return result;
+        
+        return result.filter(stutyclass => stutyclass.grade == grade);
     }
 }
 

@@ -15,7 +15,7 @@ class StudentRepository {
             };
 
             const result = axios.post(studentsEndpoint, student);
-            return result.data.success ? student : { error: result.data.error };
+            return result.data.success ? result.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }
@@ -60,7 +60,7 @@ class StudentRepository {
         if (result.error)
             return result;
 
-        return result.filter(student => student.name.include(name));
+        return result.filter(student => student.name.includes(name));
     }
 
     async getStudentsByClassId(classId) {
