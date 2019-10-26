@@ -22,28 +22,27 @@ export default class UpdateStudent extends Component{
         this.getClass();
     }
     async getClass() {
-        const classe = await mockDB.getClassWithId(this.props.student.classId);
-        this.setState({
-            classe: classe
-        })
-        console.log('gender',this.props.student.gender);
-        if(this.props.student.gender === "Nam")
-        { 
-            this.setState({
-                value : 1 
-            })
-        }else  this.setState({
-            value : 2
-        })
-        console.log('gen')
-        console.log("classs", this.state.classe)
-        this.setState({
-            gradeDropdownText: "Khối " + this.state.classe.grade,
-            classDropdownText: this.state.classe.name
-        })
-        console.log(this.state.classe)
-        
-        
+        // const classe = await mockDB.getClassWithId(this.props.student.classId);
+        // this.setState({
+        //     classe: classe
+        // })
+        // console.log('gender',this.props.student.gender);
+        // console.log('gen')
+        // console.log("classs", this.state.classe)
+        // this.setState({
+        //     gradeDropdownText: "Khối " + this.state.classe.grade,
+        //     classDropdownText: this.state.classe.name
+        // })
+        // console.log(this.state.classe)
+        // if(this.props.student.gender === "Nam")
+        // { 
+        //     this.setState({
+        //         value : 1 
+        //     })
+        // }else  this.setState({
+        //     value : 2
+        // })
+       
     }
     get gradeMenu() {
         return (
@@ -76,13 +75,12 @@ export default class UpdateStudent extends Component{
         );
     }
     render(){
-      
        console.log('a',this.props.student);
         return(
                 <div>
                     <h2>Sửa thông tin học sinh</h2>
                     <Form>
-                        <Form.Item>
+                        {/* <Form.Item>
                             <Input placeholder="Tên" value={this.props.student.name}></Input>
                                 </Form.Item>
                                 <Form.Item>
@@ -115,7 +113,38 @@ export default class UpdateStudent extends Component{
                                 <Form.Item>
                                     <DatePicker  value={moment(`"${this.props.student.birthday}"`, 'DD-MM-YYYY')} onChange={this.handlechangDate}></DatePicker>
                                 </Form.Item>
-                                 <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                                 <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button> */}
+                                  <Form.Item>
+                                <Input placeholder="Tên"></Input>
+                            </Form.Item>
+                            <Form.Item >
+                                <Radio.Group onChange={this.onChange} value={this.state.value}>
+                                    <Radio value={1}>Nam</Radio>
+                                    <Radio value={2}>Nữ</Radio>
+                                </Radio.Group>
+                            </Form.Item>
+                            <Form.Item>
+                            <Input placeholder="Địa chỉ"></Input>
+                            </Form.Item>
+                            <Form.Item>
+                                <Input placeholder="Số điện thoại"></Input>
+                            </Form.Item>
+                            <Form.Item>
+                                <Dropdown overlay={this.gradeMenu}>
+                                    <Button>
+                                        {this.state.gradeDropdownText} <Icon type="down"/>
+                                    </Button>
+                                </Dropdown>
+                                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
+                                     <Button>
+                                        {this.state.classDropdownText} <Icon type="down"/>
+                                    </Button>
+                                </Dropdown>
+                            </Form.Item>
+                            <Form.Item>
+                                <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
+                            </Form.Item>
+                        <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
                     </Form>
             </div>
         )
