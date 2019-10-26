@@ -17,8 +17,6 @@ export default class StudentTableAdmin extends Component {
         this.handleCancelModal = this.handleCancelModal.bind(this);
         this.handleSaveStudentSuccess = this.handleSaveStudentSuccess.bind(this);
     }
-   
-    
     get columns(){
         return [
             {
