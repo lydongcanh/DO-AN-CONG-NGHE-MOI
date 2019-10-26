@@ -2,6 +2,7 @@ import CreateSchedule from "./create-schedule";
 import FindStudyclassSchedules from "./find-studyclass-schedules";
 import FindTeacherSchedules from "./find-teacher-schedules";
 import GetAllSchedules from "./get-all-schedules";
+import GetScheduleWithId from "./get-schedule-with-id";
 
 export default class ScheduleAdapter {
     constructor(tableName, region, endpoint) {
@@ -9,6 +10,7 @@ export default class ScheduleAdapter {
         this._findStudyclassSchedulesObj = new FindStudyclassSchedules(tableName, region, endpoint);    
         this._findTeacherSchedulesObj = new FindTeacherSchedules(tableName, region, endpoint);   
         this._getAllSchedulesObj = new GetAllSchedules(tableName, region, endpoint);
+        this._getScheduleWithIdObj = new GetScheduleWithId(tableName, region, endpoint);
     }
 
     /**
@@ -24,6 +26,11 @@ export default class ScheduleAdapter {
      */
     async getAllSchedules() {
         return await this._getAllSchedulesObj.execute();
+    }
+
+    /** Get schedule with its id. */
+    async getScheduleWithId(scheduleId) {
+        return await this._getScheduleWithIdObj.execute(scheduleId);
     }
 
     /**

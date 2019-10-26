@@ -1,20 +1,16 @@
 export default class Schedule {
-    
-    /**
-     * @param {String} id 
-     * @param {Date} time 
-     * @param {String} state 
-     * @param {String} classId 
-     * @param {String} teacherId
-     * @param {String} subjectId
-     */
-    constructor(id, time, state, classId, teacherId, subjectId) {
+
+    constructor(id, startDate, endDate, startTime, length, state, subject, teacherId, classId) {
         this.id = id;
-        this.time = time;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startTime = startTime;
+        this.length = length;
         this.state = state;
-        this.classId = classId;
+        this.subject = subject;
         this.teacherId = teacherId;
-        this.subjectId = subjectId;
+        this.classId = classId;
+
         Object.freeze(this);
     }
 }

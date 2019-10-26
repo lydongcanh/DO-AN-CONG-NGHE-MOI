@@ -1,5 +1,6 @@
 import AWSQuery from "../../repositories/aws/aws-query";
 
+/** TODO: Edit later... */
 export default class FindStudyclassSchedules extends AWSQuery {
     get keyConditionExpression() {
         return "#pk = :pk and #cid = :cid";

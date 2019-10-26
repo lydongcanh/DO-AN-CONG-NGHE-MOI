@@ -1,27 +1,26 @@
 import AWSQuery from "../../repositories/aws/aws-query";
 
-/** TODO: Edit later... */
-export default class FindTeacherSchedules extends AWSQuery {
+export default class GetScheduleWithId extends AWSQuery {
     get keyConditionExpression() {
-        return "#pk = :pk and #tid = :tid";
+        return "#pk = :pk and #sk = :sk";
     }
 
     get expressionAttributeNames() {
-        return {
+        return { 
             "#pk" : "partitionKey",
-            "#tid" : "data"
+            "#sk" : "sortKey"
         };
     }
 
     get expressionAttributeValues() {
-        return {
+        return { 
             ":pk" : "SCHEDULE",
-            ":tid" : this.teacherId
+            ":sk" : this.scheduleId
         };
     }
 
-    async execute(teacherId) {
-        this.teacherId = teacherId;
+    async execute(scheduleId) {
+        this.scheduleId = scheduleId;
         return await super.execute();
     }
 }
