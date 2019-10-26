@@ -35,7 +35,7 @@ const scoreTypes = [
 
 const genders = ["Nữ", "Nam"];
 const years = [2017, 2018, 2019, 2020];
-const semesters = [1, 2, 3];
+const semesters = ["HK1", "HK2", "HK3"];
 const grades = [10, 11, 12];
 
 function getMultiplier(type) {
@@ -77,15 +77,15 @@ function generateRandomTeachers(count) {
             chance.phone(),
             "active"
         );
-        //console.log("generated teacher: " + JSON.stringify(result));
+        console.log("generated teacher: " + JSON.stringify(result));
         ids.push(result.sortKey);
     }
     return ids;
 }
 
-function generateRandomClasses(studentIds) {
+function generateRandomClasses(studentIds, step) {
     let ids = [];
-    for(let i = 0; i < studentIds.length; i += 25) {
+    for(let i = 0; i < studentIds.length; i += step) {
         let year = years[getRandomInt(0, 2)]
         let result = classRepo.createStudyclass(
             chance.character(),
@@ -93,10 +93,10 @@ function generateRandomClasses(studentIds) {
             year,
             year + 1,
             "active",
-            studentIds.slice[i, i + 25] // student id
+            studentIds.slice[i, i + step] // student id
         );
         ids.push(result.sortKey);
-        //console.log("generated class: " + JSON.stringify(result));
+        console.log("generated class: " + JSON.stringify(result));
     }
     return ids;
 }
@@ -112,7 +112,7 @@ function generateRandomScoreboards(studentIds) {
                     studentIds[sid]
                 )
                 ids.push(result.sortKey);
-                //console.log("generated sboard: " + JSON.stringify(result));
+                console.log("generated sboard: " + JSON.stringify(result));
             }
         }
     }
@@ -132,7 +132,7 @@ function generateRandomScores(scoreboardIds, count) {
                 scoreboardIds[sid]
             );
             ids.push(result.sortKey);
-            //console.log("generated score: " + JSON.stringify(result));
+            console.log("generated score: " + JSON.stringify(result));
         }
     }
     return ids;
@@ -150,7 +150,7 @@ function generateRandomStudents(count) {
             "active",
             // TODO: classid
         );
-        //console.log("generated student: " + JSON.stringify(result));
+        console.log("generated student: " + JSON.stringify(result));
         ids.push(result.sortKey);
     }
     return ids;
@@ -159,9 +159,9 @@ function generateRandomStudents(count) {
 export default function generate() {
     generateAccount("teacher1", "1234567890", "teacher");
     generateAccount("admin1", "1234567890", "admin");
-    generateRandomTeachers(50);
-    let studentIds = generateRandomStudents(500);
-    generateRandomClasses(studentIds);
+    generateRandomTeachers(2);
+    let studentIds = generateRandomStudents(20);
+    generateRandomClasses(studentIds, 10);
     let sbIds = generateRandomScoreboards(studentIds);
-    generateRandomScores(sbIds, 100);
+    generateRandomScores(sbIds, 5);
 }

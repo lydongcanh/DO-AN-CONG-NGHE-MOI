@@ -52,6 +52,14 @@ class StudyclassRepository {
             return { error: error };
         }
     }
+
+    async getStudyclassByGrade(grade) {
+        const result = await this.getAllStudyclasses();
+        if (result.error)
+            return result;
+        
+        return result.filter(stutyclass => stutyclass.grade == grade);
+    }
 }
 
 const studyclassRepository = new StudyclassRepository();

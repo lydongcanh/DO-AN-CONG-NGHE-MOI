@@ -60,7 +60,7 @@ class StudentRepository {
         if (result.error)
             return result;
 
-        return result.filter(student => student.name.include(name));
+        return result.filter(student => student.name.includes(name));
     }
 
     async getStudentsByClassId(classId) {
