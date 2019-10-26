@@ -5,20 +5,12 @@ import DataGenerator from "../repository/generators/data-generator";
 const { Footer } = Layout;
 
 export default class MyFooter extends Component {
-    constructor(prop) {
-        super(prop);
-
-        this.state = {
-            generateButtonDisable: false
-        }
-    }
 
     render() {
         return (
             <Footer style={{textAlign: "center"}}>
                 Đồ án công nghệ mới: Nhóm 8<br/><br/>
                 <Button 
-                    disabled={this.state.generateButtonDisable}
                     onClick={() => this.generateData()}>
                     Generate Data
                 </Button>
@@ -26,15 +18,12 @@ export default class MyFooter extends Component {
         );
     }
 
-    generateData() {
+    async generateData() {
         try {
-            DataGenerator();
+            await DataGenerator();
             alert("Data generated!!!");
         } catch (error) {
             alert("Error: " + JSON.stringify(error));
         }
-        this.setState({
-            generateButtonDisable: true
-        });
     }
 }

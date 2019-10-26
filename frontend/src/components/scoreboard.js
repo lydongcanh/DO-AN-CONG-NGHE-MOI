@@ -2,11 +2,28 @@ import React, { Component } from "react";
 import { Tag, Table } from "antd";
 import subjects from "../types/subjects";
 import scoreTypes from "../types/scoreTypes";
-
-import mockDB from "../repository/mock/mockDB";
+import ScoreRepository from "../repository/prop/score-repository";
 
 /** [Required props: scoreboard] */
 export default class Scoreboard extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            scores: []
+        }
+    }
+
+    async componentDidMount() {
+        const id = this.props.scoreboard.id;
+
+        const scores = await ScoreRepository.getScoreByScoreboardId(id);
+        
+        this.setState({
+            scores: scores
+        });
+    }
 
     get columns() {
         let result = [
@@ -28,11 +45,13 @@ export default class Scoreboard extends Component {
                 dataIndex: scoreTypes[i],
                 key: scoreTypes[i],
                 render: scores => {
+
                     if (!scores || scores.length < 1)
                         return <p>-</p>;
 
                     let views = [];
                     for(let i = 0; i < scores.length; i++) {
+
                         views.push(
                             <Tag 
                                 key={scores[i].id}
@@ -61,18 +80,15 @@ export default class Scoreboard extends Component {
         return result;
     }
 
-    get scores() {
-        if (!this.props.scoreboard)
-            return [];
-
-        return mockDB.getScores(this.props.scoreboard.id);
-    }
-
     get scoreboardData() {
         let result = [];
 
         for(let id = 0; id < subjects.length; id++) {
-            const allScores = this.scores;
+            const allScores = this.state.scores;
+
+            if (!allScores || allScores.length < 1)
+                continue;
+
             const scoresOfSubject = allScores.filter(score => {
                 return score.subject == subjects[id];
             });
@@ -94,6 +110,8 @@ export default class Scoreboard extends Component {
     }
 
     getAverageScore(scores) {
+        console.log("scores", scores);
+        
         let sum = 0, multiplier = 0;
         for(let i = 0; i < scores.length; i++) {
             sum += scores[i].value * scores[i].multiplier;
@@ -113,11 +131,7 @@ export default class Scoreboard extends Component {
             return "red";
         } 
 
-        if (score < 8) {
-            return "blue";
-        }
-
-        return "purple";
+        return "blue";
     }
 
     render() {

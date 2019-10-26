@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Input } from "antd";
-
-import mockDB from "../repository/mock/mockDB";
+import TeacherRepository from "../repository/prop/teacher-repository";
 
 const { Search } = Input;
  
@@ -32,7 +31,7 @@ export default class TeacherSearchInput extends Component {
 
     /** Xử lý khi tìm kiếm bằng tên */
     handleOnSearch() {
-        let teachers = mockDB.getTeachersWithName(this.state.searchedName);
+        let teachers = TeacherRepository.getTeachersByName(this.state.searchedName);
         this.props.onSearchTeacher(teachers);
     }
 

@@ -4,7 +4,7 @@ import { studentsEndpoint } from "./endpoints";
 class StudentRepository {
     async createStudent(name, gender, birthday, address, phoneNumber, state, classId) {
         try {
-            const student = {
+            let student = {
                 name: name,
                 gender: gender,
                 birthday: birthday,
@@ -14,17 +14,30 @@ class StudentRepository {
                 classId: classId
             };
 
-            const result = axios.post(studentsEndpoint, student);
-            return result.data.success ? result.body : { error: result.data.error };
+            const result = await axios.post(studentsEndpoint, student);
+            if (!result.data.success)
+                return result.data.error;
+
+            student.id = result.data.body.sortKey;
+            student.classId = result.data.body.data;
+            return student;
         } catch (error) {
-            return { error: error };
+            return { error: error.message };
         }
     }
 
     async getAllStudents() {
         try {
             const result = await axios.get(studentsEndpoint);
-            return result.data.success ? result.data.body.Items : { error: result.data.error }
+            if (!result.data.success)
+                return { error: result.data.error };
+
+            for (let i = 0; i < result.data.body.Items.length; i++) {
+                result.data.body.Items[i].id = result.data.body.Items[i].sortKey;
+                result.data.body.Items[i].classId = result.data.body.Items[i].data;
+            }
+
+            return result.data.body.Items;
         } catch (error) {
             return { error: error };
         }
