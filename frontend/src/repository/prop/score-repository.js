@@ -13,7 +13,7 @@ class ScoreRepository{
             };
 
             const result = await axios.post(scoresEndpoint, score);
-            return result.data.success ? score : {error: result.data.error};
+            return result.data.success ? result.body : {error: result.data.error};
         } catch (error) {
             return {error: error};
         }

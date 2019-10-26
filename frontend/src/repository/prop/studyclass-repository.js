@@ -14,7 +14,7 @@ class StudyclassRepository {
             };
 
             const result = await axios.post(studyclassesEndpoint, studyclass);
-            return result.data.success ? studyclass : { error: result.data.error };
+            return result.data.success ? result.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }

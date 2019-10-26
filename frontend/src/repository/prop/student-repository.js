@@ -15,7 +15,7 @@ class StudentRepository {
             };
 
             const result = axios.post(studentsEndpoint, student);
-            return result.data.success ? student : { error: result.data.error };
+            return result.data.success ? result.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }

@@ -16,7 +16,7 @@ class ScheduleRepository {
             };
 
             const result = await axios.post(schedulesEndpoint, schedule);
-            return result.data.success ? schedule : { error: result.data.error };
+            return result.data.success ? result.body : { error: result.data.error };
         } catch (error) {
             return {error: error};
         }

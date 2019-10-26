@@ -10,8 +10,8 @@ class ScoreboardRepository {
                 studentId: studentId
             };
 
-            const result = await axios.post(scoreboard);
-            return result.data.success ? scoreboard : result.data.error;
+            const result = await axios.post(scoreboardsEndpoint, scoreboard);
+            return result.data.success ? result.body : result.data.error;
         } catch (error) {
             return {error: error};
         }
