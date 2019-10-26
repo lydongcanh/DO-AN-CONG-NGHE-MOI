@@ -1,12 +1,12 @@
 export default class Score {
 
-    constructor(id, type, value, subject, multiplier, scoreBoardId) {
+    constructor(id, type, value, subject, multiplier, scoreboardId) {
         this.id = id;
         this.type = type;
         this.value = value;
         this.subject = subject;
         this.multiplier = multiplier;
-        this.scoreBoardId = scoreBoardId;
+        this.scoreboardId = scoreboardId;
         Object.freeze(this);
     }
 }
