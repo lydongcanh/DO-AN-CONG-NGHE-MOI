@@ -1,11 +1,13 @@
 import CreateTeacher from "./create-teacher";
-import FindTeacherWithAccount from "./find-teacher-with-account";
+import GetAllTeachers from "./get-all-teachers";
+import GetTeacherById from "./get-teacher-by-id";
 
 export default class TeacherAdapter {
     
     constructor(tableName, region, endpoint) {
         this._createTeacherObj = new CreateTeacher(tableName, region, endpoint);
-        this._findTeacherWithAccountObj = new FindTeacherWithAccount(tableName, region, endpoint);
+        this._getAllTeachersObj = new GetAllTeachers(tableName, region, endpoint);
+        this._getTeacherByIdObj = new GetTeacherById(tableName, region, endpoint);
     }
 
     /**
@@ -16,11 +18,11 @@ export default class TeacherAdapter {
         return await this._createTeacherObj.execute(teacher);
     }
 
-    /**
-     * Find teacher details with account id.
-     * @param {String} accountId 
-     */
-    async findTeacherWithAccount(accountId) {
-        return await this._findTeacherWithAccountObj.execute(accountId);
+    async getAllTeachers() {
+        return await this._getAllTeachersObj.execute();
+    }
+
+    async getTeacherById(id) {
+        return await this._getTeacherByIdObj.execute(id);
     }
 }

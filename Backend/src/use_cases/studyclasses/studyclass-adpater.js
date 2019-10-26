@@ -1,10 +1,12 @@
 import CreateStudyclass from "./create-studyclass";
-import FindStudyclassWithGrade from "./find-studyclass-with-grade";
+import GetAllStudyclasses from "./get-all-studyclasses";
+import GetStudyclassesById from "./get-studyclass-by-id";
 
 export default class StudyclassAdapter {
     constructor(tableName, region, endpoint) {
         this._createStudyclassObj = new CreateStudyclass(tableName, region, endpoint);
-        this._findStudyclassWithGradeObj = new FindStudyclassWithGrade(tableName, region, endpoint);
+        this._getAllStudyclassesObj = new GetAllStudyclasses(tableName, region, endpoint);
+        this._getStudyclassByIdObj = new GetStudyclassesById(tableName, region, endpoint);
     }
 
     /**
@@ -15,11 +17,11 @@ export default class StudyclassAdapter {
         return await this._createStudyclassObj.execute(studyclass);
     }
 
-    /**
-     * Find studyclass with provided grade.
-     * @param {number} grade 
-     */
-    async findStudyclassWithGrade(grade) {
-        return await this._findStudyclassWithGradeObj.execute(grade);
+    async getAllStudyclasses() {
+        return await this._getAllStudyclassesObj.execute();
+    }
+
+    async getStudyclassById(id) {
+        return await this._getStudyclassByIdObj.execute(id);
     }
 }

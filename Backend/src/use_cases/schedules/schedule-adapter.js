@@ -1,16 +1,12 @@
 import CreateSchedule from "./create-schedule";
-import FindStudyclassSchedules from "./find-studyclass-schedules";
-import FindTeacherSchedules from "./find-teacher-schedules";
 import GetAllSchedules from "./get-all-schedules";
-import GetScheduleWithId from "./get-schedule-with-id";
+import GetScheduleById from "./get-schedule-by-id";
 
 export default class ScheduleAdapter {
     constructor(tableName, region, endpoint) {
         this._createScheduleObj = new CreateSchedule(tableName, region, endpoint);
-        this._findStudyclassSchedulesObj = new FindStudyclassSchedules(tableName, region, endpoint);    
-        this._findTeacherSchedulesObj = new FindTeacherSchedules(tableName, region, endpoint);   
         this._getAllSchedulesObj = new GetAllSchedules(tableName, region, endpoint);
-        this._getScheduleWithIdObj = new GetScheduleWithId(tableName, region, endpoint);
+        this._getScheduleByIdObj = new GetScheduleById(tableName, region, endpoint);
     }
 
     /**
@@ -29,23 +25,7 @@ export default class ScheduleAdapter {
     }
 
     /** Get schedule with its id. */
-    async getScheduleWithId(scheduleId) {
-        return await this._getScheduleWithIdObj.execute(scheduleId);
-    }
-
-    /**
-     * Find all schedules of a studyclass with prodided id.
-     * @param {String} studyclassid 
-     */
-    async findStudyclassSchedules(studyclassid) {
-        return await this._findStudyclassSchedulesObj.execute(studyclassid);
-    }
-
-    /**
-     * Find all schedules of a class with provided id.
-     * @param {String} teacherId 
-     */
-    async findTeacherSchedules(teacherId) {
-        return await this._findTeacherSchedulesObj.execute(teacherId);
+    async getScheduleById(scheduleId) {
+        return await this._getScheduleByIdObj.execute(scheduleId);
     }
 }
