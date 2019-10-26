@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "antd";
+import { Table, Row , Col} from "antd";
 import TeacherSearchInput from "../../components/teacher-search-input";
 
 export default class AdminTeachersPage extends Component {
@@ -54,14 +54,23 @@ export default class AdminTeachersPage extends Component {
     render() {
         return (
             <div>
-                <TeacherSearchInput onSearchTeacher={this.handleOnSearchTeacher}/>
-                <br/><br/>
-                <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>
+                <Row gutter={48}>
+                    <Col span={21}>
+                    </Col>
+                    <Col spam={2}>
+                    <TeacherSearchInput onSearchTeacher={this.handleOnSearchTeacher}/>
+                    <br/><br/>
+                    <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>
+                    </Col>
+                </Row>
+                <div>
                 <Table pagination={{pageSize: 9}} 
-                       columns={this.columns} 
-                       rowKey={record => record.id}
-                       dataSource={this.state.searchedTeachers}/>
+                columns={this.columns} 
+                rowKey={record => record.id}
+                dataSource={this.state.searchedTeachers}/>
+                </div>
             </div>
+           
         );
     }
 

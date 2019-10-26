@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown, Button, Menu, Row, Col, Input, Icon } from "antd";
-
-import mockDB from "../repository/mock/mockDB";
+import StudentRepository from "../repository/prop/student-repository";
+import ClassRepository from "../repository/prop/studyclass-repository";
 
 const { Search } = Input;
 
@@ -92,8 +92,8 @@ export default class StudentSearchInput extends Component {
     }
 
     /** Xử lý khi tìm kiếm bằng tên */
-    handleOnSearch() {
-        let students = mockDB.getStudentWithName(this.state.searchedName);
+    async handleOnSearch() {
+        let students = await StudentRepository.getStudentsByName(this.state.searchedName);
         this.props.onSearchStudent(students);
     }
 
@@ -104,8 +104,8 @@ export default class StudentSearchInput extends Component {
     }
 
     /** Xử lý khi tìm kiếm với khối */
-    handleGradeMenuClick(e) {
-        let result = mockDB.getClassWithGrade(Number(e.key));
+    async handleGradeMenuClick(e) {
+        let result = await ClassRepository.getStudyclassByGrade(Number(e.key));
 
         this.setState(_ => ({
             gradeDropdownText: e.item.props.children,
@@ -121,9 +121,7 @@ export default class StudentSearchInput extends Component {
             classDropdownText: e.item.props.children
         }));
 
-        console.log("Class menu click: " + e.key, this.state.classes);
-
-        let students = mockDB.getStudentInClass(this.state.classes[e.key].id);
+        let students = StudentRepository.getStudentsByClassId(this.state.classes[e.key].id);
         this.props.onSearchClass(students);
     }
 }
