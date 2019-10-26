@@ -9,7 +9,7 @@ const scoreAdapter = new ScoreAdapter(SSS_TABLE_NAME, REGION, ENDPOINT);
 
 router.get("/", async (request, response, _) => {
     const result = await scoreAdapter.getAllScores();
-    response.send(response);
+    response.send(result);
 });
 
 router.get("/:id", async (request, response, _) => {
