@@ -11,6 +11,7 @@ export default class CreateStudent extends AWSPut {
             "birthday" : this.student.birthday,
             "address" : this.student.address,
             "phoneNumber" : this.student.phoneNumber,
+            "state": this.student.state
         };
     }
 
