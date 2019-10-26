@@ -4,7 +4,7 @@ import { schedulesEndpoint } from "./endpoints";
 class ScheduleRepository {
     async createSchedule(classId, teacherId, startDate, endDate, startTime, length, state, subject) {
         try {
-            const schedule = {
+            let schedule = {
                 classId: classId,
                 teacherId: teacherId,
                 startDate: startDate,
@@ -16,16 +16,29 @@ class ScheduleRepository {
             };
 
             const result = await axios.post(schedulesEndpoint, schedule);
-            return result.data.success ? result.body : { error: result.data.error };
+            if (!result.data.success)
+                return result.data.error;
+
+            schedule.id = result.data.body.sortKey;
+            schedule.classId = result.data.body.data;
+            return schedule;
         } catch (error) {
-            return {error: error};
+            return { error: error.message };
         }
     }
 
     async getAllSchedules() {
         try {
             const result = await axios.get(schedulesEndpoint);
-            return result.data.success ? result.data.body.Items : { error: result.data.error };
+            if (!result.data.success)
+                return { error: result.data.error };
+
+            for (let i = 0; i < result.data.body.Items.length; i++) {
+                result.data.body.Items[i].id = result.data.body.Items[i].sortKey;
+                result.data.body.Items[i].classId = result.data.body.Items[i].data;
+            }
+
+            return result.data.body.Items;
         } catch (error) {
             return { error: error };
         }
@@ -53,7 +66,7 @@ class ScheduleRepository {
                 subject: schedule.subject
             };
         } catch (error) {
-            return {error: error};
+            return { error: error };
         }
     }
 
@@ -69,7 +82,7 @@ class ScheduleRepository {
         const result = await this.getAllSchedules();
         if (result.error)
             return result;
-        
+
         return result.filter(schedule => schedule.teacherId == teacherId);
     }
 }

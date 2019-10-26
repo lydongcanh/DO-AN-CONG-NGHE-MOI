@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Tabs } from "antd";
 import Scoreboard from "../../components/scoreboard";
-
-import mockDB from "../../repository/mock/mockDB";
+import ScoreboardRepository from "../../repository/prop/scoreboard-repository";
 
 const { TabPane } = Tabs;
 
@@ -12,15 +11,21 @@ export default class StudentScoresPage extends Component {
         super(props);
 
         this.state = {
-            data: {}
-        }
+            data: {},
+            scoreboards: []
+        };
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const { match: { params } } = this.props;
+        const id = params.id;
+        
+        let scoreboards = await ScoreboardRepository.getScoreboardsByStudentId(id);
+        
         this.setState({
-            data: params
-        })
+            data: params,
+            scoreboards: scoreboards
+        });
     }
 
     getScoreboardsView(scoreboards) {
@@ -35,24 +40,17 @@ export default class StudentScoresPage extends Component {
             );
         }   
         
-        console.log("...", result);
-
         return (
-            <Tabs defaultActiveKey={String(scoreboards[scoreboards.length - 1].id)}>
+            <Tabs defaultActiveKey={this.state.scoreboards[this.state.scoreboards.length - 1].id}>
                 {result}
             </Tabs>
         );
     }
 
     render() {
-        const id = this.state.data.id;
-        if (!id)
-            return <h3>Thông tin học sinh không hơp lệ.</h3>
-
-        let scoreboards = mockDB.getStudentScoreboards(id);
-        if (!scoreboards || scoreboards.length == 0)
+        if (!this.state.scoreboards || this.state.scoreboards.length < 1)
             return <h3>Học sinh này hiện chưa có điểm số nào.</h3>
         
-        return this.getScoreboardsView(scoreboards);
+        return this.getScoreboardsView(this.state.scoreboards);
     }
 }

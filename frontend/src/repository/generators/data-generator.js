@@ -34,11 +34,13 @@ const scoreTypes = [
 ];
 
 const genders = ["Nữ", "Nam"];
-const years = [2017, 2018, 2019, 2020];
-const semesters = ["HK1", "HK2", "HK3"];
+const years = [2018, 2019];
+const semesters = ["HK1", "HK2", ];
 const grades = [10, 11, 12];
 
 function getMultiplier(type) {
+    console.log("type", type);
+
     if (type == "Kiểm tra miệng" || type == "15 phút")
         return 1;
     
@@ -48,7 +50,7 @@ function getMultiplier(type) {
     if (type == "Cuối kỳ")
         return 3;
 
-    return 0;
+    return 1;
 }
 
 function getRandomInt(min, max) {
@@ -65,103 +67,107 @@ function generateAccount(username, password, type) {
     accountRepo.createAccount(username, password, type);
 }
 
-function generateRandomTeachers(count) {
+async function generateRandomTeachers(count) {
     let ids = [];
     for(let i = 0; i < count; i++) {
-        let result = teacherRepo.createTeacher(
-            chance.name(),
-            genders[getRandomInt(0, 1)],
-            chance.birthday(),
-            chance.address(),
-            chance.email(),
-            chance.phone(),
+        let result = await teacherRepo.createTeacher(
+            String(chance.name()),
+            String(genders[getRandomInt(0, 1)]),
+            String(chance.date()),
+            String(chance.address()),
+            String(chance.email()),
+            String(chance.phone()),
             "active"
         );
-        console.log("generated teacher: " + JSON.stringify(result));
-        ids.push(result.sortKey);
+        //console.log("generated teacher: " + JSON.stringify(result));
+        ids.push(result.id);
     }
     return ids;
 }
 
-function generateRandomClasses(studentIds, step) {
+async function generateRandomClasses(studentIds, step) {
     let ids = [];
     for(let i = 0; i < studentIds.length; i += step) {
         let year = years[getRandomInt(0, 2)]
-        let result = classRepo.createStudyclass(
+        let result = await classRepo.createStudyclass(
             chance.character(),
             grades[getRandomInt(0, 2)],
-            year,
-            year + 1,
+            String(year),
+            String(year + 1),
             "active",
-            studentIds.slice[i, i + step] // student id
+            studentIds.slice[i, i + step] // student ids
         );
-        ids.push(result.sortKey);
-        console.log("generated class: " + JSON.stringify(result));
+        ids.push(result.id);
+        //console.log("generated class: " + JSON.stringify(result));
     }
     return ids;
 }
 
-function generateRandomScoreboards(studentIds) {
+async function generateRandomScoreboards(studentIds) {
     let ids = [];
     for(let sid = 0; sid < studentIds.length; sid++) {
         for(let i = 0; i < years.length; i++) {
             for (let j = 0; j < semesters.length; j++) {
-                let result = scoreboardRepo.createScoreboard(
-                    semesters[j],
-                    years[i],
-                    studentIds[sid]
+                let result = await scoreboardRepo.createScoreboard(
+                    String(semesters[j]),
+                    String(years[i]),
+                    String(studentIds[sid])
                 )
-                ids.push(result.sortKey);
-                console.log("generated sboard: " + JSON.stringify(result));
+                ids.push(result.id);
+                //console.log("generated sboard: " + JSON.stringify(result));
             }
         }
     }
     return ids;
 }
 
-function generateRandomScores(scoreboardIds, count) {
+async function generateRandomScores(scoreboardIds, count) {
     let ids = [];
     for(let sid = 0; sid < scoreboardIds.length; sid++) {
         for(let i = 0; i < count; i++) {
-            let score = getRandomFloat(0, 10);
-            let result = scoreRepo.createScore(
-                scoreTypes[getRandomInt(0, scoreTypes.length - 1)],
-                score,
+            let score = getRandomInt(0, 10);
+            let type = scoreTypes[getRandomInt(0, scoreTypes.length - 1)];
+            console.log("score", score);
+            let result = await scoreRepo.createScore(
+                type,
+                Number(score),
                 subjects[getRandomInt(0, subjects.length - 1)],
-                getMultiplier(score),
-                scoreboardIds[sid]
+                getMultiplier(type),
+                String(scoreboardIds[sid])
             );
-            ids.push(result.sortKey);
-            console.log("generated score: " + JSON.stringify(result));
+            ids.push(result.id);
+            //console.log("generated score: " + JSON.stringify(result));
         }
     }
     return ids;
 }
 
-function generateRandomStudents(count) {
+async function generateRandomStudents(count) {
     let ids = [];
     for(let i = 0; i < count; i++) {
-        let result = studentRepo.createStudent(
-            chance.name(),
-            genders[getRandomInt(0, 1)],
-            chance.birthday(),
-            chance.address(),
-            chance.phone(),
+        let result = await studentRepo.createStudent(
+            String(chance.name()),
+            String(genders[getRandomInt(0, 1)]),
+            String(chance.date()),
+            String(chance.address()),
+            String(chance.phone()),
             "active",
-            // TODO: classid
+            String(0) // TODO: classid
         );
-        console.log("generated student: " + JSON.stringify(result));
-        ids.push(result.sortKey);
+        //console.log("generated student: " + JSON.stringify(result));
+        ids.push(result.id);
     }
     return ids;
 }
 
-export default function generate() {
+export default async function generate() {
     generateAccount("teacher1", "1234567890", "teacher");
     generateAccount("admin1", "1234567890", "admin");
-    generateRandomTeachers(2);
-    let studentIds = generateRandomStudents(20);
-    generateRandomClasses(studentIds, 10);
-    let sbIds = generateRandomScoreboards(studentIds);
-    generateRandomScores(sbIds, 5);
+    generateRandomTeachers(5); // 5: Số giáo viên
+    let studentIds = await generateRandomStudents(50); // 50: Số lượng học sinh
+    console.log("studentIds", studentIds);
+    generateRandomClasses(studentIds, 10); // 10: Số học sinh mỗi lớp
+    let sbIds = await generateRandomScoreboards(studentIds);
+    console.log("sbids", sbIds);
+    generateRandomScores(sbIds, 100); // 10: Số điểm trong mỗi bảng điểm
 }

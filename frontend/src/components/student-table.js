@@ -44,7 +44,8 @@ export default class StudentTable extends Component {
             },
             {
                 title: "",
-                render: (_, record) => (
+                render: (_, record) => {
+                    return (
                     <span>
                         <Button type="primary">
                             <Link to={`/studentscores/${record.id}`}>
@@ -53,12 +54,12 @@ export default class StudentTable extends Component {
                         </Button>
                         <Divider type="vertical" />
                         <Button type="primary">
-                            <Link to={`/studentschedules/${record.id}`}>
+                            <Link to={`/studentschedules/0`}>
                                 Xem thời khóa biểu
                             </Link>
                         </Button>
                     </span>
-                ),
+                )},
             },
         ];
     }
