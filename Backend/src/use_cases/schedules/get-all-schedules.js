@@ -1,15 +1,7 @@
-import AWSQuery from "../../repositories/aws/aws-query";
+import GetAll from "../base/get-all";
 
-export default class GetAllSchedules extends AWSQuery {
-    get keyConditionExpression() {
-        return "#pk = :pk";
-    }
-
-    get expressionAttributeNames() {
-        return { "#pk" : "partitionKey" };
-    }
-
-    get expressionAttributeValues() {
-        return { ":pk" : "SCHEDULE" };
+export default class GetAllSchedules extends GetAll {
+    get partitionName() {
+        return "SCHEDULE";
     }
 }
