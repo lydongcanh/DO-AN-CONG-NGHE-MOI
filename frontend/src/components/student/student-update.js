@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker,Modal} from "antd";
+import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker} from "antd";
 import mockDB from "../../repository/mock/mockDB";
 import moment from "moment";
 
@@ -7,9 +7,7 @@ export default class UpdateStudent extends Component{
     constructor(props){
         super(props);
         this.state={
-            visible: false,
-            student: {},
-            classe : {},
+            classe :{},
             classes: [],
             value : 1,
             gradeDropdownText: '',
@@ -20,31 +18,32 @@ export default class UpdateStudent extends Component{
         this.handleGradeMenuClick = this.handleGradeMenuClick.bind(this);
         this.handleClassMenuClick = this.handleClassMenuClick.bind(this);
         this.handleSaveClick = this.handleSaveClick.bind(this);
+        this.handlechangDate = this.handlechangDate.bind(this);
+        this.getClass();
     }
-   
-    // async componentDidMount() {
-    //     const { match: { params } } = this.props;
-    //     const student = await mockDB.getStudentWithId(params.id);
-    //     this.setState({
-    //         student: student 
-    //     })
-    //     console.log("student",this.state.student );
-    //     if(this.state.student.gender === "Nam")
-    //     { 
-    //         this.state.value = 1 
-    //     }else this.state.value = 2 
-    //     await this.getClass();
-    //     this.setState({
-    //         gradeDropdownText: "Khối " + this.state.classe.grade,
-    //         classDropdownText: this.state.classe.name
-    //     })
-    // }
     async getClass() {
-        const classe = await mockDB.getClassWithId(this.state.student.classId);
+        const classe = await mockDB.getClassWithId(this.props.student.classId);
         this.setState({
-            classe: classe,
+            classe: classe
         })
+        console.log('gender',this.props.student.gender);
+        if(this.props.student.gender === "Nam")
+        { 
+            this.setState({
+                value : 1 
+            })
+        }else  this.setState({
+            value : 2
+        })
+        console.log('gen')
         console.log("classs", this.state.classe)
+        this.setState({
+            gradeDropdownText: "Khối " + this.state.classe.grade,
+            classDropdownText: this.state.classe.name
+        })
+        console.log(this.state.classe)
+        
+        
     }
     get gradeMenu() {
         return (
@@ -77,19 +76,14 @@ export default class UpdateStudent extends Component{
         );
     }
     render(){
-       console.log('a',this.props.name);
+      
+       console.log('a',this.props.student);
         return(
-            <Modal
-                visible={this.props.visible}
-                onCancel={this.props.handleCancel}
-                header={null}
-                footer={null}
-                width="40%">
                 <div>
                     <h2>Sửa thông tin học sinh</h2>
                     <Form>
                         <Form.Item>
-                            <Input placeholder="Tên" value={this.state.student.name}></Input>
+                            <Input placeholder="Tên" value={this.props.student.name}></Input>
                                 </Form.Item>
                                 <Form.Item>
                                     <Radio.Group onChange={this.onChange} value={this.state.value}>
@@ -98,18 +92,19 @@ export default class UpdateStudent extends Component{
                                     </Radio.Group>
                                 </Form.Item>
                                 <Form.Item>
-                                    <Input placeholder="Địa chỉ" value={this.state.student.address}></Input>
+                                    <Input placeholder="Địa chỉ" value={this.props.student.address}></Input>
                                 </Form.Item>
                                 <Form.Item>
-                                    <Input placeholder="Số điện thoại" value={this.state.student.phoneNumber}></Input>
+                                    <Input placeholder="Số điện thoại" value={this.props.student.phoneNumber}></Input>
                                 </Form.Item>
                                 <Form.Item>
-                                    <Input placeholder="Tình Trạng" value={this.state.student.state}></Input>
+                                    <Input placeholder="Tình Trạng" value={this.props.student.state}></Input>
                                 </Form.Item>
                                 <Form.Item>
                                     <Dropdown overlay={this.gradeMenu}>
                                         <Button>
-                                            {this.state.gradeDropdownText} <Icon type="down"/>                                            </Button>
+                                            {this.state.gradeDropdownText} <Icon type="down"/>
+                                        </Button>
                                    </Dropdown>
                                     <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
                                         <Button>
@@ -118,19 +113,22 @@ export default class UpdateStudent extends Component{
                                     </Dropdown>
                                 </Form.Item>
                                 <Form.Item>
-                                    <DatePicker  defaultValue={moment(`"${this.state.student.birthday}"`, 'DD-MM-YYYY')}></DatePicker>
+                                    <DatePicker  value={moment(`"${this.props.student.birthday}"`, 'DD-MM-YYYY')} onChange={this.handlechangDate}></DatePicker>
                                 </Form.Item>
                                  <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
                     </Form>
-                </div>
-            </Modal>
+            </div>
         )
     }
-    
+    handlechangDate(e){
+       
+        console.log(`date`,this.state.date);
+    }
     onChange(e){
         this.setState({
             value : e.target.value
         });
+        console.log(`asfasf`,e.target.value);
     }
     handleGradeMenuClick(e) {
         let result = mockDB.getClassWithGrade(Number(e.key));
