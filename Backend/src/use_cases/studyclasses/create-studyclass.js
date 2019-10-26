@@ -3,11 +3,14 @@ import AWSPut from "../../repositories/aws/aws-put";
 export default class CreateStudyclass extends AWSPut {
     get item() {
         return {
-            "partitionKey" : "CLASS",
+            "partitionKey" : "STUDYCLASS",
             "sortKey" : this.studyclass.id,
             "data" : this.studyclass.name,
             "grade" : this.studyclass.grade,
-            "state" : this.studyclass.state
+            "startYear": this.studyclass.startYear,
+            "endYear": this.studyclass.endYear,
+            "state": this.studyclass.state,
+            "studentIds": this.studyclass.studentIds
         };
     }
 
