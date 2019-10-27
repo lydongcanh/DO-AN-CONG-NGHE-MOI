@@ -46,7 +46,7 @@ export default class AWSQuery extends AWSUseCase {
         try {
             
             const data = await this.docClient.query(this.params).promise();
-            console.log("Query item(s) successfully: " + JSON.stringify(data));
+            //console.log("Query item(s) successfully: " + JSON.stringify(data));
             return {
                 success: true,
                 body: data

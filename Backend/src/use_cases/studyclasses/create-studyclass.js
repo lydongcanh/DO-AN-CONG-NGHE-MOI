@@ -6,7 +6,7 @@ export default class CreateStudyclass extends AWSPut {
             "partitionKey" : "STUDYCLASS",
             "sortKey" : this.studyclass.id,
             "data" : this.studyclass.grade,
-            "grade" : this.studyclass.name,
+            "name" : this.studyclass.name,
             "startYear": this.studyclass.startYear,
             "endYear": this.studyclass.endYear,
             "state": this.studyclass.state,

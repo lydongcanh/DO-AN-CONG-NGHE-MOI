@@ -1,14 +1,10 @@
 export default class Account {
-    
-    /**
-     * @param {String} username 
-     * @param {String} password 
-     * @param {String} type
-     */
-    constructor(username, password, type) {
+
+    constructor(username, password, type, teacherId) {
         this.username = username;
         this.password = password;
         this.type = type;
+        this.teacherId = teacherId;
         Object.freeze(this);
     }
 }
