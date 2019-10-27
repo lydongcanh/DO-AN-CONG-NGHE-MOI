@@ -20,8 +20,11 @@ export default class StudentScoresPage extends Component {
         const { match: { params } } = this.props;
         const id = params.id;
         
+        console.log("mount", id);
+
         let scoreboards = await ScoreboardRepository.getScoreboardsByStudentId(id);
-        
+        console.log("scoreboards", scoreboards);
+
         this.setState({
             data: params,
             scoreboards: scoreboards

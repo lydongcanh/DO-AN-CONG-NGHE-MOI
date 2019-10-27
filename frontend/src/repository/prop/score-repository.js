@@ -70,8 +70,9 @@ class ScoreRepository {
         if (result.error)
             return result;
 
-        console.log("getScoreByScoreboardId", result);
-        return result.filter(score => score.scoreboardId == scoreboardId);
+        const p = result.filter(score => String(score.scoreboardId) == String(scoreboardId));
+
+        return p;
     }
 }
 

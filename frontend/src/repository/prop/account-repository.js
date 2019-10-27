@@ -2,12 +2,13 @@ import axios from "axios";
 import { accountsEndpoint } from "./endpoints";
 
 class AccountRepository {
-    async createAccount(username, password, type) {
+    async createAccount(username, password, type, teacherId) {
         try {
             const account = {
                 username: username,
                 password: password,
-                type: type
+                type: type,
+                teacherId: teacherId
             };
 
             let response = await axios.post(accountsEndpoint, account);
@@ -28,7 +29,8 @@ class AccountRepository {
                 return {
                     username: accounts[0].partitionKey,
                     password: accounts[0].sortKey,
-                    type: accounts[0].type
+                    type: accounts[0].data,
+                    teacherId: accounts[0].teacherId
                 };
 
             } else {
