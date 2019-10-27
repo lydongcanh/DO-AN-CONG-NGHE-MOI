@@ -2,11 +2,12 @@ import axios from "axios";
 import { studentsEndpoint } from "./endpoints";
 
 class StudentRepository {
-    async createStudent(name, gender, birthday, address, phoneNumber, state, classId) {
+    async createStudent(name, gender, grade, birthday, address, phoneNumber, state, classId) {
         try {
             let student = {
                 name: name,
                 gender: gender,
+                grade: grade,
                 birthday: birthday,
                 address: address,
                 phoneNumber: phoneNumber,
@@ -58,6 +59,7 @@ class StudentRepository {
                 classId: student.data,
                 name: student.name,
                 gender: student.gender,
+                grade: student.grade,
                 birthday: student.birthday,
                 address: student.address,
                 phoneNumber: student.phoneNumber,
@@ -82,6 +84,14 @@ class StudentRepository {
             return result;
 
         return result.filter(student => student.classId == classId);
+    }
+
+    async getStudentsByGrade(grade) {
+        const result = await this.getAllStudents();
+        if (result.error)
+            return result;
+
+        return result.filter(student => student.grade == grade);
     }
 }
 

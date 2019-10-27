@@ -2,15 +2,11 @@ import axios from "axios";
 import { studyclassesEndpoint } from "./endpoints";
 
 class StudyclassRepository {
-    async createStudyclass(name, grade, startYear, endYear, state, studentIds) {
+    async createStudyclass(name, grade) {
         try {
             let studyclass = {
                 name: name,
-                grade: String(grade),
-                startYear: startYear,
-                endYear: endYear,
-                state: state,
-                studentIds: studentIds
+                grade: grade,
             };
 
             const result = await axios.post(studyclassesEndpoint, studyclass);
@@ -56,10 +52,6 @@ class StudyclassRepository {
                 id: studyclass.sortKey,
                 grade: studyclass.data,
                 name: studyclass.name,
-                startYear: studyclass.startYear,
-                endYear: studyclass.endYear,
-                state: studyclass.state,
-                studentIds: studyclass.studentIds
             };
         } catch (error) {
             return { error: error };
@@ -72,6 +64,16 @@ class StudyclassRepository {
             return result;
 
         return result.filter(stutyclass => stutyclass.grade == grade);
+    }
+
+    async getStudyclassByGradeAndName(grade, name) {
+        const result = await this.getAllStudyclasses();
+        if (result.error)
+            return result;
+
+        return result.filter(studyclass => {
+            return studyclass.grade == grade && studyclass.name == name;
+        });
     }
 }
 
