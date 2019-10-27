@@ -1,0 +1,102 @@
+[
+    {
+        "sortKey": "a7500330-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "10",
+        "name": "E",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    },
+    {
+        "sortKey": "a7527430-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "10",
+        "name": "I",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    },
+    {
+        "sortKey": "a7549710-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "11",
+        "name": "M",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    },
+    {
+        "sortKey": "a756e100-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "12",
+        "name": "O",
+        "startYear": "2019",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2020"
+    },
+    {
+        "sortKey": "a7592af0-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "10",
+        "name": "J",
+        "startYear": "2019",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2020"
+    },
+    {
+        "sortKey": "a75d70b0-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "12",
+        "name": "L",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    },
+    {
+        "sortKey": "a76008c0-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "10",
+        "name": "V",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    },
+    {
+        "sortKey": "a76252b0-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "12",
+        "name": "K",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    },
+    {
+        "sortKey": "a764c3b0-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "11",
+        "name": "F",
+        "startYear": "2019",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2020"
+    },
+    {
+        "sortKey": "a7670da0-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "STUDYCLASS",
+        "data": "11",
+        "name": "J",
+        "startYear": "2018",
+        "state": "active",
+        "studentIds": "undefined",
+        "endYear": "2019"
+    }
+]
