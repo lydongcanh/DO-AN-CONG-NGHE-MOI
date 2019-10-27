@@ -1,7 +1,7 @@
-const grade = [
+const grades = [
     10,
     11,
     12
 ];
 
-export default grade;
+export default grades;
