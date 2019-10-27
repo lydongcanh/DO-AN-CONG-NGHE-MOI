@@ -120,7 +120,7 @@
         "teacherId": "a694f090-f87d-11e9-bead-ab1d2a089515"
     },
     {
-        "partitionKey": "admin",
+        "partitionKey": "admin1",
         "sortKey": "1234567890",
         "data": "admin",
         "teacherId": "null"

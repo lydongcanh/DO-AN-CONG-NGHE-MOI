@@ -6,7 +6,7 @@ class StudyclassRepository {
         try {
             let studyclass = {
                 name: name,
-                grade: grade,
+                grade: String(grade),
                 startYear: startYear,
                 endYear: endYear,
                 state: state,
