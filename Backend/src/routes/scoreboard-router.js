@@ -21,7 +21,7 @@ router.get("/:id", async (request, response, _) => {
 router.post("/", async (request, response, _) => {
     const {semester, year, studentId} = request.body;
     const id = uuidv1();
-    const scoreboard = new Scoreboard(id, semester, year, studentId);
+    const scoreboard = new Scoreboard(id, String(semester), year, studentId);
     const result = await scoreboardAdapter.createScoreBoard(scoreboard);
     response.send(result);
 });

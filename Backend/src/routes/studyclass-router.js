@@ -20,8 +20,8 @@ router.get("/:id", async (request, response, _) => {
 
 router.post("/", async (request, response, _) => {
     const id = uuidv1();
-    const {name, grade, startYear, endYear, state, studentIds} = request.body;
-    const studyclass = new Studyclass(id, name, grade, startYear, endYear, state, studentIds);
+    const {name, grade} = request.body;
+    const studyclass = new Studyclass(id, name, String(grade));
     const result = await studyclassAdapter.createStudyclass(studyclass);
     response.send(result);
 });

@@ -7,10 +7,6 @@ export default class CreateStudyclass extends AWSPut {
             "sortKey" : this.studyclass.id,
             "data" : this.studyclass.grade,
             "name" : this.studyclass.name,
-            "startYear": this.studyclass.startYear,
-            "endYear": this.studyclass.endYear,
-            "state": this.studyclass.state,
-            "studentIds": this.studyclass.studentIds
         };
     }
 
