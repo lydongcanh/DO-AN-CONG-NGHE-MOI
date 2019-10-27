@@ -1,5 +1,4 @@
 import express from "express";
-import uuidv1 from "uuid/v1";
 import { ATSC_TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
 import Account from "../entities/account";
 import AccountAdapter from "../use_cases/accounts/account-adapter";
@@ -17,6 +16,12 @@ router.post("/", async (request, response, _) => {
 router.get("/:username", async (request, response, _) => {
     const username = request.params.username;
     const result = await accountAdapter.findAccountWithUsername(username);
+    response.send(result);
+});
+
+router.delete("/:username", async (request, response, _) => {
+    const username = request.params.username;
+    const result = await accountAdapter.deleteAccount(username);
     response.send(result);
 });
 

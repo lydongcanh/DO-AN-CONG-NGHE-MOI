@@ -26,4 +26,10 @@ router.post("/", async (request, response, _) => {
     response.send(result);
 });
 
+router.delete("/:id", async (request, response, _) => {
+    const id = request.params.id;
+    const result = await scoreboardAdapter.deleteScoreboard(id);
+    response.send(result);
+});
+
 export default router;
