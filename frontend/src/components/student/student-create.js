@@ -1,6 +1,6 @@
 import React , {Component} from "react";
 import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
-import mockDB from "../../repository/mock/mockDB";
+import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
 
 export default class CreateStudent extends Component{
     constructor(props){
@@ -20,7 +20,7 @@ export default class CreateStudent extends Component{
     }
     get gradeMenu() {
         return (
-            <Menu onClick={this.handleGradeMenuClick}>
+            <Menu onClick={ async ()=> this.handleGradeMenuClick}>
                 <Menu.Item key="10">
                     Khối 10
                 </Menu.Item>
@@ -100,9 +100,8 @@ export default class CreateStudent extends Component{
             value : e.target.value
         });
     }
-    handleGradeMenuClick(e) {
-        let result = mockDB.getClassWithGrade(Number(e.key));
-
+    async handleGradeMenuClick(e) {
+        let result = await StudyClassResponsitory.getStudyclassByGrade(Number(e.key));
         this.setState(_ => ({
             gradeDropdownText: e.item.props.children,
             classDropdownText: "Chọn lớp",

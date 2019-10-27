@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Divider, Table, Button, Modal } from "antd";
 import { Link } from "react-router-dom";
 import UpdateTeacher from "../../components/teachers/teacher-update"
-import mockDB from "../../repository/mock/mockDB";
+import TeacherResponsitory from "../../repository/prop/teacher-repository"
 
 export default class StudentTableAdmin extends Component {
     constructor(props){
@@ -66,7 +66,7 @@ export default class StudentTableAdmin extends Component {
                 render: (value) => {
                     return(
                         <div>
-                        <Button onClick={() => this.handleUpdateButton(value)}>
+                        <Button onClick={ async () => this.handleUpdateButton(value)}>
                                 Sửa
                         </Button>
                         <Divider type="vertical" />
@@ -84,7 +84,15 @@ export default class StudentTableAdmin extends Component {
         return (
             <div>
                 <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>
-                <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.teacher} />
+                
+                <div>
+                    <Table title={() => <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>}
+                       pagination={{pageSize: 9}} 
+                       bordered
+                       columns={this.columns} 
+                       rowKey={record => record.id} 
+                       dataSource={this.dataSource} />
+                 </div>
                 {/* <UpdateStudentModal
                     student={this.state.student}
                     classe = {this.state.classe}
@@ -98,13 +106,27 @@ export default class StudentTableAdmin extends Component {
                     footer={null}
                     header={null}
                     onCancel={this.handleCancelModal}>
-                        <UpdateTeacher student={this.state.student}></UpdateTeacher>
+                        <UpdateTeacher student={this.state.student} ></UpdateTeacher>
                 </Modal>
             </div>
         );
     }
-    handleUpdateButton(e){
-        const teacher = mockDB.getTeacherWithId(e.id); 
+    get dataSource() {
+        const teachers = this.props.teachers;
+        if (!teachers || teachers.length < 1) 
+            return [];
+
+        const result = [];
+        for(let i = 0; i < teachers.length; i++) {
+            let item = new Object(teachers[i]);
+            item.count = i + 1;
+            result.push(item);
+        }
+        return result;
+    }
+
+    async handleUpdateButton(e){
+        const teacher = await TeacherResponsitory.getTeacherById(e.id);
         this.setState({
             teacher : teacher,
             visible : true

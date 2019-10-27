@@ -1,19 +1,19 @@
 import React , {Component} from "react";
-import {Menu,Dropdown,Form, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
-import mockDB from "../../repository/mock/mockDB";
+import {Form, Button, Input, Radio, DatePicker, Modal} from "antd";
+import TeacherResponsitory from "../../repository/prop/teacher-repository"
 
-export default class CreateStudent extends Component{
+export default class CreateTeacher extends Component{
     constructor(props){
         super(props);
         this.state={
             visible: false,
             teacher:{},
-            value : 1
+            valueDatepicker:'',
         }
         this.onChange = this.onChange.bind(this);
-        this.handleSaveClick = this.handleSaveClick.bind(this);
+        this.handleSaveSuccess = this.handleSaveSuccess.bind(this);
+        this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
     }
-   
     render(){
         return(
             <Modal
@@ -26,37 +26,62 @@ export default class CreateStudent extends Component{
                     <Form style={{textAlign:"left" }} >
                         <h2>Thêm giáo viên</h2>
                             <Form.Item>
-                                <Input placeholder="Tên"></Input>
+                                <Input placeholder="Tên" name="name" onChange={this.onChange}></Input>
                             </Form.Item>
                             <Form.Item >
-                                <Radio.Group onChange={this.onChange} value={this.state.value}>
+                                <Radio.Group onChange={this.onChange} name="gender" >
                                     <Radio value={1}>Nam</Radio>
                                     <Radio value={2}>Nữ</Radio>
                                 </Radio.Group>
                             </Form.Item>
                             <Form.Item>
-                            <Input placeholder="Địa chỉ"></Input>
+                                <DatePicker placeholder="Chọn ngày sinh" name="birthday" onChange={ (date,dateString) => this.onChangeDatePicker(date,dateString)} format="DD/MM/YYYY"></DatePicker>
                             </Form.Item>
                             <Form.Item>
-                                <Input placeholder="Số điện thoại"></Input>
+                            <Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>
                             </Form.Item>
                             <Form.Item>
-                                <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
+                                <Input placeholder="Số điện thoại" name="email" onChange={this.onChange}></Input>
                             </Form.Item>
-                        <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                            <Form.Item>
+                                <Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.onChange}></Input>
+                            </Form.Item>
+                        <Button type="primary" htmlType="submit" onClick={this.handleSaveSuccess}>Lưu</Button>
                     </Form>
                 </div>
             </Modal>
         )
     }
     onChange(e){
-        this.setState({
-            value : e.target.value
-        });
+       if(e.target !== undefined) this.setState({
+                [e.target.name]: e.target.value
+            })
+        console.log('a',e.target.value)
     }
-    handleSaveClick(e){
-        //luu du lieu
-        let teacher = this.state.teacher;
-        this.props.handleSaveSuccess(teacher);
+    onChangeDatePicker(date,dateString){
+        this.setState({
+            valueDatepicker : dateString
+        })
+    }
+    async handleSaveSuccess(){
+        if(this.state.gender === 1){
+            this.state.gender = "Nam"
+        } else this.state.gender ="Nữ"
+        await TeacherResponsitory.createTeacher(
+            this.state.name,
+            this.state.gender,
+            this.state.valueDatepicker,
+            this.state.address,
+            this.state.email,
+            this.state.phoneNumber,
+            "Đang dạy"
+        )
+        this.props.handleSaveSuccess();
+        console.log(`teacher`,this.state.name,
+        this.state.gender,
+        this.state.valueDatepicker,
+        this.state.address,
+        this.state.email,
+        this.state.phoneNumber);
     }
 }

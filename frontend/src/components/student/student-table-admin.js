@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import { Divider, Table, Button, Modal } from "antd";
-import { Link } from "react-router-dom";
-import UpdateStudent from "../../components/student/student-update"
-import mockDB from "../../repository/mock/mockDB";
+import UpdateStudent from "../../components/student/student-update";
+import StudentResponsitory from "../../repository/prop/student-repository";
+import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
+
 
 export default class StudentTableAdmin extends Component {
     constructor(props){
         super(props);
         this.state = {
             student : {},
+            classe : [],
             visible : false
         }
         this.handleDelteClick = this.handleDelteClick.bind(this);
         this.handleUpdateButton = this.handleUpdateButton.bind(this);
         this.handleCancelModal = this.handleCancelModal.bind(this);
-        this.handleSaveStudentSuccess = this.handleSaveStudentSuccess.bind(this);
+        this.handleSaveStudentSuccess = this.handleSaveStudentSuccess.bind(this);   
     }
     get columns(){
         return [
@@ -59,7 +61,7 @@ export default class StudentTableAdmin extends Component {
                 render: (value) => {
                     return(
                         <div>
-                        <Button onClick={() => this.handleUpdateButton(value)}>
+                        <Button onClick={ async () => this.handleUpdateButton(value)}>
                                 Sửa thông tin
                         </Button>
                         <Divider type="vertical" />
@@ -95,23 +97,30 @@ export default class StudentTableAdmin extends Component {
                     footer={null}
                     header={null}
                     onCancel={this.handleCancelModal}>
-                        <UpdateStudent student={this.state.student}></UpdateStudent>
+                        <UpdateStudent student={this.state.student} classe={this.state.classe}></UpdateStudent>
                 </Modal>
             </div>
         );
     }
-    handleUpdateButton(e){
-        const student = mockDB.getStudentWithId(e.id); 
-        this.setState({
-            student : student,
-            visible : true
-        });
-        console.log('studenet',this.state.student);
-        // const classe = mockDB.getClassWithId(this.state.student.classId);
+    async handleUpdateButton(e){
+        // const student = await StudentResponsitory.getStudentById(e.id);
+        // this.setState({
+        //     student : student,
+        //     visible : true
+        // });
+        // const id = this.state.student.classId;
+        // console.log("id", id)
+        const classe = await StudyClassResponsitory.getAllStudyclasses();
+        console.log("sdf", classe)
         // this.setState({
         //     classe : classe
         // })
+        // console.log('class Nhu',this.state.classe);
+        
     }
+    // async getClass(){
+       
+    // }
     handleCancelModal(){
         this.setState({
             visible : false
@@ -119,6 +128,7 @@ export default class StudentTableAdmin extends Component {
     }
     handleSaveStudentSuccess(){
         this.setState({
+            
             visible : false
         });
     }
