@@ -17,9 +17,9 @@ export default class Scoreboard extends Component {
 
     async componentDidMount() {
         const id = this.props.scoreboard.id;
-
+        console.log("id", id);
         const scores = await ScoreRepository.getScoreByScoreboardId(id);
-        
+
         this.setState({
             scores: scores
         });
@@ -108,9 +108,7 @@ export default class Scoreboard extends Component {
         return result;
     }
 
-    getAverageScore(scores) {
-        console.log("scores", scores);
-        
+    getAverageScore(scores) {        
         let sum = 0, multiplier = 0;
         for(let i = 0; i < scores.length; i++) {
             sum += scores[i].value * scores[i].multiplier;

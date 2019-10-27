@@ -105,8 +105,7 @@ export default class StudentSearchInput extends Component {
 
     /** Xử lý khi tìm kiếm với khối */
     async handleGradeMenuClick(e) {
-        let result = await ClassRepository.getStudyclassByGrade(Number(e.key));
-
+        const result = await ClassRepository.getStudyclassByGrade(e.key);
         this.setState(_ => ({
             gradeDropdownText: e.item.props.children,
             classDropdownText: "Chọn lớp",
@@ -116,12 +115,13 @@ export default class StudentSearchInput extends Component {
     }
 
     /** Xử lý khi tìm kiếm với lớp */
-    handleClassMenuClick(e) {
+    async handleClassMenuClick(e) {
         this.setState(_ => ({
             classDropdownText: e.item.props.children
         }));
 
-        let students = StudentRepository.getStudentsByClassId(this.state.classes[e.key].id);
+        const students = await StudentRepository.getStudentsByClassId(this.state.classes[e.key].id);
+
         this.props.onSearchClass(students);
     }
 }

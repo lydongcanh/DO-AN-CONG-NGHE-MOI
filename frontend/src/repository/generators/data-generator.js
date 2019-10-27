@@ -35,12 +35,10 @@ const scoreTypes = [
 
 const genders = ["Nữ", "Nam"];
 const years = [2018, 2019];
-const semesters = ["HK1", "HK2", ];
+const semesters = ["HK1", "HK2"];
 const grades = [10, 11, 12];
 
 function getMultiplier(type) {
-    console.log("type", type);
-
     if (type == "Kiểm tra miệng" || type == "15 phút")
         return 1;
     
@@ -88,14 +86,14 @@ async function generateRandomTeachers(count) {
 async function generateRandomClasses(studentIds, step) {
     let ids = [];
     for(let i = 0; i < studentIds.length; i += step) {
-        let year = years[getRandomInt(0, 2)]
+        let year = years[getRandomInt(0, 1)]
         let result = await classRepo.createStudyclass(
-            chance.character(),
-            grades[getRandomInt(0, 2)],
+            chance.letter({casing: "upper"}),
+            String(grades[getRandomInt(0, 2)]),
             String(year),
             String(year + 1),
             "active",
-            studentIds.slice[i, i + step] // student ids
+            String(studentIds.slice[i, i + step]) // student ids
         );
         ids.push(result.id);
         //console.log("generated class: " + JSON.stringify(result));
@@ -127,12 +125,11 @@ async function generateRandomScores(scoreboardIds, count) {
         for(let i = 0; i < count; i++) {
             let score = getRandomInt(0, 10);
             let type = scoreTypes[getRandomInt(0, scoreTypes.length - 1)];
-            console.log("score", score);
             let result = await scoreRepo.createScore(
-                type,
+                String(type),
                 Number(score),
-                subjects[getRandomInt(0, subjects.length - 1)],
-                getMultiplier(type),
+                String(subjects[getRandomInt(0, subjects.length - 1)]),
+                Number(getMultiplier(type)),
                 String(scoreboardIds[sid])
             );
             ids.push(result.id);
@@ -163,11 +160,9 @@ async function generateRandomStudents(count) {
 export default async function generate() {
     generateAccount("teacher1", "1234567890", "teacher");
     generateAccount("admin1", "1234567890", "admin");
-    generateRandomTeachers(5); // 5: Số giáo viên
-    let studentIds = await generateRandomStudents(50); // 50: Số lượng học sinh
-    console.log("studentIds", studentIds);
+    generateRandomTeachers(20); // 5: Số giáo viên
+    let studentIds = await generateRandomStudents(100); // 50: Số lượng học sinh
     generateRandomClasses(studentIds, 10); // 10: Số học sinh mỗi lớp
     let sbIds = await generateRandomScoreboards(studentIds);
-    console.log("sbids", sbIds);
-    generateRandomScores(sbIds, 100); // 10: Số điểm trong mỗi bảng điểm
+    generateRandomScores(sbIds, 1); // 10: Số điểm trong mỗi bảng điểm
 }

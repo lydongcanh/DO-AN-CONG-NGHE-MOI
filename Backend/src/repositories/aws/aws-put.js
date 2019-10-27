@@ -24,7 +24,7 @@ export default class AWSPut extends AWSUseCase {
     async execute() {
         try {
             const data = await this.docClient.put(this.params).promise();
-            console.log("Added item: " + JSON.stringify(this.item));
+            //console.log("Added item: " + JSON.stringify(this.item));
             return {
                 success: true,
                 body: this.item

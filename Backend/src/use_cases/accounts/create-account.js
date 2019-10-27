@@ -11,7 +11,7 @@ export default class CreateAccount extends AWSPut {
         return {
             "partitionKey": this.account.username,
             "sortKey": this.account.password,
-            "type": this.account.type,
+            "data": this.account.type,
             "teacherId": this.account.teacherId
         };
     }

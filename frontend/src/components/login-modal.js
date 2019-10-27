@@ -10,7 +10,7 @@ export default class LoginModal extends Component {
         super(props);
 
         this.state = {
-            visible: false,
+            visible: false, 
             username: "teacher1",
             password: "1234567890",
         }

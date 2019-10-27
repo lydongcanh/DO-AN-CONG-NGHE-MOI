@@ -45,6 +45,7 @@ export default class StudentTable extends Component {
             {
                 title: "",
                 render: (_, record) => {
+                    console.log("record", record);
                     return (
                     <span>
                         <Button type="primary">

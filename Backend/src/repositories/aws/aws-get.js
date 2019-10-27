@@ -24,7 +24,7 @@ export default class AWSGet extends AWSUseCase {
     async execute() {
         try {
             const data = await this.docClient.get(this.params).promise();
-            console.log("Get item(s) successfully: " + JSON.stringify(data));
+            //console.log("Get item(s) successfully: " + JSON.stringify(data));
             return {
                 success: true,
                 body: data
