@@ -83,8 +83,6 @@ export default class StudentTableAdmin extends Component {
     render() {
         return (
             <div>
-                <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>
-                
                 <div>
                     <Table title={() => <h2 style={{textAlign: "start"}}>Danh sách giáo viên</h2>}
                        pagination={{pageSize: 9}} 
