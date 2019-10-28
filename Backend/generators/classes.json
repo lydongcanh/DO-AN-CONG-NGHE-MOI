@@ -1,102 +1,38 @@
 [
     {
-        "sortKey": "a7500330-f87d-11e9-bead-ab1d2a089515",
+        "name": "A",
+        "sortKey": "079db030-f977-11e9-b3bc-b102310f115e",
         "partitionKey": "STUDYCLASS",
-        "data": "10",
-        "name": "E",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
+        "data": "10"
     },
     {
-        "sortKey": "a7527430-f87d-11e9-bead-ab1d2a089515",
+        "name": "B",
+        "sortKey": "0abf89a0-f977-11e9-b3bc-b102310f115e",
         "partitionKey": "STUDYCLASS",
-        "data": "10",
-        "name": "I",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
+        "data": "10"
     },
     {
-        "sortKey": "a7549710-f87d-11e9-bead-ab1d2a089515",
+        "name": "B",
+        "sortKey": "7eb703a0-f9b9-11e9-ade4-d5e95a79bfb1",
         "partitionKey": "STUDYCLASS",
-        "data": "11",
-        "name": "M",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
+        "data": "11"
     },
     {
-        "sortKey": "a756e100-f87d-11e9-bead-ab1d2a089515",
+        "name": "A",
+        "sortKey": "883d1040-f9b9-11e9-ade4-d5e95a79bfb1",
         "partitionKey": "STUDYCLASS",
-        "data": "12",
-        "name": "O",
-        "startYear": "2019",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2020"
+        "data": "12"
     },
     {
-        "sortKey": "a7592af0-f87d-11e9-bead-ab1d2a089515",
+        "name": "B",
+        "sortKey": "8bf7a740-f9b9-11e9-ade4-d5e95a79bfb1",
         "partitionKey": "STUDYCLASS",
-        "data": "10",
-        "name": "J",
-        "startYear": "2019",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2020"
+        "data": "12"
     },
     {
-        "sortKey": "a75d70b0-f87d-11e9-bead-ab1d2a089515",
+        "name": "A",
+        "sortKey": "93035eb0-f9b1-11e9-ade4-d5e95a79bfb1",
         "partitionKey": "STUDYCLASS",
-        "data": "12",
-        "name": "L",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
-    },
-    {
-        "sortKey": "a76008c0-f87d-11e9-bead-ab1d2a089515",
-        "partitionKey": "STUDYCLASS",
-        "data": "10",
-        "name": "V",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
-    },
-    {
-        "sortKey": "a76252b0-f87d-11e9-bead-ab1d2a089515",
-        "partitionKey": "STUDYCLASS",
-        "data": "12",
-        "name": "K",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
-    },
-    {
-        "sortKey": "a764c3b0-f87d-11e9-bead-ab1d2a089515",
-        "partitionKey": "STUDYCLASS",
-        "data": "11",
-        "name": "F",
-        "startYear": "2019",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2020"
-    },
-    {
-        "sortKey": "a7670da0-f87d-11e9-bead-ab1d2a089515",
-        "partitionKey": "STUDYCLASS",
-        "data": "11",
-        "name": "J",
-        "startYear": "2018",
-        "state": "active",
-        "studentIds": "undefined",
-        "endYear": "2019"
+        "data": "11"
     }
 ]

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import TimeTable from "../../components/timetable";
-
-import mockDB from "../../repository/mock/mockDB";
+import ScheduleView from "../../components/schedules/schedule-view";
+import StudentRepo from "../../repository/prop/student-repository";
+import ScheduleRepo from "../../repository/prop/schedule-repository";
+import ClassRepo from "../../repository/prop/studyclass-repository";
 
 export default class StudentSchedulesPage extends Component {
 
@@ -9,25 +10,45 @@ export default class StudentSchedulesPage extends Component {
         super(props);
 
         this.state = {
-            student: {}
+            student: {},
+            scheduleDetails: [],
+            classNames: []
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         const { match: { params } } = this.props;
-        const student = mockDB.getStudentWithId(params.id);
+        const student = await StudentRepo.getStudentById(params.id);
+        const scheduleDetails = await ScheduleRepo.getSchedulesByClassId(student.classId);
+
+        if (!scheduleDetails)
+            return;
+
+        let classNames = {};
+        for (let i = 0; i < scheduleDetails.length; i++) {
+            const schedule = scheduleDetails[i];
+            if (!classNames.hasOwnProperty(schedule.teacherId)) {
+                const studyclass = await ClassRepo.getStudyclassById(schedule.classId);
+                classNames[`${schedule.classId}`] = studyclass.grade + studyclass.name;
+            }
+        }
 
         this.setState({
-            student: student
+            student: student,
+            scheduleDetails: scheduleDetails,
+            classNames: classNames
         })
     }
 
     render() {
         if (!this.state.student)
             return <h3>Thông tin học sinh không hơp lệ.</h3>
-        
-        return ( 
-            <TimeTable getSchedules={(from, to) => mockDB.getStudentSchedulesInRange(this.state.student.id, from, to)}/>
+
+        return (
+            <ScheduleView
+                scheduleDetails={this.state.scheduleDetails}
+                classNames={this.state.classNames}
+            />
         );
     }
 }

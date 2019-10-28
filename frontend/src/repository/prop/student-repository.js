@@ -98,6 +98,7 @@ class StudentRepository {
 
     async getStudentsByClassId(classId) {
         const result = await this.getAllStudents();
+        
         if (result.error)
             return result;
 

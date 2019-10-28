@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import StudentSearchInput from "../components/student-search-input";
-import StudentTable from "../components/student-table";
+import StudentSearchInput from "../components/students/student-search-input";
+import StudentTable from "../components/students/student-table";
 
 export default class HomePage extends Component {
     constructor(props) {
@@ -18,7 +18,12 @@ export default class HomePage extends Component {
             <div>
                 <StudentSearchInput onSearchStudent={this.handleSearchedStudent} onSearchClass={this.handleSearchedStudent}/>
                 <br/>
-                <StudentTable students={this.state.searchedStudent}/>
+                <StudentTable 
+                    size="default"
+                    title="Danh sách tìm kiếm học sinh"
+                    students={this.state.searchedStudent}
+                    actionButtonsVisible={true}
+                />
             </div>
         );
     }
