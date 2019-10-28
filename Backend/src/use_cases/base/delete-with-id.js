@@ -3,7 +3,7 @@ import AWSDelete from "../../repositories/aws/aws-delete";
 export default class DeleteWithId extends AWSDelete {
     get key() {
         return {
-            "partitionKey": this.partitionName(),
+            "partitionKey": this.partitionName,
             "sortKey": this.id
         };
     }

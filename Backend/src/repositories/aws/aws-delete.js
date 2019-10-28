@@ -47,7 +47,7 @@ export default class AWSDelete extends AWSUseCase {
                 body: data
             };
         } catch (error) {
-            console.log("Unable to delete item(s). Error: " + JSON.stringify(error));
+            console.log("Unable to delete item(s). Error: ", error);
             return {
                 success: false,
                 error: error

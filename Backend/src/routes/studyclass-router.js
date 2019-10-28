@@ -28,6 +28,9 @@ router.post("/", async (request, response, _) => {
 
 router.delete("/:id", async (request, response, _) => {
     const id = request.params.id;
+    
+    console.log(`delete: ${id}`);
+
     const result = await studyclassAdapter.deleteStudyclass(id);
     response.send(result);
 });

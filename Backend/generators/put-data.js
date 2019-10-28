@@ -26,6 +26,7 @@ function putdata(table, item) {
 }
 
 JSON.parse(fs.readFileSync(__dirname + "/accounts.json", "utf-8")).forEach(account => {
+    console.log(`put account: ${JSON.stringify(account)}`);
     putdata("CNM_FINAL_ATSC", account);
 });
 
