@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Table, Input, Button, Row, Col } from "antd";
+import { Table, Input, Button, Row, Col, Modal } from "antd";
 import CreateClassModal from "../../components/classes/create-class-modal";
 import CreateScheduleModal from "../../components/schedules/create-schedule-modal";
 import ClassRepo from "../../repository/prop/studyclass-repository";
+import ScheduleRepo from "../../repository/prop/schedule-repository";
 
 const { Search } = Input;
 
@@ -155,21 +156,41 @@ export default class AdminClassesPage extends Component {
     }
 
     async handleDeleteClassButton(e) {
-        // TODO: Hiện thông báo...
+
         const result = await ClassRepo.deleteStudyclass(e.id);
-        
-        await this.loadAllStudyclasses();
+
+        if (result.error) {
+            Modal.error({
+                title: "Lỗi",
+                content: `Xóa lớp học thất bại: ${result.error}`
+            });
+        } else {
+            Modal.success({
+                title: "Thành công",
+                content: "Lớp học được xóa thành công"
+            });
+            await this.loadAllStudyclasses();
+        }
     }
 
     async handleCreateModalOk(e) {
-        // TODO: Hiện thông báo...
         let result = await ClassRepo.createStudyclass(e.name, e.grade);  
 
-        this.setState({
-            createClassModalVisible: false
-        });
-
-        await this.loadAllStudyclasses();
+        if (result.error) {
+            Modal.error({
+                title: "Lỗi",
+                content: `Thêm lớp học thất bại: ${result.error}.`
+            });
+        } else {
+            Modal.success({
+                title: "Thành công",
+                content: "Lớp học được thêm thành công."
+            });
+            await this.loadAllStudyclasses();
+            this.setState({
+                createClassModalVisible: false
+            });
+        }
     }
 
     handleCreateModalCancel() {
@@ -178,8 +199,42 @@ export default class AdminClassesPage extends Component {
         });
     }
 
-    handleScheduleOk(e) {
-        console.log("Schedule Ok", e);
+    async handleScheduleOk(scheduleDetails) {
+        if (!scheduleDetails || scheduleDetails.length < 1) {
+            Modal.warning({
+                title: "Cảnh báo",
+                content: "Không tìm thấy chi tiết nào trong lịch học."
+            });
+        } else {
+            for(let i = 0; i < scheduleDetails.length; i++) {
+                const detail = scheduleDetails[i];
+                const result = await ScheduleRepo.createSchedule(
+                    detail.studyclass.id,
+                    detail.teacher.id,
+                    detail.time,
+                    detail.date,
+                    detail.semester,
+                    detail.state,
+                    detail.subject
+                );
+
+                if (result.error) {
+                    Modal.error({
+                        title: "Lỗi",
+                        content: `Thêm chi tiết thời khóa biểu thất bại: ${result.error}.`
+                    });
+                } else {
+                    Modal.success({
+                        title: "Thành công",
+                        content: "Thêm chi tiết thời khóa biểu thành công."
+                    });
+                }
+            }
+
+            this.setState({
+                scheduleModalVisible: false
+            });
+        }
     }
 
     handleScheduleCancel() {

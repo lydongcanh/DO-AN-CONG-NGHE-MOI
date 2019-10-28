@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import { Modal, Table, Button, Card } from "antd";
+import { Modal, Table, Button, Card, Tabs } from "antd";
 import CreateScheduleDetailsModal from "./create-schedule-details-modal";
 import schoolTimes from "../../types/schoolTimes";
+
+const { TabPane } = Tabs;
 
 /** [Required props: visible, onCancel, onOk, studyclass] */
 export default class AdminScheduleModal extends Component {
@@ -12,12 +14,15 @@ export default class AdminScheduleModal extends Component {
         this.state = {
             scheduleDetailsVisible: false,
             scheduleDetailsTime: undefined,
-            scheduleDetailsDate: undefined
+            scheduleDetailsDate: undefined,
+            scheduleDetails: [],
+            semester: "HK1"
         };
 
         this.handleAddSchedule = this.handleAddSchedule.bind(this);
         this.handleScheduleDetailsModalCancel = this.handleScheduleDetailsModalCancel.bind(this);
         this.handleScheduleDetailsModalOk = this.handleScheduleDetailsModalOk.bind(this);
+        this.handleTabsChange = this.handleTabsChange.bind(this);
     }
 
     get columns() {
@@ -31,57 +36,57 @@ export default class AdminScheduleModal extends Component {
             },
             {
                 title: "Thứ hai",
-                dataIndex: "mon",
-                key: "mon",
+                dataIndex: "Thứ hai",
+                key: "Thứ hai",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Thứ hai")
             },
             {
                 title: "Thứ ba",
-                dataIndex: "tues",
-                key: "tues",
+                dataIndex: "Thứ ba",
+                key: "Thứ ba",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Thứ ba")
             },
             {
                 title: "Thứ tư",
-                dataIndex: "wed",
-                key: "web",
+                dataIndex: "Thứ tư",
+                key: "Thứ tư",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Thứ tư")
             },
             {
                 title: "Thứ năm",
-                dataIndex: "thurs",
-                key: "thurs",
+                dataIndex: "Thứ năm",
+                key: "Thứ năm",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Thứ năm")
             },
             {
                 title: "Thứ sáu",
-                dataIndex: "fri",
-                key: "fri",
+                dataIndex: "Thứ sáu",
+                key: "Thứ sáu",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Thứ sáu")
             },
             {
                 title: "Thứ bảy",
-                dataIndex: "sar",
-                key: "sar",
+                dataIndex: "Thứ bảy",
+                key: "Thứ bảy",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Thứ bảy")
             },
             {
                 title: "Chủ nhật",
-                dataIndex: "sun",
-                key: "sun",
+                dataIndex: "Chủ nhật",
+                key: "Chủ nhật",
                 align: "center",
                 render: (record, data, index) => this.renderNormalCels(record, data, index, "Chủ nhật")
             },
         ]
     }
 
-    get tableSource() {
+    getTableSource(semester) {
         let result = [];
 
         for (let i = 0; i < schoolTimes.length; i++) {
@@ -91,7 +96,16 @@ export default class AdminScheduleModal extends Component {
                 time: schoolTime,
             }
 
-            // TODO: push data here...
+            for(let j = 0; j < this.state.scheduleDetails.length; j++) {
+                const scheduleDetail = this.state.scheduleDetails[j];
+
+                //console.log(schoolTime, scheduleDetail);
+
+                if (scheduleDetail.semester == semester &&
+                    scheduleDetail.time == schoolTime.name) {
+                    data[`${scheduleDetail.date}`] = scheduleDetail;
+                }
+            }
 
             result.push(data);
         }
@@ -122,7 +136,7 @@ export default class AdminScheduleModal extends Component {
     }
 
     /** Hiển thị các cột còn lại trang bảng */
-    renderNormalCels = (record, data, index, date) => {
+    renderNormalCels = (schedule, data, index, date) => {
         let result = {
             props: {}
         };
@@ -130,13 +144,14 @@ export default class AdminScheduleModal extends Component {
         if (index == 3 || index == 6 || index == 9)
             result.props.colSpan = 0;
 
-        if (record) {
-            // TODO render value...
-            result.children = "record";
+        if (schedule) {
+            result.children = (
+                <p>{schedule.subject} - {schedule.teacher.name}</p>
+            );
         } else {
             result.children = (
                 <Button
-                    onClick={() => this.handleAddSchedule(record, data, index, date)}
+                    onClick={() => this.handleAddSchedule(schedule, data, index, date)}
                     size="small"
                     shape="circle"
                     icon="plus" 
@@ -145,6 +160,12 @@ export default class AdminScheduleModal extends Component {
         }
 
         return result;
+    }
+
+    handleTabsChange(semester) {
+        this.setState({
+            semester: semester
+        });
     }
 
     /** Nút thêm thời khóa biểu từng tiết */
@@ -164,29 +185,60 @@ export default class AdminScheduleModal extends Component {
         });
     }
 
-    handleScheduleDetailsModalOk(value) {
-        console.log("Ok", value);
+    handleScheduleDetailsModalOk(teacher, subject, time, date) {
+        const schedule = {
+            time: time,
+            date: date,
+            semester: this.state.semester,
+            state: "active",
+            subject: subject,
+            teacher: teacher,
+            studyclass: this.props.studyclass
+        };
+
+        this.setState(state => ({
+            scheduleDetailsVisible: false,
+            scheduleDetails: [...state.scheduleDetails, schedule]
+        }));
     }
 
     render() {
         return (
             <Modal
                 width={1000}
-                onOk={this.props.onOk}
+                onOk={async () => await this.props.onOk(this.state.scheduleDetails)}
                 onCancel={this.props.onCancel}
                 visible={this.props.visible}
                 cancelText="Hủy"
                 okText="Lưu"
                 closable={false}
             >
-                <Table
-                    size="small"
-                    dataSource={this.tableSource}
-                    pagination={{ hideOnSinglePage: true, defaultPageSize: 12 }}
-                    bordered
-                    title={() => <h3>Thời khóa biểu lớp {this.props.studyclass.grade}{this.props.studyclass.name}</h3>}
-                    columns={this.columns}
-                />
+                <Tabs 
+                    defaultActiveKey="HK1"
+                    onChange={this.handleTabsChange}
+                >
+                    <TabPane tab="HK1" key="HK1">
+                        <Table
+                            size="small"
+                            dataSource={this.getTableSource("HK1")}
+                            pagination={{ hideOnSinglePage: true, defaultPageSize: 12 }}
+                            bordered
+                            title={() => <h3>Thời khóa biểu học kì 1 lớp {this.props.studyclass.grade}{this.props.studyclass.name}</h3>}
+                            columns={this.columns}
+                        />
+                    </TabPane>
+                    <TabPane tab="HK2" key="HK2">
+                        <Table
+                            size="small"
+                            dataSource={this.getTableSource("HK2")}
+                            pagination={{ hideOnSinglePage: true, defaultPageSize: 12 }}
+                            bordered
+                            title={() => <h3>Thời khóa biểu học kì 2 lớp {this.props.studyclass.grade}{this.props.studyclass.name}</h3>}
+                            columns={this.columns}
+                        />
+                    </TabPane>
+                </Tabs>
+
                 <CreateScheduleDetailsModal
                     time={this.state.scheduleDetailsTime}
                     date={this.state.scheduleDetailsDate}
