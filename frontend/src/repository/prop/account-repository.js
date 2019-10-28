@@ -27,9 +27,9 @@ class AccountRepository {
                     return { error: "NotFound" }
                     
                 return {
-                    username: accounts[0].partitionKey,
-                    password: accounts[0].sortKey,
-                    type: accounts[0].data,
+                    username: accounts[0].sortKey,
+                    password: accounts[0].data,
+                    type: accounts[0].type,
                     teacherId: accounts[0].teacherId
                 };
 
