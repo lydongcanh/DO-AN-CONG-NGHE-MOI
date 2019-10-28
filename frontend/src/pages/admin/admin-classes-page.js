@@ -8,6 +8,11 @@ const { Search } = Input;
 export default class AdminClassesPage extends Component {
     columns = [
         {
+            title: "TT",
+            dataIndex: "count",
+            key: "count"
+        },
+        {
             title: "Tên",
             dataIndex: "name",
             key: "name",
@@ -102,7 +107,17 @@ export default class AdminClassesPage extends Component {
     }
 
     async componentDidMount() {
+        await this.loadAllStudyclasses();
+    }
+
+    async loadAllStudyclasses() {
         const allClasses = await ClassRepo.getAllStudyclasses();
+
+        if (!allClasses)
+            return;
+
+        for(let i = 0; i < allClasses.length; i++)
+            allClasses[i].count = i + 1;
 
         this.setState({
             searchedClasses: allClasses
@@ -130,16 +145,21 @@ export default class AdminClassesPage extends Component {
     }
 
     async handleDeleteClassButton(e) {
-        console.log("Xóa lớp", e);
+        // TODO: Hiện thông báo...
         const result = await ClassRepo.deleteStudyclass(e.id);
-        console.log("Xóa xong", result);
+        
+        await this.loadAllStudyclasses();
     }
 
     async handleCreateModalOk(e) {
-        console.log("creating...", e);
-        const studentIds = e.students.map(student => student.id);
-        let result = await ClassRepo.createStudyclass(e.name, e.grade, e.startYear, e.endYear, "active", studentIds);      
-        console.log("created...", result);
+        // TODO: Hiện thông báo...
+        let result = await ClassRepo.createStudyclass(e.name, e.grade);  
+
+        this.setState({
+            createClassModelVisible: false
+        });
+
+        await this.loadAllStudyclasses();
     }
 
     handleCreateModalCancel() {
