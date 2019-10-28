@@ -16,6 +16,11 @@ export default class StudentTable extends Component {
                 key: "name"
             },
             {
+                title: "Khối",
+                dataIndex: "grade",
+                key: "grade"
+            },
+            {
                 title: "Giới tính",
                 dataIndex: "gender",
                 key: "gender",
@@ -45,7 +50,6 @@ export default class StudentTable extends Component {
             {
                 title: "",
                 render: (_, record) => {
-                    console.log("record", record);
                     return (
                     <span>
                         <Button type="primary">

@@ -1,12 +1,18 @@
 import React, { Component } from "react";
 import { Table, Input, Button, Row, Col } from "antd";
 import CreateClassModal from "../../components/classes/create-class-modal";
+import CreateScheduleModal from "../../components/schedules/create-schedule-modal";
 import ClassRepo from "../../repository/prop/studyclass-repository";
 
 const { Search } = Input;
 
 export default class AdminClassesPage extends Component {
     columns = [
+        {
+            title: "TT",
+            dataIndex: "count",
+            key: "count"
+        },
         {
             title: "Tên",
             dataIndex: "name",
@@ -18,33 +24,52 @@ export default class AdminClassesPage extends Component {
             key: "grade"
         },
         {
-            title: "Năm bắt đầu",
-            dataIndex: "startYear",
-            key: "startYaer"
-        },
-        {
-            title: "Năm kết thúc",
-            dataIndex: "endYear",
-            key: "endYear"
-        },
-        {
-            title: "Trạng thái",
-            dataIndex: "state",
-            key: "state"
-        },
-        {
             title: "Chức năng",
             key: "action",
-            render: () => {
+            render: (record) => {
                 return (
-                    <span>
-                        <Button onClick={this.handleEditClassButton}>
-                            Sửa
-                        </Button>
-                        <Button onClick={this.handleDeleteClassButton}>
-                            Xóa
-                        </Button>
-                    </span>
+                    <Row type="flex" justify="space-between">
+                        <Col span={6}>
+                            <Button
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleEditClassButton(record)}
+                            >
+                                Sửa
+                            </Button>
+                        </Col>
+                        
+                        <Col span={6}>
+                            <Button 
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleDeleteClassButton(record)}
+                            >
+                                Xóa
+                            </Button>
+                        </Col>
+                                 
+                        <Col span={6}>
+                            <Button 
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleStudentsButton(record)}
+                            >
+                                Danh sách học sinh
+                            </Button>
+                        </Col>
+
+                        <Col span={6}>
+                            <Button 
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleSchedulesButton(record)}
+                            >
+                                Thời khóa biểu
+                            </Button>
+                        </Col>
+
+                    </Row>
                 );
             }
         }
@@ -73,37 +98,93 @@ export default class AdminClassesPage extends Component {
         this.handleDeleteClassButton = this.handleDeleteClassButton.bind(this);
         this.handleCreateModalCancel = this.handleCreateModalCancel.bind(this);
         this.handleCreateModalOk = this.handleCreateModalOk.bind(this);
+        this.handleStudentsButton = this.handleStudentsButton.bind(this);
+        this.handleSchedulesButton = this.handleSchedulesButton.bind(this);
+        this.handleScheduleCancel = this.handleScheduleCancel.bind(this);
+        this.handleScheduleOk = this.handleScheduleOk.bind(this);
 
         this.state = {
             searchedClasses: [],
-            createClassModelVisible: false
+            createClassModalVisible: false,
+            scheduleModalVisible: false,
+            selectedStudyclass: {}
         }
     }
 
-    handleCreateClassButton() {
+    async componentDidMount() {
+        await this.loadAllStudyclasses();
+    }
+
+    async loadAllStudyclasses() {
+        const allClasses = await ClassRepo.getAllStudyclasses();
+
+        if (!allClasses)
+            return;
+
+        for(let i = 0; i < allClasses.length; i++)
+            allClasses[i].count = i + 1;
+
         this.setState({
-            createClassModelVisible: true
+            searchedClasses: allClasses
         });
     }
 
-    handleEditClassButton(e) {
-        console.log("edit", e);
+    /** Nút danh sách học sinh. */
+    handleStudentsButton(e) {
+        console.log("Danh sách học sinh", e);
     }
 
-    handleDeleteClassButton(e) {
-        console.log("delete", e);
+    /** Nút thời khóa biểu */
+    handleSchedulesButton(studyclass) {
+        this.setState({
+            scheduleModalVisible: true,
+            selectedStudyclass: studyclass
+        });
+    }
+
+    /** Nút thêm lớp */
+    handleCreateClassButton() {
+        this.setState({
+            createClassModalVisible: true
+        });
+    }
+
+    /** Nút sửa lớp */
+    handleEditClassButton(e) {
+        console.log("Sửa lớp", e);
+    }
+
+    async handleDeleteClassButton(e) {
+        // TODO: Hiện thông báo...
+        const result = await ClassRepo.deleteStudyclass(e.id);
+        
+        await this.loadAllStudyclasses();
     }
 
     async handleCreateModalOk(e) {
-        console.log("creating...", e);
-        const studentIds = e.students.map(student => student.id);
-        let result = await ClassRepo.createStudyclass(e.name, e.grade, e.startYear, e.endYear, "active", studentIds);      
-        console.log("created...", result);
+        // TODO: Hiện thông báo...
+        let result = await ClassRepo.createStudyclass(e.name, e.grade);  
+
+        this.setState({
+            createClassModalVisible: false
+        });
+
+        await this.loadAllStudyclasses();
     }
 
     handleCreateModalCancel() {
         this.setState({
-            createClassModelVisible: false
+            createClassModalVisible: false
+        });
+    }
+
+    handleScheduleOk(e) {
+        console.log("Schedule Ok", e);
+    }
+
+    handleScheduleCancel() {
+        this.setState({
+            scheduleModalVisible: false
         });
     }
 
@@ -113,13 +194,23 @@ export default class AdminClassesPage extends Component {
                 <Search/>
                 <br/><br/>
                 <Table 
+                    pagination={{hideOnSinglePage: true}}
+                    columns={this.columns}
+                    bordered
                     title={this.title}
+                    rowKey={record => record.id}
                     dataSource={this.state.searchedClasses}
                 />
                 <CreateClassModal 
                     onOk={this.handleCreateModalOk}
                     onCancel={this.handleCreateModalCancel}
-                    visible={this.state.createClassModelVisible}
+                    visible={this.state.createClassModalVisible}
+                />
+                <CreateScheduleModal
+                    studyclass={this.state.selectedStudyclass}
+                    onOk={this.handleScheduleOk}
+                    onCancel={this.handleScheduleCancel}
+                    visible={this.state.scheduleModalVisible}
                 />
             </div>
         );

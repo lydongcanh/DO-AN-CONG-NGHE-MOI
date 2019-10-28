@@ -1,25 +1,27 @@
 import AWSQuery from "../../repositories/aws/aws-query";
 
-export default class FindAccountWithUsername extends AWSQuery {
-
+export default class GetAccountById extends AWSQuery {
     get keyConditionExpression() {
-        return "#pk = :pk";
+        return "#pk = :pk and #sk = :sk";
     }
 
     get expressionAttributeNames() {
         return { 
-            "#pk": "partitionKey",
+            "#pk" : "partitionKey",
+            "#sk" : "sortKey"
         };
     }
 
     get expressionAttributeValues() {
         return { 
-            ":pk" : this.username,
+            ":pk" : "ACCOUNT",
+            ":sk" : this.username
         };
     }
 
     async execute(username) {
         this.username = username;
+        console.log(`username: ${username}`);
         return await super.execute();
     }
 }

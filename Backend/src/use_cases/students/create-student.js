@@ -8,6 +8,7 @@ export default class CreateStudent extends AWSPut {
             "data" : this.student.classId,
             "name" : this.student.name,
             "gender" : this.student.gender,
+            "grade" : this.student.grade,
             "birthday" : this.student.birthday,
             "address" : this.student.address,
             "phoneNumber" : this.student.phoneNumber,

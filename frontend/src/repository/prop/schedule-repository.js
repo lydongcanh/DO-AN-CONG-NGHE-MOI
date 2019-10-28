@@ -2,15 +2,14 @@ import axios from "axios";
 import { schedulesEndpoint } from "./endpoints";
 
 class ScheduleRepository {
-    async createSchedule(classId, teacherId, startDate, endDate, startTime, length, state, subject) {
+    async createSchedule(classId, teacherId, time, date, semester, state, subject) {
         try {
             let schedule = {
                 classId: classId,
                 teacherId: teacherId,
-                startDate: startDate,
-                endDate: endDate,
-                startTime: startTime,
-                length: length,
+                time: time,
+                date: date,
+                semester: semester,
                 state: state,
                 subject: subject
             };
@@ -24,6 +23,24 @@ class ScheduleRepository {
             return schedule;
         } catch (error) {
             return { error: error.message };
+        }
+    }
+
+    async deleteSchedule(id) {
+        try {
+            const result = await axios.delete(`${schedulesEndpoint}/${id}`);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
+    async updateSchedule(schedule) {
+        try {
+            const result = await axios.patch(`${schedulesEndpoint}/${schedule.id}`, schedule);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
         }
     }
 
@@ -58,10 +75,9 @@ class ScheduleRepository {
                 id: schedule.sortKey,
                 classId: schedule.data,
                 teacherId: schedule.teacherId,
-                startDate: schedule.startDate,
-                endDate: schedule.endDate,
-                startTime: schedule.startTime,
-                length: schedule.length,
+                time: schedule.time,
+                date: schedule.date,
+                semester: schedule.semester,
                 state: schedule.state,
                 subject: schedule.subject
             };

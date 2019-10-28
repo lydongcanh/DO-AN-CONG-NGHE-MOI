@@ -2,11 +2,11 @@ import axios from "axios";
 import { scoreboardsEndpoint } from "./endpoints";
 
 class ScoreboardRepository {
-    async createScoreboard(semester, year, studentId) {
+    async createScoreboard(semester, grade, studentId) {
         try {
             let scoreboard = {
                 semester: semester,
-                year: year,
+                grade: grade,
                 studentId: studentId
             };
 
@@ -19,6 +19,15 @@ class ScoreboardRepository {
             return scoreboard;
         } catch (error) {
             return { error: error.message };
+        }
+    }
+
+    async deleteScoreboard(id) {
+        try {
+            const result = await axios.delete(`${scoreboardsEndpoint}/${id}`);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
         }
     }
 
@@ -52,7 +61,7 @@ class ScoreboardRepository {
             return {
                 id: scoreboard.sortKey,
                 semester: scoreboard.data,
-                year: scoreboard.year,
+                grade: scoreboard.grade,
                 studentId: scoreboard.studentId
             };
         } catch (error) {

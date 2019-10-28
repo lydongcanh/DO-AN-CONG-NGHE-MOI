@@ -1,6 +1,6 @@
 import express from "express";
 import uuidv1 from "uuid/v1";
-import {ATSC_TABLE_NAME, REGION, ENDPOINT} from "../dynamodb-config";
+import { ATSC_TABLE_NAME, REGION, ENDPOINT } from "../dynamodb-config";
 import Studyclass from "../entities/studyclass";
 import StudyclassAdapter from "../use_cases/studyclasses/studyclass-adpater";
 
@@ -20,9 +20,25 @@ router.get("/:id", async (request, response, _) => {
 
 router.post("/", async (request, response, _) => {
     const id = uuidv1();
-    const {name, grade, startYear, endYear, state, studentIds} = request.body;
-    const studyclass = new Studyclass(id, name, grade, startYear, endYear, state, studentIds);
+    const { name, grade } = request.body;
+    const studyclass = new Studyclass(id, name, String(grade));
     const result = await studyclassAdapter.createStudyclass(studyclass);
+    response.send(result);
+});
+
+router.delete("/:id", async (request, response, _) => {
+    const id = request.params.id;
+    
+    console.log(`delete: ${id}`);
+
+    const result = await studyclassAdapter.deleteStudyclass(id);
+    response.send(result);
+});
+
+router.patch("/:id", async (request, response, _) => {
+    const { id, name, grade } = request.body;
+    const studyclass = new Studyclass(id, name, String(grade));
+    const result = await studyclassAdapter.updateStudyclass(studyclass);
     response.send(result);
 });
 

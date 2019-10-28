@@ -12,12 +12,18 @@ export default class AWSDelete extends AWSUseCase {
     }
 
     get params() {
-        return {
+        let result = {
             TableName: this.tableName,
             Key: this.key,
-            ConditionExpression: this.conditionExpression,
-            ExpressionAttributeValues: this.expressionAttributeValues
         };
+
+        if (this.conditionExpression)
+            result.ConditionExpression = this.conditionExpression;
+
+        if (this.expressionAttributeValues)
+            result.ExpressionAttributeValues = this.expressionAttributeValues;
+        
+        return result;
     }
 
     get key() {
@@ -25,11 +31,11 @@ export default class AWSDelete extends AWSUseCase {
     }
 
     get conditionExpression() {
-        return "true";
+        return undefined;
     }
 
     get expressionAttributeValues() {
-        return {};
+        return undefined;
     }
 
     async execute() {
@@ -41,7 +47,7 @@ export default class AWSDelete extends AWSUseCase {
                 body: data
             };
         } catch (error) {
-            console.log("Unable to delete item(s). Error: " + JSON.stringify(error));
+            console.log("Unable to delete item(s). Error: ", error);
             return {
                 success: false,
                 error: error

@@ -19,10 +19,16 @@ router.get("/:id", async (request, response, _) => {
 });
 
 router.post("/", async (request, response, _) => {
-    const {semester, year, studentId} = request.body;
+    const {semester, grade, studentId} = request.body;
     const id = uuidv1();
-    const scoreboard = new Scoreboard(id, semester, year, studentId);
+    const scoreboard = new Scoreboard(id, String(semester), grade, studentId);
     const result = await scoreboardAdapter.createScoreBoard(scoreboard);
+    response.send(result);
+});
+
+router.delete("/:id", async (request, response, _) => {
+    const id = request.params.id;
+    const result = await scoreboardAdapter.deleteScoreboard(id);
     response.send(result);
 });
 

@@ -26,4 +26,17 @@ router.post("/", async (request, response, _) => {
     response.send(result);
 });
 
+router.delete("/:id", async (request, response, _) => {
+    const id = request.params.id;
+    const result = await scoreAdapter.deleteScore(id);
+    response.send(result);
+});
+
+router.patch("/:id", async (request, response, _) => {
+    const { id, type, value, subject, multiplier, scoreboardId } = request.body;
+    const score = new Score(id, type, value, subject, multiplier, scoreboardId);
+    const result = await scoreAdapter.updateScore(score);
+    response.send(result);
+});
+
 export default router;

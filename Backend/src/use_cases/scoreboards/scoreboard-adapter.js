@@ -1,12 +1,14 @@
 import CreateScoreBoard from "./create-scoreboard";
 import GetAllScoreboards from "./get-all-scoreboards";
 import GetScoreboardById from "./get-scoreboard-by-id";
+import DeleteScoreboard from "./delete-scoreboard";
 
 export default class ScoreboardAdapter {
     constructor(tablename,region,endpoint) {
         this._createScoreBoardObj = new CreateScoreBoard(tablename, region, endpoint);
         this._getAllScoreboardsObj = new GetAllScoreboards(tablename, region, endpoint);
         this._getScoreboardByIdObj = new GetScoreboardById(tablename, region, endpoint);
+        this._deleteScoreboardObj = new DeleteScoreboard(tablename, region, endpoint);
     }
 
     /**
@@ -23,5 +25,9 @@ export default class ScoreboardAdapter {
 
     async getScoreboardById(id) {
         return await this._getScoreboardByIdObj.execute(id);
+    }
+
+    async deleteScoreboard(id) {
+        return await this._deleteScoreboardObj.execute(id);
     }
 }

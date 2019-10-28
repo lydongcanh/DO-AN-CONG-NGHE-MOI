@@ -1,6 +1,8 @@
 import CreateTeacher from "./create-teacher";
 import GetAllTeachers from "./get-all-teachers";
 import GetTeacherById from "./get-teacher-by-id";
+import DeleteTeacher from "./delete-teacher";
+import UpdateTeacher from "./update-teacher";
 
 export default class TeacherAdapter {
     
@@ -8,6 +10,8 @@ export default class TeacherAdapter {
         this._createTeacherObj = new CreateTeacher(tableName, region, endpoint);
         this._getAllTeachersObj = new GetAllTeachers(tableName, region, endpoint);
         this._getTeacherByIdObj = new GetTeacherById(tableName, region, endpoint);
+        this._deleteTeacherObj = new DeleteTeacher(tableName, region, endpoint);
+        this._updateTeacherObj = new UpdateTeacher(tableName, region, endpoint);
     }
 
     /**
@@ -24,5 +28,13 @@ export default class TeacherAdapter {
 
     async getTeacherById(id) {
         return await this._getTeacherByIdObj.execute(id);
+    }
+
+    async deleteTeacher(id) {
+        return await this._deleteTeacherObj.execute(id);
+    }
+
+    async updateTeacher(teacher) {
+        return await this._updateTeacherObj.execute(teacher);
     }
 }

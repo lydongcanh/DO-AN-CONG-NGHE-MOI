@@ -1,12 +1,16 @@
 import CreateSchedule from "./create-schedule";
 import GetAllSchedules from "./get-all-schedules";
 import GetScheduleById from "./get-schedule-by-id";
+import DeleteSchedule from "./delete-schedule";
+import UpdateSchedule from "./update-schedule";
 
 export default class ScheduleAdapter {
     constructor(tableName, region, endpoint) {
         this._createScheduleObj = new CreateSchedule(tableName, region, endpoint);
         this._getAllSchedulesObj = new GetAllSchedules(tableName, region, endpoint);
         this._getScheduleByIdObj = new GetScheduleById(tableName, region, endpoint);
+        this._deleteScheduleObj = new DeleteSchedule(tableName, region, endpoint);
+        this._updateScheduleObj = new UpdateSchedule(tableName, region, endpoint);
     }
 
     /**
@@ -27,5 +31,13 @@ export default class ScheduleAdapter {
     /** Get schedule with its id. */
     async getScheduleById(scheduleId) {
         return await this._getScheduleByIdObj.execute(scheduleId);
+    }
+
+    async deleteSchedule(id) {
+        return await this._deleteScheduleObj.execute(id);
+    }
+
+    async updateSchedule(schedule) {
+        return await this._updateScheduleObj.execute(schedule);
     }
 }

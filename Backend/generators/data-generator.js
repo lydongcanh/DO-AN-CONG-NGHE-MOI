@@ -8,21 +8,61 @@ function generateAccount() {
 
     for (let i = 0; i < teachers.length; i++) {
         accounts.push({
-            "partitionKey": "teacher" + i,
-            "sortKey": "1234567890",
+            "partitionKey": "ACCOUNT",
+            "sortKey": "teacher" + i,
+            "password": "1234567890",
             "data": "teacher",
             "teacherId": teachers[i].sortKey
         });
     }
 
     accounts.push({
-        "partitionKey": "admin",
-        "sortKey": "1234567890",
+        "partitionKey": "ACCOUNT",
+        "sortKey": "admin1",
+        "password": "1234567890",
         "data": "admin",
         "teacherId": "null"
     });
 
     fs.writeFile(__dirname + "/accounts.json", JSON.stringify(accounts), error => {
+        if (error) {
+            console.log(`Error: ${JSON.stringify(error)}`);
+        } else {
+            console.log(`OK!!!`);
+        }
+    });
+}
+
+
+function regenerateTeachers() {
+    let teachers = JSON.parse(fs.readFileSync(__dirname + "/teachers.json", "utf-8"));
+    
+    for (let j = 0; j < teachers.length; j++) {
+        let date = chance.date();
+        teachers[j].birthday = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+    }
+
+    fs.writeFile(__dirname + "/teachers.json", JSON.stringify(teachers), error => {
+        if (error) {
+            console.log(`Error: ${JSON.stringify(error)}`);
+        } else {
+            console.log(`OK!!!`);
+        }
+    });
+}
+
+function regenerateStudents() {
+    let students = JSON.parse(fs.readFileSync(__dirname + "/students.json", "utf-8"));
+    
+    for (let j = 0; j < students.length; j++) {
+        let date = chance.date();
+        students[j].birthday = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+        students[j].classId = "null";
+        students[j].grade = String(10);
+        students[j].state = "Nhập học";
+    }
+
+    fs.writeFile(__dirname + "/students.json", JSON.stringify(students), error => {
         if (error) {
             console.log(`Error: ${JSON.stringify(error)}`);
         } else {
@@ -144,6 +184,7 @@ function generateScores(max) {
     });
 }
 
+regenerateTeachers();
 //generateAccount();
 //generateClassIdInStudents();
-generateScores(2);
+//generateScores(2);

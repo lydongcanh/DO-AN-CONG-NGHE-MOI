@@ -1,15 +1,9 @@
 export default class Scoreboard {
     
-    /**
-     * @param {String} id 
-     * @param {String} semester 
-     * @param {String} year 
-     * @param {String} studentId
-     */
-    constructor(id, semester, year, studentId) {
+    constructor(id, semester, grade, studentId) {
         this.id = id;
+        this.grade = grade;
         this.semester = semester;
-        this.year = year;
         this.studentId = studentId;
         Object.freeze(this);
     }
