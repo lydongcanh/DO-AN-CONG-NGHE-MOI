@@ -1,12 +1,12 @@
 import CreateAccount from "./create-account";
-import FindAccountWithUsername from "./find-account-with-username";
+import GetAccountByUsername from "./get-account-by-username";
 import DeleteAccount from "./delete-account";
 
 export default class AccountAdapter {
 
     constructor(tableName, region, endpoint) {
         this._createAccountObj = new CreateAccount(tableName, region, endpoint);
-        this._findAccountWithUsernameObj = new FindAccountWithUsername(tableName, region, endpoint);
+        this._getAccountByUsername = new GetAccountByUsername(tableName, region, endpoint);
         this._deleteAccountObj = new DeleteAccount(tableName, region, endpoint);
     }
 
@@ -22,8 +22,8 @@ export default class AccountAdapter {
      * Find account with provided username.
      * @param {String} username 
      */
-    async findAccountWithUsername(username) {
-        return await this._findAccountWithUsernameObj.execute(username);
+    async getAccountByUsername(username) {
+        return await this._getAccountByUsername.execute(username);
     }
 
     async deleteAccount(username) {

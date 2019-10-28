@@ -8,14 +8,14 @@ const accountAdapter = new AccountAdapter(ATSC_TABLE_NAME, REGION, ENDPOINT);
 
 router.post("/", async (request, response, _) => {
     const {username, password, type, teacherId} = request.body;
-    const account = new Account(username, password, type);
+    const account = new Account(username, password, type, teacherId);
     const result = await accountAdapter.createAccount(account);
     response.send(result);
 });
 
 router.get("/:username", async (request, response, _) => {
     const username = request.params.username;
-    const result = await accountAdapter.findAccountWithUsername(username);
+    const result = await accountAdapter.getAccountByUsername(username);
     response.send(result);
 });
 
