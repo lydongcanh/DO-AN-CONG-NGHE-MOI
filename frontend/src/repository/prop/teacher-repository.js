@@ -2,11 +2,12 @@ import axios from "axios";
 import { teachersEndpoint } from "./endpoints";
 
 class TeacherRepository {
-    async createTeacher(name, gender, birthday, address, email, phoneNumber, state) {
+    async createTeacher(name, gender, subject, birthday, address, email, phoneNumber, state) {
         try {
             let teacher = {
                 name: name,
                 gender: gender,
+                subject: subject,
                 birthday: birthday,
                 address: address,
                 phoneNumber: phoneNumber,
@@ -76,6 +77,7 @@ class TeacherRepository {
                 id: teacher.sortKey,
                 name: teacher.data,
                 gender: teacher.gender,
+                subject: teacher.subject,
                 birthday: teacher.birthday,
                 email: teacher.email,
                 address: teacher.address,
@@ -92,7 +94,15 @@ class TeacherRepository {
         if (result.error)
             return result;
 
-        return result.filter(teacher => teacher.name.include(name));
+        return result.filter(teacher => teacher.name.includes(name));
+    }
+
+    async getTeachersBySubject(subject) {
+        const result = await this.getAllTeachers();
+        if (result.error)
+            return result;
+
+        return result.filter(teacher => teacher.subject.includes(subject));
     }
 }
 

@@ -7,6 +7,7 @@ export default class CreateTeacher extends AWSPut {
             "sortKey" : this.teacher.id,
             "data" : this.teacher.name,
             "gender" : this.teacher.gender,
+            "subject": this.teacher.subject,
             "birthday" : this.teacher.birthday,
             "address" : this.teacher.address,
             "email" : this.teacher.email,

@@ -2,6 +2,49 @@ const fs = require("fs");
 const Chance = require("./chance.js");
 const chance = new Chance();
 
+const subjects = [
+    "Toán học",
+    "Vật lý",
+    "Hóa học",
+    "Sinh học",
+    "Văn học",
+    "Tin học",
+    "Lịch sử",
+    "Địa lý",
+    "Ngoại ngữ",
+    "GDCD",
+    "Công nghệ",
+    "Thể dục",
+    "GDQP-AN"
+];
+
+const scoreTypes = [
+    "Kiểm tra miệng",
+    "15 phút",
+    "1 tiết",
+    "Giữa kỳ",
+    "Cuối kỳ"
+];
+
+function getMultiplier(type) {
+    if (type == "Kiểm tra miệng" || type == "15 phút")
+        return 1;
+
+    if (type == "1 tiết" || type == "Giữa kỳ")
+        return 2;
+
+    if (type == "Cuối kỳ")
+        return 3;
+
+    return 1;
+}
+
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function generateAccount() {
     let teachers = JSON.parse(fs.readFileSync(__dirname + "/teachers.json", "utf-8"));
     let accounts = [];
@@ -36,10 +79,11 @@ function generateAccount() {
 
 function regenerateTeachers() {
     let teachers = JSON.parse(fs.readFileSync(__dirname + "/teachers.json", "utf-8"));
-    
+
     for (let j = 0; j < teachers.length; j++) {
-        let date = chance.date();
-        teachers[j].birthday = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+        //let date = chance.date();
+        //teachers[j].birthday = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
+        teachers[j].subject = subjects[getRandomInt(0, subjects.length - 1)];
     }
 
     fs.writeFile(__dirname + "/teachers.json", JSON.stringify(teachers), error => {
@@ -92,48 +136,6 @@ function generateClassIdInStudents() {
 }
 
 function generateScores(max) {
-    const subjects = [
-        "Toán học",
-        "Vật lý",
-        "Hóa học",
-        "Sinh học",
-        "Văn học",
-        "Tin học",
-        "Lịch sử",
-        "Địa lý",
-        "Ngoại ngữ",
-        "GDCD",
-        "Công nghệ",
-        "Thể dục",
-        "GDQP-AN"
-    ];
-
-    const scoreTypes = [
-        "Kiểm tra miệng",
-        "15 phút",
-        "1 tiết",
-        "Giữa kỳ",
-        "Cuối kỳ"
-    ];
-
-    function getMultiplier(type) {
-        if (type == "Kiểm tra miệng" || type == "15 phút")
-            return 1;
-
-        if (type == "1 tiết" || type == "Giữa kỳ")
-            return 2;
-
-        if (type == "Cuối kỳ")
-            return 3;
-
-        return 1;
-    }
-
-    function getRandomInt(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
 
     function getRandomFloat(min, max, fixed = 2) {
         return (Math.random() * (min - max) + max).toFixed(fixed);

@@ -20,8 +20,8 @@ router.get("/:id", async (request, response, _) => {
 
 router.post("/", async (request, response, _) => {
     const id = uuidv1();
-    const { name, gender, birthday, address, email, phoneNumber, state } = request.body;
-    const teacher = new Teacher(id, name, gender, birthday, address, email, phoneNumber, state);
+    const { name, gender, subject, birthday, address, email, phoneNumber, state } = request.body;
+    const teacher = new Teacher(id, name, gender, subject, birthday, address, email, phoneNumber, state);
     const result = await teacherAdapter.createTeacher(teacher);
     response.send(result);
 });
@@ -33,8 +33,8 @@ router.delete("/:id", async (request, response, _) => {
 });
 
 router.patch("/:id", async (request, response, _) => {
-    const { id, name, gender, birthday, address, email, phoneNumber, state } = request.body;
-    const teacher = new Teacher(id, name, gender, birthday, address, email, phoneNumber, state);
+    const { id, name, gender, subject, birthday, address, email, phoneNumber, state } = request.body;
+    const teacher = new Teacher(id, name, gender, subject, birthday, address, email, phoneNumber, state);
     const result = await teacherAdapter.updateTeacher(teacher);
     response.send(result);
 });
