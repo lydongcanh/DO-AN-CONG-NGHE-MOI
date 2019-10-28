@@ -130,11 +130,6 @@ export default class MyHeader extends Component {
                                 Quản lý lớp học
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="schedules">
-                            <Link to="/admin/schedules">
-                                Quản lý thời khóa biểu
-                            </Link>
-                        </Menu.Item>
                     </Menu>
                 </Col>
             );

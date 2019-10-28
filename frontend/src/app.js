@@ -4,7 +4,6 @@ import { Layout } from "antd";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import HomePage from "./pages/home-page";
-import AdminSchedulesPage from "./pages/admin/admin-schedules-page";
 import AdminStudentsPage from "./pages/admin/admin-students-page";
 import AdminTeachersPage from "./pages/admin/admin-teachers-page";
 import AdminClassesPage from "./pages/admin/admin-classes-page";
@@ -28,7 +27,6 @@ export default class App extends Component {
                                 }}>
                     <Switch>
                         <Route exact path="/" component={HomePage}/>
-                        <Route path="/admin/schedules" component={AdminSchedulesPage}/>
                         <Route path="/admin/students" component={AdminStudentsPage}/>
                         <Route path="/admin/teachers" component={AdminTeachersPage}/>
                         <Route path="/admin/classes" component={AdminClassesPage}/>

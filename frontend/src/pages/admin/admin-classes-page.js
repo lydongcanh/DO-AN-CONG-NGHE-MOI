@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table, Input, Button, Row, Col } from "antd";
 import CreateClassModal from "../../components/classes/create-class-modal";
+import CreateScheduleModal from "../../components/schedules/create-schedule-modal";
 import ClassRepo from "../../repository/prop/studyclass-repository";
 
 const { Search } = Input;
@@ -99,10 +100,14 @@ export default class AdminClassesPage extends Component {
         this.handleCreateModalOk = this.handleCreateModalOk.bind(this);
         this.handleStudentsButton = this.handleStudentsButton.bind(this);
         this.handleSchedulesButton = this.handleSchedulesButton.bind(this);
+        this.handleScheduleCancel = this.handleScheduleCancel.bind(this);
+        this.handleScheduleOk = this.handleScheduleOk.bind(this);
 
         this.state = {
             searchedClasses: [],
-            createClassModelVisible: false
+            createClassModalVisible: false,
+            scheduleModalVisible: false,
+            selectedStudyclass: {}
         }
     }
 
@@ -130,16 +135,21 @@ export default class AdminClassesPage extends Component {
     }
 
     /** Nút thời khóa biểu */
-    handleSchedulesButton(e) {
-        console.log("Thời khóa biểu", e);
-    }
-
-    handleCreateClassButton() {
+    handleSchedulesButton(studyclass) {
         this.setState({
-            createClassModelVisible: true
+            scheduleModalVisible: true,
+            selectedStudyclass: studyclass
         });
     }
 
+    /** Nút thêm lớp */
+    handleCreateClassButton() {
+        this.setState({
+            createClassModalVisible: true
+        });
+    }
+
+    /** Nút sửa lớp */
     handleEditClassButton(e) {
         console.log("Sửa lớp", e);
     }
@@ -156,7 +166,7 @@ export default class AdminClassesPage extends Component {
         let result = await ClassRepo.createStudyclass(e.name, e.grade);  
 
         this.setState({
-            createClassModelVisible: false
+            createClassModalVisible: false
         });
 
         await this.loadAllStudyclasses();
@@ -164,7 +174,17 @@ export default class AdminClassesPage extends Component {
 
     handleCreateModalCancel() {
         this.setState({
-            createClassModelVisible: false
+            createClassModalVisible: false
+        });
+    }
+
+    handleScheduleOk(e) {
+        console.log("Schedule Ok", e);
+    }
+
+    handleScheduleCancel() {
+        this.setState({
+            scheduleModalVisible: false
         });
     }
 
@@ -184,7 +204,13 @@ export default class AdminClassesPage extends Component {
                 <CreateClassModal 
                     onOk={this.handleCreateModalOk}
                     onCancel={this.handleCreateModalCancel}
-                    visible={this.state.createClassModelVisible}
+                    visible={this.state.createClassModalVisible}
+                />
+                <CreateScheduleModal
+                    studyclass={this.state.selectedStudyclass}
+                    onOk={this.handleScheduleOk}
+                    onCancel={this.handleScheduleCancel}
+                    visible={this.state.scheduleModalVisible}
                 />
             </div>
         );
