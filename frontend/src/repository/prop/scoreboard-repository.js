@@ -2,11 +2,11 @@ import axios from "axios";
 import { scoreboardsEndpoint } from "./endpoints";
 
 class ScoreboardRepository {
-    async createScoreboard(semester, year, studentId) {
+    async createScoreboard(semester, grade, studentId) {
         try {
             let scoreboard = {
                 semester: semester,
-                year: year,
+                grade: grade,
                 studentId: studentId
             };
 
@@ -61,7 +61,7 @@ class ScoreboardRepository {
             return {
                 id: scoreboard.sortKey,
                 semester: scoreboard.data,
-                year: scoreboard.year,
+                grade: scoreboard.grade,
                 studentId: scoreboard.studentId
             };
         } catch (error) {

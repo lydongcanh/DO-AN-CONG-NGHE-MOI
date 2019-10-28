@@ -1,11 +1,9 @@
 export default class Schedule {
 
-    constructor(id, startDate, endDate, startTime, length, state, subject, teacherId, classId) {
+    constructor(id, semester, time, state, subject, teacherId, classId) {
         this.id = id;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.startTime = startTime;
-        this.length = length;
+        this.semester = semester;
+        this.time = time;
         this.state = state;
         this.subject = subject;
         this.teacherId = teacherId;

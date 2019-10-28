@@ -12,7 +12,7 @@ export default class CreateScoreBoard extends AWSPut {
             "partitionKey": "SCOREBOARD",
             "sortKey": this.scoreboard.id,
             "data": this.scoreboard.semester,
-            "year": this.scoreboard.year,
+            "grade": this.scoreboard.grade,
             "studentId": this.scoreboard.studentId
         };
     }
