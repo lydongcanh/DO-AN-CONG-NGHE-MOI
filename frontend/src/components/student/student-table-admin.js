@@ -2,15 +2,12 @@ import React, { Component } from "react";
 import { Divider, Table, Button, Modal } from "antd";
 import UpdateStudent from "../../components/student/student-update";
 import StudentResponsitory from "../../repository/prop/student-repository";
-import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
-
 
 export default class StudentTableAdmin extends Component {
     constructor(props){
         super(props);
         this.state = {
             student : {},
-            classe : [],
             visible : false
         }
         this.handleDelteClick = this.handleDelteClick.bind(this);
@@ -78,7 +75,6 @@ export default class StudentTableAdmin extends Component {
             }
         ];
     }
-    
     render() {
         return (
             <div>
@@ -92,35 +88,25 @@ export default class StudentTableAdmin extends Component {
                     handleSaveSuccess={this.handleSaveStudentSuccess}>        
                 </UpdateStudentModal> */}
                 <Modal
+                    closable={false}
                     visible = {this.state.visible}
                     width="40%"
                     footer={null}
                     header={null}
                     onCancel={this.handleCancelModal}>
-                        <UpdateStudent student={this.state.student} classe={this.state.classe}></UpdateStudent>
+                    <UpdateStudent student={this.state.student}> </UpdateStudent>
                 </Modal>
             </div>
         );
     }
     async handleUpdateButton(e){
-        // const student = await StudentResponsitory.getStudentById(e.id);
-        // this.setState({
-        //     student : student,
-        //     visible : true
-        // });
-        // const id = this.state.student.classId;
-        // console.log("id", id)
-        const classe = await StudyClassResponsitory.getAllStudyclasses();
-        console.log("sdf", classe)
-        // this.setState({
-        //     classe : classe
-        // })
-        // console.log('class Nhu',this.state.classe);
-        
+        const student = await StudentResponsitory.getStudentById(e.id);
+        this.setState({
+            student : student,
+            visible : true
+        });
+        console.log('studenttttt',this.state.student);
     }
-    // async getClass(){
-       
-    // }
     handleCancelModal(){
         this.setState({
             visible : false

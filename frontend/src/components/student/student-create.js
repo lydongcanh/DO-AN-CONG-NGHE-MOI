@@ -1,14 +1,17 @@
 import React , {Component} from "react";
-import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
+import {Menu,Dropdown,Form, Tooltip, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
 import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
+import StudentRespository from "../../repository/prop/student-repository"
 
-export default class CreateStudent extends Component{
+//[Required props : visible ,handleCancle]
+class CreateStudent extends Component{
     constructor(props){
         super(props);
         this.state={
             visible: false,
             classes: [],
-            value : 1,
+            value : "Nam",
+            valueDatepicker:'',
             gradeDropdownText: "Chọn khối",
             classDropdownText: "Chọn lớp",
             classDropdownActive: false,
@@ -16,11 +19,38 @@ export default class CreateStudent extends Component{
         this.onChange = this.onChange.bind(this);
         this.handleGradeMenuClick = this.handleGradeMenuClick.bind(this);
         this.handleClassMenuClick = this.handleClassMenuClick.bind(this);
-        this.handleSaveClick = this.handleSaveClick.bind(this);
+        this.handleSaveSuccess = this.handleSaveSuccess.bind(this);
+        this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    get gradeMenu() {
+    RadioSelect(){
+        return(
+            <Radio.Group onChange={this.handleChange} value={this.state.value} name="gender">
+                <Radio value={"Nam"}>Nam</Radio>
+                <Radio value={"Nữ"}>Nữ</Radio>
+            </Radio.Group>
+        )
+    }
+    DropdownSelect(){
+        return(
+            <div>
+                <Dropdown overlay={this.gradeMenu}>
+                    <Button>
+                        {this.state.gradeDropdownText} <Icon type="down"/>
+                    </Button>
+                </Dropdown>
+                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
+                    <Button>
+                        {this.state.classDropdownText} <Icon type="down"/>
+                    </Button>
+                </Dropdown>          
+            </div>
+        )
+    }
+    get gradeMenu() {   
         return (
-            <Menu onClick={ async ()=> this.handleGradeMenuClick}>
+            <Menu onClick={ this.handleGradeMenuClick}>
                 <Menu.Item key="10">
                     Khối 10
                 </Menu.Item>
@@ -49,59 +79,101 @@ export default class CreateStudent extends Component{
         );
     }
     render(){
+        const { getFieldDecorator } = this.props.form;
         return(
             <Modal
+                closable={false}
                 visible={this.props.visible}
                 onCancel={this.props.handleCancel}
                 header={null}
                 footer={null}
-                width="40%">
+                width="35%">
                 <div>
-                    <Form style={{textAlign:"left" }} >
+                    <Form style={{textAlign:"left" }} onSubmit={this.handleSubmit} >
                         <h2>Thêm học sinh</h2>
                             <Form.Item>
-                                <Input placeholder="Tên"></Input>
+                            {getFieldDecorator('name', {
+                                    rules: [
+                                        { required: true, message: 'Vui lòng nhập tên' },
+                                        {
+                                            pattern : new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
+                                            message : "Tên không hợp lệ"
+                                        }
+                                    ],
+                                })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                             </Form.Item>
                             <Form.Item >
-                                <Radio.Group onChange={this.onChange} value={this.state.value}>
-                                    <Radio value={1}>Nam</Radio>
-                                    <Radio value={2}>Nữ</Radio>
-                                </Radio.Group>
+                                {this.RadioSelect()}
                             </Form.Item>
                             <Form.Item>
-                            <Input placeholder="Địa chỉ"></Input>
+                                {getFieldDecorator('birthday', {
+                                    rules: [
+                                        { required: true, message: 'Vui lòng chọn ngày sinh' }
+                                    ],
+                                })(
+                                    <DatePicker allowClear={false} placeholder="Chọn ngày sinh" name="birthday" onChange={ (date,dateString) => this.onChangeDatePicker(date,dateString)} format="DD/MM/YYYY"></DatePicker>
+                                )}
                             </Form.Item>
                             <Form.Item>
-                                <Input placeholder="Số điện thoại"></Input>
+                                {getFieldDecorator('address', {
+                                    rules: [
+                                        { required: true, message: 'Vui lòng nhập địa chỉ' }
+                                    ],
+                                })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange}></Input>)}
                             </Form.Item>
                             <Form.Item>
-                                <Dropdown overlay={this.gradeMenu}>
-                                    <Button>
-                                        {this.state.gradeDropdownText} <Icon type="down"/>
-                                    </Button>
-                                </Dropdown>
-                                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
-                                     <Button>
-                                        {this.state.classDropdownText} <Icon type="down"/>
-                                    </Button>
-                                </Dropdown>
+                                {getFieldDecorator('phone', {
+                                    rules: [
+                                        { required: true, message: 'Số điện thoại không hợp lệ' },
+                                        { 
+                                            pattern : new RegExp(/^0+\d{9}$/g),
+                                            message : "Sai định dạng số điện thoại"
+                                        }
+                                    ],
+                                })(<Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.onChange}></Input>)}
                             </Form.Item>
                             <Form.Item>
-                                <DatePicker placeholder="Chọn ngày sinh"></DatePicker>
+                                    {this.DropdownSelect(getFieldDecorator)}
                             </Form.Item>
-                        <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                            <div style={{textAlign:"right"}}>
+                                <Button onClick={this.props.handleCancel} style={{marginRight:"10px"}}>Huỷ</Button>
+                                <Button type="primary" htmlType="submit" onClick={this.handleSaveSuccess}>Lưu</Button>
+                            </div>
                     </Form>
                 </div>
             </Modal>
         )
     }
-    onChange(e){
-        this.setState({
-            value : e.target.value
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
         });
+    };
+    //set gia tri khi thay doi radio group
+    handleChange(e){
+        this.setState({
+            value : e.target.value,
+            [e.target.name] : e.target.value
+        })
+    }
+    //lay gia tri khi cac field thay doi
+    onChange(e){
+        if(e.target !== undefined) this.setState({
+                 [e.target.name]: e.target.value
+             })
+         console.log('a',e.target.value)
+     }
+     //lay gia tri cua datepicker khi thay doi
+     onChangeDatePicker(date,dateString){
+        this.setState({
+            valueDatepicker : dateString
+        })
     }
     async handleGradeMenuClick(e) {
-        let result = await StudyClassResponsitory.getStudyclassByGrade(Number(e.key));
+        let result = await StudyClassResponsitory.getStudyclassByGrade(e.key);
         this.setState(_ => ({
             gradeDropdownText: e.item.props.children,
             classDropdownText: "Chọn lớp",
@@ -114,9 +186,28 @@ export default class CreateStudent extends Component{
             classDropdownText: e.item.props.children
         }));
     }
-    handleSaveClick(e){
-        //luu du lieu
-        let student = this.state.student;
-        this.props.handleSaveSuccess(student);
+    async handleSaveSuccess(){
+        // if(this.state.gender === 1){
+        //     this.state.gender = "Nam"
+        // } else this.state.gender ="Nữ"
+        
+        // await StudentRespository.createStudent(
+        //     this.state.name,
+        //     this.state.gender,
+        //     this.state.valueDatepicker,
+        //     this.state.address,
+        //     this.state.phoneNumber,
+        //     "Đang học"
+        // )
+        // this.props.handleSaveSuccess();
+        console.log('studnet',
+            this.state.name,
+            this.state.value,
+            this.state.valueDatepicker,
+            this.state.address,
+            this.state.phoneNumber,
+            "Đang học"
+        )
     }
 }
+export default Form.create()(CreateStudent);

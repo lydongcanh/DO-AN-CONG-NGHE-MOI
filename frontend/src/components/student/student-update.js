@@ -4,46 +4,88 @@ import mockDB from "../../repository/mock/mockDB";
 import moment from "moment";
 import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
 
-export default class UpdateStudent extends Component{
+//[Required props: student ,handleCancel, handleLoginSuccess ] 
+class UpdateStudent extends Component{
     constructor(props){
         super(props);
         this.state={
+            classe : {},
             classes: [],
-            value : 1,
+            datePickerValue:'',
+            value : this.props.student.gender,
             gradeDropdownText: '',
             classDropdownText: '',
             classDropdownActive: false,
         }
-        this.onChange = this.onChange.bind(this);
+        this.handleChangeRadioGroup = this.handleChangeRadioGroup.bind(this);
         this.handleGradeMenuClick = this.handleGradeMenuClick.bind(this);
         this.handleClassMenuClick = this.handleClassMenuClick.bind(this);
         this.handleSaveClick = this.handleSaveClick.bind(this);
         this.handlechangDate = this.handlechangDate.bind(this);
+        this.handleChangeValueInput = this.handleChangeValueInput.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
-    componentDidMount() {
-        // const classe = await StudyClassResponsitory.getStudyclassById(this.props.student.classId);
-        // this.setState({
-        //     classe: classe
-        // })
-        // console.log("classs", this.props.student.classId)
+    async componentWillReceiveProps(props) {
         this.setState({
-            gradeDropdownText: "Khối " + this.props.classe.grade,
-            classDropdownText: this.props.classe.name
+            // classe : await StudyClassResponsitory.getStudyclassById(this.props.student.classId)
+            // lay tam du lieu
+            classe :  await StudyClassResponsitory.getStudyclassById("1516fba0-f8a9-11e9-9d39-395fc7dc81bd")
         })
-        console.log(this.props.classe)
+        /*set value cho gender radio button*/
         if(this.props.student.gender === "Nam")
         { 
             this.setState({
-                value : 1 
+                value : "Nam"
             })
-        }else  this.setState({
-            value : 2
+        }else this.setState({
+                value : "Nữ"
         })
-       
+        console.log('a',this.state.gradeDropdownText);
+        this.componentDidMount();
+    }
+    /*set value cho grade & class cho dropdown meu*/
+    async componentDidMount(){
+        this.setState({
+            // classe : await StudyClassResponsitory.getStudyclassById(this.props.student.classId)
+            // lay tam du lieu
+            classe :  await StudyClassResponsitory.getStudyclassById("e32df660-f99e-11e9-b178-25e201954fc0")
+        })
+        this.setState({
+                gradeDropdownText: "Khối " + this.state.classe.grade,
+                classDropdownText: this.state.classe.name,
+        })
+    }
+    
+    /*item radio select*/
+    RadioSelect(){
+        return(
+            <Radio.Group onChange={this.handleChangeRadioGroup} value={this.state.value}>                       
+                <Radio value={"Nam"}>Nam</Radio>                           
+                <Radio value={"Nữ"}>Nữ</Radio>                       
+            </Radio.Group>
+        )
+    }
+    /*item dropdown select*/
+    DropdownSelect(){
+        return(
+            <div>
+                <Dropdown overlay={this.gradeMenu}>
+                    <Button>
+                        {this.state.gradeDropdownText} <Icon type="down"/>
+                    </Button>
+                </Dropdown>
+                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
+                    <Button>
+                        {this.state.classDropdownText} <Icon type="down"/>
+                    </Button>
+                </Dropdown>                
+            </div>
+        )
     }
     get gradeMenu() {
+        console.log('asfasf',this.state.gradeDropdownText)
         return (
-            <Menu onClick={ async () => this.handleGradeMenuClick}>
+            <Menu onClick={ this.handleGradeMenuClick}>
                 <Menu.Item key="10">
                     Khối 10
                 </Menu.Item>
@@ -70,63 +112,66 @@ export default class UpdateStudent extends Component{
                 {menus}
             </Menu>
         );
-
     }
     render(){
-        console.log('class ne',this.props);
+        console.log('student',this.props);
         return(
-                <div>
-                    <h2>Sửa thông tin học sinh</h2>
-                    <Form>
+                <Form onSubmit={this.handleSubmit}>
+                        <h2>Sửa thông tin học sinh</h2>
                         <Form.Item>
-                            <Input placeholder="Tên" value={this.props.student.name}></Input>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Radio.Group onChange={this.onChange} value={this.state.value}>
-                                        <Radio value={1}>Nam</Radio>    
-                                        <Radio value={2}>Nữ</Radio>
-                                    </Radio.Group>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Input placeholder="Địa chỉ" value={this.props.student.address}></Input>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Input placeholder="Số điện thoại" value={this.props.student.phoneNumber}></Input>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Input placeholder="Tình Trạng" value={this.props.student.state}></Input>
-                                </Form.Item>
-                                <Form.Item>
-                                    <Dropdown overlay={this.gradeMenu}>
-                                        <Button>
-                                            {this.state.gradeDropdownText} <Icon type="down"/>
-                                        </Button>
-                                   </Dropdown>
-                                    <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
-                                        <Button>
-                                            {this.state.classDropdownText} <Icon type="down"/>
-                                        </Button>
-                                    </Dropdown>
-                                </Form.Item>
-                                <Form.Item>
-                                    <DatePicker  value={moment(`"${this.props.student.birthday}"`, 'DD-MM-YYYY')} onChange={this.handlechangDate}></DatePicker>
-                                </Form.Item>
-                                 <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
-                    </Form>
-            </div>
+                            <Input placeholder="Tên" name="name" onChange={this.handleChangeValueInput} defaultValue={this.props.student.name}></Input>
+                        </Form.Item>
+                        <Form.Item>
+                            {this.RadioSelect()}
+                        </Form.Item>
+                        <Form.Item>
+                            <DatePicker name="birthday" defaultValue={moment(`"${this.props.student.birthday}"`)} onChange={(defaultValue,dateString)=> this.handlechangDate(defaultValue,dateString)} format="DD/MM/YYYY"></DatePicker>
+                        </Form.Item>
+                        <Form.Item>
+                            <Input placeholder="Địa chỉ" name="address" onChange={this.handleChangeValueInput} defaultValue={this.props.student.address}></Input>
+                        </Form.Item>
+                        <Form.Item>
+                            <Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.handleChangeValueInput} defaultValue={this.props.student.phoneNumber}></Input>
+                        </Form.Item>
+                        <Form.Item>
+                            <Input placeholder="Tình Trạng" name="state" onChange={this.handleChangeValueInput} defaultValue={this.props.student.state}></Input>
+                        </Form.Item>
+                        <Form.Item>
+                            {this.DropdownSelect()}
+                        </Form.Item>
+                            <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                </Form>
         )
     }
-    handlechangDate(e){
-        console.log(`date`,this.state.date);
+    handleSubmit(e){
+        e.preventDefault();
+        this.props.form.validateFieldsAndScroll((err, values) => {
+            if (!err) {
+                console.log('Received values of form: ', values);
+            }
+        });
+    };
+    handleChangeValueInput(e){
+        if(e.target !== undefined) this.setState({
+            [e.target.name]: e.target.value
+        })
+        console.log('a',e.target.value)
     }
-    onChange(e){
+    handlechangDate(defaultValue,dateString){
+        this.setState({
+            defaultValue: dateString
+        })
+        console.log('defaul',defaultValue);
+    }
+    /*thay doi gia tri radio group*/
+    handleChangeRadioGroup(e){
         this.setState({
             value : e.target.value
         });
-        console.log(`asfasf`,e.target.value);
+        // console.log(`asfasf`,e.target.value);
     }
     async handleGradeMenuClick(e) {
-        let result = await StudyClassResponsitory.getStudyclassByGrade(Number(e.key));
+        let result = await StudyClassResponsitory.getStudyclassByGrade(e.key);
         this.setState(_ => ({
             gradeDropdownText: e.item.props.children,
             classDropdownText: "Chọn lớp",
@@ -141,6 +186,9 @@ export default class UpdateStudent extends Component{
     }
     handleSaveClick(e){
         //luu du lieu
-        this.props.handleSaveSucces();
+        // this.props.handleSaveSucces();
+        
+        console.log('date',this.state.datePickerValue);
     }
 }
+export default Form.create()(UpdateStudent);
