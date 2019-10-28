@@ -32,4 +32,11 @@ router.delete("/:id", async (request, response, _) => {
     response.send(result);
 });
 
+router.patch("/:id", async (request, response, _) => {
+    const { id, name, gender, grade, birthday, address, phoneNumber, state, classId } = request.body;
+    const student = new Student(id, name, gender, grade, birthday, address, phoneNumber, state, classId);
+    const result = await studentAdapter.updateStudent(student);
+    response.send(result);
+});
+
 export default router;

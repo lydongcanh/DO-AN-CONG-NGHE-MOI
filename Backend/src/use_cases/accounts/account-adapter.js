@@ -1,6 +1,7 @@
 import CreateAccount from "./create-account";
 import GetAccountByUsername from "./get-account-by-username";
 import DeleteAccount from "./delete-account";
+import UpdateAccount from "./update-account";
 
 export default class AccountAdapter {
 
@@ -8,6 +9,7 @@ export default class AccountAdapter {
         this._createAccountObj = new CreateAccount(tableName, region, endpoint);
         this._getAccountByUsername = new GetAccountByUsername(tableName, region, endpoint);
         this._deleteAccountObj = new DeleteAccount(tableName, region, endpoint);
+        this._updateAccountObj = new UpdateAccount(tableName, region, endpoint);
     }
 
     /**
@@ -28,5 +30,9 @@ export default class AccountAdapter {
 
     async deleteAccount(username) {
         return await this._deleteAccountObj.execute(username);
+    }
+
+    async updateAccount(account) {
+        return await this._updateAccountObj.execute(account);
     }
 }

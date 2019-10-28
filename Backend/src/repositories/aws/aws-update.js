@@ -12,14 +12,18 @@ export default class AWSUpdate extends AWSUseCase {
     }
 
     get params() {
-        return {
+        let result = {
             TableName: this.tableName,
             Key: this.key,
             UpdateExpression: this.updateExpression,
-            ConditionExpression: this.conditionExpression,
             ExpressionAttributeValues: this.expressionAttributeValues,
             ReturnValues: this.returnValues
         };
+
+        if (conditionExpression)
+            result.ConditionExpression = this.conditionExpression;
+
+        return result;
     }
 
     get key() {
@@ -31,7 +35,7 @@ export default class AWSUpdate extends AWSUseCase {
     }
 
     get conditionExpression() {
-        return "true";
+        return undefined;
     }
 
     get expressionAttributeValues() {

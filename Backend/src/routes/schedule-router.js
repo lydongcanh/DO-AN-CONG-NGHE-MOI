@@ -41,4 +41,11 @@ router.delete("/:id", async (request, response, _) => {
     response.send(result);
 });
 
+router.patch("/:id", async (request, response, _) => {
+    const {id, startDate, endDate, startTime, length, state, subject, teacherId, classId} = request.body;
+    const schedule = new Schedule(id, startDate, endDate, startTime, length, state, subject, teacherId, classId);
+    const result = await scheduleAdapter.updateSchedule(schedule);
+    response.send(result);
+});
+
 export default router;

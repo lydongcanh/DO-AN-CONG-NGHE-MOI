@@ -25,4 +25,11 @@ router.delete("/:username", async (request, response, _) => {
     response.send(result);
 });
 
+router.patch("/:username", async (request, response, _) => {
+    const {username, password, type, teacherId} = request.body;
+    const account = new Account(username, password, type, teacherId);
+    const result = await accountAdapter.updateAccount(account);
+    response.send(result);
+});
+
 export default router;
