@@ -9,7 +9,7 @@ export default class UpdateTeacher extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set name=:name, gender=:gender, email=:email" +
+        return "set name=:name, gender=:gender, email=:email, subject=:subject, " +
                 "birthday=:birthday, address=:address, phoneNumber=:phoneNumber, state=:state";
     }
     
@@ -18,6 +18,7 @@ export default class UpdateTeacher extends AWSUpdate {
             ":name": this.teacher.name,
             ":gender": this.teacher.gender,
             ":email": this.teacher.email,
+            ":subject": this.teacher.subject,
             ":birthday": this.teacher.birthday,
             ":address": this.teacher.address,
             ":phoneNumber": this.teacher.phoneNumber,
