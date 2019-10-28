@@ -66,20 +66,22 @@ class UpdateStudent extends Component{
         )
     }
     /*item dropdown select*/
-    DropdownSelect(){
+    DropdownGradeSelect(){
         return(
-            <div>
-                <Dropdown overlay={this.gradeMenu}>
-                    <Button>
-                        {this.state.gradeDropdownText} <Icon type="down"/>
-                    </Button>
-                </Dropdown>
-                <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
-                    <Button>
-                        {this.state.classDropdownText} <Icon type="down"/>
-                    </Button>
-                </Dropdown>                
-            </div>
+            <Dropdown overlay={this.gradeMenu}>
+                <Button>
+                    {this.state.gradeDropdownText} <Icon type="down"/>
+                </Button>
+            </Dropdown>
+        )
+    }
+    DropdownClassSelect(getFieldDecorator){
+        return(
+            <Dropdown overlay={this.classMenu} disabled={!this.state.classDropdownActive}>
+                <Button>
+                    {this.state.classDropdownText} <Icon type="down"/>
+                </Button>
+            </Dropdown>  
         )
     }
     get gradeMenu() {
@@ -114,30 +116,61 @@ class UpdateStudent extends Component{
         );
     }
     render(){
+        const {getFieldDecorator} = this.props.form;
         console.log('student',this.props);
         return(
                 <Form onSubmit={this.handleSubmit}>
                         <h2>Sửa thông tin học sinh</h2>
                         <Form.Item>
-                            <Input placeholder="Tên" name="name" onChange={this.handleChangeValueInput} defaultValue={this.props.student.name}></Input>
+                            {getFieldDecorator('name', {
+                                    initialValue: this.props.student.name,
+                                    rules: [
+                                        { required: true, message: 'Vui lòng nhập tên' },
+                                        {
+                                            pattern : new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
+                                            message : "Tên không hợp lệ"
+                                        }
+                                    ],
+                            })(<Input placeholder="Tên" name="name" onChange={this.handleChangeValueInput} ></Input>)}
                         </Form.Item>
                         <Form.Item>
                             {this.RadioSelect()}
                         </Form.Item>
                         <Form.Item>
-                            <DatePicker name="birthday" defaultValue={moment(`"${this.props.student.birthday}"`)} onChange={(defaultValue,dateString)=> this.handlechangDate(defaultValue,dateString)} format="DD/MM/YYYY"></DatePicker>
+                            {getFieldDecorator('birthday', {
+                                    initialValue: moment(`"${this.props.student.birthday}"`),
+                                    rules: [
+                                        { required: true, message: 'Vui lòng chọn ngày sinh' }
+                                    ],
+                            })(<DatePicker name="birthday" onChange={(defaultValue,dateString)=> this.handlechangDate(defaultValue,dateString)} format="DD/MM/YYYY"></DatePicker>)}
                         </Form.Item>
                         <Form.Item>
-                            <Input placeholder="Địa chỉ" name="address" onChange={this.handleChangeValueInput} defaultValue={this.props.student.address}></Input>
+                            {getFieldDecorator('address', {
+                                    initialValue: this.props.student.address,
+                                    rules: [
+                                        { required: true, message: 'Vui lòng nhập địa chỉ' }
+                                    ],
+                            })(<Input placeholder="Địa chỉ" name="address" onChange={this.handleChangeValueInput} ></Input>)}
                         </Form.Item>
                         <Form.Item>
-                            <Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.handleChangeValueInput} defaultValue={this.props.student.phoneNumber}></Input>
+                            {getFieldDecorator('phone', {
+                                    initialValue: this.props.student.phoneNumber,
+                                    rules: [
+                                        { required: true, message: 'Số điện thoại không hợp lệ' },
+                                        { 
+                                            pattern : new RegExp(/^0+\d{9}$/g),
+                                            message : "Sai định dạng số điện thoại"
+                                        }
+                                    ],
+                            })(<Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.handleChangeValueInput} ></Input>)}
                         </Form.Item>
                         <Form.Item>
-                            <Input placeholder="Tình Trạng" name="state" onChange={this.handleChangeValueInput} defaultValue={this.props.student.state}></Input>
-                        </Form.Item>
-                        <Form.Item>
-                            {this.DropdownSelect()}
+                            {this.DropdownGradeSelect()}
+                            {getFieldDecorator('class', {
+                                    rules: [
+                                        { required: true, message: 'Vui lòng chọn lớp' },
+                                    ],
+                            })(this.DropdownClassSelect(getFieldDecorator))}
                         </Form.Item>
                             <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
                 </Form>
