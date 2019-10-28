@@ -23,3 +23,11 @@ Clean the project.
 Run [this](https://github.com/lydongcanh/DO-AN-CONG-NGHE-MOI/blob/master/Backend/generators/create-tables.js) to create database.
 
 Run [this](https://github.com/lydongcanh/DO-AN-CONG-NGHE-MOI/blob/master/Backend/generators/delete-tables.js) to delete database.
+
+## Available Update
+- **schedule:** state, subject
+- **account:** password
+- **study class:** name
+- **score:** value
+- **student:** all properties
+- **teacher:** all properties
