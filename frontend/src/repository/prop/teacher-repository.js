@@ -94,7 +94,15 @@ class TeacherRepository {
         if (result.error)
             return result;
 
-        return result.filter(teacher => teacher.name.include(name));
+        return result.filter(teacher => teacher.name.includes(name));
+    }
+
+    async getTeachersBySubject(subject) {
+        const result = await this.getAllTeachers();
+        if (result.error)
+            return result;
+
+        return result.filter(teacher => teacher.subject.includes(subject));
     }
 }
 
