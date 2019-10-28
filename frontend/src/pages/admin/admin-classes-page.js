@@ -18,33 +18,52 @@ export default class AdminClassesPage extends Component {
             key: "grade"
         },
         {
-            title: "Năm bắt đầu",
-            dataIndex: "startYear",
-            key: "startYaer"
-        },
-        {
-            title: "Năm kết thúc",
-            dataIndex: "endYear",
-            key: "endYear"
-        },
-        {
-            title: "Trạng thái",
-            dataIndex: "state",
-            key: "state"
-        },
-        {
             title: "Chức năng",
             key: "action",
-            render: () => {
+            render: (record) => {
                 return (
-                    <span>
-                        <Button onClick={this.handleEditClassButton}>
-                            Sửa
-                        </Button>
-                        <Button onClick={this.handleDeleteClassButton}>
-                            Xóa
-                        </Button>
-                    </span>
+                    <Row type="flex" justify="space-between">
+                        <Col span={6}>
+                            <Button
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleEditClassButton(record)}
+                            >
+                                Sửa
+                            </Button>
+                        </Col>
+                        
+                        <Col span={6}>
+                            <Button 
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleDeleteClassButton(record)}
+                            >
+                                Xóa
+                            </Button>
+                        </Col>
+                                 
+                        <Col span={6}>
+                            <Button 
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleStudentsButton(record)}
+                            >
+                                Danh sách học sinh
+                            </Button>
+                        </Col>
+
+                        <Col span={6}>
+                            <Button 
+                                style={{ width: "90%" }}
+                                type="primary"
+                                onClick={async () => this.handleSchedulesButton(record)}
+                            >
+                                Thời khóa biểu
+                            </Button>
+                        </Col>
+
+                    </Row>
                 );
             }
         }
@@ -73,11 +92,31 @@ export default class AdminClassesPage extends Component {
         this.handleDeleteClassButton = this.handleDeleteClassButton.bind(this);
         this.handleCreateModalCancel = this.handleCreateModalCancel.bind(this);
         this.handleCreateModalOk = this.handleCreateModalOk.bind(this);
+        this.handleStudentsButton = this.handleStudentsButton.bind(this);
+        this.handleSchedulesButton = this.handleSchedulesButton.bind(this);
 
         this.state = {
             searchedClasses: [],
             createClassModelVisible: false
         }
+    }
+
+    async componentDidMount() {
+        const allClasses = await ClassRepo.getAllStudyclasses();
+
+        this.setState({
+            searchedClasses: allClasses
+        });
+    }
+
+    /** Nút danh sách học sinh. */
+    handleStudentsButton(e) {
+        console.log("Danh sách học sinh", e);
+    }
+
+    /** Nút thời khóa biểu */
+    handleSchedulesButton(e) {
+        console.log("Thời khóa biểu", e);
     }
 
     handleCreateClassButton() {
@@ -87,11 +126,13 @@ export default class AdminClassesPage extends Component {
     }
 
     handleEditClassButton(e) {
-        console.log("edit", e);
+        console.log("Sửa lớp", e);
     }
 
-    handleDeleteClassButton(e) {
-        console.log("delete", e);
+    async handleDeleteClassButton(e) {
+        console.log("Xóa lớp", e);
+        const result = await ClassRepo.deleteStudyclass(e.id);
+        console.log("Xóa xong", result);
     }
 
     async handleCreateModalOk(e) {
@@ -113,7 +154,11 @@ export default class AdminClassesPage extends Component {
                 <Search/>
                 <br/><br/>
                 <Table 
+                    pagination={{hideOnSinglePage: true}}
+                    columns={this.columns}
+                    bordered
                     title={this.title}
+                    rowKey={record => record.id}
                     dataSource={this.state.searchedClasses}
                 />
                 <CreateClassModal 

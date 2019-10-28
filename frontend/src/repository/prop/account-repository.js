@@ -46,8 +46,8 @@ class AccountRepository {
 
                 return {
                     username: accounts[0].sortKey,
-                    password: accounts[0].data,
-                    type: accounts[0].type,
+                    password: accounts[0].password,
+                    type: accounts[0].data,
                     teacherId: accounts[0].teacherId
                 };
 
