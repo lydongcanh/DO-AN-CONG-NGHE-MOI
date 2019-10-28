@@ -27,6 +27,24 @@ class TeacherRepository {
         }
     }
 
+    async deleteTeacher(id) {
+        try {
+            const result = await axios.delete(`${teachersEndpoint}/${id}`);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
+    async updateTeacher(teacher) {
+        try {
+            const result = await axios.patch(`${teachersEndpoint}/${teacher.id}`, teacher);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
     async getAllTeachers() {
         try {
             const result = await axios.get(teachersEndpoint);
@@ -59,6 +77,7 @@ class TeacherRepository {
                 name: teacher.data,
                 gender: teacher.gender,
                 birthday: teacher.birthday,
+                email: teacher.email,
                 address: teacher.address,
                 phoneNumber: teacher.phoneNumber,
                 state: teacher.state

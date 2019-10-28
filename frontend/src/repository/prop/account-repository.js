@@ -11,7 +11,25 @@ class AccountRepository {
                 teacherId: teacherId
             };
 
-            let response = await axios.post(accountsEndpoint, account);
+            const response = await axios.post(accountsEndpoint, account);
+            return response.data.success ? response.body : { error: response.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
+    async deleteAccount(username) {
+        try {
+            const response = await axios.delete(`${accountsEndpoint}/${username}`);
+            return response.data.success ? response.body : { error: response.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
+    async updateAccount(account) {
+        try {
+            const response = await axios.patch(`${accountsEndpoint}/${account.username}`, account);
             return response.data.success ? response.body : { error: response.data.error };
         } catch (error) {
             return { error: error };
@@ -20,12 +38,12 @@ class AccountRepository {
 
     async getAccountWithUsername(username) {
         try {
-            let response = await axios.get(`${accountsEndpoint}/${username}`);
+            const response = await axios.get(`${accountsEndpoint}/${username}`);
             if (response.data.success) {
                 const accounts = response.data.body.Items;
                 if (!accounts || accounts.length < 1)
                     return { error: "NotFound" }
-                    
+
                 return {
                     username: accounts[0].sortKey,
                     password: accounts[0].data,

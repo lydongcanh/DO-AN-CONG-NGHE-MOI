@@ -21,6 +21,24 @@ class StudyclassRepository {
         }
     }
 
+    async deleteStudyclass(id) {
+        try {
+            const result = await axios.delete(`${studyclassesEndpoint}/${id}`);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
+    async updateStudyclass(studyclass) {
+        try {
+            const result = await axios.patch(`${studyclassesEndpoint}/${studyclass.id}`, studyclass);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
     async getAllStudyclasses() {
         try {
             const result = await axios.get(studyclassesEndpoint);

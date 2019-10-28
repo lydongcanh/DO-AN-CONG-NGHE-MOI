@@ -27,6 +27,24 @@ class StudentRepository {
         }
     }
 
+    async deleteStudent(id) {
+        try {
+            const result = await axios.delete(`${studentsEndpoint}/${id}`);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
+    async updateStudent(student) {
+        try {
+            const result = await axios.patch(`${studentsEndpoint}/${student.id}`, student);
+            return result.data.success ? result.body : { error: result.data.error };
+        } catch (error) {
+            return { error: error };
+        }
+    }
+
     async getAllStudents() {
         try {
             const result = await axios.get(studentsEndpoint);
