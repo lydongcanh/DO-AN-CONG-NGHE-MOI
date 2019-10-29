@@ -76,6 +76,18 @@ class ScoreboardRepository {
 
         return result.filter(scoreboard => String(scoreboard.studentId) == String(studentId));
     }
+
+    async getScoreboardsByStudentIdSemesterGrade(studentId, semester, grade) {
+        const result = await this.getAllScoreboards();
+        if (result.error)
+            return result;
+
+        return result.find(scoreboard => {
+            return scoreboard.studentId == studentId &&
+                   scoreboard.semester == semester &&
+                   scoreboard.grade == grade
+        });
+    }
 }
 
 const scoreboardRepository = new ScoreboardRepository();

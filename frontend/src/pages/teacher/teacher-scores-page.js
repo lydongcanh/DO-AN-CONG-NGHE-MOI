@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Table, Button, Modal } from "antd";
+import { Table, Button, Divider } from "antd";
 import TeacherAddScoresModal from "../../components/teachers/teacher-add-scores-modal";
 import AccountRepo from "../../repository/prop/account-repository";
 import ScheduleRepo from "../../repository/prop/schedule-repository";
 import ClassRepo from "../../repository/prop/studyclass-repository";
 import StudentRepo from "../../repository/prop/student-repository";
+import TeacherRepo from "../../repository/prop/teacher-repository";
+import ScoreRepo from "../../repository/prop/score-repository";
 
 export default class TeacherScoresPage extends Component {
     constructor(props) {
@@ -13,6 +15,8 @@ export default class TeacherScoresPage extends Component {
         this.state = {
             classes: [],
             students: [],
+            subject: "",
+            semester: "",
             addScoresModalVisible: false
         }
 
@@ -42,18 +46,33 @@ export default class TeacherScoresPage extends Component {
                 title: "Chức năng",
                 render: (value) => {
                     return (
-                        <Button type="primary" onClick={async () => await this.handleInsertScoreButton(value)}>Nhập điểm</Button>
+                        <span>
+                            <Button 
+                                type="primary" 
+                                onClick={async () => await this.handleInsertScoreButton(value, "HK1")}
+                            >
+                                Nhập điểm học kỳ 1
+                            </Button>
+                            <Divider type="vertical"/>
+                            <Button 
+                                type="primary" 
+                                onClick={async () => await this.handleInsertScoreButton(value, "HK2")}
+                            >
+                                Nhập điểm học kỳ 2
+                            </Button>
+                        </span>
                     );
                 }
             }
         ];
     }
 
-    async handleInsertScoreButton(studyclass) {
+    async handleInsertScoreButton(studyclass, semester) {
         const students = await StudentRepo.getStudentsByClassId(studyclass.id);
 
         this.setState({
             students: students,
+            semester: semester,
             addScoresModalVisible: true
         });
     }
@@ -64,14 +83,26 @@ export default class TeacherScoresPage extends Component {
         })
     }
 
-    async handleAddScoreModalOk() {
+    async handleAddScoreModalOk(scores, subject) {
+        this.handleAddScoreModalCancel();
+        console.log("add scores", scores, subject);
 
+        if (!scores || scores.length < 1)
+            return;
+
+        for(let i = 0; i < scores.length; i++) {
+            const score = scores[i];
+            const result = await ScoreRepo.createScore(score.type, score.value, subject, score.multiplier, score.scoreboardId);
+            //console.log("score-result", score, result);
+        }
     }
 
     async componentDidMount() {
         const { match: { params } } = this.props;
         const account = await AccountRepo.getAccountWithUsername(params.username);
         const schedules = await ScheduleRepo.getSchedulesByTeacherId(account.teacherId);
+        const teacher = await TeacherRepo.getTeacherById(account.teacherId);
+        const subject = teacher.subject;
         
         if (!schedules || schedules.length < 1)
             return;
@@ -86,7 +117,8 @@ export default class TeacherScoresPage extends Component {
         }
 
         this.setState({
-            classes: classes
+            classes: classes,
+            subject: subject
         });
     }
 
@@ -102,6 +134,8 @@ export default class TeacherScoresPage extends Component {
                     dataSource={this.state.classes}
                 />
                 <TeacherAddScoresModal 
+                    subject={this.state.subject}
+                    semester={this.state.semester}
                     onOk={this.handleAddScoreModalOk}
                     onCancel={this.handleAddScoreModalCancel}
                     students={this.state.students}

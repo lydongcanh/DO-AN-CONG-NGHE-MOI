@@ -20,10 +20,7 @@ export default class StudentScoresPage extends Component {
         const { match: { params } } = this.props;
         const id = params.id;
         
-        console.log("mount", id);
-
         let scoreboards = await ScoreboardRepository.getScoreboardsByStudentId(id);
-        console.log("scoreboards", scoreboards);
 
         this.setState({
             data: params,
@@ -37,7 +34,7 @@ export default class StudentScoresPage extends Component {
             const scoreboard = scoreboards[i];
 
             result.push(
-                <TabPane tab={`${scoreboard.semester} - ${scoreboard.year}`} key={scoreboard.id}>
+                <TabPane tab={`Lớp ${scoreboard.grade} - ${scoreboard.semester}`} key={scoreboard.id}>
                     <Scoreboard scoreboard={scoreboard}/>
                 </TabPane>
             );

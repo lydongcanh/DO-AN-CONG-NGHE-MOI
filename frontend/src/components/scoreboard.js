@@ -134,7 +134,7 @@ export default class Scoreboard extends Component {
 
     render() {
         return (
-            <Table title={() => <h2 style={{textAlign: "start"}}>Bảng điểm {this.props.scoreboard.semester} - {this.props.scoreboard.year}</h2>}
+            <Table title={() => <h2 style={{textAlign: "start"}}>Bảng điểm lớp {this.props.scoreboard.grade} - {this.props.scoreboard.semester}</h2>}
                    rowKey={record => record.id}
                    pagination={{pageSize: 13, hideOnSinglePage: true}}
                    dataSource={this.scoreboardData} 
