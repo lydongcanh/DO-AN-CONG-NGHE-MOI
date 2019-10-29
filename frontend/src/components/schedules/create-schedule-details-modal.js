@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Form } from "antd";
+import { Modal, Form, message } from "antd";
 import TeacherRepo from "../../repository/prop/teacher-repository";
 import ScheduleRepo from "../../repository/prop/schedule-repository";
 import SubjectSelect from "../subject-select";
@@ -24,10 +24,7 @@ export default class CreateScheduleDetailsModal extends Component {
 
     async componentWillReceiveProps(_) {
         const allTeacher = await TeacherRepo.getTeachersBySubject(subjects[0]);
-        console.log("componentWillReceiveProps all teachers", allTeacher);
-
         const availableTeachers = await this.filterUnavailableTeacher(allTeacher);        
-        console.log("componentWillReceiveProps available teachers", availableTeachers);
 
         this.setState({
             teacher: {},
@@ -38,14 +35,12 @@ export default class CreateScheduleDetailsModal extends Component {
 
     async handleSubjectSelectChange(subject) {
         const allTeacher = await TeacherRepo.getTeachersBySubject(subject);
-        console.log("handleSubjectSelectChange all teachers", allTeacher);
-
         const availableTeachers = await this.filterUnavailableTeacher(allTeacher);        
-        console.log("handleSubjectSelectChange available teachers", availableTeachers);
 
         this.setState({
             subject: subject,
-            availableTeachers: availableTeachers
+            availableTeachers: availableTeachers,
+            teacher: availableTeachers.length > 0 ? availableTeachers[0] : {}
         });
     }
 
