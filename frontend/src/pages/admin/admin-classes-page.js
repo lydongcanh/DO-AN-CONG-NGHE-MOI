@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Table, Input, Button, Row, Col } from "antd";
+import { Table, Input, Button, Row, Col, Modal } from "antd";
 import CreateClassModal from "../../components/classes/create-class-modal";
 import CreateScheduleModal from "../../components/schedules/create-schedule-modal";
+import StudentTable from "../../components/students/student-table";
 import ClassRepo from "../../repository/prop/studyclass-repository";
+import ScheduleRepo from "../../repository/prop/schedule-repository";
+import StudentRepo from "../../repository/prop/student-repository";
 
 const { Search } = Input;
 
@@ -33,7 +36,7 @@ export default class AdminClassesPage extends Component {
                             <Button
                                 style={{ width: "90%" }}
                                 type="primary"
-                                onClick={async () => this.handleEditClassButton(record)}
+                                onClick={async () => await this.handleEditClassButton(record)}
                             >
                                 Sửa
                             </Button>
@@ -43,7 +46,7 @@ export default class AdminClassesPage extends Component {
                             <Button 
                                 style={{ width: "90%" }}
                                 type="primary"
-                                onClick={async () => this.handleDeleteClassButton(record)}
+                                onClick={async () => await this.handleDeleteClassButton(record)}
                             >
                                 Xóa
                             </Button>
@@ -53,7 +56,7 @@ export default class AdminClassesPage extends Component {
                             <Button 
                                 style={{ width: "90%" }}
                                 type="primary"
-                                onClick={async () => this.handleStudentsButton(record)}
+                                onClick={async () => await this.handleStudentsButton(record)}
                             >
                                 Danh sách học sinh
                             </Button>
@@ -63,7 +66,7 @@ export default class AdminClassesPage extends Component {
                             <Button 
                                 style={{ width: "90%" }}
                                 type="primary"
-                                onClick={async () => this.handleSchedulesButton(record)}
+                                onClick={async () => await this.handleSchedulesButton(record)}
                             >
                                 Thời khóa biểu
                             </Button>
@@ -102,13 +105,21 @@ export default class AdminClassesPage extends Component {
         this.handleSchedulesButton = this.handleSchedulesButton.bind(this);
         this.handleScheduleCancel = this.handleScheduleCancel.bind(this);
         this.handleScheduleOk = this.handleScheduleOk.bind(this);
-
+        this.handleClassStudentsModalCancel = this.handleClassStudentsModalCancel.bind(this);
+        
         this.state = {
             searchedClasses: [],
             createClassModalVisible: false,
             scheduleModalVisible: false,
-            selectedStudyclass: {}
+            classStudentsModalVisible: false,
+            classStudents: [],
+            selectedStudyclass: {},
         }
+    }
+
+    get classStudentsTitle() {
+        const studyclass = this.state.selectedStudyclass;
+        return `Danh sách học sinh lớp ${studyclass.grade}${studyclass.name}`;
     }
 
     async componentDidMount() {
@@ -130,8 +141,14 @@ export default class AdminClassesPage extends Component {
     }
 
     /** Nút danh sách học sinh. */
-    handleStudentsButton(e) {
-        console.log("Danh sách học sinh", e);
+    async handleStudentsButton(studyclass) {
+        const students = await StudentRepo.getStudentsByClassId(studyclass.id);
+        
+        this.setState({
+            classStudents: students,
+            selectedStudyclass: studyclass,
+            classStudentsModalVisible: true
+        });
     }
 
     /** Nút thời khóa biểu */
@@ -155,21 +172,42 @@ export default class AdminClassesPage extends Component {
     }
 
     async handleDeleteClassButton(e) {
-        // TODO: Hiện thông báo...
+
         const result = await ClassRepo.deleteStudyclass(e.id);
+        console.log("delete", result);
         
-        await this.loadAllStudyclasses();
+        if (!result || result.error) {
+            Modal.error({
+                title: "Lỗi",
+                content: `Xóa lớp học thất bại.`
+            });
+        } else {
+            Modal.success({
+                title: "Thành công",
+                content: "Lớp học được xóa thành công."
+            });
+            await this.loadAllStudyclasses();
+        }
     }
 
     async handleCreateModalOk(e) {
-        // TODO: Hiện thông báo...
         let result = await ClassRepo.createStudyclass(e.name, e.grade);  
 
-        this.setState({
-            createClassModalVisible: false
-        });
-
-        await this.loadAllStudyclasses();
+        if (result.error) {
+            Modal.error({
+                title: "Lỗi",
+                content: `Thêm lớp học thất bại: ${result.error}.`
+            });
+        } else {
+            Modal.success({
+                title: "Thành công",
+                content: "Lớp học được thêm thành công."
+            });
+            await this.loadAllStudyclasses();
+            this.setState({
+                createClassModalVisible: false
+            });
+        }
     }
 
     handleCreateModalCancel() {
@@ -178,8 +216,48 @@ export default class AdminClassesPage extends Component {
         });
     }
 
-    handleScheduleOk(e) {
-        console.log("Schedule Ok", e);
+    async handleScheduleOk(scheduleDetails) {
+        if (!scheduleDetails || scheduleDetails.length < 1) {
+            Modal.warning({
+                title: "Cảnh báo",
+                content: "Không tìm thấy chi tiết nào trong lịch học."
+            });
+        } else {
+            for(let i = 0; i < scheduleDetails.length; i++) {
+                const detail = scheduleDetails[i];
+                const result = await ScheduleRepo.createSchedule(
+                    detail.studyclass.id,
+                    detail.teacher.id,
+                    detail.time,
+                    detail.date,
+                    detail.semester,
+                    detail.state,
+                    detail.subject
+                );
+
+                if (result.error) {
+                    Modal.error({
+                        title: "Lỗi",
+                        content: `Thêm chi tiết thời khóa biểu thất bại: ${result.error}.`
+                    });
+                } else {
+                    Modal.success({
+                        title: "Thành công",
+                        content: "Thêm chi tiết thời khóa biểu thành công."
+                    });
+                }
+            }
+
+            this.setState({
+                scheduleModalVisible: false
+            });
+        }
+    }
+
+    handleClassStudentsModalCancel() {
+        this.setState({
+            classStudentsModalVisible: false
+        });
     }
 
     handleScheduleCancel() {
@@ -212,6 +290,20 @@ export default class AdminClassesPage extends Component {
                     onCancel={this.handleScheduleCancel}
                     visible={this.state.scheduleModalVisible}
                 />
+                <Modal
+                    width={750}
+                    onCancel={this.handleClassStudentsModalCancel}
+                    visible={this.state.classStudentsModalVisible}
+                    closable={false}
+                    footer={null}
+                >
+                    <StudentTable
+                        size="small"
+                        actionButtonsVisible={false}
+                        title={this.classStudentsTitle}
+                        students={this.state.classStudents}
+                    />   
+                </Modal>
             </div>
         );
     }

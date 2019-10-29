@@ -30,7 +30,11 @@ JSON.parse(fs.readFileSync(__dirname + "/accounts.json", "utf-8")).forEach(accou
     putdata("CNM_FINAL_ATSC", account);
 });
 
-// JSON.parse(fs.readFileSync(__dirname + "/classes.json", "utf-8")).forEach(c => {
+JSON.parse(fs.readFileSync(__dirname + "/classes.json", "utf-8")).forEach(c => {
+    putdata("CNM_FINAL_ATSC", c);
+});
+
+// JSON.parse(fs.readFileSync(__dirname + "/schedules.json", "utf-8")).forEach(c => {
 //     putdata("CNM_FINAL_ATSC", c);
 // });
 

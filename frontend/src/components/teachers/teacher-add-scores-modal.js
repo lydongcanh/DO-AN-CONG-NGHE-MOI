@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Table, Tag, Icon, Button } from "antd";
+import { Table, Tag, Modal, Button } from "antd";
 import scoreTypes from "../../types/scoreTypes";
 
-/** [Required props: students] */
-export default class TeacherAddScores extends Component {
+/** [Required props: visible, onOk, onCancel, students] */
+export default class TeacherAddScoresModal extends Component {
     constructor(props) {
         super(props);
 
@@ -14,8 +14,8 @@ export default class TeacherAddScores extends Component {
         let result = [
             {
                 title: "TT",
-                dataIndex: "id",
-                key: "id"
+                dataIndex: "count",
+                key: "count"
             },
             {
                 title: "Tên",
@@ -75,7 +75,7 @@ export default class TeacherAddScores extends Component {
         for(let i = 0; i < students.length; i++) {
             const student = students[i];
             let item = {
-                id: i + 1,
+                count: i + 1,
                 studentName: student.name,
                 studentBirthday: student.birthday,
             }
@@ -101,21 +101,29 @@ export default class TeacherAddScores extends Component {
             return "red";
         } 
 
-        if (score < 8) {
-            return "blue";
-        }
-
-        return "purple";
+        return "blue";
     }
 
     render() {
         return (
-            <Table
-                rowKey={record => record.id}
-                bordered
-                columns={this.columns}
-                dataSource={this.dataSource}
-            />
+            <Modal
+                visible={this.props.visible}
+                onOk={this.props.onOk}
+                onCancel={this.props.onCancel}
+                okText="Lưu"
+                cancelText="Hủy"
+                closable={false}
+                centered
+                width={1000}
+            >
+                <Table
+                    rowKey={record => record.id}
+                    bordered
+                    size="small"
+                    columns={this.columns}
+                    dataSource={this.dataSource}
+                />
+            </Modal>
         );
     }
 }

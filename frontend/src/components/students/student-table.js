@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Tag, Divider, Table, Button } from "antd";
 import { Link } from "react-router-dom";
 
+/** Required props: students, title, size, actionButtonsVisible */
 export default class StudentTable extends Component {
-    get columns () {
-        return [
+    get columns() {
+        let result = [
             {
                 title: "TT",
                 dataIndex: "count",
@@ -47,35 +48,39 @@ export default class StudentTable extends Component {
                 dataIndex: "phoneNumber",
                 key: "phoneNumber"
             },
-            {
-                title: "",
+        ];
+
+        if (this.props.actionButtonsVisible)
+            result.push({
+                title: "Chức năng",
                 render: (_, record) => {
                     return (
-                    <span>
-                        <Button type="primary">
-                            <Link to={`/studentscores/${record.id}`}>
-                                Xem điểm
+                        <span>
+                            <Button type="primary">
+                                <Link to={`/studentscores/${record.id}`}>
+                                    Xem điểm
                             </Link>
-                        </Button>
-                        <Divider type="vertical" />
-                        <Button type="primary">
-                            <Link to={`/studentschedules/0`}>
-                                Xem thời khóa biểu
+                            </Button>
+                            <Divider type="vertical" />
+                            <Button type="primary">
+                                <Link to={`/studentschedules/${record.id}`}>
+                                    Xem thời khóa biểu
                             </Link>
-                        </Button>
-                    </span>
-                )},
-            },
-        ];
+                            </Button>
+                        </span>
+                    )
+                },
+            });
+        return result;
     }
 
     get dataSource() {
         const students = this.props.students;
-        if (!students || students.length < 1) 
+        if (!students || students.length < 1)
             return [];
 
         const result = [];
-        for(let i = 0; i < students.length; i++) {
+        for (let i = 0; i < students.length; i++) {
             let item = new Object(students[i]);
             item.count = i + 1;
             result.push(item);
@@ -86,14 +91,15 @@ export default class StudentTable extends Component {
 
     render() {
         return (
-            <div>
-                <Table title={() => <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>}
-                       pagination={{pageSize: 9}} 
-                       bordered
-                       columns={this.columns} 
-                       rowKey={record => record.id} 
-                       dataSource={this.dataSource} />
-            </div>
+            <Table
+                title={() => <h2 style={{ textAlign: "start" }}>{this.props.title}</h2>}
+                pagination={{ pageSize: 9 }}
+                bordered
+                size={this.props.size}
+                columns={this.columns}
+                rowKey={record => record.id}
+                dataSource={this.dataSource}
+            />
         );
     }
 

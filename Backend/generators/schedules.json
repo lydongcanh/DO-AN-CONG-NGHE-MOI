@@ -1,0 +1,178 @@
+[
+    {
+        "date": "Thứ năm",
+        "sortKey": "459b6410-f9b1-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a68a6940-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Thể dục",
+        "semester": "HK1",
+        "time": "Tiết 9",
+        "state": "active"
+    },
+    {
+        "date": "Thứ năm",
+        "sortKey": "45a1a5a0-f9b1-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a6568800-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Tin học",
+        "semester": "HK2",
+        "time": "Tiết 4",
+        "state": "active"
+    },
+    {
+        "date": "Thứ năm",
+        "sortKey": "45a77200-f9b1-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a6568800-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Tin học",
+        "semester": "HK2",
+        "time": "Tiết 5",
+        "state": "active"
+    },
+    {
+        "date": "Thứ hai",
+        "sortKey": "45ac7b10-f9b1-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a673fb10-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "GDCD",
+        "semester": "HK2",
+        "time": "Tiết 6",
+        "state": "active"
+    },
+    {
+        "date": "Thứ hai",
+        "sortKey": "45b358e0-f9b1-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a673fb10-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "GDCD",
+        "semester": "HK2",
+        "time": "Tiết 7",
+        "state": "active"
+    },
+    {
+        "date": "Thứ hai",
+        "sortKey": "ad32bbc0-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "93035eb0-f9b1-11e9-ade4-d5e95a79bfb1",
+        "subject": "Vật lý",
+        "semester": "HK1",
+        "time": "Tiết 1",
+        "state": "active"
+    },
+    {
+        "date": "Thứ ba",
+        "sortKey": "ad392460-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "93035eb0-f9b1-11e9-ade4-d5e95a79bfb1",
+        "subject": "Vật lý",
+        "semester": "HK1",
+        "time": "Tiết 5",
+        "state": "active"
+    },
+    {
+        "date": "Thứ sáu",
+        "sortKey": "ad3e0660-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "93035eb0-f9b1-11e9-ade4-d5e95a79bfb1",
+        "subject": "Vật lý",
+        "semester": "HK2",
+        "time": "Tiết 7",
+        "state": "active"
+    },
+    {
+        "date": "Thứ sáu",
+        "sortKey": "ad42e860-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "93035eb0-f9b1-11e9-ade4-d5e95a79bfb1",
+        "subject": "Vật lý",
+        "semester": "HK2",
+        "time": "Tiết 6",
+        "state": "active"
+    },
+    {
+        "date": "Thứ tư",
+        "sortKey": "c4534bd0-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Vật lý",
+        "semester": "HK1",
+        "time": "Tiết 4",
+        "state": "active"
+    },
+    {
+        "date": "Thứ tư",
+        "sortKey": "c4591830-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Vật lý",
+        "semester": "HK1",
+        "time": "Tiết 5",
+        "state": "active"
+    },
+    {
+        "date": "Thứ hai",
+        "sortKey": "c45ee490-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Vật lý",
+        "semester": "HK2",
+        "time": "Tiết 6",
+        "state": "active"
+    },
+    {
+        "date": "Thứ hai",
+        "sortKey": "c4632a50-f9b9-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a65f1380-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Vật lý",
+        "semester": "HK2",
+        "time": "Tiết 7",
+        "state": "active"
+    },
+    {
+        "date": "Thứ hai",
+        "sortKey": "e84ad750-f9b0-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a662e410-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Toán học",
+        "semester": "HK1",
+        "time": "Tiết 6",
+        "state": "active"
+    },
+    {
+        "date": "Thứ bảy",
+        "sortKey": "e8597d50-f9b0-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a68fc070-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Toán học",
+        "semester": "HK1",
+        "time": "Tiết 2",
+        "state": "active"
+    },
+    {
+        "date": "Thứ năm",
+        "sortKey": "e85f49b0-f9b0-11e9-ade4-d5e95a79bfb1",
+        "teacherId": "a6856030-f87d-11e9-bead-ab1d2a089515",
+        "partitionKey": "SCHEDULE",
+        "data": "079db030-f977-11e9-b3bc-b102310f115e",
+        "subject": "Sinh học",
+        "semester": "HK1",
+        "time": "Tiết 6",
+        "state": "active"
+    }
+]

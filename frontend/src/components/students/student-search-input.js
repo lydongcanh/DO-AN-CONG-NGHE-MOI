@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Dropdown, Button, Menu, Row, Col, Input, Icon } from "antd";
-import StudentRepository from "../repository/prop/student-repository";
-import ClassRepository from "../repository/prop/studyclass-repository";
+import StudentRepository from "../../repository/prop/student-repository";
+import ClassRepository from "../../repository/prop/studyclass-repository";
 
 const { Search } = Input;
 

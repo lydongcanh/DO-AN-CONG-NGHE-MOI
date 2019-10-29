@@ -97,13 +97,16 @@ function regenerateTeachers() {
 
 function regenerateStudents() {
     let students = JSON.parse(fs.readFileSync(__dirname + "/students.json", "utf-8"));
-    
+    let classes = JSON.parse(fs.readFileSync(__dirname + "/classes.json", "utf-8"));
+
     for (let j = 0; j < students.length; j++) {
         let date = chance.date();
+        const studyclass = classes[getRandomInt(0, classes.length - 1)];
         students[j].birthday = `${date.getMonth()}/${date.getDate()}/${date.getFullYear()}`;
-        students[j].classId = "null";
-        students[j].grade = String(10);
+        students[j].data = studyclass.sortKey;
+        students[j].grade = String(studyclass.data);
         students[j].state = "Nhập học";
+        delete students[j].classId;
     }
 
     fs.writeFile(__dirname + "/students.json", JSON.stringify(students), error => {
@@ -186,7 +189,8 @@ function generateScores(max) {
     });
 }
 
-regenerateTeachers();
+//regenerateTeachers();
+regenerateStudents();
 //generateAccount();
 //generateClassIdInStudents();
 //generateScores(2);
