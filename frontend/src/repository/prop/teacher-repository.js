@@ -94,7 +94,7 @@ class TeacherRepository {
         if (result.error)
             return result;
 
-        return result.filter(teacher => teacher.name.includes(name));
+        return result.filter(teacher => teacher.name.toLowerCase().includes(name.toLowerCase()));
     }
 
     async getTeachersBySubject(subject) {

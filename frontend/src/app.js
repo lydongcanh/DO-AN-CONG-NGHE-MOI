@@ -7,7 +7,6 @@ import HomePage from "./pages/home-page";
 import AdminStudentsPage from "./pages/admin/admin-students-page";
 import AdminTeachersPage from "./pages/admin/admin-teachers-page";
 import AdminClassesPage from "./pages/admin/admin-classes-page";
-import TeacherInfoPage from "./pages/teacher/teacher-info-page";
 import TeacherSchedulesPage from "./pages/teacher/teacher-schedules-page";
 import TeacherScoresPage from "./pages/teacher/teacher-scores-page";
 import StudentScoresPage from "./pages/student/student-scores-page";
@@ -30,7 +29,6 @@ export default class App extends Component {
                         <Route path="/admin/students" component={AdminStudentsPage}/>
                         <Route path="/admin/teachers" component={AdminTeachersPage}/>
                         <Route path="/admin/classes" component={AdminClassesPage}/>
-                        <Route path="/teacher/:username" component={TeacherInfoPage}/>
                         <Route path="/teacherschedules/:username" component={TeacherSchedulesPage}/>
                         <Route path="/teacherscores/:username" component={TeacherScoresPage}/>
                         <Route path="/studentscores/:id/" component={StudentScoresPage}/>

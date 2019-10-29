@@ -93,7 +93,7 @@ class StudentRepository {
         if (result.error)
             return result;
 
-        return result.filter(student => student.name.includes(name));
+        return result.filter(student => student.name.toLowerCase().includes(name.toLowerCase()));
     }
 
     async getStudentsByClassId(classId) {

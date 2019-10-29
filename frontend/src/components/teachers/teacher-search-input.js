@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Input } from "antd";
-import TeacherRepository from "../repository/prop/teacher-repository";
+import TeacherRepository from "../../repository/prop/teacher-repository";
 
 const { Search } = Input;
  
@@ -30,8 +30,8 @@ export default class TeacherSearchInput extends Component {
     }
 
     /** Xử lý khi tìm kiếm bằng tên */
-    handleOnSearch() {
-        let teachers = TeacherRepository.getTeachersByName(this.state.searchedName);
+    async handleOnSearch() {
+        let teachers = await TeacherRepository.getTeachersByName(this.state.searchedName);
         this.props.onSearchTeacher(teachers);
     }
 

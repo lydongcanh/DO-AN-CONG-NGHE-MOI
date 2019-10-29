@@ -18,7 +18,7 @@ export default class TeacherSimpleSelect extends Component {
                     value={teachers[i].id}
                     key={teachers[i].id}
                 >
-                    {teachers[i].name} ({teachers[i].phoneNumber})
+                    {teachers[i].name} ({teachers[i].email})
                 </Option>
             );
         }
