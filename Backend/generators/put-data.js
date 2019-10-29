@@ -38,9 +38,9 @@ JSON.parse(fs.readFileSync(__dirname + "/classes.json", "utf-8")).forEach(c => {
 //     putdata("CNM_FINAL_ATSC", c);
 // });
 
-// JSON.parse(fs.readFileSync(__dirname + "/scoreboards.json", "utf-8")).forEach( sb => {
-//     putdata("CNM_FINAL_SSS", sb);
-// });
+JSON.parse(fs.readFileSync(__dirname + "/scoreboards.json", "utf-8")).forEach( sb => {
+    putdata("CNM_FINAL_SSS", sb);
+});
 
 // JSON.parse(fs.readFileSync(__dirname + "/scores.json", "utf-8")).forEach( s => {
 //     putdata("CNM_FINAL_SSS", s);

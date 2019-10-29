@@ -76,7 +76,6 @@ function generateAccount() {
     });
 }
 
-
 function regenerateTeachers() {
     let teachers = JSON.parse(fs.readFileSync(__dirname + "/teachers.json", "utf-8"));
 
@@ -87,6 +86,33 @@ function regenerateTeachers() {
     }
 
     fs.writeFile(__dirname + "/teachers.json", JSON.stringify(teachers), error => {
+        if (error) {
+            console.log(`Error: ${JSON.stringify(error)}`);
+        } else {
+            console.log(`OK!!!`);
+        }
+    });
+}
+
+function generateScoreboards() {
+    let students = JSON.parse(fs.readFileSync(__dirname + "/students.json", "utf-8"));
+    let scoreboards = [];
+
+    students.forEach(student => {
+        [10, 11, 12].forEach(grade => {
+            ["HK1", "HK2"].forEach(semester => {
+                scoreboards.push({
+                    "partitionKey": "SCOREBOARD",
+                    "sortKey": chance.guid(),
+                    "data": semester,
+                    "grade": grade,
+                    "studentId": student.sortKey
+                });
+            });
+        });
+    });
+
+    fs.writeFile(__dirname + "/scoreboards.json", JSON.stringify(scoreboards), error => {
         if (error) {
             console.log(`Error: ${JSON.stringify(error)}`);
         } else {
@@ -190,7 +216,8 @@ function generateScores(max) {
 }
 
 //regenerateTeachers();
-regenerateStudents();
+//regenerateStudents();
 //generateAccount();
 //generateClassIdInStudents();
 //generateScores(2);
+//generateScoreboards();
