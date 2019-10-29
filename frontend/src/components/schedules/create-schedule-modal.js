@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Modal, Table, Button, Card, Tabs } from "antd";
 import CreateScheduleDetailsModal from "./create-schedule-details-modal";
+import ScheduleRepo from "../../repository/prop/schedule-repository";
+import TeacherRepo from "../../repository/prop/teacher-repository";
 import schoolTimes from "../../types/schoolTimes";
 
 const { TabPane } = Tabs;
@@ -15,7 +17,9 @@ export default class AdminScheduleModal extends Component {
             scheduleDetailsVisible: false,
             scheduleDetailsTime: undefined,
             scheduleDetailsDate: undefined,
-            scheduleDetails: [],
+            oldDetails: [],
+            newDetails: [],
+            teacherTitles: {},
             semester: "HK1"
         };
 
@@ -23,6 +27,21 @@ export default class AdminScheduleModal extends Component {
         this.handleScheduleDetailsModalCancel = this.handleScheduleDetailsModalCancel.bind(this);
         this.handleScheduleDetailsModalOk = this.handleScheduleDetailsModalOk.bind(this);
         this.handleTabsChange = this.handleTabsChange.bind(this);
+    }
+
+    async componentWillReceiveProps(props) {
+        const oldDetails = await ScheduleRepo.getSchedulesByClassId(props.studyclass.id);
+        const allTeachers = await TeacherRepo.getAllTeachers();
+    
+        let teacherTitles = {};
+        allTeachers.forEach(teacher => {
+            teacherTitles[`${teacher.id}`] = teacher.name;
+        });
+
+        this.setState({
+            oldDetails: oldDetails,
+            teacherTitles: teacherTitles
+        });
     }
 
     get columns() {
@@ -88,6 +107,7 @@ export default class AdminScheduleModal extends Component {
 
     getTableSource(semester) {
         let result = [];
+        const scheduleDetails = this.state.oldDetails.concat(this.state.newDetails);
 
         for (let i = 0; i < schoolTimes.length; i++) {
             let schoolTime = schoolTimes[i];
@@ -96,11 +116,9 @@ export default class AdminScheduleModal extends Component {
                 time: schoolTime,
             }
 
-            for(let j = 0; j < this.state.scheduleDetails.length; j++) {
-                const scheduleDetail = this.state.scheduleDetails[j];
-
-                //console.log(schoolTime, scheduleDetail);
-
+            for(let j = 0; j < scheduleDetails.length; j++) {
+                let scheduleDetail = scheduleDetails[j];
+                scheduleDetail.teacherName = this.state.teacherTitles[`${scheduleDetail.teacherId}`];
                 if (scheduleDetail.semester == semester &&
                     scheduleDetail.time == schoolTime.name) {
                     data[`${scheduleDetail.date}`] = scheduleDetail;
@@ -146,7 +164,10 @@ export default class AdminScheduleModal extends Component {
 
         if (schedule) {
             result.children = (
-                <p>{schedule.subject} - {schedule.teacher.name}</p>
+                <Card size="small">
+                    <p>{schedule.subject}</p>
+                    <p>{schedule.teacherName}</p>
+                </Card>
             );
         } else {
             result.children = (
@@ -198,7 +219,7 @@ export default class AdminScheduleModal extends Component {
 
         this.setState(state => ({
             scheduleDetailsVisible: false,
-            scheduleDetails: [...state.scheduleDetails, schedule]
+            newDetails: [...state.newDetails, schedule]
         }));
     }
 
@@ -206,7 +227,7 @@ export default class AdminScheduleModal extends Component {
         return (
             <Modal
                 width={1000}
-                onOk={async () => await this.props.onOk(this.state.scheduleDetails)}
+                onOk={async () => await this.props.onOk(this.state.newDetails)}
                 onCancel={this.props.onCancel}
                 visible={this.props.visible}
                 cancelText="Hủy"

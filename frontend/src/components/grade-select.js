@@ -4,7 +4,7 @@ import grades from "../types/grades";
 
 const { Option } = Select;
 
-/** Required props: onChange */
+/** Required props: onChange, defaultValue */
 export default class GradeSelect extends Component {
     get options() {
         let options = [];
@@ -25,7 +25,7 @@ export default class GradeSelect extends Component {
 
         return (
             <Select
-                defaultValue={grades[0]}
+                defaultValue={this.props.defaultValue}
                 onChange={this.props.onChange}
             >
                 {this.options}

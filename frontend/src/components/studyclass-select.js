@@ -1,20 +1,23 @@
 import React, { Component } from "react";
 import { Select } from "antd";
-import subjects from "../types/subjects";
 
 const { Option } = Select;
 
-/** Required props: onChange, defaultValue */
-export default class SubjectSelect extends Component {
+/** Required props: onChange, studyclasses, defaultValue */
+export default class StudyclassSelect extends Component {
     get options() {
+        const studyclasses = this.props.studyclasses;
+        if (!studyclasses)
+            return [];
+
         let options = [];
-        for(let i = 0; i < subjects.length; i++) {
+        for(let i = 0; i < studyclasses.length; i++) {
             options.push(
                 <Option 
-                    value={subjects[i]}
-                    key={subjects[i]}
+                    value={studyclasses[i].name}
+                    key={studyclasses[i].name}
                 >
-                    {subjects[i]}
+                    Lớp {studyclasses[i].name}
                 </Option>
             );
         }
@@ -25,7 +28,7 @@ export default class SubjectSelect extends Component {
 
         return (
             <Select
-                defaultValue={this.props.defaultValue}
+                defaultValue={this.props.defaultValue.name}
                 onChange={this.props.onChange}
             >
                 {this.options}

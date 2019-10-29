@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Input, Button, Row, Col, Modal } from "antd";
+import { Table, Input, Button, Row, Col, Modal, message } from "antd";
 import CreateClassModal from "../../components/classes/create-class-modal";
 import CreateScheduleModal from "../../components/schedules/create-schedule-modal";
 import StudentTable from "../../components/students/student-table";
@@ -32,7 +32,7 @@ export default class AdminClassesPage extends Component {
             render: (record) => {
                 return (
                     <Row type="flex" justify="space-between">
-                        <Col span={6}>
+                        <Col span={8}>
                             <Button
                                 style={{ width: "90%" }}
                                 type="primary"
@@ -41,19 +41,9 @@ export default class AdminClassesPage extends Component {
                                 Sửa
                             </Button>
                         </Col>
-                        
-                        <Col span={6}>
-                            <Button 
-                                style={{ width: "90%" }}
-                                type="primary"
-                                onClick={async () => await this.handleDeleteClassButton(record)}
-                            >
-                                Xóa
-                            </Button>
-                        </Col>
-                                 
-                        <Col span={6}>
-                            <Button 
+
+                        <Col span={8}>
+                            <Button
                                 style={{ width: "90%" }}
                                 type="primary"
                                 onClick={async () => await this.handleStudentsButton(record)}
@@ -62,8 +52,8 @@ export default class AdminClassesPage extends Component {
                             </Button>
                         </Col>
 
-                        <Col span={6}>
-                            <Button 
+                        <Col span={8}>
+                            <Button
                                 style={{ width: "90%" }}
                                 type="primary"
                                 onClick={async () => await this.handleSchedulesButton(record)}
@@ -106,7 +96,7 @@ export default class AdminClassesPage extends Component {
         this.handleScheduleCancel = this.handleScheduleCancel.bind(this);
         this.handleScheduleOk = this.handleScheduleOk.bind(this);
         this.handleClassStudentsModalCancel = this.handleClassStudentsModalCancel.bind(this);
-        
+
         this.state = {
             searchedClasses: [],
             createClassModalVisible: false,
@@ -132,7 +122,7 @@ export default class AdminClassesPage extends Component {
         if (!allClasses)
             return;
 
-        for(let i = 0; i < allClasses.length; i++)
+        for (let i = 0; i < allClasses.length; i++)
             allClasses[i].count = i + 1;
 
         this.setState({
@@ -143,7 +133,7 @@ export default class AdminClassesPage extends Component {
     /** Nút danh sách học sinh. */
     async handleStudentsButton(studyclass) {
         const students = await StudentRepo.getStudentsByClassId(studyclass.id);
-        
+
         this.setState({
             classStudents: students,
             selectedStudyclass: studyclass,
@@ -175,34 +165,22 @@ export default class AdminClassesPage extends Component {
 
         const result = await ClassRepo.deleteStudyclass(e.id);
         console.log("delete", result);
-        
+
         if (!result || result.error) {
-            Modal.error({
-                title: "Lỗi",
-                content: `Xóa lớp học thất bại.`
-            });
+            message.error("Xóa lớp học không thành công.");
         } else {
-            Modal.success({
-                title: "Thành công",
-                content: "Lớp học được xóa thành công."
-            });
+            message.success("Xóa lớp học thành công.");
             await this.loadAllStudyclasses();
         }
     }
 
     async handleCreateModalOk(e) {
-        let result = await ClassRepo.createStudyclass(e.name, e.grade);  
+        let result = await ClassRepo.createStudyclass(e.name, e.grade);
 
         if (result.error) {
-            Modal.error({
-                title: "Lỗi",
-                content: `Thêm lớp học thất bại: ${result.error}.`
-            });
+            message.error("Thêm lớp học thành công.")
         } else {
-            Modal.success({
-                title: "Thành công",
-                content: "Lớp học được thêm thành công."
-            });
+            message.success("Thêm lớp học thành công.");
             await this.loadAllStudyclasses();
             this.setState({
                 createClassModalVisible: false
@@ -217,40 +195,30 @@ export default class AdminClassesPage extends Component {
     }
 
     async handleScheduleOk(scheduleDetails) {
-        if (!scheduleDetails || scheduleDetails.length < 1) {
-            Modal.warning({
-                title: "Cảnh báo",
-                content: "Không tìm thấy chi tiết nào trong lịch học."
-            });
-        } else {
-            for(let i = 0; i < scheduleDetails.length; i++) {
-                const detail = scheduleDetails[i];
-                const result = await ScheduleRepo.createSchedule(
-                    detail.studyclass.id,
-                    detail.teacher.id,
-                    detail.time,
-                    detail.date,
-                    detail.semester,
-                    detail.state,
-                    detail.subject
-                );
+        this.setState({
+            scheduleModalVisible: false
+        });
 
-                if (result.error) {
-                    Modal.error({
-                        title: "Lỗi",
-                        content: `Thêm chi tiết thời khóa biểu thất bại: ${result.error}.`
-                    });
-                } else {
-                    Modal.success({
-                        title: "Thành công",
-                        content: "Thêm chi tiết thời khóa biểu thành công."
-                    });
-                }
+        if (!scheduleDetails || scheduleDetails.length < 1)
+            return;
+
+        for (let i = 0; i < scheduleDetails.length; i++) {
+            const detail = scheduleDetails[i];
+            const result = await ScheduleRepo.createSchedule(
+                detail.studyclass.id,
+                detail.teacher.id,
+                detail.time,
+                detail.date,
+                detail.semester,
+                detail.state,
+                detail.subject
+            );
+
+            if (result.error) {
+                message.error("Thêm thời khóa biểu thất bại.")
+            } else {
+                message.success("Thêm thời khóa biểu thành công.");
             }
-
-            this.setState({
-                scheduleModalVisible: false
-            });
         }
     }
 
@@ -267,19 +235,19 @@ export default class AdminClassesPage extends Component {
     }
 
     render() {
-        return ( 
+        return (
             <div>
-                <Search/>
-                <br/><br/>
-                <Table 
-                    pagination={{hideOnSinglePage: true}}
+                <Search />
+                <br /><br />
+                <Table
+                    pagination={{ hideOnSinglePage: true }}
                     columns={this.columns}
                     bordered
                     title={this.title}
                     rowKey={record => record.id}
                     dataSource={this.state.searchedClasses}
                 />
-                <CreateClassModal 
+                <CreateClassModal
                     onOk={this.handleCreateModalOk}
                     onCancel={this.handleCreateModalCancel}
                     visible={this.state.createClassModalVisible}
@@ -302,7 +270,7 @@ export default class AdminClassesPage extends Component {
                         actionButtonsVisible={false}
                         title={this.classStudentsTitle}
                         students={this.state.classStudents}
-                    />   
+                    />
                 </Modal>
             </div>
         );

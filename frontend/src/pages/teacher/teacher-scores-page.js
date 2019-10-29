@@ -85,7 +85,6 @@ export default class TeacherScoresPage extends Component {
 
     async handleAddScoreModalOk(scores, subject) {
         this.handleAddScoreModalCancel();
-        console.log("add scores", scores, subject);
 
         if (!scores || scores.length < 1)
             return;

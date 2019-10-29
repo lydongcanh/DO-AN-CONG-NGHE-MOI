@@ -1,29 +1,42 @@
 import React, { Component } from "react";
 import { Form, Button, Input, message, Radio, DatePicker, Modal } from "antd";
-import TeacherRepo from "../../repository/prop/teacher-repository";
-import AccountRepo from "../../repository/prop/account-repository";
-import SubjectSelect from "../../components/subject-select"
-import subjects from "../../types/subjects";
+import StudentRepo from "../../repository/prop/student-repository";
+import ClassRepo from "../../repository/prop/studyclass-repository";
+import GradeSelect from "../../components/grade-select";
+import StudyclassSelect from "../../components/studyclass-select";
+import grades from "../../types/grades";
 import moment from "moment";
 
 /** [Require handleCancel, handleSaveSuccess] */
-class CreateTeacher extends Component {
+class CreateStudent extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            subject: subjects[0],
+            grade: grades[0],
+            studyclasses: [],
+            studyclass: "A",
             visible: false,
             value: "Nam",
-            teacher: {},
+            student: {},
             valueDatepicker: '',
         }
+
         this.onChange = this.onChange.bind(this);
         this.handleSaveClick = this.handleSaveClick.bind(this);
         this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubjectSelectChange = this.handleSubjectSelectChange.bind(this);
+        this.handleGradeSelectChange = this.handleGradeSelectChange.bind(this);
+        this.handleStudyclassSelectChange = this.handleStudyclassSelectChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    async componentDidMount() {
+        const studyclasses = await ClassRepo.getStudyclassByGrade(grades[0]);
+        this.setState({
+            studyclasses: studyclasses
+        });
     }
 
     RadioSelect() {
@@ -47,22 +60,25 @@ class CreateTeacher extends Component {
                 width="35%">
                 <div>
                     <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit}>
-                        <h2>Thêm giáo viên</h2>
+                        <h2>Thêm học sinh</h2>
+
                         <Form.Item>
                             {getFieldDecorator('name', {
                                 rules: [
-                                    { required: true, message: 'Tên giáo viên không được bỏ trống.' },
+                                    { required: true, message: 'Tên học sinh không được bỏ trống.' },
                                     {
                                         pattern: new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
-                                        message: "Tên giáo viên không hợp lệ."
+                                        message: "Tên học sinh không hợp lệ."
                                     },
                                     { max: 30, message: 'Vượt quá số ký tự cho phép.' }
                                 ],
                             })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                         </Form.Item>
+
                         <Form.Item >
                             {this.RadioSelect()}
                         </Form.Item>
+
                         <Form.Item>
                             {getFieldDecorator('birthday', {
                                 rules: [
@@ -76,12 +92,22 @@ class CreateTeacher extends Component {
                                     disabledDate={d => !d || d.isAfter(moment())}
                                 />)}
                         </Form.Item>
+
                         <Form.Item>
-                            <SubjectSelect 
-                                onChange={this.handleSubjectSelectChange}
-                                defaultValue={subjects[0]}
+                            <GradeSelect 
+                                onChange={this.handleGradeSelectChange}
+                                defaultValue={grades[0]}
                             />
                         </Form.Item>
+
+                        <Form.Item>
+                            <StudyclassSelect 
+                                studyclasses={this.state.studyclasses}
+                                onChange={this.handleStudyclassSelectChange}
+                                defaultValue={this.state.studyclasses[0]}
+                            />
+                        </Form.Item>
+
                         <Form.Item>
                             {getFieldDecorator('address', {
                                 rules: [
@@ -89,18 +115,6 @@ class CreateTeacher extends Component {
                                     { max: 40, message: 'Vượt quá số ký tự cho phép.' }
                                 ],
                             })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
-                        </Form.Item>
-                        <Form.Item>
-                            {getFieldDecorator('mail', {
-                                rules: [
-                                    { required: true, message: 'Email không được để trống.' },
-                                    {
-                                        pattern: new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
-                                        message: "Email không hợp lệ."
-                                    },
-                                    { max: 30, message: 'Vượt quá số ký tự cho phép.' }
-                                ],
-                            })(<Input placeholder="Email" name="email" onChange={this.onChange}></Input>)}
                         </Form.Item>
 
                         <Form.Item>
@@ -113,27 +127,6 @@ class CreateTeacher extends Component {
                                     }
                                 ],
                             })(<Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.onChange}></Input>)}
-                        </Form.Item>
-                        
-                        <Form.Item>
-                            {getFieldDecorator('username', {
-                                rules: [
-                                    { required: true, message: 'Tài khoản không được để trống.' },
-                                    { max: 30, message: "Vượt quá số ký tự cho phép." }
-                                ],
-                            })(<Input placeholder="Tài khoản" name="username" onChange={this.onChange}></Input>)}
-                        </Form.Item>
-
-                        <Form.Item>
-                            {getFieldDecorator('password', {
-                                rules: [
-                                    { required: true, message: 'Mật khẩu không được để trống' },
-                                    {
-                                        pattern: new RegExp(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/),
-                                        message: "Mật khẩu phải có ít nhất 8 ký tự gồm ít nhất 1 chữ & 1 số."
-                                    }
-                                ],
-                            })(<Input placeholder="Mật khẩu" type="password" name="password" onChange={this.onChange}></Input>)}
                         </Form.Item>
 
                         <Form.Item style={{ textAlign: "right" }}>
@@ -154,56 +147,51 @@ class CreateTeacher extends Component {
             if (err)
                 return;
 
-            const otherAccount = await AccountRepo.getAccountWithUsername(this.state.username);
-            if (otherAccount.username) {
-                message.error("Thêm giáo viên không thành công, tài khoản đã tồn tại.");
-                return;
-            }
+            const studyclass = await ClassRepo.getStudyclassByGradeAndName(this.state.grade, this.state.studyclass);
 
-            const teacher = {
+            const student = {
                 name: this.state.name,
                 gender: this.state.value,
                 birthday: this.state.valueDatepicker,
                 address: this.state.address,
-                email: this.state.email,
+                grade: this.state.grade,
                 phoneNumber: this.state.phoneNumber,
-                subject: this.subject,
+                state: "Đang học",
+                classId: studyclass.id
             }
 
-            const account = {
-                username: this.state.username,
-                password: this.state.password
-            };
-
-            const createdTeacher = await TeacherRepo.createTeacher(
-                teacher.name,
-                teacher.gender,
-                teacher.subject,
-                teacher.birthday,
-                teacher.address,
-                teacher.email,
-                teacher.phoneNumber,
-                "active"
+            const createdStudent = await StudentRepo.createStudent(
+                student.name, 
+                student.gender,
+                student.grade,
+                student.birthday,
+                student.address,
+                student.phoneNumber,
+                student.state,
+                student.classId
             );
 
-            await AccountRepo.createAccount(
-                account.username,
-                account.password,
-                "teacher",
-                createdTeacher.id
-            );
-
-            message.success("Thêm giáo viên thành công.");
-            this.props.handleSaveSuccess(teacher)
+            message.success("Thêm học sinh thành công.");
+            this.props.handleSaveSuccess(createdStudent);
         });
     }
 
-    handleSubjectSelectChange(subject) {
+    async handleGradeSelectChange(grade) {
+        const studyclasses = await ClassRepo.getStudyclassByGrade(grade);
         this.setState({
-            subject: subject
+            grade: grade,
+            studyclasses: studyclasses
         });
     }
 
+    handleStudyclassSelectChange(studyclass) {
+        console.log("change class:", studyclass);
+
+        this.setState({
+            studyclass: studyclass
+        });
+    }
+    
     handleChange(e) {
         this.setState({
             value: e.target.value,
@@ -211,23 +199,20 @@ class CreateTeacher extends Component {
         })
     }
 
-    /* set gia tri tren field*/
     onChange(e) {
         if (e.target !== undefined) this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    // Lay gia tren datepicker
     onChangeDatePicker(date, dateString) {
         this.setState({
             valueDatepicker: dateString
         });
     }
 
-    /* Luu giao vien */
     async handleSaveClick() {
         console.log("handleSaveClick");
     }
 }
-export default Form.create()(CreateTeacher);
+export default Form.create()(CreateStudent);

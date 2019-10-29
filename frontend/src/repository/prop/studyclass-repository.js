@@ -89,7 +89,7 @@ class StudyclassRepository {
         if (result.error)
             return result;
 
-        return result.filter(studyclass => {
+        return result.find(studyclass => {
             return studyclass.grade == grade && studyclass.name == name;
         });
     }
