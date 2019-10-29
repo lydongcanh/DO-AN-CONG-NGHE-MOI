@@ -7,14 +7,9 @@ export default class StudentTable extends Component {
     get columns() {
         let result = [
             {
-                title: "TT",
-                dataIndex: "count",
-                key: "count"
-            },
-            {
                 title: "Tên",
                 dataIndex: "name",
-                key: "name"
+                key: "name",
             },
             {
                 title: "Khối",
@@ -82,7 +77,6 @@ export default class StudentTable extends Component {
         const result = [];
         for (let i = 0; i < students.length; i++) {
             let item = new Object(students[i]);
-            item.count = i + 1;
             result.push(item);
         }
 

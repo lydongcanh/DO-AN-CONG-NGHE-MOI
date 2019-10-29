@@ -91,7 +91,7 @@ class CreateTeacher extends Component {
                             })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                         </Form.Item>
                         <Form.Item>
-                            {getFieldDecorator('mail', {
+                            {getFieldDecorator('email', {
                                 rules: [
                                     { required: true, message: 'Email không được để trống.' },
                                     {

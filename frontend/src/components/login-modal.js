@@ -79,12 +79,6 @@ class LoginModal extends Component {
             if (!err)
                 return;
 
-            let account = await AccountRepository.getAccountWithUsername(this.state.username);
-            if (!account || account.password != this.state.password) {
-                message.error('Tài khoản hoặc mật khẩu không đúng.');
-            } else {
-                this.props.handleLoginSuccess(account);
-            }
         });
     };
 

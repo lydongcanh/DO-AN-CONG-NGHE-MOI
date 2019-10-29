@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Form, InputNumber, Input, Table, Row, Col, Button } from "antd";
+import { Modal, Form, Input, Button } from "antd";
 import GradeSelect from "../../components/grade-select";
 import StudentRepo from "../../repository/prop/student-repository";
 import grades from "../../types/grades";
@@ -17,27 +17,6 @@ class CreateClassModal extends Component {
             grade: grades[0],
             name: undefined,
         }
-    }
-
-    getStudentTableColumn(buttonTitle, onClickHandler) {
-        return [
-            {
-                title: "Tên",
-                dataIndex: "name",
-                key: "name"
-            },
-            {
-                title: "Chức năng",
-                key: "action",
-                render: (record) => {
-                    return (
-                        <Button onClick={() => onClickHandler(record)}>
-                            {buttonTitle}
-                        </Button>
-                    );
-                }
-            }
-        ];
     }
 
     /** Sự kiện chọn khối */
@@ -60,18 +39,18 @@ class CreateClassModal extends Component {
 
     /** Chọn khối */
     gradeSelect(getFieldDecorator) {
-        return getFieldDecorator("gradeSelect", {
-        })(<GradeSelect onChange={this.handleGradeSelectChange} />);
+        return getFieldDecorator("grade", {
+        })(<GradeSelect defaultValue={grades[0]} onChange={this.handleGradeSelectChange} />);
     }
 
     /** Nhập tên */
     nameInput(getFieldDecorator) {
-        return (
-            <Input
-                onChange={this.handleNameInputChange}
-                placeholder="Nhập tên lớp"
-            />
-        );
+        return getFieldDecorator("name", {   
+            rules: [
+                { required: true, message: "Tên lớp không được bỏ trống." },
+                { max: 10, message: "Vượt quá số ký tự cho phép." }
+            ],
+        })(<Input onChange={this.handleNameInputChange} placeholder="Nhập tên lớp"/>);
     }
 
     render() {
@@ -81,6 +60,8 @@ class CreateClassModal extends Component {
             <Modal
                 title="Thêm lớp học"
                 closable={false}
+                okText="Lưu"
+                cancelText="Hủy"
                 onOk={() => this.props.onOk(this.state)}
                 onCancel={this.props.onCancel}
                 visible={this.props.visible}

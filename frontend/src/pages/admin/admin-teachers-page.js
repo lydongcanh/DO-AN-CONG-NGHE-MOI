@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Table, Tag, Switch, Button, Row, Col } from "antd";
 import TeacherSearchInput from "../../components/teachers/teacher-search-input";
 import TeacherCreate from "../../components/teachers/teacher-create";
+import TeacherUpdate from "../../components/teachers/teacher-update";
 
 export default class AdminTeachersPage extends Component {
     columns = [
@@ -53,6 +54,14 @@ export default class AdminTeachersPage extends Component {
             key: "phoneNumber",
             dataIndex: "phoneNumber",
         },
+        {
+            title: "Chức năng",
+            key: "action",
+            align: "center",
+            render: (teacher) => { 
+                return (<Button type="primary" onClick={() => this.handleUpdateButtonClick(teacher)}>Sửa</Button>);
+            }
+        }
     ];
 
     constructor(props) {
@@ -60,12 +69,16 @@ export default class AdminTeachersPage extends Component {
 
         this.state = {
             searchedTeachers: [],
-            createTeacherVisible: false
+            createTeacherVisible: false,
+            updateTeacherVisible: false,
+            updatingTeacher: {}
         };
 
         this.handleCreateButtonClick = this.handleCreateButtonClick.bind(this);
+        this.handleUpdateButtonClick = this.handleUpdateButtonClick.bind(this);
         this.handleOnSearchTeacher = this.handleOnSearchTeacher.bind(this);
         this.handleCreateTeacherSuccess = this.handleCreateTeacherSuccess.bind(this);
+        this.handleUpdateTeacherSuccess = this.handleUpdateTeacherSuccess.bind(this);
     }
 
     title = () => {
@@ -101,6 +114,12 @@ export default class AdminTeachersPage extends Component {
                     handleCancel={() => this.setState({createTeacherVisible: false})}
                     handleSaveSuccess={this.handleCreateTeacherSuccess}
                 />
+                <TeacherUpdate 
+                    teacher={this.state.updatingTeacher}
+                    visible={this.state.updateTeacherVisible}
+                    handleCancel={() => this.setState({updateTeacherVisible: false})}
+                    handleSaveSuccess={this.handleUpdateTeacherSuccess}
+                />
             </div>
         );
     }
@@ -111,10 +130,25 @@ export default class AdminTeachersPage extends Component {
         });
     }
 
+    handleUpdateButtonClick(teacher) {
+        this.setState({
+            updateTeacherVisible: true,
+            updatingTeacher: teacher
+        });
+    }
+
     handleCreateTeacherSuccess(teacher) {
         let teachers = [teacher];
         this.setState({
             createTeacherVisible: false,
+            searchedTeachers: teachers
+        });
+    }
+
+    handleUpdateTeacherSuccess(teacher) {
+        let teachers = [teacher];
+        this.setState({
+            updateTeacherVisible: false,
             searchedTeachers: teachers
         });
     }

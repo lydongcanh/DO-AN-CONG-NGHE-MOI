@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table, Input, Button, Row, Col, Modal, message } from "antd";
+import { Table, Button, Row, Col, Modal, message } from "antd";
 import CreateClassModal from "../../components/classes/create-class-modal";
 import CreateScheduleModal from "../../components/schedules/create-schedule-modal";
 import StudentTable from "../../components/students/student-table";
@@ -7,15 +7,8 @@ import ClassRepo from "../../repository/prop/studyclass-repository";
 import ScheduleRepo from "../../repository/prop/schedule-repository";
 import StudentRepo from "../../repository/prop/student-repository";
 
-const { Search } = Input;
-
 export default class AdminClassesPage extends Component {
     columns = [
-        {
-            title: "TT",
-            dataIndex: "count",
-            key: "count"
-        },
         {
             title: "Tên",
             dataIndex: "name",
@@ -24,7 +17,8 @@ export default class AdminClassesPage extends Component {
         {
             title: "Khối",
             dataIndex: "grade",
-            key: "grade"
+            key: "grade",
+            sorter: (a, b) => a.grade - b.grade
         },
         {
             title: "Chức năng",
@@ -175,16 +169,19 @@ export default class AdminClassesPage extends Component {
     }
 
     async handleCreateModalOk(e) {
-        let result = await ClassRepo.createStudyclass(e.name, e.grade);
+        const oldClass = await ClassRepo.getStudyclassByGradeAndName(e.grade, e.name);
 
-        if (result.error) {
-            message.error("Thêm lớp học thành công.")
-        } else {
-            message.success("Thêm lớp học thành công.");
+        if (!oldClass) {
+            await ClassRepo.createStudyclass(e.name, e.grade);
             await this.loadAllStudyclasses();
+
+            message.success("Thêm lớp học thành công.");
+
             this.setState({
                 createClassModalVisible: false
             });
+        } else {
+            message.error(`Đã có lớp với tên "${e.name}" trong khối ${e.grade}`);
         }
     }
 
@@ -237,7 +234,6 @@ export default class AdminClassesPage extends Component {
     render() {
         return (
             <div>
-                <Search />
                 <br /><br />
                 <Table
                     pagination={{ hideOnSinglePage: true }}
