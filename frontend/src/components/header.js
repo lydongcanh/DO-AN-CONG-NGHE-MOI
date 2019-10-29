@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Menu, Dropdown, Layout, Row, Col, Button, Icon, Affix } from "antd";
 import { Link } from "react-router-dom";
 import LoginModal from "../components/login-modal";
+import TeacherViewModal from "../components/teachers/teacher-view-modal";
+import TeacherRepo from "../repository/prop/teacher-repository";
 
 const { Header } = Layout;
 
@@ -16,7 +18,9 @@ export default class MyHeader extends Component {
 
         this.state = {
             loginModalVisible: false, // Ẩn, hiện login modal
-            account: null // Lưu thông tin tài khoản sau khi đăng nhập
+            account: null, // Lưu thông tin tài khoản sau khi đăng nhập
+            teacher: {},
+            teacherViewModalVisible: false
         };
     }
 
@@ -25,9 +29,7 @@ export default class MyHeader extends Component {
             return (
                 <Menu onClick={this.handleAccountMenuClick}>
                     <Menu.Item key="info">
-                        <Link to={`/teacher/${this.state.account.username}`}>
-                            Thông tin giáo viên
-                        </Link>
+                        Thông tin giáo viên
                     </Menu.Item>
                     <Menu.Item key="logout">
                         Đăng xuất
@@ -137,9 +139,13 @@ export default class MyHeader extends Component {
     }
 
     /** Xử lý sự kiện khi nhấn vào dropdown menu */
-    handleAccountMenuClick(e) {
+    async handleAccountMenuClick(e) {
         if (e.key == "info") {
-            // TODO: Hiện thông tin giáo viên
+            const teacher = await TeacherRepo.getTeacherById(this.state.account.teacherId);
+            this.setState({
+                teacher: teacher,
+                teacherViewModalVisible: true
+            });
         } else if (e.key == "logout") {
             this.setState({
                 account: null
@@ -187,9 +193,21 @@ export default class MyHeader extends Component {
                             {this.loginPanel}
                         </Col>
                     </Row>
-                    <LoginModal handleCancel={this.handleLoginModalCancel}
+                    <LoginModal 
+                        handleCancel={this.handleLoginModalCancel}
                         handleLoginSuccess={this.handleLoginModalSuccess}
-                        visible={this.state.loginModalVisible} />
+                        visible={this.state.loginModalVisible} 
+                    />
+                    <TeacherViewModal 
+                        visible={this.state.teacherViewModalVisible}
+                        teacher={this.state.teacher}
+                        onCancel={() => {
+                            this.setState({teacherViewModalVisible: false})
+                        }}
+                        onOk={() => {
+                            this.setState({teacherViewModalVisible: false})
+                        }}
+                    />
                 </Header>
             </Affix>
         );
