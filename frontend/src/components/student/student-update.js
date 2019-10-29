@@ -1,6 +1,5 @@
 import React , {Component} from "react";
-import {Menu,Dropdown,Form, Row, Col, Button, Icon, Input, Radio, DatePicker} from "antd";
-import mockDB from "../../repository/mock/mockDB";
+import {Menu,Dropdown,Form, message,Modal, Button, Icon, Input, Radio, DatePicker} from "antd";
 import moment from "moment";
 import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
 
@@ -32,15 +31,7 @@ class UpdateStudent extends Component{
             classe :  await StudyClassResponsitory.getStudyclassById("1516fba0-f8a9-11e9-9d39-395fc7dc81bd")
         })
         /*set value cho gender radio button*/
-        if(this.props.student.gender === "Nam")
-        { 
-            this.setState({
-                value : "Nam"
-            })
-        }else this.setState({
-                value : "Nữ"
-        })
-        console.log('a',this.state.gradeDropdownText);
+        
         this.componentDidMount();
     }
     /*set value cho grade & class cho dropdown meu*/
@@ -119,7 +110,14 @@ class UpdateStudent extends Component{
         const {getFieldDecorator} = this.props.form;
         console.log('student',this.props);
         return(
-                <Form onSubmit={this.handleSubmit}>
+            <Modal
+                closable={false}
+                visible={this.props.visible}
+                onCancel={this.props.handleCancel}
+                header={null}
+                footer={null}
+                width="35%">
+                <Form style={{textAlign:"left" }} onSubmit={this.handleSubmit}>
                         <h2>Sửa thông tin học sinh</h2>
                         <Form.Item>
                             {getFieldDecorator('name', {
@@ -129,7 +127,8 @@ class UpdateStudent extends Component{
                                         {
                                             pattern : new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
                                             message : "Tên không hợp lệ"
-                                        }
+                                        },
+                                        { max : 30 , message :' Vượt quá ký tự cho phép'}
                                     ],
                             })(<Input placeholder="Tên" name="name" onChange={this.handleChangeValueInput} ></Input>)}
                         </Form.Item>
@@ -148,7 +147,8 @@ class UpdateStudent extends Component{
                             {getFieldDecorator('address', {
                                     initialValue: this.props.student.address,
                                     rules: [
-                                        { required: true, message: 'Vui lòng nhập địa chỉ' }
+                                        { required: true, message: 'Vui lòng nhập địa chỉ' },
+                                        { max : 40 , message :' Vượt quá ký tự cho phép'}
                                     ],
                             })(<Input placeholder="Địa chỉ" name="address" onChange={this.handleChangeValueInput} ></Input>)}
                         </Form.Item>
@@ -172,8 +172,12 @@ class UpdateStudent extends Component{
                                     ],
                             })(this.DropdownClassSelect(getFieldDecorator))}
                         </Form.Item>
-                            <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                        <div style={{textAlign:"right"}}>
+                                <Button onClick={this.props.handleCancel} style={{marginRight:"10px"}}>Huỷ</Button>
+                                <Button type="primary" onClick={this.handleSaveClick}>Lưu</Button>
+                        </div>
                 </Form>
+            </Modal>
         )
     }
     handleSubmit(e){
@@ -219,8 +223,9 @@ class UpdateStudent extends Component{
     }
     handleSaveClick(e){
         //luu du lieu
-        // this.props.handleSaveSucces();
-        
+        this.props.handleSaveSuccess();
+        //Neu them thanh cong 
+        message.success('Sửa thông tin học sinh thành công !');
         console.log('date',this.state.datePickerValue);
     }
 }

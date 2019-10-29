@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import StudentTableAdmin from "../../components/student/student-table-admin";
 import NewButton from "../../components/student/student-newbutton";
-import StudentSearchInput from "../../components/student-search-input"
+import StudentSearchInput from "../../components/students/student-search-input"
 import { Row ,Col} from "antd";
 
 export default class AdminStudentsPage extends Component {

@@ -1,8 +1,9 @@
 import React , {Component} from "react";
-import {Form, Button, Input, Radio, DatePicker, Modal} from "antd";
+import {Form, Button,message, Input, Radio, DatePicker, Modal} from "antd";
 import TeacherResponsitory from "../../repository/prop/teacher-repository";
 import SubjectSelect from "../../components/subject-select";
 import subjects from "../../types/subjects";
+import moment from "moment"
 
 //[Required props : handleCancel, handleSaveSucces, handleSubjectSelectChange]
 class UpdateTeacher extends Component{
@@ -11,18 +12,32 @@ class UpdateTeacher extends Component{
         this.state={
             subject : subjects[0],
             visible: false,
+            value : this.props.teacher.gender,
             teacher:{},
             valueDatepicker:'',
         }
         this.onChange = this.onChange.bind(this);
-        this.handleSaveSuccess = this.handleSaveSuccess.bind(this);
+        this.handleSaveClick = this.handleSaveClick.bind(this);
         this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
         this.handleSubjectSelectChange = this.handleSubjectSelectChange.bind(this);
+        this.handleChangeRadioGroup = this.handleChangeRadioGroup.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+    async componentWillReceiveProps(props) {
+        /*set value cho gender radio button*/
+        if(this.props.teacher.gender === "Nam")
+        { 
+            this.setState({
+                value : "Nam"
+            })
+        }else this.setState({
+                value : "Nữ"
+        })
+        console.log('gender teacher',this.state.value);
     }
     RadioSelect(){
         return(
-            <Radio.Group onChange={this.handleChange} value={this.state.value} name="gender">
+            <Radio.Group onChange={this.handleChangeRadioGroup} value={this.state.value}>
                 <Radio value={"Nam"}>Nam</Radio>
                 <Radio value={"Nữ"}>Nữ</Radio>
             </Radio.Group>
@@ -32,16 +47,17 @@ class UpdateTeacher extends Component{
         const {getFieldDecorator} = this.props.form;
         return(
             <Modal
-                visible={this.props.visible}
-                onCancel={this.props.handleCancel}
-                header={null}
+                closable={false}
+                visible = {this.props.visible}
+                width="35%"
                 footer={null}
-                width="40%">
-                <div>
+                header={null}
+                onCancel={this.props.handleCancel}>
                     <Form style={{textAlign:"left" }} onSubmit={this.handleSubmit} >
                         <h2>Sửa thông tin giáo viên</h2>
                             <Form.Item>
                                 {getFieldDecorator('name', {
+                                    initialValue: this.props.teacher.name,
                                     rules: [
                                         { required: true, message: 'Vui lòng nhập tên' },
                                         {
@@ -56,16 +72,23 @@ class UpdateTeacher extends Component{
                             </Form.Item>
                             <Form.Item>
                                 {getFieldDecorator('birthday', {
+                                    initialValue: moment(`"${this.props.teacher.birthday}"`),
                                     rules: [
                                         { required: true, message: 'Vui lòng chọn ngày' }
                                     ],
-                                })(<DatePicker placeholder="Chọn ngày sinh" name="birthday" onChange={ (date,dateString) => this.onChangeDatePicker(date,dateString)} format="DD/MM/YYYY"></DatePicker>)}
+                                })(<DatePicker placeholder="Chọn ngày sinh" name="birthday" onChange={ (defaultValue,dateString) => this.onChangeDatePicker(defaultValue,dateString)} format="DD/MM/YYYY"></DatePicker>)}
                             </Form.Item>
-                            <Form.Item>
-                                <SubjectSelect onChange={this.handleSubjectSelectChange}></SubjectSelect>
-                            </Form.Item>
+                            {/* <Form.Item>
+                                {getFieldDecorator('birthday', {
+                                    initialValue: this.props.teacher.subject,
+                                    rules: [
+                                        { required: true, message: 'Vui lòng chọn ngày' }
+                                    ],
+                                })(<SubjectSelect onChange={this.handleSubjectSelectChange}></SubjectSelect>)}
+                            </Form.Item> */}
                             <Form.Item>
                                 {getFieldDecorator('address', {
+                                    initialValue: this.props.teacher.address,
                                     rules: [
                                         {required: true, message: 'Vui lòng nhập địa chỉ'}
                                     ],
@@ -73,6 +96,7 @@ class UpdateTeacher extends Component{
                             </Form.Item>
                             <Form.Item>
                                 {getFieldDecorator('mail', {
+                                    initialValue: this.props.teacher.email,
                                     rules: [
                                         { required: true, message: 'Vui lòng nhập email' },
                                         {
@@ -84,6 +108,7 @@ class UpdateTeacher extends Component{
                             </Form.Item>
                             <Form.Item>
                                 {getFieldDecorator('phone', {
+                                    initialValue: this.props.teacher.phoneNumber,
                                     rules: [
                                         { required: true, message: 'Số điện thoại không hợp lệ' },
                                         { 
@@ -95,10 +120,9 @@ class UpdateTeacher extends Component{
                             </Form.Item>
                             <div style={{textAlign:"right"}}>
                                 <Button onClick={this.props.handleCancel} style={{marginRight:"10px"}}>Huỷ</Button>
-                                <Button type="primary" htmlType="submit" onClick={this.handleSaveSuccess}>Lưu</Button>
+                                <Button type="primary" htmlType="submit" onClick={this.handleSaveClick}>Lưu</Button>
                             </div>
                     </Form>
-                </div>
             </Modal>
         )
     }
@@ -110,7 +134,11 @@ class UpdateTeacher extends Component{
             }
         });
     };
-    
+    handleChangeRadioGroup(e){
+        this.setState({
+            value : e.target.value
+        });
+    }
     handleSubjectSelectChange(subject) {
         this.setState({
             subject: subject
@@ -122,24 +150,15 @@ class UpdateTeacher extends Component{
             })
         console.log('a',e.target.value)
     }
-    onChangeDatePicker(date,dateString){
+    onChangeDatePicker(defaultValue,dateString){
         this.setState({
-            valueDatepicker : dateString
+            defaultValue : dateString
         })
     }
-    async handleSaveSuccess(){
-        if(this.state.gender === 1){
-            this.state.gender = "Nam"
-        } else this.state.gender ="Nữ"
-        await TeacherResponsitory.createTeacher(
-            this.state.name,
-            this.state.gender,
-            this.state.valueDatepicker,
-            this.state.address,
-            this.state.email,
-            this.state.phoneNumber,
-            "Đang dạy"
-        )
+    async handleSaveClick(){
+        
+        message.success('Sửa thông tin giáo viên thành công !')
+
         this.props.handleSaveSuccess();
         console.log(`teacher`,this.state.name,
         this.state.gender,

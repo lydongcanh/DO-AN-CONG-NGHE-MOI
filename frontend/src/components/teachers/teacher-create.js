@@ -1,5 +1,5 @@
 import React , {Component} from "react";
-import {Form, Button, Input, Radio, DatePicker, Modal} from "antd";
+import {Form, Button, Input, message, Radio, DatePicker, Modal} from "antd";
 import TeacherResponsitory from "../../repository/prop/teacher-repository"
 import SubjectSelect from "../../components/subject-select"
 import subjects from "../../types/subjects";
@@ -16,7 +16,7 @@ class CreateTeacher extends Component{
             valueDatepicker:'',
         }
         this.onChange = this.onChange.bind(this);
-        this.handleSaveSuccess = this.handleSaveSuccess.bind(this);
+        this.handleSaveClick = this.handleSaveClick.bind(this);
         this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubjectSelectChange = this.handleSubjectSelectChange.bind(this);
@@ -50,7 +50,8 @@ class CreateTeacher extends Component{
                                         {
                                             pattern : new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
                                             message : "Tên không hợp lệ"
-                                        }
+                                        },
+                                        { max : 30 , message :' Vượt quá ký tự cho phép'}
                                     ],
                                 })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                             </Form.Item>
@@ -70,7 +71,8 @@ class CreateTeacher extends Component{
                             <Form.Item>
                                 {getFieldDecorator('address', {
                                     rules: [
-                                        {required: true, message: 'Vui lòng nhập địa chỉ'}
+                                        {required: true, message: 'Vui lòng nhập địa chỉ'},
+                                        { max : 40 , message :' Vượt quá ký tự cho phép'}
                                     ],
                                 })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                             </Form.Item>
@@ -81,7 +83,8 @@ class CreateTeacher extends Component{
                                         {
                                             pattern : new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
                                             message : "email không hợp lệ"
-                                        }
+                                        },
+                                        { max : 30 , message :' Vượt quá ký tự cho phép'}
                                     ],
                                 })(<Input placeholder="Email" name="email" onChange={this.onChange}></Input>)}
                             </Form.Item>
@@ -98,7 +101,7 @@ class CreateTeacher extends Component{
                             </Form.Item>
                             <div style={{textAlign:"right"}}>
                                 <Button onClick={this.props.handleCancel} style={{marginRight:"10px"}}>Huỷ</Button>
-                                <Button type="primary" htmlType="submit" onClick={this.handleSaveSuccess}>Lưu</Button>
+                                <Button type="primary" htmlType="submit" onClick={this.handleSaveClick}>Lưu</Button>
                             </div>
                         
                     </Form>
@@ -139,7 +142,7 @@ class CreateTeacher extends Component{
         })
     }
     /* Luu giao vien */
-    async handleSaveSuccess(){
+    async handleSaveClick(){
         // if(this.state.gender === 1){
         //     this.state.gender = "Nam"
         // } else this.state.gender ="Nữ"
@@ -152,7 +155,8 @@ class CreateTeacher extends Component{
         //     this.state.phoneNumber,
         //     "Đang dạy"
         // )
-        // this.props.handleSaveSuccess();
+         this.props.handleSaveSuccess();
+        message.success('Thêm giáo viên thành công !')
         console.log('Teacher',
             this.state.name,
             this.state.value,

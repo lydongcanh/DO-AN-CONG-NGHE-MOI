@@ -9,13 +9,12 @@ export default class StudentTableAdmin extends Component {
         super(props);
         this.state = {
             teacher : {},
-            class : {},
             visible : false
         }
         this.handleDelteClick = this.handleDelteClick.bind(this);
         this.handleUpdateButton = this.handleUpdateButton.bind(this);
-        this.handleCancelModal = this.handleCancelModal.bind(this);
-        this.handleSaveStudentSuccess = this.handleSaveStudentSuccess.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
+        this.handleSaveTeacherSuccess = this.handleSaveTeacherSuccess.bind(this);
     }
     get columns(){
         return [
@@ -91,21 +90,12 @@ export default class StudentTableAdmin extends Component {
                        rowKey={record => record.id} 
                        dataSource={this.dataSource} />
                  </div>
-                {/* <UpdateStudentModal
-                    student={this.state.student}
-                    classe = {this.state.classe}
+                 <UpdateTeacher 
+                    teacher={this.state.teacher} 
                     visible={this.state.visible}
-                    handleCancel={this.handleCancelModal}
-                    handleSaveSuccess={this.handleSaveStudentSuccess}>        
-                </UpdateStudentModal> */}
-                <Modal
-                    visible = {this.state.visible}
-                    width="40%"
-                    footer={null}
-                    header={null}
-                    onCancel={this.handleCancelModal}>
-                        <UpdateTeacher student={this.state.student} ></UpdateTeacher>
-                </Modal>
+                    handleSaveSuccess={this.handleSaveTeacherSuccess}
+                    handleCancel={this.handleCancel}>
+                 </UpdateTeacher>
             </div>
         );
     }
@@ -131,12 +121,12 @@ export default class StudentTableAdmin extends Component {
         });
         console.log('studenet',this.state.teacher);
     }
-    handleCancelModal(){
+    handleCancel(){
         this.setState({
             visible : false
         });
     }
-    handleSaveStudentSuccess(){
+    handleSaveTeacherSuccess(){
         this.setState({
             visible : false
         });

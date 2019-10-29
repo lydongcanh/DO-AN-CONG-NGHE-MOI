@@ -80,22 +80,13 @@ export default class StudentTableAdmin extends Component {
             <div>
                 <h2 style={{textAlign: "start"}}>Danh sách học sinh</h2>
                 <Table pagination={{pageSize: 9}} columns={this.columns} rowKey={record => record.id} dataSource={this.props.students} />
-                {/* <UpdateStudentModal
+                
+                <UpdateStudent 
                     student={this.state.student}
-                    classe = {this.state.classe}
-                    visible={this.state.visible}
                     handleCancel={this.handleCancelModal}
-                    handleSaveSuccess={this.handleSaveStudentSuccess}>        
-                </UpdateStudentModal> */}
-                <Modal
-                    closable={false}
-                    visible = {this.state.visible}
-                    width="40%"
-                    footer={null}
-                    header={null}
-                    onCancel={this.handleCancelModal}>
-                    <UpdateStudent student={this.state.student}> </UpdateStudent>
-                </Modal>
+                    visible={this.state.visible}
+                    handleSaveSuccess={this.handleSaveStudentSuccess}> 
+                </UpdateStudent>
             </div>
         );
     }
@@ -114,7 +105,6 @@ export default class StudentTableAdmin extends Component {
     }
     handleSaveStudentSuccess(){
         this.setState({
-            
             visible : false
         });
     }

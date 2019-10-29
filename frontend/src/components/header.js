@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Menu, Dropdown, Layout, Row, Col, Button, Icon, Affix, Modal } from "antd";
 import { Link } from "react-router-dom";
 import LoginModal from "../components/login-modal";
-import mockDB from "../repository/mock/mockDB";
-import DetailTeacher from "../components/teachers/teacher-detail"
+import TeacherResponsitory from "../repository/prop/teacher-repository";
+import DetailTeacherModal from "../components/teachers/teacher-detail"
 
 const { Header } = Layout;
 
@@ -17,7 +17,6 @@ export default class MyHeader extends Component {
         this.handleLoginModalSuccess = this.handleLoginModalSuccess.bind(this);
         this.handleDetailModalCancel = this.handleLoginModalSuccess.bind(this);
         this.handleDetailModalCancel = this.handleDetailModalCancel.bind(this);
-        this.handleDetailModalButton = this.handleDetailModalButton.bind(this);
 
         this.state = {
             loginModalVisible: false, // Ẩn, hiện login modal
@@ -31,15 +30,13 @@ export default class MyHeader extends Component {
         if (this.state.account.type == "teacher") {
             return (
                 <Menu onClick={this.handleAccountMenuClick}>
-                    <Menu.Item key="info">
-                        <Button onClick={this.handleDetailModalButton}>
-                            Thông tin giáo viên
-                        </Button>
-                        
+                    <Menu.Item key="info" >
+                        thông tin giáo viên
                     </Menu.Item>
                     <Menu.Item key="logout">
                         Đăng xuất
                     </Menu.Item>
+                    
                 </Menu>
             );
         } else {
@@ -143,9 +140,14 @@ export default class MyHeader extends Component {
     }
 
     /** Xử lý sự kiện khi nhấn vào dropdown menu */
-    handleAccountMenuClick(e) {
+    async handleAccountMenuClick(e) {
         if (e.key == "info") {
-            // TODO: Hiện thông tin giáo viên
+                const teacher = await TeacherResponsitory.getTeacherById(this.state.account.teacherId);
+                this.setState({
+                detailTeacherVisible: true,
+                teacher : teacher
+            });
+            console.log(`teacher`,this.state.teacher);
         } else if (e.key == "logout") {
             this.setState({
                 account: null
@@ -155,7 +157,7 @@ export default class MyHeader extends Component {
             // Lỗi logic ??
         }
     }
-
+    
     /** Xử lý sự kiện nhấn nút đăng nhập */
     handleLoginButton() {
         this.setState({
@@ -186,16 +188,7 @@ export default class MyHeader extends Component {
             detailTeacherVisible : false
         });
     }
-    handleDetailModalButton() {
-        console.log('account',this.state.account);
-        let teacher = mockDB.getTeacherWithId(this.state.account.teacherId)
-        this.setState({
-            detailTeacherVisible: true,
-            teacher : teacher
-        });
-        console.log(`teacher`,this.state.teacher);
-        
-    }
+    
     render() {
         return (
             <Affix offsetTop={0}>
@@ -209,14 +202,13 @@ export default class MyHeader extends Component {
                     <LoginModal handleCancel={this.handleLoginModalCancel}
                         handleLoginSuccess={this.handleLoginModalSuccess}
                         visible={this.state.loginModalVisible} />
-                    <Modal
+                    <DetailTeacherModal
                         visible = {this.state.detailTeacherVisible}
-                        width="40%"
-                        footer={null}
+                        teacher ={this.state.teacher}
+                        width="35%"
                         header={null}
                         onCancel={this.handleDetailModalCancel}>
-                            <DetailTeacher teacher = {this.state.teacher}></DetailTeacher>
-                    </Modal>
+                    </DetailTeacherModal>    
                 </Header>
             </Affix>
         );

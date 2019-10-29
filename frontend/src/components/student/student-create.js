@@ -1,9 +1,9 @@
 import React , {Component} from "react";
-import {Menu,Dropdown,Form, Tooltip, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
+import {Menu,Dropdown,Form,message, Button, Icon, Input, Radio, DatePicker, Modal} from "antd";
 import StudyClassResponsitory from "../../repository/prop/studyclass-repository"
 import StudentRespository from "../../repository/prop/student-repository"
 
-//[Required props : visible ,handleCancle]
+//[Required props : visible ,handleCancle, handleSaveSuccess]
 class CreateStudent extends Component{
     constructor(props){
         super(props);
@@ -19,7 +19,7 @@ class CreateStudent extends Component{
         this.onChange = this.onChange.bind(this);
         this.handleGradeMenuClick = this.handleGradeMenuClick.bind(this);
         this.handleClassMenuClick = this.handleClassMenuClick.bind(this);
-        this.handleSaveSuccess = this.handleSaveSuccess.bind(this);
+        this.handleSaveClick = this.handleSaveClick.bind(this);
         this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -98,7 +98,8 @@ class CreateStudent extends Component{
                                         {
                                             pattern : new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
                                             message : "Tên không hợp lệ"
-                                        }
+                                        },
+                                        { max : 30 , message :' Vượt quá ký tự cho phép'}
                                     ],
                                 })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                             </Form.Item>
@@ -117,7 +118,8 @@ class CreateStudent extends Component{
                             <Form.Item>
                                 {getFieldDecorator('address', {
                                     rules: [
-                                        { required: true, message: 'Vui lòng nhập địa chỉ' }
+                                        { required: true, message: 'Vui lòng nhập địa chỉ' },
+                                        { max : 40 , message :' Vượt quá ký tự cho phép'}
                                     ],
                                 })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange}></Input>)}
                             </Form.Item>
@@ -137,7 +139,7 @@ class CreateStudent extends Component{
                             </Form.Item>
                             <div style={{textAlign:"right"}}>
                                 <Button onClick={this.props.handleCancel} style={{marginRight:"10px"}}>Huỷ</Button>
-                                <Button type="primary" htmlType="submit" onClick={this.handleSaveSuccess}>Lưu</Button>
+                                <Button type="primary" htmlType="submit" onClick={this.handleSaveClick}>Lưu</Button>
                             </div>
                     </Form>
                 </div>
@@ -186,20 +188,20 @@ class CreateStudent extends Component{
             classDropdownText: e.item.props.children
         }));
     }
-    async handleSaveSuccess(){
-        // if(this.state.gender === 1){
-        //     this.state.gender = "Nam"
-        // } else this.state.gender ="Nữ"
+    async handleSaveClick(){
         
         // await StudentRespository.createStudent(
         //     this.state.name,
-        //     this.state.gender,
+        //     this.state.value,
         //     this.state.valueDatepicker,
         //     this.state.address,
         //     this.state.phoneNumber,
         //     "Đang học"
         // )
-        // this.props.handleSaveSuccess();
+        this.props.handleSaveSuccess();
+        //Neu them thanh cong 
+        message.success('Thêm học sinh thành công !')
+
         console.log('studnet',
             this.state.name,
             this.state.value,
