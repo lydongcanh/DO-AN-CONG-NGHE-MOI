@@ -76,7 +76,10 @@ export default class AdminStudentsPage extends Component {
     render() {
         return (
             <div>
-                <Search onSearch={this.handleOnSearchStudent}/>
+                <Search 
+                    placeholder="Nhập tên học sinh"
+                    onSearch={this.handleOnSearchStudent}
+                />
                 <br/><br/>
                 <Table 
                     title={this.title}
