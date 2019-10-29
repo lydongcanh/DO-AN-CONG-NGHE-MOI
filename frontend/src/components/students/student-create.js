@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button, Input, message, Radio, DatePicker, Modal } from "antd";
 import StudentRepo from "../../repository/prop/student-repository";
 import ClassRepo from "../../repository/prop/studyclass-repository";
+import ScoreboardRepo from "../../repository/prop/scoreboard-repository";
 import GradeSelect from "../../components/grade-select";
 import StudyclassSelect from "../../components/studyclass-select";
 import grades from "../../types/grades";
@@ -170,6 +171,12 @@ class CreateStudent extends Component {
                 student.state,
                 student.classId
             );
+
+            [10, 11, 12].forEach(grade => {
+                ["HK1", "HK2"].forEach(semester => {
+                    ScoreboardRepo.createScoreboard(semester, grade, createdStudent.id);
+                });
+            });
 
             message.success("Thêm học sinh thành công.");
             this.props.handleSaveSuccess(createdStudent);
