@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Button, message, Form, Input, Modal, Icon } from "antd";
-import AccountRepository from "../repository/prop/account-repository";
+import AccountRepository from "../../repository/prop/account-repository";
 
 /**
  * [Required props: handleCancel, handleLoginSuccess, visible]

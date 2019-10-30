@@ -14,7 +14,7 @@ export default class StudentTable extends Component {
             {
                 title: "Khối",
                 dataIndex: "grade",
-                key: "grade"
+                key: "grade",
             },
             {
                 title: "Giới tính",
@@ -31,17 +31,17 @@ export default class StudentTable extends Component {
             {
                 title: "Ngày sinh",
                 dataIndex: "birthday",
-                key: "birthday"
+                key: "birthday",
             },
             {
                 title: "Địa chỉ",
                 dataIndex: "address",
-                key: "address"
+                key: "address",
             },
             {
                 title: "Số điện thoại",
                 dataIndex: "phoneNumber",
-                key: "phoneNumber"
+                key: "phoneNumber",
             },
         ];
 

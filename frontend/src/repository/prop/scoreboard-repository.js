@@ -25,7 +25,7 @@ class ScoreboardRepository {
     async deleteScoreboard(id) {
         try {
             const result = await axios.delete(`${scoreboardsEndpoint}/${id}`);
-            return result.data.success ? result.body : { error: result.data.error };
+            return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }

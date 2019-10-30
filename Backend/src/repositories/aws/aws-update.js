@@ -20,7 +20,7 @@ export default class AWSUpdate extends AWSUseCase {
             ReturnValues: this.returnValues
         };
 
-        if (conditionExpression)
+        if (this.conditionExpression)
             result.ConditionExpression = this.conditionExpression;
 
         return result;

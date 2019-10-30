@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Menu, Dropdown, Layout, Row, Col, Button, Icon, Affix } from "antd";
 import { Link } from "react-router-dom";
-import LoginModal from "../components/login-modal";
+import LoginModal from "../components/accounts/login-modal";
+import ChangePasswordModal from "../components/accounts/change-password-modal";
 import TeacherViewModal from "../components/teachers/teacher-view-modal";
 import TeacherRepo from "../repository/prop/teacher-repository";
 
@@ -15,9 +16,12 @@ export default class MyHeader extends Component {
         this.handleAccountMenuClick = this.handleAccountMenuClick.bind(this);
         this.handleLoginModalCancel = this.handleLoginModalCancel.bind(this);
         this.handleLoginModalSuccess = this.handleLoginModalSuccess.bind(this);
+        this.handleChangePasswordModalCancel = this.handleChangePasswordModalCancel.bind(this);
+        this.handleChangePasswordSuccess = this.handleChangePasswordSuccess.bind(this);
 
         this.state = {
             loginModalVisible: false, // Ẩn, hiện login modal
+            changePasswordModalVisible: false,
             account: null, // Lưu thông tin tài khoản sau khi đăng nhập
             teacher: {},
             teacherViewModalVisible: false
@@ -31,6 +35,9 @@ export default class MyHeader extends Component {
                     <Menu.Item key="info">
                         Thông tin giáo viên
                     </Menu.Item>
+                    <Menu.Item key="changepassword">
+                        Đổi mật khẩu
+                    </Menu.Item>
                     <Menu.Item key="logout">
                         Đăng xuất
                     </Menu.Item>
@@ -39,6 +46,9 @@ export default class MyHeader extends Component {
         } else {
             return (
                 <Menu onClick={this.handleAccountMenuClick}>
+                    <Menu.Item key="changepassword">
+                        Đổi mật khẩu
+                    </Menu.Item>
                     <Menu.Item key="logout">
                         Đăng xuất
                     </Menu.Item>
@@ -67,7 +77,7 @@ export default class MyHeader extends Component {
         if (!this.state.account || !this.state.account.type) {
             return (
                 <Col span={16}>
-                    <Link to="/" style={{ color: "white"}}>
+                    <Link to="/" style={{ color: "white" }}>
                         Phần mềm quản lý trường THPT
                     </Link>
                 </Col>
@@ -146,10 +156,14 @@ export default class MyHeader extends Component {
                 teacher: teacher,
                 teacherViewModalVisible: true
             });
+        } else if (e.key == "changepassword") {
+            this.setState({
+                changePasswordModalVisible: true
+            })
         } else if (e.key == "logout") {
             this.setState({
                 account: null
-            }); 
+            });
         } else {
             alert(`Lỗi sự kiện menu dropdown: ${JSON.stringify(e)}`);
             // Lỗi logic ??
@@ -183,6 +197,19 @@ export default class MyHeader extends Component {
         });
     }
 
+    handleChangePasswordModalCancel() {
+        this.setState({
+            changePasswordModalVisible: false
+        });
+    }
+
+    handleChangePasswordSuccess(account) {
+        this.setState({
+            account: account,
+            changePasswordModalVisible: false
+        });
+    }
+
     render() {
         return (
             <Affix offsetTop={0}>
@@ -193,19 +220,25 @@ export default class MyHeader extends Component {
                             {this.loginPanel}
                         </Col>
                     </Row>
-                    <LoginModal 
+                    <LoginModal
                         handleCancel={this.handleLoginModalCancel}
                         handleLoginSuccess={this.handleLoginModalSuccess}
-                        visible={this.state.loginModalVisible} 
+                        visible={this.state.loginModalVisible}
                     />
-                    <TeacherViewModal 
+                    <ChangePasswordModal 
+                        onCancel={this.handleChangePasswordModalCancel}
+                        onSuccess={this.handleChangePasswordSuccess}
+                        visible={this.state.changePasswordModalVisible}
+                        account={this.state.account}
+                    />
+                    <TeacherViewModal
                         visible={this.state.teacherViewModalVisible}
                         teacher={this.state.teacher}
                         onCancel={() => {
-                            this.setState({teacherViewModalVisible: false})
+                            this.setState({ teacherViewModalVisible: false })
                         }}
                         onOk={() => {
-                            this.setState({teacherViewModalVisible: false})
+                            this.setState({ teacherViewModalVisible: false })
                         }}
                     />
                 </Header>

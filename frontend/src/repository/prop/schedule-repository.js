@@ -29,7 +29,7 @@ class ScheduleRepository {
     async deleteSchedule(id) {
         try {
             const result = await axios.delete(`${schedulesEndpoint}/${id}`);
-            return result.data.success ? result.body : { error: result.data.error };
+            return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }
@@ -38,7 +38,7 @@ class ScheduleRepository {
     async updateSchedule(schedule) {
         try {
             const result = await axios.patch(`${schedulesEndpoint}/${schedule.id}`, schedule);
-            return result.data.success ? result.body : { error: result.data.error };
+            return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }

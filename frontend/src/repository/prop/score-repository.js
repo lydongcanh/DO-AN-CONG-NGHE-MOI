@@ -27,7 +27,7 @@ class ScoreRepository {
     async deleteScore(id) {
         try {
             const result = await axios.delete(`${scoresEndpoint}/${id}`);
-            return result.data.success ? result.body : { error: result.data.error };
+            return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }
@@ -36,7 +36,7 @@ class ScoreRepository {
     async updateScore(score) {
         try {
             const result = await axios.patch(`${scoresEndpoint}/${score.id}`, score);
-            return result.data.success ? result.body : { error: result.data.error };
+            return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
         }

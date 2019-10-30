@@ -12,7 +12,7 @@ class AccountRepository {
             };
 
             const response = await axios.post(accountsEndpoint, account);
-            return response.data.success ? response.body : { error: response.data.error };
+            return response.data.success ? response.data.body : { error: response.data.error };
         } catch (error) {
             return { error: error };
         }
@@ -21,7 +21,7 @@ class AccountRepository {
     async deleteAccount(username) {
         try {
             const response = await axios.delete(`${accountsEndpoint}/${username}`);
-            return response.data.success ? response.body : { error: response.data.error };
+            return response.data.success ? response.data.body : { error: response.data.error };
         } catch (error) {
             return { error: error };
         }
@@ -30,7 +30,7 @@ class AccountRepository {
     async updateAccount(account) {
         try {
             const response = await axios.patch(`${accountsEndpoint}/${account.username}`, account);
-            return response.data.success ? response.body : { error: response.data.error };
+            return response.data.success ? response.data.body : { error: response.data.error };
         } catch (error) {
             return { error: error };
         }
