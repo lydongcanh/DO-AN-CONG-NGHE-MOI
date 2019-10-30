@@ -9,10 +9,17 @@ export default class UpdateTeacher extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set name=:name, gender=:gender, email=:email, subject=:subject, " +
-                "birthday=:birthday, address=:address, phoneNumber=:phoneNumber, state=:state";
+        return "set #name=:name, gender=:gender, email=:email, subject=:subject, " +
+                "birthday=:birthday, address=:address, phoneNumber=:phoneNumber, #state=:state";
     }
     
+    get expressionAttributeNames() {
+        return {
+            "#name" : "name",
+            "#state": "state"
+        };
+    }
+
     get expressionAttributeValues() {
         return {
             ":name": this.teacher.name,
@@ -28,6 +35,7 @@ export default class UpdateTeacher extends AWSUpdate {
 
     async execute(teacher) {
         this.teacher = teacher;
+        console.log("Update teacher", teacher);
         return await super.execute();
     }
 }

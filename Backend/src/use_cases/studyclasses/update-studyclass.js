@@ -9,9 +9,15 @@ export default class UpdateStudyclass extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set name=:name";
+        return "set #name=:name";
     }
     
+    get expressionAttributeNames() {
+        return {
+            "#name": "name"
+        }
+    }
+
     get expressionAttributeValues() {
         return {
             ":name": this.studyclass.name

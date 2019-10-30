@@ -9,10 +9,17 @@ export default class UpdateStudent extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set name=:name, gender=:gender, grade=:grade, " +
-                "birthday=:birthday, address=:address, phoneNumber=:phoneNumber, state=:state, classId=:classId";
+        return "set #name=:name, gender=:gender, grade=:grade, " +
+                "birthday=:birthday, address=:address, phoneNumber=:phoneNumber, #state=:state, classId=:classId";
     }
     
+    get expressionAttributeNames() {
+        return {
+            "#name": "name",
+            "#state": "state"
+        }
+    }
+
     get expressionAttributeValues() {
         return {
             ":name": this.student.name,

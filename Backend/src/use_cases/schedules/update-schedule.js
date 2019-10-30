@@ -9,9 +9,15 @@ export default class UpdateSchedule extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set state=:state, subject=:subject";
+        return "set #state=:state, subject=:subject";
     }
     
+    get expressionAttributeNames() {
+        return {
+            "#state": "state"
+        }
+    }
+
     get expressionAttributeValues() {
         return {
             ":state": this.schedule.state,

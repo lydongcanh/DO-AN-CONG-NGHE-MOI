@@ -23,6 +23,9 @@ export default class AWSUpdate extends AWSUseCase {
         if (this.conditionExpression)
             result.ConditionExpression = this.conditionExpression;
 
+        if (this.expressionAttributeNames)
+            result.ExpressionAttributeNames = this.expressionAttributeNames;
+
         return result;
     }
 
@@ -35,6 +38,10 @@ export default class AWSUpdate extends AWSUseCase {
     }
 
     get conditionExpression() {
+        return undefined;
+    }
+
+    get expressionAttributeNames() {
         return undefined;
     }
 
