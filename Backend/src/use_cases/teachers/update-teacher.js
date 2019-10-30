@@ -9,13 +9,13 @@ export default class UpdateTeacher extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set #name=:name, gender=:gender, email=:email, subject=:subject, " +
+        return "set #data=:name, gender=:gender, email=:email, subject=:subject, " +
                 "birthday=:birthday, address=:address, phoneNumber=:phoneNumber, #state=:state";
     }
     
     get expressionAttributeNames() {
         return {
-            "#name" : "name",
+            "#data": "data",
             "#state": "state"
         };
     }
