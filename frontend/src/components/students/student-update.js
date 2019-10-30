@@ -1,24 +1,21 @@
 import React, { Component } from "react";
 import { Form, Button, message, Input, Radio, DatePicker, Modal } from "antd";
-import TeacherRepo from "../../repository/prop/teacher-repository";
-import subjects from "../../types/subjects";
+import StudentRepo from "../../repository/prop/student-repository";
 import moment from "moment";
 
-/** [Required props : handleCancel, handleSaveSucces, teacher] */
-class UpdateTeacher extends Component {
+/** [Required props : handleCancel, handleSaveSucces, student] */
+class UpdateStudent extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            subject: subjects[0],
-            id: this.props.teacher.id,
-            value: this.props.teacher.gender,
-            birthday: this.props.teacher.birthday,
-            email: this.props.teacher.email,
-            name: this.props.teacher.name,
-            address: this.props.teacher.address,
-            phoneNumber: this.props.teacher.phoneNumber,
-            state: this.props.teacher.state,
+            id: this.props.student.id,
+            value: this.props.student.gender,
+            birthday: this.props.student.birthday,
+            name: this.props.student.name,
+            address: this.props.student.address,
+            phoneNumber: this.props.student.phoneNumber,
+            state: this.props.student.state,
         }
 
         this.onChange = this.onChange.bind(this);
@@ -29,24 +26,18 @@ class UpdateTeacher extends Component {
     }
 
     componentWillReceiveProps(props) {
-        console.log("componentWillReceiveProps", props.teacher, this.state);
-
-        if (!props || props.teacher.id == this.state.id)
+        if (!props || props.student.id == this.state.id)
             return;
 
         this.setState({
-            subject: subjects[0],
-            id: props.teacher.id,
-            value: props.teacher.gender,
-            birthday: props.teacher.birthday,
-            email: props.teacher.email,
-            address: props.teacher.address,
-            name: props.teacher.name,
-            phoneNumber: props.teacher.phoneNumber,
-            state: props.teacher.state
+            id: props.student.id,
+            value: props.student.gender,
+            birthday: props.student.birthday,
+            address: props.student.address,
+            name: props.student.name,
+            phoneNumber: props.student.phoneNumber,
+            state: props.student.state
         });
-
-        console.log("componentWillReceiveProps - updated", props.teacher, this.state);
     }
 
     RadioSelect() {
@@ -66,17 +57,17 @@ class UpdateTeacher extends Component {
                 visible={this.props.visible}
                 width="35%"
                 footer={null}
-                title="Cập nhật thông tin giáo viên"
+                title="Cập nhật thông tin học sinh"
                 onCancel={this.props.handleCancel}>
                 <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit} >
                     <Form.Item>
                         {getFieldDecorator('name', {
                             initialValue: this.state.name,
                             rules: [
-                                { required: true, message: 'Tên giáo viên không được bỏ trống.' },
+                                { required: true, message: 'Tên học sinh không được bỏ trống.' },
                                 {
                                     pattern: new RegExp(/^[A-Za-z]+([\ A-Za-z]+)*/),
-                                    message: "Tên giáo viên không hợp lệ."
+                                    message: "Tên học sinh không hợp lệ."
                                 },
                                 { max: 30, message: 'Vượt quá số ký tự cho phép.' }
                             ],
@@ -109,19 +100,6 @@ class UpdateTeacher extends Component {
                         })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                     </Form.Item>
                     <Form.Item>
-                        {getFieldDecorator('email', {
-                            initialValue: this.state.email,
-                            rules: [
-                                { required: true, message: 'Email không được để trống.' },
-                                {
-                                    pattern: new RegExp(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/),
-                                    message: "Email không hợp lệ."
-                                },
-                                { max: 30, message: 'Vượt quá số ký tự cho phép.' }
-                            ],
-                        })(<Input placeholder="Email" name="email" onChange={this.onChange}></Input>)}
-                    </Form.Item>
-                    <Form.Item>
                         {getFieldDecorator('phone', {
                             initialValue: this.state.phoneNumber,
                             rules: [
@@ -144,31 +122,31 @@ class UpdateTeacher extends Component {
 
     async handleSubmit(e) {
         e.preventDefault();
+        
         this.props.form.validateFieldsAndScroll(async (err, values) => {
             if (err)
                 return;
 
-            const teacher = {
-                id: this.props.teacher.id,
+            const student = {
+                id: this.props.student.id,
                 name: this.state.name,
                 gender: this.state.value,
-                subject: this.props.teacher.subject,
+                classId: this.props.student.classId,
+                grade: this.props.student.grade,
                 birthday: this.state.birthday,
                 address: this.state.address,
-                email: this.state.email,
                 phoneNumber: this.state.phoneNumber,
                 state: this.state.state
             };
 
-            const result = await TeacherRepo.updateTeacher(teacher);
+            const result = await StudentRepo.updateStudent(student);
 
             if (result && !result.error) {
-                message.success('Cập nhật thông tin giáo viên thành công!');
-                this.setState({id: "null"});
-                this.props.handleSaveSuccess(teacher);
+                message.success('Cập nhật thông tin học sinh thành công!');
+                this.props.handleSaveSuccess(student);
             } else {
-                message.error("Cập nhật thông tin giáo viên không thành công.");
-                console.log(result, teacher, this.state);
+                message.error("Cập nhật thông tin học sinh không thành công.");
+                console.log(result, student, this.state);
             }
         });
     };
@@ -199,4 +177,4 @@ class UpdateTeacher extends Component {
         });
     }
 }
-export default Form.create()(UpdateTeacher);
+export default Form.create()(UpdateStudent);

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Tag, Row, Col, Button, Table, Input } from "antd";
 import StudentCreate from "../../components/students/student-create";
+import StudentUpdate from "../../components/students/student-update";
 import StudentRepo from "../../repository/prop/student-repository";
 
 const { Search } = Input;
@@ -41,8 +42,17 @@ export default class AdminStudentsPage extends Component {
         {
             title: "Số điện thoại",
             key: "phoneNumber",
+            align: "center",
             dataIndex: "phoneNumber",
         },
+        {
+            title: "Chức năng",
+            key: "action",
+            align: "center",
+            render: student => {
+                return (<Button type="primary" onClick={() => this.handleUpdateStudentClick(student)}>Sửa</Button>);
+            }
+        }
     ];
 
     constructor(props) {
@@ -50,12 +60,16 @@ export default class AdminStudentsPage extends Component {
 
         this.state = {
             searchedStudents: [],
-            createStudentVisible: false
+            createStudentVisible: false,
+            updateStudentVisible: false,
+            updatingStudent: {}
         };
 
         this.handleCreateButtonClick = this.handleCreateButtonClick.bind(this);
         this.handleOnSearchStudent = this.handleOnSearchStudent.bind(this);
         this.handleCreateStudentSuccess = this.handleCreateStudentSuccess.bind(this);
+        this.handleUpdateStudentClick = this.handleUpdateStudentClick.bind(this);
+        this.handleUpdateStudentSuccess = this.handleUpdateStudentSuccess.bind(this);
     }
 
     title = () => {
@@ -94,6 +108,12 @@ export default class AdminStudentsPage extends Component {
                     handleCancel={() => this.setState({createStudentVisible: false})}
                     handleSaveSuccess={this.handleCreateStudentSuccess}
                 />
+                <StudentUpdate
+                    visible={this.state.updateStudentVisible}
+                    handleCancel={() => this.setState({updateStudentVisible: false})}
+                    handleSaveSuccess={this.handleUpdateStudentSuccess}
+                    student={this.state.updatingStudent}
+                />
             </div>
         );
     }
@@ -104,14 +124,28 @@ export default class AdminStudentsPage extends Component {
         });
     }
 
-    handleCreateStudentSuccess(student) {
-        console.log("created student", student);
-        
+    handleUpdateStudentClick(student) {
+        this.setState({
+            updateStudentVisible: true,
+            updatingStudent: student
+        });
+    }
+
+    handleCreateStudentSuccess(student) {        
         let students = [student];
         this.setState({
             createStudentVisible: false,
-            searchedStudents: students
+            searchedStudents: students,
+            updatingStudent: {}
         });
+    }
+
+    handleUpdateStudentSuccess(student) {
+        let students = [student];
+        this.setState({
+            updateStudentVisible: false,
+            searchedStudents: students
+        })
     }
 
     async handleOnSearchStudent(value) {
