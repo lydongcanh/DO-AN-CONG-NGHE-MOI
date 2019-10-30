@@ -4,34 +4,44 @@ import TeacherRepo from "../../repository/prop/teacher-repository";
 import subjects from "../../types/subjects";
 import moment from "moment"
 
-//[Required props : handleCancel, handleSaveSucces, teacher]
+/** [Required props : handleCancel, handleSaveSucces, teacher] */
 class UpdateTeacher extends Component {
     constructor(props) {
         super(props);
+
         this.state = {
             subject: subjects[0],
-            visible: false,
+            id: this.props.teacher.id,
             value: this.props.teacher.gender,
-            teacher: {},
-            valueDatepicker: '',
+            birthday: this.props.teacher.birthday,
+            email: this.props.teacher.email,
+            name: this.props.teacher.name,
+            address: this.props.teacher.address,
+            state: this.props.teacher.state,
         }
+
         this.onChange = this.onChange.bind(this);
-        this.handleSaveClick = this.handleSaveClick.bind(this);
         this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
         this.handleSubjectSelectChange = this.handleSubjectSelectChange.bind(this);
         this.handleChangeRadioGroup = this.handleChangeRadioGroup.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    async componentWillReceiveProps(props) {
-        /*set value cho gender radio button*/
-        if (this.props.teacher.gender === "Nam") {
-            this.setState({
-                value: "Nam"
-            })
-        } else this.setState({
-            value: "Nữ"
-        })
+    componentWillReceiveProps(props) {
+        if (!props || props.teacher.id == this.state.id)
+            return;
+
+        this.setState({
+            subject: subjects[0],
+            id: props.teacher.id,
+            value: props.teacher.gender,
+            birthday: props.teacher.birthday,
+            email: props.teacher.email,
+            address: props.teacher.address,
+            name: props.teacher.name,
+            phoneNumber: props.teacher.phoneNumber,
+            state: props.teacher.state
+        });
     }
 
     RadioSelect() {
@@ -51,13 +61,12 @@ class UpdateTeacher extends Component {
                 visible={this.props.visible}
                 width="35%"
                 footer={null}
-                header={null}
+                title="Cập nhật thông tin giáo viên"
                 onCancel={this.props.handleCancel}>
                 <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit} >
-                    <h2>Sửa thông tin giáo viên</h2>
                     <Form.Item>
                         {getFieldDecorator('name', {
-                            initialValue: this.props.teacher.name,
+                            initialValue: this.state.name,
                             rules: [
                                 { required: true, message: 'Tên giáo viên không được bỏ trống.' },
                                 {
@@ -73,21 +82,21 @@ class UpdateTeacher extends Component {
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator('birthday', {
-                            initialValue: moment(`"${this.props.teacher.birthday}"`),
+                            initialValue: moment(`"${this.state.birthday}"`),
                             rules: [
                                 { required: true, message: 'Ngày sinh không được bỏ trống.' }
                             ],
-                        })(<DatePicker 
-                                placeholder="Chọn ngày sinh" 
-                                name="birthday" 
-                                onChange={(date, dateString) => this.onChangeDatePicker(date, dateString)} 
-                                format="DD/MM/YYYY"
-                                disabledDate={d => !d || d.isAfter(moment())}
-                            />)}
+                        })(<DatePicker
+                            placeholder="Chọn ngày sinh"
+                            name="birthday"
+                            onChange={(date, dateString) => this.onChangeDatePicker(date, dateString)}
+                            format="DD/MM/YYYY"
+                            disabledDate={d => !d || d.isAfter(moment())}
+                        />)}
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator('address', {
-                            initialValue: this.props.teacher.address,
+                            initialValue: this.state.address,
                             rules: [
                                 { required: true, message: 'Địa chỉ không được bỏ trống.' },
                                 { max: 40, message: 'Vượt quá số ký tự cho phép.' }
@@ -96,7 +105,7 @@ class UpdateTeacher extends Component {
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator('email', {
-                            initialValue: this.props.teacher.email,
+                            initialValue: this.state.email,
                             rules: [
                                 { required: true, message: 'Email không được để trống.' },
                                 {
@@ -109,7 +118,7 @@ class UpdateTeacher extends Component {
                     </Form.Item>
                     <Form.Item>
                         {getFieldDecorator('phone', {
-                            initialValue: this.props.teacher.phoneNumber,
+                            initialValue: this.state.phoneNumber,
                             rules: [
                                 { required: true, message: 'Số điện thoại không được để trống.' },
                                 {
@@ -121,36 +130,42 @@ class UpdateTeacher extends Component {
                     </Form.Item>
                     <div style={{ textAlign: "right" }}>
                         <Button onClick={this.props.handleCancel} style={{ marginRight: "10px" }}>Huỷ</Button>
-                        <Button type="primary" htmlType="submit" onClick={this.handleSaveClick}>Lưu</Button>
+                        <Button type="primary" htmlType="submit">Lưu</Button>
                     </div>
                 </Form>
             </Modal>
         )
     }
 
-    handleSubmit(e) {
+    async handleSubmit(e) {
         e.preventDefault();
         this.props.form.validateFieldsAndScroll(async (err, values) => {
-            if (err) 
+            if (err)
                 return;
-            
+
             const teacher = {
                 id: this.props.teacher.id,
                 name: this.state.name,
-                gender: this.state.gender,
+                gender: this.state.value,
                 subject: this.props.teacher.subject,
-                birthday: this.state.valueDatepicker,
+                birthday: this.state.birthday,
                 address: this.state.address,
                 email: this.state.email,
                 phoneNumber: this.state.phoneNumber,
-                state: this.props.teacher.state
+                state: this.state.state
             };
 
             const result = await TeacherRepo.updateTeacher(teacher);
-            console.log("result", result);
-            
-            message.success('Sửa thông tin giáo viên thành công!');
-            this.props.handleSaveSuccess(teacher);
+
+            console.log(result, teacher, this.state);
+
+            if (result && !result.error) {
+                message.success('Sửa thông tin giáo viên thành công!');
+                this.props.handleSaveSuccess(teacher);
+            } else {
+                message.error("Sửa thông tin giáo viên không thành công.");
+                console.log(result, teacher, this.state);
+            }
         });
     };
 
@@ -167,18 +182,20 @@ class UpdateTeacher extends Component {
     }
 
     onChange(e) {
-        if (e.target !== undefined) this.setState({
-            [e.target.name]: e.target.value
-        })
+        console.log("onchange");
+        if (e.target !== undefined) {
+            this.setState({
+                [e.target.name]: e.target.value,
+            });
+        }
     }
 
     onChangeDatePicker(defaultValue, dateString) {
-        this.setState({
-            defaultValue: dateString
-        })
-    }
+        console.log("onChangeDatePicker", defaultValue, dateString);
 
-    async handleSaveClick() {
+        this.setState({
+            birthday: dateString
+        });
     }
 }
 export default Form.create()(UpdateTeacher);
