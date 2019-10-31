@@ -6,7 +6,6 @@ import ScheduleRepo from "../../repository/prop/schedule-repository";
 import ClassRepo from "../../repository/prop/studyclass-repository";
 import StudentRepo from "../../repository/prop/student-repository";
 import TeacherRepo from "../../repository/prop/teacher-repository";
-import ScoreRepo from "../../repository/prop/score-repository";
 
 export default class TeacherScoresPage extends Component {
     constructor(props) {

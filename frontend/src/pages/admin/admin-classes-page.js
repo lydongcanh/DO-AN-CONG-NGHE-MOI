@@ -13,7 +13,7 @@ export default class AdminClassesPage extends Component {
             title: "Tên",
             dataIndex: "name",
             key: "name",
-            sorter: (a, b) => a.name.valueOf() - b.name.valueOf()
+            sorter: (a, b) => a.name.localeCompare(b.name)
         },
         {
             title: "Khối",

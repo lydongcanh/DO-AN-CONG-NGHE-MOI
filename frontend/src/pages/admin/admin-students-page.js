@@ -12,13 +12,15 @@ export default class AdminStudentsPage extends Component {
             title: "Tên",
             dataIndex: "name",
             key: "name",
-            align: "center"
+            align: "center",
+            sorter: (a, b) => a.name.localeCompare(b.name)
         },
         {
             title: "Giới tính",
             dataIndex: "gender",
             key: "gender",
             align: "center",
+            sorter: (a, b) => a.gender.localeCompare(b.gender),
             render: gender => {
                 return (
                     <Tag color={this.getGenderTagColor(gender)}>

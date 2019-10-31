@@ -47,16 +47,11 @@ export default class TeacherAddScoresModal extends Component {
     get columns() {
         let result = [
             {
-                title: "TT",
-                dataIndex: "count",
-                key: "count",
-                align: "center",
-            },
-            {
                 title: "Tên",
                 dataIndex: "studentName",
                 key: "studentName",
                 align: "center",
+                sorter: (a, b) => a.studentName.localeCompare(b.studentName)
             },
             {
                 title: "Ngày sinh",

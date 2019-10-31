@@ -10,16 +10,14 @@ export default class StudentTable extends Component {
                 title: "Tên",
                 dataIndex: "name",
                 key: "name",
-            },
-            {
-                title: "Khối",
-                dataIndex: "grade",
-                key: "grade",
+                align: "center",
+                sorter: (a, b) => a.name.localeCompare(b.name)
             },
             {
                 title: "Giới tính",
                 dataIndex: "gender",
                 key: "gender",
+                sorter: (a, b) => a.gender.localeCompare(b.gender),
                 render: gender => {
                     return (
                         <Tag color={this.getGenderTagColor(gender)}>
