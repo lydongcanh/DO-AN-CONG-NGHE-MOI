@@ -1,33 +1,30 @@
 import React, { Component } from "react";
-import { Table, Tag, Modal, Button, Divider } from "antd";
-import TeacherAddScoreModal from "./teacher-add-score-modal";
+import { Table, Tag, Modal, InputNumber, Progress, message } from "antd";
 import ScoreRepo from "../../repository/prop/score-repository";
 import ScoreboardRepo from "../../repository/prop/scoreboard-repository";
-import scoreTypes from "../../types/scoreTypes";
+import scoreTypes, { getMultiplierFromType } from "../../types/scoreTypes";
 
-/** [Required props: visible, onOk, onCancel, semester, subject, students] */
+/** [Required props: visible, onFinish, semester, subject, students] */
 export default class TeacherAddScoresModal extends Component {
+
     constructor(props) {
         super(props);
 
         this.state = {
-            addScoreModalVisible: false,
-            selectedStudent: {},
-            selectedType: "",
             scoreboardId: "",
-            renderScores: {},
-            newScores: [],
+            oldScores: {},
+            addScoresProgressValue: 0,
+            newScores: {},
             scoreboards: [],
         };
 
         this.handleAddSingleScoreButton = this.handleAddSingleScoreButton.bind(this);
-        this.handleAddMultipleScoreButton = this.handleAddMultipleScoreButton.bind(this);
-        this.handleAddScoreModalOk = this.handleAddScoreModalOk.bind(this);
-        this.handleAddScoreModalCancel = this.handleAddScoreModalCancel.bind(this);
+        this.handleSaveButton = this.handleSaveButton.bind(this);
+        this.resetAndFinish = this.resetAndFinish.bind(this);
     }
 
     async componentWillReceiveProps(props) {
-        let renderScores = {};
+        let oldScores = {};
         let scoreboards = [];
 
         for (let i = 0; i < props.students.length; i++) {
@@ -38,11 +35,11 @@ export default class TeacherAddScoresModal extends Component {
             scoreboards.push(scoreboardResult);
 
             const studentScores = await ScoreRepo.getScoreByScoreboardId(scoreboardResult.id);
-            renderScores[`${scoreboardResult.id}`] =  studentScores;
+            oldScores[`${scoreboardResult.id}`] =  studentScores;
         }
 
         this.setState({
-            renderScores: renderScores,
+            oldScores: oldScores,
             scoreboards: scoreboards
         });
     }
@@ -52,50 +49,41 @@ export default class TeacherAddScoresModal extends Component {
             {
                 title: "TT",
                 dataIndex: "count",
-                key: "count"
+                key: "count",
+                align: "center",
             },
             {
                 title: "Tên",
                 dataIndex: "studentName",
-                key: "studentName"
+                key: "studentName",
+                align: "center",
             },
             {
                 title: "Ngày sinh",
                 dataIndex: "studentBirthday",
-                key: "studentBirthday"
+                key: "studentBirthday",
+                align: "center",
             }
         ];
 
         for (let i = 0; i < scoreTypes.length; i++) {
             const type = scoreTypes[i];
             result.push({
-                title: () => {
-                    if (type == "Kiểm tra miệng")
-                        return "Kiểm tra miệng";
-
-                    return (
-                        <span>
-                            {type}
-                            <Divider type="vertical" />
-                            <Button
-                                onClick={() => this.handleAddMultipleScoreButton(type)}
-                                size="small"
-                                shape="circle"
-                                icon="plus"
-                            />
-                        </span>
-                    );
-                },
+                align: "center",
                 dataIndex: type,
                 key: type,
+                title: type,
                 render: (scores, row, index) => {
                     let views = [];
 
+                    // Render các điểm có sẵn.
+                    let hasScore = false;
                     if (scores && scores.length > 0) {
+                        hasScore = true;
                         for (let i = 0; i < scores.length; i++) {
                             views.push(
                                 <Tag
-                                    key={scores[i].id}
+                                    key={"Tag" + row.valueOf() + index.valueOf() + scores[i].id}
                                     color={this.getTagColorWithScore(scores[i].value)}>
                                     {scores[i].value}
                                 </Tag>
@@ -103,13 +91,18 @@ export default class TeacherAddScoresModal extends Component {
                         }
                     }
 
+                    // Điểm giữa kỳ & cuối kỳ chỉ có 1 điểm duy nhất.
+                    if (hasScore && (type == "Giữa kỳ" || type == "Cuối kỳ"))
+                        return views;
+
                     views.push(
-                        <Button
-                            key={"AddSingleButton" + index}
-                            onClick={() => this.handleAddSingleScoreButton(type, index)}
-                            size="small"
-                            shape="circle"
-                            icon="plus" />
+                        <InputNumber 
+                            key={"InputNumber" + row.valueOf() + index.valueOf()}
+                            min={0}
+                            max={10}
+                            step={0.01}
+                            onChange={async (value) => await this.handleAddSingleScoreButton(row, value, type)}
+                        />
                     );
 
                     return views;
@@ -131,7 +124,7 @@ export default class TeacherAddScoresModal extends Component {
         for (let i = 0; i < students.length; i++) {
             const student = students[i];
             const scoreboard = scoreboards[i];
-            const scores = this.state.renderScores[`${scoreboard.id}`];
+            const scores = this.state.oldScores[`${scoreboard.id}`];
 
             let item = {
                 count: i + 1,
@@ -139,10 +132,12 @@ export default class TeacherAddScoresModal extends Component {
                 studentBirthday: student.birthday,
             }
 
-            for (let j = 0; j < scoreTypes.length; j++) {
-                const type = scoreTypes[j];
-                const matchedScore = scores.filter(score => score.type == type);
-                item[`${type}`] = matchedScore;
+            if (scores && scores.length > 0) {
+                for (let j = 0; j < scoreTypes.length; j++) {
+                    const type = scoreTypes[j];
+                    const matchedScore = scores.filter(score => score.type == type);
+                    item[`${type}`] = matchedScore;
+                }
             }
 
             result.push(item);
@@ -151,47 +146,54 @@ export default class TeacherAddScoresModal extends Component {
         return result;
     }
 
-    handleAddScoreModalOk(value, type, multiplier, scoreboardId) {
-        const newScore = {
-            value: value,
-            type: type,
-            multiplier: multiplier,
-            scoreboardId: scoreboardId
-        };
-        
-        let renderScores = this.state.renderScores;
-        renderScores[`${scoreboardId}`] = [...renderScores[`${scoreboardId}`], newScore];
-        console.log("render score", renderScores);
+    /** Lưu toàn bộ điểm mới */
+    async handleSaveButton() {
+        // Lọc những điểm nhập rồi xóa đi.
+        let validScores = [];
+        const newScores = this.state.newScores;
+        for (let prop in newScores) {
+            if (Object.prototype.hasOwnProperty.call(newScores, prop)) {
+                if (newScores[prop] && newScores[prop].value)
+                    validScores.push(newScores[prop]);
+            }
+        }
 
-        this.setState(state => ({
-            newScores: [...state.newScores, newScore],
-            renderScores: renderScores
-        }));
+        for(let i = 0; i < validScores.length; i++) {
+            const score = validScores[i];
+            await ScoreRepo.createScore(
+                score.type,
+                score.value,
+                this.props.subject,
+                score.multiplier,
+                score.scoreboardId
+            );
+            const percent = (i + 1) / validScores.length * 100;
+            this.setState({addScoresProgressValue: percent});
+        }
 
-        this.handleAddScoreModalCancel();
-    }
-
-    handleAddScoreModalCancel() {
-        this.setState({
-            addScoreModalVisible: false,
-            selectedStudent: {},
-            selectedType: "",
-        });
+        message.success("Nhập điểm thành công.");
+        this.resetAndFinish();
     }
 
     /** Nút nhập từng điểm trong từng ô */
-    handleAddSingleScoreButton(type, index) {
-        this.setState({
-            selectedStudent: this.props.students[index],
-            selectedType: type,
-            scoreboardId: this.state.scoreboards[index].id,
-            addScoreModalVisible: true
-        });
-    }
+    async handleAddSingleScoreButton(row, value, type) {
+        const student = this.props.students[row.count - 1];
+        const scoreboard = await ScoreboardRepo.getScoreboardsByStudentIdSemesterGrade(student.id, this.props.semester, student.grade);
+        const scoreboardId = scoreboard.id;
 
-    /** Nút nhập nhiều điểm trên đầu headers */
-    handleAddMultipleScoreButton(type) {
-        console.log("insert multiple", type);
+        const newScore = {
+            value: value,
+            type: type,
+            multiplier: getMultiplierFromType(type),
+            scoreboardId: scoreboardId
+        };
+        
+        let newScores = this.state.newScores;
+        newScores[`${scoreboardId}`] = newScore;
+
+        this.setState({
+            newScores: newScores
+        });
     }
 
     getTagColorWithScore(score) {
@@ -202,33 +204,43 @@ export default class TeacherAddScoresModal extends Component {
         return "blue";
     }
 
+    resetAndFinish() {
+        this.setState({
+            newScores: {},
+            addScoresProgressValue: 0,
+            oldScores: {},
+            scoreboard: [],
+            scoreboardId: ""
+        });
+        this.props.onFinish();
+    }
+
     render() {
         return (
             <Modal
                 visible={this.props.visible}
-                onOk={() => this.props.onOk(this.state.newScores, this.props.subject)}
-                onCancel={this.props.onCancel}
+                onOk={this.handleSaveButton}
+                onCancel={this.resetAndFinish}
+                title="Nhập điểm"
+                centered
+                closable={false}
                 okText="Lưu"
                 cancelText="Hủy"
-                closable={false}
-                centered
                 width={1000}
             >
+                <Progress 
+                    width="100%"
+                    showInfo={false}
+                    percent={this.state.addScoresProgressValue}
+                />
+                <br/><br/>
                 <Table
-                    title={() => "Nhập điểm"}
                     rowKey={record => record.count}
                     bordered
+                    title={() => <h3>Danh sách học sinh trong lớp</h3>}
                     size="small"
                     columns={this.columns}
                     dataSource={this.dataSource}
-                />
-                <TeacherAddScoreModal
-                    student={this.state.selectedStudent}
-                    type={this.state.selectedType}
-                    scoreboardId={this.state.scoreboardId}
-                    onOk={this.handleAddScoreModalOk}
-                    onCancel={this.handleAddScoreModalCancel}
-                    visible={this.state.addScoreModalVisible}
                 />
             </Modal>
         );

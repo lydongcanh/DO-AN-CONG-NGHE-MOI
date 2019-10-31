@@ -21,8 +21,7 @@ export default class TeacherScoresPage extends Component {
         }
 
         this.handleInsertScoreButton = this.handleInsertScoreButton.bind(this);
-        this.handleAddScoreModalCancel = this.handleAddScoreModalCancel.bind(this);
-        this.handleAddScoreModalOk = this.handleAddScoreModalOk.bind(this);
+        this.handleAddScoreModalFinish = this.handleAddScoreModalFinish.bind(this);
     }
 
     get columns() {
@@ -77,23 +76,10 @@ export default class TeacherScoresPage extends Component {
         });
     }
 
-    handleAddScoreModalCancel() {
+    handleAddScoreModalFinish() {
         this.setState({
             addScoresModalVisible: false
         })
-    }
-
-    async handleAddScoreModalOk(scores, subject) {
-        this.handleAddScoreModalCancel();
-
-        if (!scores || scores.length < 1)
-            return;
-
-        for(let i = 0; i < scores.length; i++) {
-            const score = scores[i];
-            const result = await ScoreRepo.createScore(score.type, score.value, subject, score.multiplier, score.scoreboardId);
-            //console.log("score-result", score, result);
-        }
     }
 
     async componentDidMount() {
@@ -135,8 +121,7 @@ export default class TeacherScoresPage extends Component {
                 <TeacherAddScoresModal 
                     subject={this.state.subject}
                     semester={this.state.semester}
-                    onOk={this.handleAddScoreModalOk}
-                    onCancel={this.handleAddScoreModalCancel}
+                    onFinish={this.handleAddScoreModalFinish}
                     students={this.state.students}
                     visible={this.state.addScoresModalVisible}
                 />
