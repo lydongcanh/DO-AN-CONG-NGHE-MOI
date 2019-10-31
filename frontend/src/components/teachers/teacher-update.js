@@ -29,8 +29,6 @@ class UpdateTeacher extends Component {
     }
 
     componentWillReceiveProps(props) {
-        console.log("componentWillReceiveProps", props.teacher, this.state);
-
         if (!props || props.teacher.id == this.state.id)
             return;
 
@@ -45,8 +43,6 @@ class UpdateTeacher extends Component {
             phoneNumber: props.teacher.phoneNumber,
             state: props.teacher.state
         });
-
-        console.log("componentWillReceiveProps - updated", props.teacher, this.state);
     }
 
     RadioSelect() {

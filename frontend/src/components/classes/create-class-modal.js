@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Modal, Form, Input, Button } from "antd";
+import { Modal, Form, Input, Button, message } from "antd";
 import GradeSelect from "../../components/grade-select";
-import StudentRepo from "../../repository/prop/student-repository";
+import ClassRepo from "../../repository/prop/studyclass-repository";
 import grades from "../../types/grades";
 
 /** Required props: onOk, onCancel, visible */
@@ -12,10 +12,11 @@ class CreateClassModal extends Component {
 
         this.handleGradeSelectChange = this.handleGradeSelectChange.bind(this);
         this.handleNameInputChange = this.handleNameInputChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.state = {
             grade: grades[0],
-            name: undefined,
+            name: "",
         }
     }
 
@@ -24,16 +25,41 @@ class CreateClassModal extends Component {
         this.setState({
             grade: grade
         });
-
-        this.setState({
-            searchedStudents: StudentRepo.getStudent
-        })
     }
 
     /** Sử kiện nhập tên */
     handleNameInputChange(e) {
         this.setState({
             name: e.target.value
+        });
+    }
+
+    async handleSubmit(e) {
+        e.preventDefault();
+
+        this.props.form.validateFieldsAndScroll(async (error, values) => {
+            if (error)
+                return;
+
+            const grade = this.state.grade;
+            const name = this.state.name;
+            const oldClass = await ClassRepo.getStudyclassByGradeAndName(grade, name);
+            console.log(oldClass);
+            if (oldClass && oldClass.name) {
+                message.error(`Tạo lớp học không thành công. Đã có lớp tên "${name}" trong khối ${grade}.`);
+                return;
+            }
+
+            const result = ClassRepo.createStudyclass(name, grade);
+
+            if (result && !result.error) {
+                message.success('Thêm lớp học thành công!');
+                //this.setState({id: "null"});
+                this.props.onOk();
+            } else {
+                message.error("Thêm lớp học không thành công.");
+                console.log(result, this.state);
+            }
         });
     }
 
@@ -60,20 +86,24 @@ class CreateClassModal extends Component {
             <Modal
                 title="Thêm lớp học"
                 closable={false}
-                okText="Lưu"
-                cancelText="Hủy"
                 onOk={() => this.props.onOk(this.state)}
                 onCancel={this.props.onCancel}
+                footer={null}
                 visible={this.props.visible}
             >
-                <Form>
+                <Form style={{textAlign: "left"}} onSubmit={this.handleSubmit}>
                     <Form.Item label="Khối">
                         {this.gradeSelect(getFieldDecorator)}
                     </Form.Item>
+
                     <Form.Item label="Tên lớp">
                         {this.nameInput(getFieldDecorator)}
                     </Form.Item>
 
+                    <Form.Item style={{ textAlign: "right" }}>
+                            <Button onClick={this.props.onCancel} style={{ marginRight: "10px" }}>Huỷ</Button>
+                            <Button type="primary" htmlType="submit">Lưu</Button>
+                        </Form.Item>
                 </Form>
             </Modal>
         );

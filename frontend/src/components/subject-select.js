@@ -6,6 +6,14 @@ const { Option } = Select;
 
 /** Required props: onChange, defaultValue */
 export default class SubjectSelect extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value: "Chọn môn học"
+        };
+    }
+
     get options() {
         let options = [];
         for(let i = 0; i < subjects.length; i++) {

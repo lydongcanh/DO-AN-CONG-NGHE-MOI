@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Modal, Table, Button, Card, Tabs } from "antd";
+import { Modal, Table, Button, Card, Tabs, Popconfirm, message } from "antd";
 import CreateScheduleDetailsModal from "./create-schedule-details-modal";
 import ScheduleRepo from "../../repository/prop/schedule-repository";
 import TeacherRepo from "../../repository/prop/teacher-repository";
@@ -17,8 +17,7 @@ export default class AdminScheduleModal extends Component {
             scheduleDetailsVisible: false,
             scheduleDetailsTime: undefined,
             scheduleDetailsDate: undefined,
-            oldDetails: [],
-            newDetails: [],
+            allDetails: [],
             teacherTitles: {},
             semester: "HK1"
         };
@@ -27,10 +26,11 @@ export default class AdminScheduleModal extends Component {
         this.handleScheduleDetailsModalCancel = this.handleScheduleDetailsModalCancel.bind(this);
         this.handleScheduleDetailsModalOk = this.handleScheduleDetailsModalOk.bind(this);
         this.handleTabsChange = this.handleTabsChange.bind(this);
+        this.handleDeleteSchedule = this.handleDeleteSchedule.bind(this);
     }
 
     async componentWillReceiveProps(props) {
-        const oldDetails = await ScheduleRepo.getSchedulesByClassId(props.studyclass.id);
+        const allDetails = await ScheduleRepo.getSchedulesByClassId(props.studyclass.id);
         const allTeachers = await TeacherRepo.getAllTeachers();
     
         let teacherTitles = {};
@@ -39,7 +39,7 @@ export default class AdminScheduleModal extends Component {
         });
 
         this.setState({
-            oldDetails: oldDetails,
+            allDetails: allDetails,
             teacherTitles: teacherTitles
         });
     }
@@ -107,7 +107,7 @@ export default class AdminScheduleModal extends Component {
 
     getTableSource(semester) {
         let result = [];
-        const scheduleDetails = this.state.oldDetails.concat(this.state.newDetails);
+        const scheduleDetails = this.state.allDetails;
 
         for (let i = 0; i < schoolTimes.length; i++) {
             let schoolTime = schoolTimes[i];
@@ -164,14 +164,28 @@ export default class AdminScheduleModal extends Component {
 
         if (schedule) {
             result.children = (
-                <Card size="small">
-                    <p>{schedule.subject}</p>
-                    <p>{schedule.teacherName}</p>
+                <Card 
+                    extra={
+                        <Popconfirm
+                            placement="top"
+                            title="Xóa thời khóa biểu?"
+                            okText="Ok"
+                            cancelText="Hủy"
+                            onConfirm={async () => await this.handleDeleteSchedule(schedule)}
+                        >
+                            <Button type="danger" icon="close" shape="circle" size="small"/>
+                        </Popconfirm>
+                    }
+                    size="small"
+                >
+                    <p><b>Môn:</b> {schedule.subject}</p>
+                    <p><b>Giáo viên:</b> {schedule.teacherName}</p>
                 </Card>
             );
         } else {
             result.children = (
                 <Button
+                    type="primary"
                     onClick={() => this.handleAddSchedule(schedule, data, index, date)}
                     size="small"
                     shape="circle"
@@ -189,7 +203,7 @@ export default class AdminScheduleModal extends Component {
         });
     }
 
-    /** Nút thêm thời khóa biểu từng tiết */
+    /** Nút thêm thời khóa biểu từng tiết. */
     handleAddSchedule(_, __, index, date) {
         const schoolTime = schoolTimes[index];
 
@@ -200,26 +214,43 @@ export default class AdminScheduleModal extends Component {
         });
     }
 
+    /** Hủy thêm chi tiết thời khóa biểu. */
     handleScheduleDetailsModalCancel() {
         this.setState({
             scheduleDetailsVisible: false
         });
     }
 
-    handleScheduleDetailsModalOk(teacher, subject, time, date) {
-        const schedule = {
-            time: time,
-            date: date,
-            semester: this.state.semester,
-            state: "active",
-            subject: subject,
-            teacher: teacher,
-            studyclass: this.props.studyclass
-        };
+    /** Xóa thời khóa biểu. */
+    async handleDeleteSchedule(schedule) {
+        let allDetails = [...this.state.allDetails];
+        const result = await ScheduleRepo.deleteSchedule(schedule.id);
+        if (result && !result.error) {
+            message.success("Xóa thời khóa biểu thành công.");
+            let allDetails = [...this.state.allDetails];
+            const index = allDetails.map(detail => detail.id).indexOf(schedule.id);
+            if (index != -1) {
+                allDetails.splice(index, 1);
+                this.setState({
+                    allDetails: allDetails
+                });
+            } else {
+                message.error("Xóa thời khóa biểu không thành công.");
+                console.log("Can't find index: " + index);
+            }
+        } else {
+            message.error("Xóa thời khóa biểu không thành công.");
+            console.log(result);
+        }
+    }
+
+    /** Thêm chi tiết thời khóa biểu thành công. */
+    handleScheduleDetailsModalOk(schedule) {
+        console.log("onOK", schedule);
 
         this.setState(state => ({
             scheduleDetailsVisible: false,
-            newDetails: [...state.newDetails, schedule]
+            allDetails: [...state.allDetails, schedule]
         }));
     }
 
@@ -230,9 +261,7 @@ export default class AdminScheduleModal extends Component {
                 onOk={async () => await this.props.onOk(this.state.newDetails)}
                 onCancel={this.props.onCancel}
                 visible={this.props.visible}
-                cancelText="Hủy"
-                okText="Lưu"
-                closable={false}
+                footer={null}
             >
                 <Tabs 
                     defaultActiveKey="HK1"
@@ -261,6 +290,8 @@ export default class AdminScheduleModal extends Component {
                 </Tabs>
 
                 <CreateScheduleDetailsModal
+                    semester={this.state.semester}
+                    classId={this.props.studyclass.id}
                     time={this.state.scheduleDetailsTime}
                     date={this.state.scheduleDetailsDate}
                     visible={this.state.scheduleDetailsVisible}

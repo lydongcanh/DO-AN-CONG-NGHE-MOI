@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ScheduleView from "../../components/schedules/schedule-view";
 import StudentRepo from "../../repository/prop/student-repository";
 import ScheduleRepo from "../../repository/prop/schedule-repository";
-import ClassRepo from "../../repository/prop/studyclass-repository";
+import TeacherRepo from "../../repository/prop/teacher-repository";
 
 export default class StudentSchedulesPage extends Component {
 
@@ -12,7 +12,7 @@ export default class StudentSchedulesPage extends Component {
         this.state = {
             student: {},
             scheduleDetails: [],
-            classNames: []
+            teacherNames: {}
         }
     }
 
@@ -24,19 +24,19 @@ export default class StudentSchedulesPage extends Component {
         if (!scheduleDetails)
             return;
 
-        let classNames = {};
+        let teacherNames = {};
         for (let i = 0; i < scheduleDetails.length; i++) {
             const schedule = scheduleDetails[i];
-            if (!classNames.hasOwnProperty(schedule.teacherId)) {
-                const studyclass = await ClassRepo.getStudyclassById(schedule.classId);
-                classNames[`${schedule.classId}`] = studyclass.grade + studyclass.name;
+            if (!teacherNames.hasOwnProperty(schedule.teacherId)) {
+                const teacher = await TeacherRepo.getTeacherById(schedule.teacherId);
+                teacherNames[`${schedule.teacherId}`] = teacher.name;
             }
         }
 
         this.setState({
             student: student,
             scheduleDetails: scheduleDetails,
-            classNames: classNames
+            teacherNames: teacherNames
         })
     }
 
@@ -47,7 +47,7 @@ export default class StudentSchedulesPage extends Component {
         return (
             <ScheduleView
                 scheduleDetails={this.state.scheduleDetails}
-                classNames={this.state.classNames}
+                teacherNames={this.state.teacherNames}
             />
         );
     }

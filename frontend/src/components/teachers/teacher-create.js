@@ -42,12 +42,11 @@ class CreateTeacher extends Component {
                 closable={false}
                 visible={this.props.visible}
                 onCancel={this.props.handleCancel}
-                header={null}
+                title="Thêm giáo viên"
                 footer={null}
                 width="35%">
                 <div>
                     <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit}>
-                        <h2>Thêm giáo viên</h2>
                         <Form.Item>
                             {getFieldDecorator('name', {
                                 rules: [

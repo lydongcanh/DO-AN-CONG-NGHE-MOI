@@ -4,7 +4,7 @@ import schoolTimes from "../../types/schoolTimes";
 
 const { TabPane } = Tabs;
 
-/** Required props: scheduleDetails, classNames */
+/** Required props: scheduleDetails, teacherNames */
 export default class ScheduleView extends Component {
     get columns() {
         return [
@@ -125,7 +125,10 @@ export default class ScheduleView extends Component {
 
         if (schedule) {
             result.children = (
-                <p>{schedule.subject} - {this.props.classNames[schedule.classId]}</p>
+                <span>
+                    <p><b>Môn: </b>{schedule.subject}</p>
+                    <p><b>Giáo viên: </b>{this.props.teacherNames[schedule.teacherId]}</p>
+                </span>
             );
         } else {
             result.children = "-";

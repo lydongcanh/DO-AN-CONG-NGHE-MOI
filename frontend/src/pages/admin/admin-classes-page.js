@@ -13,6 +13,7 @@ export default class AdminClassesPage extends Component {
             title: "Tên",
             dataIndex: "name",
             key: "name",
+            sorter: (a, b) => a.name.valueOf() - b.name.valueOf()
         },
         {
             title: "Khối",
@@ -88,7 +89,6 @@ export default class AdminClassesPage extends Component {
         this.handleStudentsButton = this.handleStudentsButton.bind(this);
         this.handleSchedulesButton = this.handleSchedulesButton.bind(this);
         this.handleScheduleCancel = this.handleScheduleCancel.bind(this);
-        this.handleScheduleOk = this.handleScheduleOk.bind(this);
         this.handleClassStudentsModalCancel = this.handleClassStudentsModalCancel.bind(this);
 
         this.state = {
@@ -169,54 +169,17 @@ export default class AdminClassesPage extends Component {
     }
 
     async handleCreateModalOk(e) {
-        const oldClass = await ClassRepo.getStudyclassByGradeAndName(e.grade, e.name);
+        this.setState({
+            createClassModalVisible: false
+        });
 
-        if (!oldClass) {
-            await ClassRepo.createStudyclass(e.name, e.grade);
-            await this.loadAllStudyclasses();
-
-            message.success("Thêm lớp học thành công.");
-
-            this.setState({
-                createClassModalVisible: false
-            });
-        } else {
-            message.error(`Đã có lớp với tên "${e.name}" trong khối ${e.grade}`);
-        }
+        await this.loadAllStudyclasses();
     }
 
     handleCreateModalCancel() {
         this.setState({
             createClassModalVisible: false
         });
-    }
-
-    async handleScheduleOk(scheduleDetails) {
-        this.setState({
-            scheduleModalVisible: false
-        });
-
-        if (!scheduleDetails || scheduleDetails.length < 1)
-            return;
-
-        for (let i = 0; i < scheduleDetails.length; i++) {
-            const detail = scheduleDetails[i];
-            const result = await ScheduleRepo.createSchedule(
-                detail.studyclass.id,
-                detail.teacher.id,
-                detail.time,
-                detail.date,
-                detail.semester,
-                detail.state,
-                detail.subject
-            );
-
-            if (result.error) {
-                message.error("Thêm thời khóa biểu thất bại.")
-            } else {
-                message.success("Thêm thời khóa biểu thành công.");
-            }
-        }
     }
 
     handleClassStudentsModalCancel() {
@@ -250,7 +213,7 @@ export default class AdminClassesPage extends Component {
                 />
                 <CreateScheduleModal
                     studyclass={this.state.selectedStudyclass}
-                    onOk={this.handleScheduleOk}
+                    onOk={this.handleScheduleCancel}
                     onCancel={this.handleScheduleCancel}
                     visible={this.state.scheduleModalVisible}
                 />
