@@ -171,7 +171,7 @@ class CreateTeacher extends Component {
                 address: this.state.address,
                 email: this.state.email,
                 phoneNumber: this.state.phoneNumber,
-                subject: this.subject,
+                subject: this.state.subject,
             }
 
             const account = {
