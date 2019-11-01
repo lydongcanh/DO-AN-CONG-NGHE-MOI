@@ -96,13 +96,11 @@ class ScoreRepository {
 
     async getScoreByScoreboardId(scoreboardId) {
         const result = await this.getAllScores();
-        console.log("all scores", result);
         
         if (result.error)
             return result;
 
         const p = result.filter(score => String(score.scoreboardId) == String(scoreboardId));
-
         return p;
     }
 }

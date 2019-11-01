@@ -184,7 +184,7 @@ export default class TeacherAddScoresModal extends Component {
         };
         
         let newScores = this.state.newScores;
-        newScores[`${scoreboardId}`] = newScore;
+        newScores[`${scoreboardId}${newScore.type}`] = newScore;
 
         this.setState({
             newScores: newScores
