@@ -24,11 +24,18 @@ export default class StudyclassSelect extends Component {
         return options;
     }
 
+    get defaultValue() {
+        if (this.props.defaultValue)
+            return this.props.defaultValue.name;
+        
+        return "";
+    }
+
     render() {
 
         return (
             <Select
-                defaultValue={this.props.defaultValue.name}
+                defaultValue={this.defaultValue}
                 onChange={this.props.onChange}
             >
                 {this.options}
