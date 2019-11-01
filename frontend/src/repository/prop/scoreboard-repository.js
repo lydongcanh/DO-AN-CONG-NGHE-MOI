@@ -2,6 +2,9 @@ import axios from "axios";
 import { scoreboardsEndpoint } from "./endpoints";
 
 class ScoreboardRepository {
+    cachedScoreboards = [];
+    refeshCachedScoreboard = false;
+
     async createScoreboard(semester, grade, studentId) {
         try {
             let scoreboard = {
@@ -16,6 +19,7 @@ class ScoreboardRepository {
 
             scoreboard.id = result.data.body.sortKey;
             scoreboard.semester = result.data.body.data;
+            this.refeshCachedScoreboard = true;
             return scoreboard;
         } catch (error) {
             return { error: error.message };
@@ -25,6 +29,7 @@ class ScoreboardRepository {
     async deleteScoreboard(id) {
         try {
             const result = await axios.delete(`${scoreboardsEndpoint}/${id}`);
+            this.refeshCachedScoreboard = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -32,6 +37,9 @@ class ScoreboardRepository {
     }
 
     async getAllScoreboards() {
+        if (!this.refeshCachedScoreboard && this.cachedScoreboards && this.cachedScoreboards.length > 0)
+            return this.cachedScoreboards;
+            
         try {
             const result = await axios.get(scoreboardsEndpoint);
             if (!result.data.success)
@@ -42,6 +50,8 @@ class ScoreboardRepository {
                 result.data.body.Items[i].semester = result.data.body.Items[i].data;
             }
 
+            this.cachedScoreboards = result.data.body.Items;
+            this.refeshCachedScoreboard = false;
             return result.data.body.Items;
         } catch (error) {
             return { error: error };

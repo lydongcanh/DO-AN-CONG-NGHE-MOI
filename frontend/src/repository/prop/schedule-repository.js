@@ -2,6 +2,9 @@ import axios from "axios";
 import { schedulesEndpoint } from "./endpoints";
 
 class ScheduleRepository {
+    cachedValues = [];
+    refeshCachedValues = false;
+
     async createSchedule(classId, teacherId, time, date, semester, state, subject) {
         try {
             let schedule = {
@@ -20,6 +23,7 @@ class ScheduleRepository {
 
             schedule.id = result.data.body.sortKey;
             schedule.classId = result.data.body.data;
+            this.refeshCachedValues = true;
             return schedule;
         } catch (error) {
             return { error: error.message };
@@ -29,6 +33,7 @@ class ScheduleRepository {
     async deleteSchedule(id) {
         try {
             const result = await axios.delete(`${schedulesEndpoint}/${id}`);
+            this.refeshCachedValues = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -38,6 +43,7 @@ class ScheduleRepository {
     async updateSchedule(schedule) {
         try {
             const result = await axios.patch(`${schedulesEndpoint}/${schedule.id}`, schedule);
+            this.refeshCachedValues = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -45,6 +51,9 @@ class ScheduleRepository {
     }
 
     async getAllSchedules() {
+        if (!this.refeshCachedValues && this.cachedValues && this.cachedValues.length > 0)
+            return this.cachedValues;
+
         try {
             const result = await axios.get(schedulesEndpoint);
             if (!result.data.success)
@@ -55,6 +64,8 @@ class ScheduleRepository {
                 result.data.body.Items[i].classId = result.data.body.Items[i].data;
             }
 
+            this.cachedValues = result.data.body.Items;
+            this.refeshCachedValues = false;
             return result.data.body.Items;
         } catch (error) {
             return { error: error };

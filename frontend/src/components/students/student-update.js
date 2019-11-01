@@ -1,7 +1,13 @@
 import React, { Component } from "react";
-import { Form, Button, message, Input, Radio, DatePicker, Modal } from "antd";
+import { Form, Button, message, Select, Input, Radio, DatePicker, Modal } from "antd";
 import StudentRepo from "../../repository/prop/student-repository";
+import ClassRepo from "../../repository/prop/studyclass-repository";
+import GradeSelect from "../../components/grade-select";
+import StudyclassSelect from "../../components/studyclass-select";
+import grades from "../../types/grades";
 import moment from "moment";
+
+const { Option } = Select;
 
 /** [Required props : handleCancel, handleSaveSucces, student] */
 class UpdateStudent extends Component {
@@ -16,18 +22,26 @@ class UpdateStudent extends Component {
             address: this.props.student.address,
             phoneNumber: this.props.student.phoneNumber,
             state: this.props.student.state,
+            grade: grades[0],
+            studyclasses: [],
+            studyclass: "",
         }
 
         this.onChange = this.onChange.bind(this);
         this.onChangeDatePicker = this.onChangeDatePicker.bind(this);
         this.handleSubjectSelectChange = this.handleSubjectSelectChange.bind(this);
         this.handleChangeRadioGroup = this.handleChangeRadioGroup.bind(this);
+        this.handleGradeSelectChange = this.handleGradeSelectChange.bind(this);
+        this.handleStudyclassSelectChange = this.handleStudyclassSelectChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentWillReceiveProps(props) {
+    async componentWillReceiveProps(props) {
         if (!props || props.student.id == this.state.id)
             return;
+
+        const studyclass = await ClassRepo.getStudyclassById(props.student.classId);
+        const studyclasses = await ClassRepo.getStudyclassByGrade(props.student.grade);
 
         this.setState({
             id: props.student.id,
@@ -35,6 +49,9 @@ class UpdateStudent extends Component {
             birthday: props.student.birthday,
             address: props.student.address,
             name: props.student.name,
+            grade: props.student.grade,
+            studyclass: studyclass.name,
+            studyclasses: studyclasses,
             phoneNumber: props.student.phoneNumber,
             state: props.student.state
         });
@@ -49,6 +66,40 @@ class UpdateStudent extends Component {
         )
     }
 
+    get gradeOptions() {
+        let options = [];
+        for(let i = 0; i < grades.length; i++) {
+            options.push(
+                <Option 
+                    value={grades[i]}
+                    key={grades[i]}
+                >
+                    {grades[i]}
+                </Option>
+            );
+        }
+        return options;
+    }
+
+    get classOptions() {
+        const studyclasses = this.state.studyclasses;
+        if (!studyclasses)
+            return [];
+
+        let options = [];
+        for(let i = 0; i < studyclasses.length; i++) {
+            options.push(
+                <Option 
+                    value={studyclasses[i].name}
+                    key={studyclasses[i].name}
+                >
+                    {studyclasses[i].name}
+                </Option>
+            );
+        }
+        return options;
+    }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         return (
@@ -60,7 +111,7 @@ class UpdateStudent extends Component {
                 title="Cập nhật thông tin học sinh"
                 onCancel={this.props.handleCancel}>
                 <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit} >
-                    <Form.Item>
+                    <Form.Item label="Tên">
                         {getFieldDecorator('name', {
                             initialValue: this.state.name,
                             rules: [
@@ -73,10 +124,12 @@ class UpdateStudent extends Component {
                             ],
                         })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                     </Form.Item>
-                    <Form.Item >
+
+                    <Form.Item label="Giới tính">
                         {this.RadioSelect()}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Ngày sinh">
                         {getFieldDecorator('birthday', {
                             initialValue: moment(`"${this.state.birthday}"`),
                             rules: [
@@ -90,7 +143,26 @@ class UpdateStudent extends Component {
                             disabledDate={d => !d || d.isAfter(moment())}
                         />)}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Khối">
+                        <Select 
+                            onChange={this.handleGradeSelectChange}
+                            value={this.state.grade}
+                        >
+                            {this.gradeOptions}    
+                        </Select>
+                    </Form.Item>
+
+                    <Form.Item label="Lớp">
+                        <Select 
+                            onChange={this.handleStudyclassSelectChange}
+                            value={this.state.studyclass}
+                        >
+                            {this.classOptions}
+                        </Select>
+                    </Form.Item>
+
+                    <Form.Item label="Địa chỉ">
                         {getFieldDecorator('address', {
                             initialValue: this.state.address,
                             rules: [
@@ -99,7 +171,8 @@ class UpdateStudent extends Component {
                             ],
                         })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Số điện thọai">
                         {getFieldDecorator('phone', {
                             initialValue: this.state.phoneNumber,
                             rules: [
@@ -111,6 +184,7 @@ class UpdateStudent extends Component {
                             ],
                         })(<Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.onChange}></Input>)}
                     </Form.Item>
+
                     <div style={{ textAlign: "right" }}>
                         <Button onClick={this.props.handleCancel} style={{ marginRight: "10px" }}>Huỷ</Button>
                         <Button type="primary" htmlType="submit">Lưu</Button>
@@ -127,12 +201,14 @@ class UpdateStudent extends Component {
             if (err)
                 return;
 
+            const studyclass = await ClassRepo.getStudyclassByGradeAndName(this.state.grade, this.state.studyclass);
+
             const student = {
                 id: this.props.student.id,
                 name: this.state.name,
                 gender: this.state.value,
-                classId: this.props.student.classId,
-                grade: this.props.student.grade,
+                classId: studyclass.id,
+                grade: this.state.grade,
                 birthday: this.state.birthday,
                 address: this.state.address,
                 phoneNumber: this.state.phoneNumber,
@@ -150,6 +226,24 @@ class UpdateStudent extends Component {
             }
         });
     };
+
+    async handleGradeSelectChange(grade) {
+        const studyclasses = await ClassRepo.getStudyclassByGrade(grade);
+
+        this.setState({
+            grade: grade,
+            studyclasses: studyclasses,
+            studyclass: studyclasses[0].name
+        });
+    }
+
+    async handleStudyclassSelectChange(studyclassName) {
+        const studyclass = await ClassRepo.getStudyclassByGradeAndName(this.state.grade, studyclassName);
+
+        this.setState({
+            studyclass: studyclass.name
+        });
+    }
 
     handleChangeRadioGroup(e) {
         this.setState({

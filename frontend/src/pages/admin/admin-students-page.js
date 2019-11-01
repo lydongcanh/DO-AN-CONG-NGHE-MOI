@@ -1,10 +1,13 @@
 import React, { Component } from "react";
-import { Tag, Row, Col, Button, Table, Input } from "antd";
+import { Tag, Row, Col, Button, Table, Input, Select } from "antd";
 import StudentCreate from "../../components/students/student-create";
 import StudentUpdate from "../../components/students/student-update";
 import StudentRepo from "../../repository/prop/student-repository";
+import ClassRepo from "../../repository/prop/studyclass-repository";
+import grades from "../../types/grades";
 
 const { Search } = Input;
+const { Option } = Select;
 
 export default class AdminStudentsPage extends Component {
     columns = [
@@ -62,6 +65,8 @@ export default class AdminStudentsPage extends Component {
 
         this.state = {
             searchedStudents: [],
+            studyclass: "",
+            studyclasses: [],
             createStudentVisible: false,
             updateStudentVisible: false,
             updatingStudent: {}
@@ -71,6 +76,8 @@ export default class AdminStudentsPage extends Component {
         this.handleOnSearchStudent = this.handleOnSearchStudent.bind(this);
         this.handleCreateStudentSuccess = this.handleCreateStudentSuccess.bind(this);
         this.handleUpdateStudentClick = this.handleUpdateStudentClick.bind(this);
+        this.handleGradeSelectChange = this.handleGradeSelectChange.bind(this);
+        this.handleStudyclassSelectChange = this.handleStudyclassSelectChange.bind(this);
         this.handleUpdateStudentSuccess = this.handleUpdateStudentSuccess.bind(this);
     }
 
@@ -89,30 +96,91 @@ export default class AdminStudentsPage extends Component {
         );
     }
 
+    get gradeOptions() {
+        let options = [];
+        for (let i = 0; i < grades.length; i++) {
+            options.push(
+                <Option
+                    value={grades[i]}
+                    key={grades[i]}
+                >
+                    {grades[i]}
+                </Option>
+            );
+        }
+        return options;
+    }
+
+    get classOptions() {
+        const studyclasses = this.state.studyclasses;
+        if (!studyclasses)
+            return [];
+
+        let options = [];
+        for (let i = 0; i < studyclasses.length; i++) {
+            options.push(
+                <Option
+                    value={studyclasses[i].name}
+                    key={studyclasses[i].name}
+                >
+                    {studyclasses[i].name}
+                </Option>
+            );
+        }
+        return options;
+    }
+
     render() {
         return (
             <div>
-                <Search 
-                    placeholder="Nhập tên học sinh"
-                    onSearch={this.handleOnSearchStudent}
-                />
-                <br/><br/>
-                <Table 
+                <Row type="flex" justify="center">
+                    <Col span={18}>
+                        <Search
+                            placeholder="Nhập tên học sinh"
+                            onSearch={this.handleOnSearchStudent}
+                        />
+                    </Col>
+
+                    <Col span={3}>
+                        <Select
+                            placeholder="Chọn lớp"
+                            style={{width: "90%"}}
+                            onChange={this.handleGradeSelectChange}
+                            value={this.state.grade}
+                        >
+                            {this.gradeOptions}
+                        </Select>
+                    </Col>
+
+                    <Col span={3}>
+                        <Select
+                            placeholder="Chọn khối"
+                            style={{width: "90%"}}
+                            onChange={this.handleStudyclassSelectChange}
+                            value={this.state.studyclass}
+                        >
+                            {this.classOptions}
+                        </Select>
+                    </Col>
+                </Row>
+
+                <br /><br />
+                <Table
                     title={this.title}
-                    pagination={{pageSize: 9}} 
-                    columns={this.columns} 
+                    pagination={{ pageSize: 9 }}
+                    columns={this.columns}
                     rowKey={record => record.id}
                     dataSource={this.state.searchedStudents}
                     bordered
                 />
-                <StudentCreate 
+                <StudentCreate
                     visible={this.state.createStudentVisible}
-                    handleCancel={() => this.setState({createStudentVisible: false})}
+                    handleCancel={() => this.setState({ createStudentVisible: false })}
                     handleSaveSuccess={this.handleCreateStudentSuccess}
                 />
                 <StudentUpdate
                     visible={this.state.updateStudentVisible}
-                    handleCancel={() => this.setState({updateStudentVisible: false})}
+                    handleCancel={() => this.setState({ updateStudentVisible: false })}
                     handleSaveSuccess={this.handleUpdateStudentSuccess}
                     student={this.state.updatingStudent}
                 />
@@ -133,7 +201,7 @@ export default class AdminStudentsPage extends Component {
         });
     }
 
-    handleCreateStudentSuccess(student) {        
+    async handleCreateStudentSuccess(student) {
         let students = [student];
         this.setState({
             createStudentVisible: false,
@@ -142,7 +210,7 @@ export default class AdminStudentsPage extends Component {
         });
     }
 
-    handleUpdateStudentSuccess(student) {
+    async handleUpdateStudentSuccess(student) {
         let students = [student];
         this.setState({
             updateStudentVisible: false,
@@ -154,6 +222,26 @@ export default class AdminStudentsPage extends Component {
         const seacherStudent = await StudentRepo.getStudentsByName(value);
         this.setState({
             searchedStudents: seacherStudent
+        });
+    }
+
+    async handleGradeSelectChange(grade) {
+        const studyclasses = await ClassRepo.getStudyclassByGrade(grade);
+
+        this.setState({
+            grade: grade,
+            studyclasses: studyclasses,
+            studyclass: studyclasses[0].name
+        });
+    }
+
+    async handleStudyclassSelectChange(studyclassName) {
+        const studyclass = await ClassRepo.getStudyclassByGradeAndName(this.state.grade, studyclassName);
+        const students = await StudentRepo.getStudentsByClassId(studyclass.id);
+
+        this.setState({
+            studyclass: studyclass.name,
+            searchedStudents: students
         });
     }
 

@@ -2,6 +2,9 @@ import axios from "axios";
 import { scoresEndpoint } from "./endpoints";
 
 class ScoreRepository {
+    cachedValues = [];
+    refeshCachedValues = false;
+
     async createScore(type, value, subject, multiplier, scoreboardId) {
         try {
             let score = {
@@ -18,6 +21,7 @@ class ScoreRepository {
 
             score.id = result.data.body.sortKey;
             score.type = result.data.body.data;
+            this.refeshCachedValues = true;
             return score;
         } catch (error) {
             return { error: error.message };
@@ -27,6 +31,7 @@ class ScoreRepository {
     async deleteScore(id) {
         try {
             const result = await axios.delete(`${scoresEndpoint}/${id}`);
+            this.refeshCachedValues = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -36,6 +41,7 @@ class ScoreRepository {
     async updateScore(score) {
         try {
             const result = await axios.patch(`${scoresEndpoint}/${score.id}`, score);
+            this.refeshCachedValues = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -43,6 +49,9 @@ class ScoreRepository {
     }
 
     async getAllScores() {
+        if (!this.refeshCachedValues && this.cachedValues && this.cachedValues.length > 0)
+            return this.cachedValues;
+
         try {
             const result = await axios.get(scoresEndpoint);
             
@@ -54,6 +63,8 @@ class ScoreRepository {
                 result.data.body.Items[i].type = result.data.body.Items[i].data;
             }
 
+            this.cachedValues = result.data.body.Items;
+            this.refeshCachedValues = false;
             return result.data.body.Items;
         } catch (error) {
             return { error: error };

@@ -61,7 +61,7 @@ class CreateStudent extends Component {
                 width="35%">
                 <div>
                     <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit}>
-                        <Form.Item>
+                        <Form.Item label="Tên">
                             {getFieldDecorator('name', {
                                 rules: [
                                     { required: true, message: 'Tên học sinh không được bỏ trống.' },
@@ -74,11 +74,11 @@ class CreateStudent extends Component {
                             })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                         </Form.Item>
 
-                        <Form.Item >
+                        <Form.Item label="Giới tính">
                             {this.RadioSelect()}
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Ngày sinh">
                             {getFieldDecorator('birthday', {
                                 rules: [
                                     { required: true, message: 'Ngày sinh không được bỏ trống.' }
@@ -92,14 +92,14 @@ class CreateStudent extends Component {
                                 />)}
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Khối">
                             <GradeSelect 
                                 onChange={this.handleGradeSelectChange}
                                 defaultValue={grades[0]}
                             />
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Lớp">
                             <StudyclassSelect 
                                 studyclasses={this.state.studyclasses}
                                 onChange={this.handleStudyclassSelectChange}
@@ -107,7 +107,7 @@ class CreateStudent extends Component {
                             />
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Địa chỉ">
                             {getFieldDecorator('address', {
                                 rules: [
                                     { required: true, message: 'Địa chỉ không được bỏ trống.' },
@@ -116,7 +116,7 @@ class CreateStudent extends Component {
                             })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Số điện thoại">
                             {getFieldDecorator('phone', {
                                 rules: [
                                     { required: true, message: 'Số điện thoại không được để trống.' },
@@ -190,8 +190,6 @@ class CreateStudent extends Component {
     }
 
     handleStudyclassSelectChange(studyclass) {
-        console.log("change class:", studyclass);
-
         this.setState({
             studyclass: studyclass
         });
