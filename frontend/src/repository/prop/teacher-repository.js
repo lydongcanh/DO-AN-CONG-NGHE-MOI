@@ -2,6 +2,9 @@ import axios from "axios";
 import { teachersEndpoint } from "./endpoints";
 
 class TeacherRepository {
+    cachedValues = [];
+    refeshCachedValues = false;
+
     async createTeacher(name, gender, subject, birthday, address, email, phoneNumber, state) {
         try {
             let teacher = {
@@ -22,6 +25,7 @@ class TeacherRepository {
 
             teacher.id = result.data.body.sortKey;
             teacher.name = result.data.body.data;
+            this.refeshCachedValues = true;
             return teacher;
         } catch (error) {
             return { error: error.message };
@@ -31,6 +35,7 @@ class TeacherRepository {
     async deleteTeacher(id) {
         try {
             const result = await axios.delete(`${teachersEndpoint}/${id}`);
+            this.refeshCachedValues = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -40,6 +45,7 @@ class TeacherRepository {
     async updateTeacher(teacher) {
         try {
             const result = await axios.patch(`${teachersEndpoint}/${teacher.id}`, teacher);
+            this.refeshCachedValues = true;
             return result.data.success ? result.data.body : { error: result.data.error };
         } catch (error) {
             return { error: error };
@@ -47,6 +53,9 @@ class TeacherRepository {
     }
 
     async getAllTeachers() {
+        if (!this.refeshCachedValues && this.cachedValues && this.cachedValues.length > 0)
+            return this.cachedValues;
+
         try {
             const result = await axios.get(teachersEndpoint);
             if (!result.data.success) 
@@ -57,6 +66,8 @@ class TeacherRepository {
                 result.data.body.Items[i].name = result.data.body.Items[i].data;
             }
 
+            this.cachedValues = result.data.body.Items;
+            this.refeshCachedValues = false;
             return result.data.body.Items;
         } catch (error) {
             return { error: error };

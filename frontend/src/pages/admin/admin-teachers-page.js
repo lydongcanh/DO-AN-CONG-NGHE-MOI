@@ -3,6 +3,8 @@ import { Table, Tag, Switch, Button, Row, Col } from "antd";
 import TeacherSearchInput from "../../components/teachers/teacher-search-input";
 import TeacherCreate from "../../components/teachers/teacher-create";
 import TeacherUpdate from "../../components/teachers/teacher-update";
+import SubjectSelect from "../../components/subject-select";
+import TeacherRepo from "../../repository/prop/teacher-repository";
 
 export default class AdminTeachersPage extends Component {
     columns = [
@@ -61,7 +63,7 @@ export default class AdminTeachersPage extends Component {
             title: "Chức năng",
             key: "action",
             align: "center",
-            render: (teacher) => { 
+            render: (teacher) => {
                 return (<Button type="primary" onClick={() => this.handleUpdateButtonClick(teacher)}>Sửa</Button>);
             }
         }
@@ -82,6 +84,7 @@ export default class AdminTeachersPage extends Component {
         this.handleOnSearchTeacher = this.handleOnSearchTeacher.bind(this);
         this.handleCreateTeacherSuccess = this.handleCreateTeacherSuccess.bind(this);
         this.handleUpdateTeacherSuccess = this.handleUpdateTeacherSuccess.bind(this);
+        this.handleSubjectSelectChange = this.handleSubjectSelectChange.bind(this);
     }
 
     title = () => {
@@ -102,25 +105,33 @@ export default class AdminTeachersPage extends Component {
     render() {
         return (
             <div>
-                <TeacherSearchInput onSearchTeacher={this.handleOnSearchTeacher}/>
-                <br/><br/>
-                <Table 
+                <Row type="flex" justify="space-between">
+                    <Col span={20}>
+                        <TeacherSearchInput onSearchTeacher={this.handleOnSearchTeacher} />
+                    </Col>
+                    <Col span={3}>
+                        <SubjectSelect onChange={this.handleSubjectSelectChange}/>
+                    </Col>
+                </Row>
+                <br /><br />
+
+                <Table
                     title={this.title}
-                    pagination={{pageSize: 9}} 
-                    columns={this.columns} 
+                    pagination={{ pageSize: 9 }}
+                    columns={this.columns}
                     rowKey={record => record.id}
                     dataSource={this.state.searchedTeachers}
                     bordered
                 />
-                <TeacherCreate 
+                <TeacherCreate
                     visible={this.state.createTeacherVisible}
-                    handleCancel={() => this.setState({createTeacherVisible: false})}
+                    handleCancel={() => this.setState({ createTeacherVisible: false })}
                     handleSaveSuccess={this.handleCreateTeacherSuccess}
                 />
-                <TeacherUpdate 
+                <TeacherUpdate
                     teacher={this.state.updatingTeacher}
                     visible={this.state.updateTeacherVisible}
-                    handleCancel={() => this.setState({updateTeacherVisible: false})}
+                    handleCancel={() => this.setState({ updateTeacherVisible: false })}
                     handleSaveSuccess={this.handleUpdateTeacherSuccess}
                 />
             </div>
@@ -157,6 +168,13 @@ export default class AdminTeachersPage extends Component {
     }
 
     handleOnSearchTeacher(teachers) {
+        this.setState({
+            searchedTeachers: teachers
+        });
+    }
+
+    async handleSubjectSelectChange(subject) {
+        const teachers = await TeacherRepo.getTeachersBySubject(subject);
         this.setState({
             searchedTeachers: teachers
         });

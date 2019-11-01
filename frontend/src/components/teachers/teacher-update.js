@@ -65,7 +65,7 @@ class UpdateTeacher extends Component {
                 title="Cập nhật thông tin giáo viên"
                 onCancel={this.props.handleCancel}>
                 <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit} >
-                    <Form.Item>
+                    <Form.Item label="Tên">
                         {getFieldDecorator('name', {
                             initialValue: this.state.name,
                             rules: [
@@ -78,10 +78,12 @@ class UpdateTeacher extends Component {
                             ],
                         })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                     </Form.Item>
-                    <Form.Item >
+
+                    <Form.Item label="Giới tính">
                         {this.RadioSelect()}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Ngày sinh">
                         {getFieldDecorator('birthday', {
                             initialValue: moment(`"${this.state.birthday}"`),
                             rules: [
@@ -95,7 +97,8 @@ class UpdateTeacher extends Component {
                             disabledDate={d => !d || d.isAfter(moment())}
                         />)}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Địa chỉ">
                         {getFieldDecorator('address', {
                             initialValue: this.state.address,
                             rules: [
@@ -104,7 +107,8 @@ class UpdateTeacher extends Component {
                             ],
                         })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Email">
                         {getFieldDecorator('email', {
                             initialValue: this.state.email,
                             rules: [
@@ -117,7 +121,8 @@ class UpdateTeacher extends Component {
                             ],
                         })(<Input placeholder="Email" name="email" onChange={this.onChange}></Input>)}
                     </Form.Item>
-                    <Form.Item>
+
+                    <Form.Item label="Số điện thoại">
                         {getFieldDecorator('phone', {
                             initialValue: this.state.phoneNumber,
                             rules: [
@@ -129,6 +134,7 @@ class UpdateTeacher extends Component {
                             ],
                         })(<Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.onChange}></Input>)}
                     </Form.Item>
+                    
                     <div style={{ textAlign: "right" }}>
                         <Button onClick={this.props.handleCancel} style={{ marginRight: "10px" }}>Huỷ</Button>
                         <Button type="primary" htmlType="submit">Lưu</Button>

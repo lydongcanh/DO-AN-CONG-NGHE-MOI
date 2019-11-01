@@ -33,6 +33,8 @@ export default class SubjectSelect extends Component {
 
         return (
             <Select
+                placeholder="Chọn môn"
+                style={{width: "100%"}}
                 defaultValue={this.props.defaultValue}
                 onChange={this.props.onChange}
             >

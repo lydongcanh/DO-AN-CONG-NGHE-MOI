@@ -47,7 +47,7 @@ class CreateTeacher extends Component {
                 width="35%">
                 <div>
                     <Form style={{ textAlign: "left" }} onSubmit={this.handleSubmit}>
-                        <Form.Item>
+                        <Form.Item label="Tên">
                             {getFieldDecorator('name', {
                                 rules: [
                                     { required: true, message: 'Tên giáo viên không được bỏ trống.' },
@@ -59,10 +59,12 @@ class CreateTeacher extends Component {
                                 ],
                             })(<Input placeholder="Tên" name="name" onChange={this.onChange}></Input>)}
                         </Form.Item>
-                        <Form.Item >
+
+                        <Form.Item label="Giới tính">
                             {this.RadioSelect()}
                         </Form.Item>
-                        <Form.Item>
+
+                        <Form.Item label="Ngày sinh">
                             {getFieldDecorator('birthday', {
                                 rules: [
                                     { required: true, message: 'Ngày sinh không được bỏ trống.' }
@@ -75,13 +77,15 @@ class CreateTeacher extends Component {
                                     disabledDate={d => !d || d.isAfter(moment())}
                                 />)}
                         </Form.Item>
-                        <Form.Item>
+
+                        <Form.Item label="Môn giảng dạy">
                             <SubjectSelect 
                                 onChange={this.handleSubjectSelectChange}
                                 defaultValue={subjects[0]}
                             />
                         </Form.Item>
-                        <Form.Item>
+
+                        <Form.Item label="Địa chỉ">
                             {getFieldDecorator('address', {
                                 rules: [
                                     { required: true, message: 'Địa chỉ không được bỏ trống.' },
@@ -89,7 +93,8 @@ class CreateTeacher extends Component {
                                 ],
                             })(<Input placeholder="Địa chỉ" name="address" onChange={this.onChange} ></Input>)}
                         </Form.Item>
-                        <Form.Item>
+
+                        <Form.Item label="Email">
                             {getFieldDecorator('email', {
                                 rules: [
                                     { required: true, message: 'Email không được để trống.' },
@@ -102,7 +107,7 @@ class CreateTeacher extends Component {
                             })(<Input placeholder="Email" name="email" onChange={this.onChange}></Input>)}
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Số điện thoại">
                             {getFieldDecorator('phone', {
                                 rules: [
                                     { required: true, message: 'Số điện thoại không được để trống.' },
@@ -114,7 +119,7 @@ class CreateTeacher extends Component {
                             })(<Input placeholder="Số điện thoại" name="phoneNumber" onChange={this.onChange}></Input>)}
                         </Form.Item>
                         
-                        <Form.Item>
+                        <Form.Item label="Tài khoản">
                             {getFieldDecorator('username', {
                                 rules: [
                                     { required: true, message: 'Tài khoản không được để trống.' },
@@ -123,7 +128,7 @@ class CreateTeacher extends Component {
                             })(<Input placeholder="Tài khoản" name="username" onChange={this.onChange}></Input>)}
                         </Form.Item>
 
-                        <Form.Item>
+                        <Form.Item label="Mật khẩu">
                             {getFieldDecorator('password', {
                                 rules: [
                                     { required: true, message: 'Mật khẩu không được để trống' },

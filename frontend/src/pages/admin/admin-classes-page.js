@@ -27,7 +27,7 @@ export default class AdminClassesPage extends Component {
             render: (record) => {
                 return (
                     <Row type="flex" justify="space-between">
-                        <Col span={8}>
+                        {/* <Col span={8}>
                             <Button
                                 style={{ width: "90%" }}
                                 type="primary"
@@ -35,9 +35,9 @@ export default class AdminClassesPage extends Component {
                             >
                                 Sửa
                             </Button>
-                        </Col>
+                        </Col> */}
 
-                        <Col span={8}>
+                        <Col span={12}>
                             <Button
                                 style={{ width: "90%" }}
                                 type="primary"
@@ -47,7 +47,7 @@ export default class AdminClassesPage extends Component {
                             </Button>
                         </Col>
 
-                        <Col span={8}>
+                        <Col span={12}>
                             <Button
                                 style={{ width: "90%" }}
                                 type="primary"
