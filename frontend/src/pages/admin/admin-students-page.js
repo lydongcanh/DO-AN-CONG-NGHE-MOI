@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Tag, Row, Col, Button, Table, Input, Select } from "antd";
+import { Tag, Row, Col, Button, Table, Input, Select, Divider } from "antd";
 import StudentCreate from "../../components/students/student-create";
 import StudentUpdate from "../../components/students/student-update";
+import StudentScoresUpdate from "../../components/students/student-scores-update";
 import StudentRepo from "../../repository/prop/student-repository";
 import ClassRepo from "../../repository/prop/studyclass-repository";
 import grades from "../../types/grades";
@@ -55,7 +56,13 @@ export default class AdminStudentsPage extends Component {
             key: "action",
             align: "center",
             render: student => {
-                return (<Button type="primary" onClick={() => this.handleUpdateStudentClick(student)}>Sửa</Button>);
+                return (
+                    <span>
+                        <Button type="primary" onClick={() => this.handleUpdateStudentClick(student)}>Sửa</Button>
+                        <Divider type="vertical"/>
+                        <Button type="primary" onClick={() => this.handleUpdateStudentScoresClick(student)}>Điểm</Button>
+                    </span>
+                );
             }
         }
     ];
@@ -69,6 +76,7 @@ export default class AdminStudentsPage extends Component {
             studyclasses: [],
             createStudentVisible: false,
             updateStudentVisible: false,
+            updateStudentScoresVisible: false,
             updatingStudent: {}
         };
 
@@ -76,9 +84,11 @@ export default class AdminStudentsPage extends Component {
         this.handleOnSearchStudent = this.handleOnSearchStudent.bind(this);
         this.handleCreateStudentSuccess = this.handleCreateStudentSuccess.bind(this);
         this.handleUpdateStudentClick = this.handleUpdateStudentClick.bind(this);
+        this.handleUpdateStudentScoresClick = this.handleUpdateStudentScoresClick.bind(this);
         this.handleGradeSelectChange = this.handleGradeSelectChange.bind(this);
         this.handleStudyclassSelectChange = this.handleStudyclassSelectChange.bind(this);
         this.handleUpdateStudentSuccess = this.handleUpdateStudentSuccess.bind(this);
+        this.handleStudentScoresUpdateFinish = this.handleStudentScoresUpdateFinish.bind(this);
     }
 
     title = () => {
@@ -184,8 +194,19 @@ export default class AdminStudentsPage extends Component {
                     handleSaveSuccess={this.handleUpdateStudentSuccess}
                     student={this.state.updatingStudent}
                 />
+                <StudentScoresUpdate
+                    student={this.state.updatingStudent}
+                    visible={this.state.updateStudentScoresVisible}
+                    onFinish={this.handleStudentScoresUpdateFinish}
+                />
             </div>
         );
+    }
+
+    handleStudentScoresUpdateFinish() {
+        this.setState({
+            updateStudentScoresVisible: false
+        });
     }
 
     handleCreateButtonClick() {
@@ -197,6 +218,13 @@ export default class AdminStudentsPage extends Component {
     handleUpdateStudentClick(student) {
         this.setState({
             updateStudentVisible: true,
+            updatingStudent: student
+        });
+    }
+
+    handleUpdateStudentScoresClick(student) {
+        this.setState({
+            updateStudentScoresVisible: true,
             updatingStudent: student
         });
     }

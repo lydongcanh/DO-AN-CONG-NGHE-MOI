@@ -96,6 +96,8 @@ class ScoreRepository {
 
     async getScoreByScoreboardId(scoreboardId) {
         const result = await this.getAllScores();
+        console.log("all scores", result);
+        
         if (result.error)
             return result;
 

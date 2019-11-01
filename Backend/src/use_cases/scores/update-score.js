@@ -9,9 +9,15 @@ export default class UpdateScore extends AWSUpdate {
     }
 
     get updateExpression() {
-        return "set value=:value";
+        return "set #value=:value";
     }
     
+    get expressionAttributeNames() {
+        return {
+            "#value": "value"
+        }
+    }
+
     get expressionAttributeValues() {
         return {
             ":value": this.score.value
