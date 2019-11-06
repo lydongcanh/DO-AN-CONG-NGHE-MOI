@@ -26,19 +26,16 @@ export default class TeacherScoresPage extends Component {
     get columns() {
         return [
             {
-                title: "TT",
-                dataIndex: "count",
-                key: "count",
-            },
-            {
                 title: "Khối",
                 dataIndex: "grade",
                 key: "grade",
+                sorter: (a, b) => a.grade - b.grade
             },
             {
                 title: "Tên",
                 dataIndex: "name",
-                key: "name"
+                key: "name",
+                sorter: (a, b) => a.name.localeCompare(b.name)
             },
             {
                 title: "Chức năng",
