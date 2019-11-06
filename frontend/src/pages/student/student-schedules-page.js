@@ -47,7 +47,8 @@ export default class StudentSchedulesPage extends Component {
         return (
             <ScheduleView
                 scheduleDetails={this.state.scheduleDetails}
-                teacherNames={this.state.teacherNames}
+                extraInfo={this.state.teacherNames}
+                extraTitle="Giáo viên"
             />
         );
     }
