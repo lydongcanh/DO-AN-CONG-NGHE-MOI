@@ -223,7 +223,6 @@ export default class AdminScheduleModal extends Component {
 
     /** Xóa thời khóa biểu. */
     async handleDeleteSchedule(schedule) {
-        let allDetails = [...this.state.allDetails];
         const result = await ScheduleRepo.deleteSchedule(schedule.id);
         if (result && !result.error) {
             message.success("Xóa thời khóa biểu thành công.");
@@ -246,7 +245,7 @@ export default class AdminScheduleModal extends Component {
 
     /** Thêm chi tiết thời khóa biểu thành công. */
     handleScheduleDetailsModalOk(schedule) {
-        console.log("onOK", schedule);
+        //console.log("onOK", schedule);
 
         this.setState(state => ({
             scheduleDetailsVisible: false,
@@ -273,7 +272,7 @@ export default class AdminScheduleModal extends Component {
                             dataSource={this.getTableSource("HK1")}
                             pagination={{ hideOnSinglePage: true, defaultPageSize: 12 }}
                             bordered
-                            title={() => <h3>Thời khóa biểu học kì 1 lớp {this.props.studyclass.grade}{this.props.studyclass.name}</h3>}
+                            title={() => <h3>Thời khóa biểu học kì 1 lớp {this.props.studyclass.name}</h3>}
                             columns={this.columns}
                         />
                     </TabPane>
@@ -283,7 +282,7 @@ export default class AdminScheduleModal extends Component {
                             dataSource={this.getTableSource("HK2")}
                             pagination={{ hideOnSinglePage: true, defaultPageSize: 12 }}
                             bordered
-                            title={() => <h3>Thời khóa biểu học kì 2 lớp {this.props.studyclass.grade}{this.props.studyclass.name}</h3>}
+                            title={() => <h3>Thời khóa biểu học kì 2 lớp {this.props.studyclass.name}</h3>}
                             columns={this.columns}
                         />
                     </TabPane>

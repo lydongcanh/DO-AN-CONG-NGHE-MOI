@@ -129,10 +129,10 @@ export default class CreateScheduleDetailsModal extends Component {
                 result.push(teacher);
         }
 
-        console.log("filterUnavailableTeacher",{
-            all: teachers,
-            result: result
-        });
+        // console.log("filterUnavailableTeacher",{
+        //     all: teachers,
+        //     result: result
+        // });
 
         return result;
     }

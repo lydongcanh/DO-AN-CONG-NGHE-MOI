@@ -49,6 +49,7 @@ export default class StudentSchedulesPage extends Component {
                 scheduleDetails={this.state.scheduleDetails}
                 extraInfo={this.state.teacherNames}
                 extraTitle="Giáo viên"
+                type="student"
             />
         );
     }

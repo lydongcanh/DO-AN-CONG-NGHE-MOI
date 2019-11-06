@@ -28,7 +28,7 @@ export default class TeacherSchedulesPage extends Component {
             const schedule = scheduleDetails[i];
             if (!classNames.hasOwnProperty(schedule.teacherId)) {
                 const studyclass = await ClassRepo.getStudyclassById(schedule.classId);
-                classNames[`${schedule.teacherId}`] = studyclass.name;
+                classNames[`${schedule.classId}`] = studyclass.name;
             }
         }
 
@@ -44,6 +44,7 @@ export default class TeacherSchedulesPage extends Component {
                 scheduleDetails={this.state.scheduleDetails}
                 extraInfo={this.state.classNames}
                 extraTitle="Lớp"
+                type="teacher"
             />
         );
     }
