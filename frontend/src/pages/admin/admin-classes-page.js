@@ -103,7 +103,7 @@ export default class AdminClassesPage extends Component {
 
     get classStudentsTitle() {
         const studyclass = this.state.selectedStudyclass;
-        return `Danh sách học sinh lớp ${studyclass.grade}${studyclass.name}`;
+        return `Danh sách học sinh lớp ${studyclass.name}`;
     }
 
     async componentDidMount() {
