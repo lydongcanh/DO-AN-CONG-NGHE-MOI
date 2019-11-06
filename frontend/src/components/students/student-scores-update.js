@@ -28,11 +28,40 @@ export default class StudentScoresUpdate extends Component {
         });
     }
 
-    get tabDefaultKey() {
-        if (!this.state.scoreboards || this.state.scoreboards.length < 1)
-            return "";
+    getAvailableScoreboards(scoreboards, student) {
+        let result = [];
+        for(let i = 0; i < scoreboards.length; i++) {
+            if (scoreboards[i].grade > student.grade)
+                continue;
 
-        return this.state.scoreboards[this.state.scoreboards.length - 1].id;
+            result.push(scoreboards[i]);
+        }
+        result.sort((a, b) => this.sortScoreboard(a, b));
+        return result;
+    }
+
+    getDefaultTabPaneKey(scoreboards) {
+        for(let i = 0; i < scoreboards.length; i++) {
+            if (scoreboards[i].grade == this.props.student.grade)
+                return scoreboards[i].id;
+        }
+        return 0;
+    }
+
+    sortScoreboard(a, b) {
+        if (a.grade > b.grade)
+            return 1;
+
+        if (a.grade < b.grade)
+            return - 1;
+
+        if (a.semester > b.semester)
+            return 1;
+
+        if (a.semester < b.semester)
+            return -1;
+
+        return 0;
     }
 
     getScoreboardsView(scoreboards) {
@@ -48,7 +77,7 @@ export default class StudentScoresUpdate extends Component {
         }   
         
         return (
-            <Tabs defaultActiveKey={this.tabDefaultKey}>
+            <Tabs defaultActiveKey={this.getDefaultTabPaneKey(scoreboards)}>
                 {result}
             </Tabs>
         );
@@ -68,7 +97,7 @@ export default class StudentScoresUpdate extends Component {
                 onCancel={this.props.onFinish}
                 footer={null}
             >
-                {this.getScoreboardsView(this.state.scoreboards)}
+                {this.getScoreboardsView(this.getAvailableScoreboards(this.state.scoreboards, this.props.student))}
             </Modal>
         );
     }
