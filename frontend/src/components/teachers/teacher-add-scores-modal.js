@@ -34,7 +34,7 @@ export default class TeacherAddScoresModal extends Component {
             );
             scoreboards.push(scoreboardResult);
 
-            const studentScores = await ScoreRepo.getScoreByScoreboardId(scoreboardResult.id);
+            const studentScores = await ScoreRepo.getScoreBySubjectScoreboardId(scoreboardResult.id, this.props.subject);
             oldScores[`${scoreboardResult.id}`] =  studentScores;
         }
 

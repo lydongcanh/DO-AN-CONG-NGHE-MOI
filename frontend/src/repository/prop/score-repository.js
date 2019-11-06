@@ -103,6 +103,17 @@ class ScoreRepository {
         const p = result.filter(score => String(score.scoreboardId) == String(scoreboardId));
         return p;
     }
+
+    async getScoreBySubjectScoreboardId(scoreboardId, subject) {
+        const result = await this.getAllScores();
+        
+        if (result.error)
+            return result;
+
+        return result.filter(score => {
+            return score.scoreboardId == scoreboardId && score.subject == subject;
+        });
+    }
 }
 
 const scoreRepository = new ScoreRepository();
